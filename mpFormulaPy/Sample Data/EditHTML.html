@@ -1,0 +1,98 @@
+<html>
+<head>
+<title>18 Inferential Statistics</title>
+<link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="print.css" media="print" />
+</head>
+<body>
+
+<a name=h2_Inferential_Statistics></a>
+<h2 style="page-break-before:always">18 Inferential Statistics</h2>
+
+This chapter describes functions for statistical tests and confidence intervals.<br \><br \>
+
+
+<a name=h3_Procedures_for_1_sample></a>
+<H3>18.1 Procedures for 1 sample</H3>
+
+<a name=mp_test_student_t_1sample></a>
+<div class="func">Function <B>mp_test_student_t_1sample</B>(<I><B>mean1</B> As mp_real, <B>mean_ref</B> As mp_real,  <B>stdev</B> As mp_real, <B>n</B> As Long</I>) As mp_table</div>
+
+<div class="txt">This function calculates a result table for a <nobr>t-test</nobr> for 1 sample.</div><br \>
+
+
+
+<a name=h3_Procedures_for_2_independent_samples></a>
+<H3>18.2 Procedures for 2 independent samples</H3>
+
+<a name=mp_test_Student_t_2_samples></a>
+<div class="func">Function <B>mp_test_Student_t_2_samples</B>(<I><B>mean1</B> As mp_real, <B>mean2</B> As mp_real,  <B>stdev1</B> As mp_real,  <B>stdev2</B> As mp_real, <B>n1</B> As Long, <B>n2</B> As Long</I>) As mp_table</div>
+
+<div class="txt">This function calculates a result table for a <nobr>t-test</nobr> for 2 independent samples.</div><br \>
+
+
+
+<a name=h3_Procedures_for_2_correlated_samples></a>
+<H3>18.3 Procedures for 2 correlated samples</H3>
+
+<a name=mp_test_Student_t_2_samples_corr></a>
+<div class="func">Function <B>mp_test_Student_t_2_samples_corr</B>(<I><B>mean1</B> As mp_real, <B>mean2</B> As mp_real,  <B>stdev1</B> As mp_real,  <B>stdev2</B> As mp_real, <B>n1</B> As Long, <B>n2</B> As Long,  <B>correlation</B> As mp_real</I>) As mp_table</div>
+
+<div class="txt">This function calculates a result table for a <nobr>t-test</nobr> for 2 correlated samples.</div><br \>
+
+
+<a name=h3_Procedures_for_k_independent_samples></a>
+<H3>18.4 Procedures for k independent samples</H3>
+
+<a name=mp_test_anova_1way></a>
+<div class="func">Function <B>mp_test_anova_1way</B>(<I><B>means</B> As mp_vector, <B>stdev</B> As mp_vector, <B>n</B> As mp_vector</I>) As mp_table</div>
+
+<div class="txt">This function calculates a result table for a <nobr>1-way</nobr> ANOVA.</div><br \>
+
+
+
+
+<a name=h3_Procedures_for_k_correlated_samples></a>
+<H3>18.5 Procedures for k correlated samples</H3>
+
+<a name=mp_test_anova_1way_corr></a>
+<div class="func">Function <B>mp_test_anova_1way_corr</B>(<I><B>means</B> As mp_vector, <B>stdev</B> As mp_vector, <B>n</B> As mp_vector</I>) As mp_table</div>
+
+<div class="txt">This function calculates a result table for a <nobr>1-way</nobr> ANOVA for correlated samples.</div><br \>
+
+
+
+<a name=h3_MANOVA_and_MANCOVA></a>
+<H3>18.6 MANOVA and MANCOVA</H3>
+
+<a name=mp_test_manova_1way></a>
+<div class="func">Function <B>mp_test_manova_1way</B>(<I><B>means</B> As mp_matrix, <B>CovarMatrix</B> As mp_matrix, <B>n</B> As mp_vector</I>) As mp_table</div>
+
+<div class="txt">This function calculates a result table for a <nobr>1-way</nobr> MANOVA.</div><br \>
+
+
+
+<a name=h3_Tests_for_covariance_and_correlation_matrices></a>
+<H3>18.7 Tests for covariance and correlation matrices</H3>
+
+<a name=mp_test_canonical_correlation></a>
+<div class="func">Function <B>mp_test_canonical_correlation</B>(<I><B>CorrMatrix</B> As mp_matrix, <B>p</B> As long <B>q</B> As long <B>n</B> As long</I>) As mp_table</div>
+
+<div class="txt">This function calculates a result table for a canonical correlation.</div><br \>
+
+
+
+<a name=h3_Inferential_Statistics_Examples></a>
+<H3>18.8 Examples</H3>
+
+The following example programs demonstrate the calculation of a t-test.
+
+
+
+<H5>&nbsp;</H5>
+
+
+
+
+</body>
+</html>

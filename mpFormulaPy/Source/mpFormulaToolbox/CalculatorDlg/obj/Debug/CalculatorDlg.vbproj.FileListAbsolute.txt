@@ -1,0 +1,7 @@
+C:\Extra\mpFormulaTDM\mpFormulaXL\Source\mpFormulaToolbox\CalculatorDlg\bin\Debug\CalculatorDlg.exe
+C:\Extra\mpFormulaTDM\mpFormulaXL\Source\mpFormulaToolbox\CalculatorDlg\bin\Debug\CalculatorDlg.pdb
+C:\Extra\mpFormulaTDM\mpFormulaXL\Source\mpFormulaToolbox\CalculatorDlg\obj\Debug\CalculatorDlg.vbprojResolveAssemblyReference.cache
+C:\Extra\mpFormulaTDM\mpFormulaXL\Source\mpFormulaToolbox\CalculatorDlg\obj\Debug\CalculatorDlg.EvalProvider.resources
+C:\Extra\mpFormulaTDM\mpFormulaXL\Source\mpFormulaToolbox\CalculatorDlg\obj\Debug\CalculatorDlg.vbproj.GenerateResource.Cache
+C:\Extra\mpFormulaTDM\mpFormulaXL\Source\mpFormulaToolbox\CalculatorDlg\obj\Debug\CalculatorDlg.exe
+C:\Extra\mpFormulaTDM\mpFormulaXL\Source\mpFormulaToolbox\CalculatorDlg\obj\Debug\CalculatorDlg.pdb

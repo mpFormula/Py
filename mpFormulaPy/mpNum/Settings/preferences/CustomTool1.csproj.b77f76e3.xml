@@ -1,0 +1,10 @@
+﻿<Properties>
+  <Array name="bookmarks" />
+  <Array name="files">
+    <Element value="E:\Extra\mpFormulaTDM\mpFormulaXL\Source\CustomTool1\CustomTool1\CustomTool1.addin" />
+    <Element value="E:\Extra\mpFormulaTDM\mpFormulaXL\Source\CustomTool1\CustomTool1\AddInWritingHelp.txt" />
+    <Element value="E:\Extra\mpFormulaTDM\mpFormulaXL\Source\CustomTool1\CustomTool1\CustomTool1Tool.cs" />
+    <Element value="E:\Extra\mpFormulaTDM\mpFormulaXL\Source\CustomTool1\CustomTool1\FileTemplate.xft" />
+  </Array>
+  <Properties name="projectSavedData" />
+</Properties>

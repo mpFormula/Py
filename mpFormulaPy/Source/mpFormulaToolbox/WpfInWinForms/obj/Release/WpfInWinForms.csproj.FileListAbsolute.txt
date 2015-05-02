@@ -1,0 +1,10 @@
+E:\Extra\mpFormulaTDM\mpFormulaXL\Source\mpFormulaToolbox\WpfInWinForms\bin\Release\WpfInWinForms.exe.config
+E:\Extra\mpFormulaTDM\mpFormulaXL\Source\mpFormulaToolbox\WpfInWinForms\bin\Release\WpfInWinForms.exe
+E:\Extra\mpFormulaTDM\mpFormulaXL\Source\mpFormulaToolbox\WpfInWinForms\bin\Release\WpfInWinForms.pdb
+E:\Extra\mpFormulaTDM\mpFormulaXL\Source\mpFormulaToolbox\WpfInWinForms\bin\Release\Wpf3DControl.dll
+E:\Extra\mpFormulaTDM\mpFormulaXL\Source\mpFormulaToolbox\WpfInWinForms\obj\Release\WpfInWinForms.csprojResolveAssemblyReference.cache
+E:\Extra\mpFormulaTDM\mpFormulaXL\Source\mpFormulaToolbox\WpfInWinForms\obj\Release\WpfInWinForms.FrmMain.resources
+E:\Extra\mpFormulaTDM\mpFormulaXL\Source\mpFormulaToolbox\WpfInWinForms\obj\Release\WpfInWinForms.Properties.Resources.resources
+E:\Extra\mpFormulaTDM\mpFormulaXL\Source\mpFormulaToolbox\WpfInWinForms\obj\Release\WpfInWinForms.csproj.GenerateResource.Cache
+E:\Extra\mpFormulaTDM\mpFormulaXL\Source\mpFormulaToolbox\WpfInWinForms\obj\Release\WpfInWinForms.exe
+E:\Extra\mpFormulaTDM\mpFormulaXL\Source\mpFormulaToolbox\WpfInWinForms\obj\Release\WpfInWinForms.pdb

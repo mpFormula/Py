@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <ProjectGuid>{15660AFF-72ED-4FB4-82EB-824193CDC8A2}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <RootNamespace>mpmathListing</RootNamespace>
+    <AssemblyName>mpmathListing</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <Optimize>False</Optimize>
+    <OutputType>Exe</OutputType>
+    <MainFile>Program.py</MainFile>
+    <DebugInfo>True</DebugInfo>
+    <StartArguments>-X:Debug Program.py</StartArguments>
+    <StartWorkingDirectory>.\</StartWorkingDirectory>
+    <StartAction>Program</StartAction>
+    <StartProgram>I:\Data\mpFormula40\Toolbox\SharpDevelop\4.4\bin\..\AddIns\BackendBindings\PythonBinding\ipy.exe</StartProgram>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <DebugSymbols>False</DebugSymbols>
+    <DebugType>None</DebugType>
+    <Optimize>True</Optimize>
+    <OutputType>Exe</OutputType>
+    <MainFile>Program.py</MainFile>
+    <StartArguments>Program.py</StartArguments>
+    <StartWorkingDirectory>.\</StartWorkingDirectory>
+    <StartAction>Program</StartAction>
+    <StartProgram>I:\Data\mpFormula40\Toolbox\SharpDevelop\4.4\bin\..\AddIns\BackendBindings\PythonBinding\ipy.exe</StartProgram>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\..\mpNum\AddIns\BackendBindings\PythonBinding\Lib\mpmath\conftest.py">
+      <Link>conftest.py</Link>
+    </Compile>
+    <Compile Include="..\..\..\mpNum\AddIns\BackendBindings\PythonBinding\Lib\mpmath\ctx_base.py">
+      <Link>ctx_base.py</Link>
+    </Compile>
+    <Compile Include="..\..\..\mpNum\AddIns\BackendBindings\PythonBinding\Lib\mpmath\ctx_fp.py">
+      <Link>ctx_fp.py</Link>
+    </Compile>
+    <Compile Include="..\..\..\mpNum\AddIns\BackendBindings\PythonBinding\Lib\mpmath\ctx_iv.py">
+      <Link>ctx_iv.py</Link>
+    </Compile>
+    <Compile Include="..\..\..\mpNum\AddIns\BackendBindings\PythonBinding\Lib\mpmath\ctx_mp.py">
+      <Link>ctx_mp.py</Link>
+    </Compile>
+    <Compile Include="..\..\..\mpNum\AddIns\BackendBindings\PythonBinding\Lib\mpmath\ctx_mp_python.py">
+      <Link>ctx_mp_python.py</Link>
+    </Compile>
+    <Compile Include="..\..\..\mpNum\AddIns\BackendBindings\PythonBinding\Lib\mpmath\function_docs.py">
+      <Link>function_docs.py</Link>
+    </Compile>
+    <Compile Include="..\..\..\mpNum\AddIns\BackendBindings\PythonBinding\Lib\mpmath\identification.py">
+      <Link>identification.py</Link>
+    </Compile>
+    <Compile Include="..\..\..\mpNum\AddIns\BackendBindings\PythonBinding\Lib\mpmath\math2.py">
+      <Link>math2.py</Link>
+    </Compile>
+    <Compile Include="..\..\..\mpNum\AddIns\BackendBindings\PythonBinding\Lib\mpmath\rational.py">
+      <Link>rational.py</Link>
+    </Compile>
+    <Compile Include="..\..\..\mpNum\AddIns\BackendBindings\PythonBinding\Lib\mpmath\usertools.py">
+      <Link>usertools.py</Link>
+    </Compile>
+    <Compile Include="..\..\..\mpNum\AddIns\BackendBindings\PythonBinding\Lib\mpmath\visualization.py">
+      <Link>visualization.py</Link>
+    </Compile>
+    <Compile Include="..\..\..\mpNum\AddIns\BackendBindings\PythonBinding\Lib\mpmath\__init__.py">
+      <Link>__init__.py</Link>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <Import Project="$(PythonBinPath)\SharpDevelop.Build.Python.targets" />
+</Project>

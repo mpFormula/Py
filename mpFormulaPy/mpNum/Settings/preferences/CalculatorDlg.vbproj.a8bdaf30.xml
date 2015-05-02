@@ -1,0 +1,12 @@
+﻿<Properties>
+  <Array name="bookmarks" />
+  <Array name="files">
+    <Element value="C:\Extra\mpFormulaTDM\mpFormulaXL\Source\mpFormulaToolbox\CalculatorDlg\Program.vb" />
+    <Element value="C:\Extra\mpFormulaTDM\mpFormulaXL\Source\mpFormulaToolbox\CalculatorDlg\CalculatorForm.vb" />
+  </Array>
+  <Properties name="projectSavedData">
+    <Properties name="customTool">
+      <runOnBuild value="False" />
+    </Properties>
+  </Properties>
+</Properties>
