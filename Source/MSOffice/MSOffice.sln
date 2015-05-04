@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+# SharpDevelop 4.4
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "TestmpFormula", "TestmpFormula\TestmpFormula.vbproj", "{A923AD33-A05D-41D9-A803-98C32BD4ADCC}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "mpFormula32", "ExcelDNA\mpFormula32.vbproj", "{09539478-7408-40BC-9B55-C2691A66E667}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "mpFormula64", "ExcelDNA\mpFormula64.vbproj", "2FB54A0F-1C76-48DF-82E0-9596FD2C2707"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A923AD33-A05D-41D9-A803-98C32BD4ADCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A923AD33-A05D-41D9-A803-98C32BD4ADCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A923AD33-A05D-41D9-A803-98C32BD4ADCC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A923AD33-A05D-41D9-A803-98C32BD4ADCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09539478-7408-40BC-9B55-C2691A66E667}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09539478-7408-40BC-9B55-C2691A66E667}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09539478-7408-40BC-9B55-C2691A66E667}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09539478-7408-40BC-9B55-C2691A66E667}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		2FB54A0F-1C76-48DF-82E0-9596FD2C2707.Debug|Any CPU.Build.0 = Debug|Any CPU
+		2FB54A0F-1C76-48DF-82E0-9596FD2C2707.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		2FB54A0F-1C76-48DF-82E0-9596FD2C2707.Release|Any CPU.Build.0 = Release|Any CPU
+		2FB54A0F-1C76-48DF-82E0-9596FD2C2707.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+EndGlobal

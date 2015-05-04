@@ -1,8 +1,0 @@
-﻿<UserControl x:Class="Wpf3DControl.Wpf3DCtrl"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    Height="500" Width="500">
-  <Grid>
-    <Viewport3D Grid.Row="0" Grid.Column="0" Name="MainViewport" />
-  </Grid>
-</UserControl>

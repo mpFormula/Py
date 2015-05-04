@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <ProjectGuid>{8BF3A341-1009-4830-A5E9-8BE181C8D938}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <RootNamespace>mpmathTests</RootNamespace>
+    <AssemblyName>mpmathTests</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <Optimize>False</Optimize>
+    <OutputType>Exe</OutputType>
+    <MainFile>Program.py</MainFile>
+    <DebugInfo>True</DebugInfo>
+    <StartArguments>-X:Debug Program.py</StartArguments>
+    <StartWorkingDirectory>.\</StartWorkingDirectory>
+    <StartAction>Program</StartAction>
+    <StartProgram>I:\Data\mpFormula40\Toolbox\SharpDevelop\4.4\bin\..\AddIns\BackendBindings\PythonBinding\ipy.exe</StartProgram>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <DebugSymbols>False</DebugSymbols>
+    <DebugType>None</DebugType>
+    <Optimize>True</Optimize>
+    <OutputType>Exe</OutputType>
+    <MainFile>Program.py</MainFile>
+    <StartArguments>Program.py</StartArguments>
+    <StartWorkingDirectory>.\</StartWorkingDirectory>
+    <StartAction>Program</StartAction>
+    <StartProgram>I:\Data\mpFormula40\Toolbox\SharpDevelop\4.4\bin\..\AddIns\BackendBindings\PythonBinding\ipy.exe</StartProgram>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\..\mpNum\AddIns\BackendBindings\PythonBinding\Lib\mpmath\tests\extratest_bessel.py">
+      <Link>extratest_bessel.py</Link>
+    </Compile>
+    <Compile Include="..\..\..\mpNum\AddIns\BackendBindings\PythonBinding\Lib\mpmath\tests\extratest_gamma.py">
+      <Link>extratest_gamma.py</Link>
+    </Compile>
+    <Compile Include="..\..\..\mpNum\AddIns\BackendBindings\PythonBinding\Lib\mpmath\tests\extratest_zeta.py">
+      <Link>extratest_zeta.py</Link>
+    </Compile>
+    <Compile Include="..\..\..\mpNum\AddIns\BackendBindings\PythonBinding\Lib\mpmath\tests\runtests.py">
+      <Link>runtests.py</Link>
+    </Compile>
+    <Compile Include="..\..\..\mpNum\AddIns\BackendBindings\PythonBinding\Lib\mpmath\tests\test_basic_ops.py">
+      <Link>test_basic_ops.py</Link>
+    </Compile>
+    <Compile Include="..\..\..\mpNum\AddIns\BackendBindings\PythonBinding\Lib\mpmath\tests\test_bitwise.py">
+      <Link>test_bitwise.py</Link>
+    </Compile>
+    <Compile Include="..\..\..\mpNum\AddIns\BackendBindings\PythonBinding\Lib\mpmath\tests\test_calculus.py">
+      <Link>test_calculus.py</Link>
+    </Compile>
+    <Compile Include="..\..\..\mpNum\AddIns\BackendBindings\PythonBinding\Lib\mpmath\tests\test_compatibility.py">
+      <Link>test_compatibility.py</Link>
+    </Compile>
+    <Compile Include="..\..\..\mpNum\AddIns\BackendBindings\PythonBinding\Lib\mpmath\tests\test_convert.py">
+      <Link>test_convert.py</Link>
+    </Compile>
+    <Compile Include="..\..\..\mpNum\AddIns\BackendBindings\PythonBinding\Lib\mpmath\tests\test_diff.py">
+      <Link>test_diff.py</Link>
+    </Compile>
+    <Compile Include="..\..\..\mpNum\AddIns\BackendBindings\PythonBinding\Lib\mpmath\tests\test_division.py">
+      <Link>test_division.py</Link>
+    </Compile>
+    <Compile Include="..\..\..\mpNum\AddIns\BackendBindings\PythonBinding\Lib\mpmath\tests\test_eigen.py">
+      <Link>test_eigen.py</Link>
+    </Compile>
+    <Compile Include="..\..\..\mpNum\AddIns\BackendBindings\PythonBinding\Lib\mpmath\tests\test_eigen_symmetric.py">
+      <Link>test_eigen_symmetric.py</Link>
+    </Compile>
+    <Compile Include="..\..\..\mpNum\AddIns\BackendBindings\PythonBinding\Lib\mpmath\tests\test_elliptic.py">
+      <Link>test_elliptic.py</Link>
+    </Compile>
+    <Compile Include="..\..\..\mpNum\AddIns\BackendBindings\PythonBinding\Lib\mpmath\tests\test_fp.py">
+      <Link>test_fp.py</Link>
+    </Compile>
+    <Compile Include="..\..\..\mpNum\AddIns\BackendBindings\PythonBinding\Lib\mpmath\tests\test_functions.py">
+      <Link>test_functions.py</Link>
+    </Compile>
+    <Compile Include="..\..\..\mpNum\AddIns\BackendBindings\PythonBinding\Lib\mpmath\tests\test_functions2.py">
+      <Link>test_functions2.py</Link>
+    </Compile>
+    <Compile Include="..\..\..\mpNum\AddIns\BackendBindings\PythonBinding\Lib\mpmath\tests\test_gammazeta.py">
+      <Link>test_gammazeta.py</Link>
+    </Compile>
+    <Compile Include="..\..\..\mpNum\AddIns\BackendBindings\PythonBinding\Lib\mpmath\tests\test_hp.py">
+      <Link>test_hp.py</Link>
+    </Compile>
+    <Compile Include="..\..\..\mpNum\AddIns\BackendBindings\PythonBinding\Lib\mpmath\tests\test_identify.py">
+      <Link>test_identify.py</Link>
+    </Compile>
+    <Compile Include="..\..\..\mpNum\AddIns\BackendBindings\PythonBinding\Lib\mpmath\tests\test_interval.py">
+      <Link>test_interval.py</Link>
+    </Compile>
+    <Compile Include="..\..\..\mpNum\AddIns\BackendBindings\PythonBinding\Lib\mpmath\tests\test_levin.py">
+      <Link>test_levin.py</Link>
+    </Compile>
+    <Compile Include="..\..\..\mpNum\AddIns\BackendBindings\PythonBinding\Lib\mpmath\tests\test_linalg.py">
+      <Link>test_linalg.py</Link>
+    </Compile>
+    <Compile Include="..\..\..\mpNum\AddIns\BackendBindings\PythonBinding\Lib\mpmath\tests\test_matrices.py">
+      <Link>test_matrices.py</Link>
+    </Compile>
+    <Compile Include="..\..\..\mpNum\AddIns\BackendBindings\PythonBinding\Lib\mpmath\tests\test_mpmath.py">
+      <Link>test_mpmath.py</Link>
+    </Compile>
+    <Compile Include="..\..\..\mpNum\AddIns\BackendBindings\PythonBinding\Lib\mpmath\tests\test_ode.py">
+      <Link>test_ode.py</Link>
+    </Compile>
+    <Compile Include="..\..\..\mpNum\AddIns\BackendBindings\PythonBinding\Lib\mpmath\tests\test_pickle.py">
+      <Link>test_pickle.py</Link>
+    </Compile>
+    <Compile Include="..\..\..\mpNum\AddIns\BackendBindings\PythonBinding\Lib\mpmath\tests\test_power.py">
+      <Link>test_power.py</Link>
+    </Compile>
+    <Compile Include="..\..\..\mpNum\AddIns\BackendBindings\PythonBinding\Lib\mpmath\tests\test_quad.py">
+      <Link>test_quad.py</Link>
+    </Compile>
+    <Compile Include="..\..\..\mpNum\AddIns\BackendBindings\PythonBinding\Lib\mpmath\tests\test_rootfinding.py">
+      <Link>test_rootfinding.py</Link>
+    </Compile>
+    <Compile Include="..\..\..\mpNum\AddIns\BackendBindings\PythonBinding\Lib\mpmath\tests\test_special.py">
+      <Link>test_special.py</Link>
+    </Compile>
+    <Compile Include="..\..\..\mpNum\AddIns\BackendBindings\PythonBinding\Lib\mpmath\tests\test_str.py">
+      <Link>test_str.py</Link>
+    </Compile>
+    <Compile Include="..\..\..\mpNum\AddIns\BackendBindings\PythonBinding\Lib\mpmath\tests\test_summation.py">
+      <Link>test_summation.py</Link>
+    </Compile>
+    <Compile Include="..\..\..\mpNum\AddIns\BackendBindings\PythonBinding\Lib\mpmath\tests\test_trig.py">
+      <Link>test_trig.py</Link>
+    </Compile>
+    <Compile Include="..\..\..\mpNum\AddIns\BackendBindings\PythonBinding\Lib\mpmath\tests\test_visualization.py">
+      <Link>test_visualization.py</Link>
+    </Compile>
+    <Compile Include="..\..\..\mpNum\AddIns\BackendBindings\PythonBinding\Lib\mpmath\tests\torture.py">
+      <Link>torture.py</Link>
+    </Compile>
+    <Compile Include="..\..\..\mpNum\AddIns\BackendBindings\PythonBinding\Lib\mpmath\tests\__init__.py">
+      <Link>__init__.py</Link>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <Import Project="$(PythonBinPath)\SharpDevelop.Build.Python.targets" />
+</Project>

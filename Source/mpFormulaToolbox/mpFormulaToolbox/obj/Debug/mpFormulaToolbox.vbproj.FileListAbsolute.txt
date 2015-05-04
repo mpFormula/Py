@@ -1,0 +1,9 @@
+C:\Extra\mpFormulaTDM\mpFormulaXL\Source\mpFormulaToolbox\mpFormulaToolbox\bin\Debug\mpFormulaToolbox.exe.config
+C:\Extra\mpFormulaTDM\mpFormulaXL\Source\mpFormulaToolbox\mpFormulaToolbox\bin\Debug\mpFormulaToolbox.exe
+C:\Extra\mpFormulaTDM\mpFormulaXL\Source\mpFormulaToolbox\mpFormulaToolbox\bin\Debug\mpFormulaToolbox.pdb
+C:\Extra\mpFormulaTDM\mpFormulaXL\Source\mpFormulaToolbox\mpFormulaToolbox\obj\Debug\mpFormulaToolbox.vbprojResolveAssemblyReference.cache
+C:\Extra\mpFormulaTDM\mpFormulaXL\Source\mpFormulaToolbox\mpFormulaToolbox\obj\Debug\mpFormulaToolbox.AboutForm.resources
+C:\Extra\mpFormulaTDM\mpFormulaXL\Source\mpFormulaToolbox\mpFormulaToolbox\obj\Debug\mpFormulaToolbox.MainForm.resources
+C:\Extra\mpFormulaTDM\mpFormulaXL\Source\mpFormulaToolbox\mpFormulaToolbox\obj\Debug\mpFormulaToolbox.vbproj.GenerateResource.Cache
+C:\Extra\mpFormulaTDM\mpFormulaXL\Source\mpFormulaToolbox\mpFormulaToolbox\obj\Debug\mpFormulaToolbox.exe
+C:\Extra\mpFormulaTDM\mpFormulaXL\Source\mpFormulaToolbox\mpFormulaToolbox\obj\Debug\mpFormulaToolbox.pdb

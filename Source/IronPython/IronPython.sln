@@ -1,0 +1,24 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+# SharpDevelop 4.4
+Project("{FD48973F-F585-4F70-812B-4D0503B36CE9}") = "TestPythonWin", "TestPythonWin\TestPythonWin.pyproj", "{0795B9BF-B001-49CA-ADEE-F878DF548AE4}"
+EndProject
+Project("{FD48973F-F585-4F70-812B-4D0503B36CE9}") = "TestPythonConsole", "TestPythonConsole\TestPythonConsole.pyproj", "{BB0BBD1D-5573-46CC-8C63-7887C2BC4CA6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0795B9BF-B001-49CA-ADEE-F878DF548AE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0795B9BF-B001-49CA-ADEE-F878DF548AE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0795B9BF-B001-49CA-ADEE-F878DF548AE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0795B9BF-B001-49CA-ADEE-F878DF548AE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB0BBD1D-5573-46CC-8C63-7887C2BC4CA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB0BBD1D-5573-46CC-8C63-7887C2BC4CA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB0BBD1D-5573-46CC-8C63-7887C2BC4CA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB0BBD1D-5573-46CC-8C63-7887C2BC4CA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+EndGlobal

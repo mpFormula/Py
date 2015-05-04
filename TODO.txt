@@ -1,0 +1,9 @@
+1. Fix Code for missing rootdir:
+1.1 Python Console (SharpDevelop)
+1.2 Standalone function viewer
+1.3 Excel function viewer
+
+2. Fix Shortcuts so that they start always a relative and not an absolute path
+
+3. Move OOME_3_0 into references after writing text in chapter Libreoffice
+

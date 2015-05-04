@@ -1,5 +1,0 @@
-1. Move PyScripter from  mpFormulaXL to ExternalTools\ 
-2. Replace mpFormulaXL
-
-3. Copy all .ini files in ExternalTools\texstudio2.8.8
-4. Copy SharpDevelop_Drive Files in mpFormulaC

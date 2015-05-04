@@ -1,0 +1,13 @@
+﻿<Properties>
+  <Array name="bookmarks" />
+  <Array name="files">
+    <Element value="E:\Extra\mpFormulaTDM\mpFormulaXL\Source\ToolsMeuEntry\ToolsMeuEntry\ToolsMeuEntry.addin" />
+    <Element value="E:\Extra\mpFormulaTDM\mpFormulaXL\Source\ToolsMeuEntry\ToolsMeuEntry\AddInWritingHelp.txt" />
+    <Element value="E:\Extra\mpFormulaTDM\mpFormulaXL\Source\ToolsMeuEntry\ToolsMeuEntry\Src\Command.cs" />
+  </Array>
+  <Properties name="projectSavedData">
+    <Properties name="customTool">
+      <runOnBuild value="False" />
+    </Properties>
+  </Properties>
+</Properties>
