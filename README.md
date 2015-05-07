@@ -1,4 +1,4 @@
-### Welcome to mpFormulaPy.
+### Welcome to mpFormulaPy!
 The mpFormulaPy library is based on the [Python](https://www.python.org/) runtime and the [mpmath](http://mpmath.org/) library, both of which implement multiprecision arithmetic. Additional functionality includes integration in [Microsoft Excel](https://products.office.com/en-us/excel) (Windows)  and [LibreOffice Calc](https://www.libreoffice.org/) (Windows, Mac OSX, GNU/Linux), with multiprecision support for the numerical functions of these spreadsheet programs.
 
 
@@ -6,7 +6,7 @@ The mpFormulaPy library is based on the [Python](https://www.python.org/) runtim
 The manual is also available separately as pdf file: [mpFormulaPy.pdf](https://github.com/mpFormula/Py/raw/master/Manual/mpFormula.pdf).
 
 
-### Quick start under Windows.
+### Quick start under Windows
 System requirements: Windows (Desktop) with [.NET Framework 4.x (Full)](http://www.microsoft.com/en-us/download/details.aspx?id=17718).
 
 Download the ZIP file and unzip it into a directory for which you have write access.
