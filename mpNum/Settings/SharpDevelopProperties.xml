@@ -1,6 +1,9 @@
 ﻿<SharpDevelopProperties>
   <AddInManager.WindowBounds value="711, 432, 476, 424" />
   <Array name="Browser.URLBoxHistory">
+    <Element value="https://duhadler.wordpress.com/" />
+    <Element value="http://mpformula.github.io/C" />
+    <Element value="http://mpformula.github.io/Py/" />
     <Element value="E:\Extra\mpFormulaTDM\mpFormulaXL\Sample Data\EmbeddedStyleShort.html" />
     <Element value="E:\Extra\mpFormulaTDM\mpFormulaXL\Sample Data\VBScript.mht" />
     <Element value="I:\Data\mpFormula40\Toolbox\Workbooks\VBScript.mht" />
@@ -193,18 +196,21 @@
   </Properties>
   <Properties name="RecentOpen">
     <Array name="Files">
-      <Element value="C:\Extra\mpFormulaTDM\mpFormulaXL\mpNum\AddIns\BackendBindings\PythonBinding\Lib\mpmath\libmp\libmpi.py" />
-      <Element value="C:\Extra\mpFormulaTDM\mpFormulaXL\mpNum\AddIns\BackendBindings\PythonBinding\Lib\mpmath\ctx_mp.py" />
-      <Element value="C:\Extra\mpFormulaTDM\mpFormulaXL\mpNum\AddIns\BackendBindings\PythonBinding\Lib\mpmath\ctx_iv.py" />
-      <Element value="C:\Extra\mpFormulaTDM\mpFormulaXL\Source\MpMath\mpFormulaXLClassLib\mpFormulaClass.vb" />
-      <Element value="C:\Extra\mpFormulaTDM\mpFormulaXL\Source\MpMath\TestFormulaXLClassLib\TestMpFormula.vb" />
-      <Element value="C:\Extra\mpFormulaTDM\mpFormulaXL\Source\mpFormulaToolbox\CalculatorDlg\CalculatorForm.vb" />
-      <Element value="C:\Extra\mpFormulaTDM\mpFormulaXL\Source\mpFormulaToolbox\CalculatorDlg\Program.vb" />
-      <Element value="C:\Extra\mpFormulaTDM\mpFormulaXL\Source\mpFormulaToolbox\mpFormulaToolbox\MainForm.vb" />
-      <Element value="C:\Extra\mpFormulaTDM\mpFormulaXL\Source\mpFormulaToolbox\mpFormulaToolbox\Program.vb" />
-      <Element value="C:\Extra\mpFormulaTDM\mpFormulaXL\Source\Distributions\Distributions\DistX.vb" />
+      <Element value="I:\Data\mpFormulaTDM\mpFormulaPy\Source\MSOffice\ExcelDNA\FunctionsForm.vb" />
+      <Element value="I:\Data\mpFormulaTDM\mpFormulaPy\Source\MSOffice\ExcelDNA\MainForm.vb" />
+      <Element value="http://community.sharpdevelop.net/forums/" />
+      <Element value="http://wiki.sharpdevelop.net/" />
+      <Element value="http://www.dotgnu.org" />
+      <Element value="C:\Extra\mpFormulaTDM\mpFormulaPy\Source\mpFormulaToolbox\FunctionNavigator\FunctionsForm.vb" />
+      <Element value="C:\Extra\mpFormulaTDM\mpFormulaPy\Source\mpFormulaToolbox\FunctionNavigator\Program.vb" />
+      <Element value="C:\Extra\mpFormulaTDM\mpFormulaPy\Source\mpFormulaToolbox\TestAcro\MainForm.cs" />
+      <Element value="C:\Extra\mpFormulaTDM\mpFormulaPy\Source\MpMath\MpMathClientDLL\MpMathClientDLLProgram.vb" />
+      <Element value="C:\Extra\mpFormulaTDM\mpFormulaPy\Source\MpMath\MpMathClient\CallMpMathProgram.vb" />
     </Array>
     <Array name="Projects">
+      <Element value="I:\Data\mpFormulaTDM\mpFormulaPy\Source\MSOffice\MSOffice.sln" />
+      <Element value="C:\Extra\mpFormulaTDM\mpFormulaPy\Source\mpFormulaToolbox\mpFormulaToolbox.sln" />
+      <Element value="C:\Extra\mpFormulaTDM\mpFormulaPy\Source\MpMath\MpMath.sln" />
       <Element value="C:\Extra\mpFormulaTDM\mpFormulaXL\Source\MpMathListing\mpmathListing.sln" />
       <Element value="C:\Extra\mpFormulaTDM\mpFormulaXL\Source\MpMath\MpMath.sln" />
       <Element value="C:\Extra\mpFormulaTDM\mpFormulaXL\Source\mpFormulaToolbox\mpFormulaToolbox.sln" />
@@ -212,9 +218,6 @@
       <Element value="I:\Data\mpFormulaTDM\mpFormulaXL\Source\Distributions\Distributions.sln" />
       <Element value="E:\Extra\mpFormulaTDM\mpFormulaXL\Source\MpMath\MpMath.sln" />
       <Element value="E:\Extra\mpFormulaTDM\mpFormulaXL\Source\ToolsMeuEntry\ToolsMeuEntry.sln" />
-      <Element value="E:\Extra\mpFormulaTDM\mpFormulaXL\Source\CustomTool1\CustomTool1.sln" />
-      <Element value="E:\Extra\mpFormulaTDM\mpFormulaXL\Source\mpFormulaToolbox\mpFormulaToolbox.sln" />
-      <Element value="I:\Data\mpFormulaTDM\mpFormulaXL\Source\mpFormulaToolbox\mpFormulaToolbox\mpFormulaToolbox.sln" />
     </Array>
   </Properties>
   <RegExpTk.WindowBounds value="960, 240, 960, 560" />
@@ -327,7 +330,7 @@
   </Properties>
   <SharpDevelop.UI.UseProjectAmbience value="True" />
   <ShowTipsAtStartup value="True" />
-  <TreeViewOptionsDialog.WindowBounds value="88,226,797,497" />
+  <TreeViewOptionsDialog.WindowBounds value="88,43,913,582" />
   <Properties name="UnitTesting.Options">
     <CreateXmlOutputFile value="False" />
     <Labels value="False" />
@@ -340,7 +343,7 @@
   <VBBinding.TextEditor.EnableEndConstructs value="True" />
   <Properties name="WorkbenchMemento">
     <Bounds value="261,158,1132,704" />
-    <WindowState value="Normal" />
+    <WindowState value="Maximized" />
   </Properties>
   <Properties name="XamlBinding.Options">
     <EventForeground value="#FF008000" />

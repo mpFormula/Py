@@ -1,5 +1,0 @@
-C:\Extra\mpFormulaTDM\mpFormulaXL\GUI\CalculatorDlg.exe
-C:\Extra\mpFormulaTDM\mpFormulaXL\Source\mpFormulaToolbox\CalculatorDlg\obj\Release\CalculatorDlg.EvalProvider.resources
-C:\Extra\mpFormulaTDM\mpFormulaXL\Source\mpFormulaToolbox\CalculatorDlg\obj\Release\CalculatorDlg.vbproj.GenerateResource.Cache
-C:\Extra\mpFormulaTDM\mpFormulaXL\Source\mpFormulaToolbox\CalculatorDlg\obj\Release\CalculatorDlg.exe
-C:\Extra\mpFormulaTDM\mpFormulaXL\Source\mpFormulaToolbox\CalculatorDlg\obj\Release\CalculatorDlg.vbprojResolveAssemblyReference.cache

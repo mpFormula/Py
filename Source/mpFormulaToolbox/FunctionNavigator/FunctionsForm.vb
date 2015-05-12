@@ -3,7 +3,10 @@ Imports System.Windows.Forms
 Imports Microsoft.Win32
 Imports System.Runtime.InteropServices
 Imports System.Diagnostics
+Imports System.Reflection
+Imports System.IO
 Imports System.Xml
+
 Imports System.Text.RegularExpressions
 
 	Public Partial Class FunctionsForm
@@ -205,20 +208,20 @@ Imports System.Text.RegularExpressions
 		End Sub
 
 
+		Public Shared ReadOnly Property AssemblyDirectory() As String
+			Get
+				Dim codeBase As String = Assembly.GetExecutingAssembly().CodeBase
+				Dim uri__1 As New UriBuilder(codeBase)
+				Dim path__2 As String = Uri.UnescapeDataString(uri__1.Path)
+				Return Path.GetDirectoryName(path__2)
+			End Get
+		End Property
 
 	
-	Function RootDir32() As String
-		Dim regKey As RegistryKey
-		Dim RootPath As String = "Not set"
-		Try
-		  regKey = Registry.CurrentUser.OpenSubKey("SOFTWARE\mpFormulaToolbox", False)
-		  RootPath =  regKey.GetValue("RootPath", "Not set")
-		  regKey.Close()
-		Catch ex As Exception
-			MsgBox("RootDir not set")
-		End Try
-		Return RootPath
-	End Function
+		Private Function RootDir32() As String
+			Dim RootPath As String = AssemblyDirectory() + "\..\"
+			Return RootPath
+		End Function
 
 
 
@@ -277,6 +280,10 @@ Imports System.Text.RegularExpressions
 				Dim MyString As String = "@CLOSEPDFVIEWER@"
 				SendStringMessageToPDFViewer(MyString)
 			End If
+		End Sub
+		
+		Sub DirToolStripMenuItemClick(sender As Object, e As EventArgs)
+		    MessageBox.Show(AssemblyDirectory())
 		End Sub
 	End Class
 

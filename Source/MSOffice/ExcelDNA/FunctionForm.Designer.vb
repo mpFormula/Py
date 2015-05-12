@@ -40,6 +40,7 @@
 		    Me.tableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
 		    Me.btnCancel = New System.Windows.Forms.Button()
 		    Me.btnOK = New System.Windows.Forms.Button()
+		    Me.dirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
 		    Me.menuStrip1.SuspendLayout
 		    CType(Me.splitContainerFunctions,System.ComponentModel.ISupportInitialize).BeginInit
 		    Me.splitContainerFunctions.Panel1.SuspendLayout
@@ -87,7 +88,7 @@
 		    '
 		    'viewToolStripMenuItem
 		    '
-		    Me.viewToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.showManualToolStripMenuItem, Me.remeberLastPositionToolStripMenuItem, Me.findItemToolStripMenuItem})
+		    Me.viewToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.showManualToolStripMenuItem, Me.remeberLastPositionToolStripMenuItem, Me.findItemToolStripMenuItem, Me.dirToolStripMenuItem})
 		    Me.viewToolStripMenuItem.Name = "viewToolStripMenuItem"
 		    Me.viewToolStripMenuItem.Size = New System.Drawing.Size(44, 20)
 		    Me.viewToolStripMenuItem.Text = "View"
@@ -258,6 +259,13 @@
 		    Me.btnOK.UseVisualStyleBackColor = true
 		    AddHandler Me.btnOK.Click, AddressOf Me.BtnOKClick
 		    '
+		    'dirToolStripMenuItem
+		    '
+		    Me.dirToolStripMenuItem.Name = "dirToolStripMenuItem"
+		    Me.dirToolStripMenuItem.Size = New System.Drawing.Size(199, 22)
+		    Me.dirToolStripMenuItem.Text = "Dir"
+		    AddHandler Me.dirToolStripMenuItem.Click, AddressOf Me.DirToolStripMenuItemClick
+		    '
 		    'FunctionsForm
 		    '
 		    Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
@@ -293,6 +301,7 @@
 		    Me.ResumeLayout(false)
 		    Me.PerformLayout
 		End Sub
+		Private dirToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 		Private btnOK As System.Windows.Forms.Button
 		Private btnCancel As System.Windows.Forms.Button
 		Private tableLayoutPanel2 As System.Windows.Forms.TableLayoutPanel

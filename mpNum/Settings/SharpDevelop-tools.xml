@@ -4,17 +4,17 @@
     </INITIALDIRECTORY>
     <ARGUMENTS>
     </ARGUMENTS>
-    <COMMAND>${StartupPath}\..\..\Manual\mpFormula.pdf</COMMAND>
-    <MENUCOMMAND>mpFormula Manual</MENUCOMMAND>
+    <COMMAND>${StartupPath}\..\..\Manual\mpFormulaPy.pdf</COMMAND>
+    <MENUCOMMAND>mpFormulaPy Manual</MENUCOMMAND>
     <PROMPTFORARGUMENTS>False</PROMPTFORARGUMENTS>
     <USEOUTPUTPAD>False</USEOUTPUTPAD>
   </TOOL>
   <TOOL>
     <INITIALDIRECTORY>
     </INITIALDIRECTORY>
-    <ARGUMENTS>${StartupPath}\..\..\Source\Manual\mpFormula.tex  --master --start-always</ARGUMENTS>
+    <ARGUMENTS>${StartupPath}\..\..\Source\Manual\mpFormulaPy.tex  --master --start-always</ARGUMENTS>
     <COMMAND>${StartupPath}\..\..\..\ExternalTools\texstudio2.8.8\texstudio.exe</COMMAND>
-    <MENUCOMMAND>TexStudio (mpFormula Manual)</MENUCOMMAND>
+    <MENUCOMMAND>TexStudio (mpFormulaPy Manual)</MENUCOMMAND>
     <PROMPTFORARGUMENTS>False</PROMPTFORARGUMENTS>
     <USEOUTPUTPAD>False</USEOUTPUTPAD>
   </TOOL>

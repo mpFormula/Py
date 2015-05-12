@@ -9,7 +9,8 @@
 </node>
 <node text="Tutorials" imageindex="2" tag="Chapter Info on Tutorials">
   <node text="Why multi-precision arithmetic?" imageindex="3" tag="Section Info on Why multi-precision arithmetic?"/>
-  <node text="Graphics" imageindex="3" tag="Section Info on Graphics"/>
+  <node text="Graphics using Latex" imageindex="3" tag="Section Info on Graphics using Latex"/>
+  <node text="Graphics using .NET Framework" imageindex="3" tag="Section Info on Graphics using .NET Framework"/>
   <node text="Eval, Options, Tables and Charts" imageindex="3" tag="Section Info on Eval, Options, Tables and Charts">
   <node text="Eval? String?  the result of the evaluation of an arithmetic expression, containing number and functions, but no variables." imageindex="6" tag="Function Info on 
 \mpFunctionOne
@@ -7238,7 +7239,7 @@
 </node>
 <node text="Examples: Statistical Procedures" imageindex="2" tag="Chapter Info on Examples: Statistical Procedures">
   <node text="Introduction to Inferential Statistics Functions" imageindex="3" tag="Section Info on Introduction to Inferential Statistics Functions"/>
-  <node text="Tests for means from 1 or 2 samples (Student's t-test)" imageindex="3" tag="Section Info on Tests for means from 1 or 2 samples (Student's t-test)">
+  <node text="Tests for the mean from 1 sample (Student's t-test)" imageindex="3" tag="Section Info on Tests for the mean from 1 sample (Student's t-test)">
   <node text="StudentTTest1? mpNumList? p-values, confidence intervals and related information for Student's t-test" imageindex="6" tag="Function Info on 
 \mpFunctionFiveNotImplemented
 {StudentTTest1? mpNumList? p-values, confidence intervals and related information for Student's t-test}
@@ -7270,17 +7271,10 @@
 \end{mpFunctionsExtract}
 "/>
 </node>
-  <node text="Tests for variances from 1 or 2 samples" imageindex="3" tag="Section Info on Tests for variances from 1 or 2 samples"/>
-  <node text="Tests for proportions from 1 or 2 samples" imageindex="3" tag="Section Info on Tests for proportions from 1 or 2 samples"/>
-  <node text="Wilcoxon Test (1 sample or 2 correlated samples)" imageindex="3" tag="Section Info on Wilcoxon Test (1 sample or 2 correlated samples)"/>
-  <node text="Mann-Whitney Test" imageindex="3" tag="Section Info on Mann-Whitney Test"/>
-  <node text="Pearson's Rho and Linear Regression" imageindex="3" tag="Section Info on Pearson's Rho and Linear Regression"/>
-  <node text="Kendall's Tau and Spearman's Rho" imageindex="3" tag="Section Info on Kendall's Tau and Spearman's Rho"/>
-  <node text="Multiple Linear Regression" imageindex="3" tag="Section Info on Multiple Linear Regression"/>
-  <node text="Anova, 1-way and 2-way layout" imageindex="3" tag="Section Info on Anova, 1-way and 2-way layout">
-  <node text="Anova1way? mpNumList? p-values, confidence intervals and related information for Anova1way" imageindex="6" tag="Function Info on 
+  <node text="Tests for means from 2 independent samples (Student's t-test)" imageindex="3" tag="Section Info on Tests for means from 2 independent samples (Student's t-test)">
+  <node text="StudentTTest2i? mpNumList? p-values, confidence intervals and related information for Student's t-test" imageindex="6" tag="Function Info on 
 \mpFunctionFiveNotImplemented
-{Anova1way? mpNumList? p-values, confidence intervals and related information for Anova1way}
+{StudentTTest2i? mpNumList? p-values, confidence intervals and related information for Student's t-test}
 {Type1Error? mpNum? A real number greater then 0 and less than 1.}
 {N? mpNum[]? An array of integers greater than 1, representing the samples sizes}
 {Mean? mpNum[]? An array of reals, representing the means}
@@ -7288,9 +7282,9 @@
 {Output? String? A string describing the output choices}
 \end{mpFunctionsExtract}
 "/>
-  <node text="Anova1wayPower? mpNumList? returns power estimations and related information for Anova1way" imageindex="6" tag="Function Info on 
+  <node text="StudentTTestPower2i? mpNumList? returns power estimations and related information for Student's t-test" imageindex="6" tag="Function Info on 
 \mpFunctionFiveNotImplemented
-{Anova1wayPower? mpNumList? returns power estimations and related information for Anova1way}
+{StudentTTestPower2i? mpNumList? returns power estimations and related information for Student's t-test}
 {Type1Error? mpNum? An real number greater then 0 and less than 1.}
 {N? mpNum[]? An array of integers greater than 1, representing the samples sizes}
 {Mean? mpNum[]? An array of reals, representing the means}
@@ -7298,9 +7292,9 @@
 {Output? String? A string describing the output choices}
 \end{mpFunctionsExtract}
 "/>
-  <node text="Anova1waySampleSize? mpNumList? returns sample size estimations and related information for Anova1way" imageindex="6" tag="Function Info on 
+  <node text="StudentTTestSampleSize2i? mpNumList? returns sample size estimations and related information for Student's t-test" imageindex="6" tag="Function Info on 
 \mpFunctionFiveNotImplemented
-{Anova1waySampleSize? mpNumList? returns sample size estimations and related information for Anova1way}
+{StudentTTestSampleSize2i? mpNumList? returns sample size estimations and related information for Student's t-test}
 {Type1Error? mpNum? An real number greater then 0 and less than 1.}
 {Type2Error? mpNum? An real number greater then 0 and less than 1.}
 {Mean? mpNum[]? An array of reals, representing the means}
@@ -7309,40 +7303,6 @@
 \end{mpFunctionsExtract}
 "/>
 </node>
-  <node text="Permutation tests for k samples, 1-way and 2-way layout" imageindex="3" tag="Section Info on Permutation tests for k samples, 1-way and 2-way layout">
-  <node text="Anova2way? mpNumList? p-values, confidence intervals and related information for Anova2way" imageindex="6" tag="Function Info on 
-\mpFunctionFiveNotImplemented
-{Anova2way? mpNumList? p-values, confidence intervals and related information for Anova2way}
-{Type1Error? mpNum? A real number greater then 0 and less than 1.}
-{N? mpNum[]? An array of integers greater than 1, representing the samples sizes}
-{Mean? mpNum[]? An array of reals, representing the means}
-{StDev? mpNum[]? An array of positive reals, representing the standard deviations}
-{Output? String? A string describing the output choices}
-\end{mpFunctionsExtract}
-"/>
-  <node text="Anova2wayPower? mpNumList? returns power estimations and related information for Anova2way" imageindex="6" tag="Function Info on 
-\mpFunctionFiveNotImplemented
-{Anova2wayPower? mpNumList? returns power estimations and related information for Anova2way}
-{Type1Error? mpNum? An real number greater then 0 and less than 1.}
-{N? mpNum[]? An array of integers greater than 1, representing the samples sizes}
-{Mean? mpNum[]? An array of reals, representing the means}
-{StDev? mpNum[]? An array of positive reals, representing the standard deviations}
-{Output? String? A string describing the output choices}
-\end{mpFunctionsExtract}
-"/>
-  <node text="Anova2waySampleSize? mpNumList? returns sample size estimations and related information for Anova2way" imageindex="6" tag="Function Info on 
-\mpFunctionFiveNotImplemented
-{Anova2waySampleSize? mpNumList? returns sample size estimations and related information for Anova2way}
-{Type1Error? mpNum? An real number greater then 0 and less than 1.}
-{Type2Error? mpNum? An real number greater then 0 and less than 1.}
-{Mean? mpNum[]? An array of reals, representing the means}
-{StDev? mpNum[]? An array of positive reals, representing the standard deviations}
-{Output? String? A string describing the output choices}
-\end{mpFunctionsExtract}
-"/>
-</node>
-  <node text="Hotelling's T2 and MANOVA" imageindex="3" tag="Section Info on Hotelling's T2 and MANOVA"/>
-  <node text="Canonical Correlation" imageindex="3" tag="Section Info on Canonical Correlation"/>
 </node>
 <node text="Python" imageindex="2" tag="Chapter Info on Python">
   <node text="Overview" imageindex="3" tag="Section Info on Overview"/>

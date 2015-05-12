@@ -23,6 +23,10 @@
     <CaretOffset value="0" />
     <ScrollPositionY value="0" />
   </Properties>
+  <Properties name="1e13ec5:2442157\GENERATED.CS">
+    <CaretOffset value="6187" />
+    <ScrollPositionY value="3105" />
+  </Properties>
   <Properties name="1e13ec5:26432951\GENERATED.PY">
     <CaretOffset value="0" />
     <ScrollPositionY value="3420" />
@@ -51,6 +55,10 @@
     <CaretOffset value="15667" />
     <ScrollPositionY value="7058" />
   </Properties>
+  <Properties name="1e13ec5:4681502\GENERATED.VB">
+    <CaretOffset value="1301" />
+    <ScrollPositionY value="315" />
+  </Properties>
   <Properties name="1e13ec5:53712618\GENERATED.CS">
     <CaretOffset value="185" />
     <ScrollPositionY value="0" />
@@ -74,6 +82,70 @@
   <Properties name="1e13ec5:6572818\GENERATED.CS">
     <CaretOffset value="8127" />
     <ScrollPositionY value="4553" />
+  </Properties>
+  <Properties name="1e13ec5:C:\EXTRA\MPFORMULATDM\MPFORMULAPY\SOURCE\MPFORMULATOOLBOX\FUNCTIONNAVIGATOR\FUNCTIONSFORM.VB">
+    <CaretOffset value="6721" />
+    <ScrollPositionY value="3039" />
+  </Properties>
+  <Properties name="1e13ec5:C:\EXTRA\MPFORMULATDM\MPFORMULAPY\SOURCE\MPFORMULATOOLBOX\FUNCTIONNAVIGATOR\PROGRAM.VB">
+    <CaretOffset value="0" />
+    <ScrollPositionY value="0" />
+  </Properties>
+  <Properties name="1e13ec5:C:\EXTRA\MPFORMULATDM\MPFORMULAPY\SOURCE\MPFORMULATOOLBOX\TESTACRO\MAINFORM.CS">
+    <CaretOffset value="1418" />
+    <ScrollPositionY value="675.00000000000023" />
+  </Properties>
+  <Properties name="1e13ec5:C:\EXTRA\MPFORMULATDM\MPFORMULAPY\SOURCE\MPMATH\MPFORMULAONECOM\LIBRARY.VB">
+    <CaretOffset value="10993" />
+    <ScrollPositionY value="6859" />
+  </Properties>
+  <Properties name="1e13ec5:C:\EXTRA\MPFORMULATDM\MPFORMULAPY\SOURCE\MPMATH\MPFORMULAXLCLASSLIB\MPFORMULACLASS.VB">
+    <CaretOffset value="10875" />
+    <ScrollPositionY value="6904" />
+  </Properties>
+  <Properties name="1e13ec5:C:\EXTRA\MPFORMULATDM\MPFORMULAPY\SOURCE\MPMATH\MPMATHCLIENTDLL\MPMATHCLIENTDLLPROGRAM.VB">
+    <CaretOffset value="13765" />
+    <ScrollPositionY value="5093" />
+  </Properties>
+  <Properties name="1e13ec5:C:\EXTRA\MPFORMULATDM\MPFORMULAPY\SOURCE\MPMATH\MPMATHCLIENT\CALLMPMATHPROGRAM.VB">
+    <CaretOffset value="212" />
+    <ScrollPositionY value="0" />
+  </Properties>
+  <Properties name="1e13ec5:C:\EXTRA\MPFORMULATDM\MPFORMULAPY\SOURCE\MPMATH\MPMATHNETLIB\MPMATHCLASS.VB">
+    <CaretOffset value="33836" />
+    <ScrollPositionY value="11449" />
+  </Properties>
+  <Properties name="1e13ec5:C:\EXTRA\MPFORMULATDM\MPFORMULAPY\SOURCE\MPMATH\MPMATHSERVER\MPMATHSERVERPROGRAM.VB">
+    <CaretOffset value="4273" />
+    <ScrollPositionY value="994.17647058823445" />
+  </Properties>
+  <Properties name="1e13ec5:C:\EXTRA\MPFORMULATDM\MPFORMULAPY\SOURCE\MPMATH\TESTFORMULAONECOM\PROGRAM.VB">
+    <CaretOffset value="305" />
+    <ScrollPositionY value="0" />
+  </Properties>
+  <Properties name="1e13ec5:C:\EXTRA\MPFORMULATDM\MPFORMULAPY\SOURCE\MPMATH\TESTFORMULAXLCLASSLIB\TESTMPFORMULA.VB">
+    <CaretOffset value="0" />
+    <ScrollPositionY value="0" />
+  </Properties>
+  <Properties name="1e13ec5:C:\EXTRA\MPFORMULATDM\MPFORMULAPY\SOURCE\MPMATH\TESTMPMATH\TESTMPMATH.VB">
+    <CaretOffset value="89" />
+    <ScrollPositionY value="0" />
+  </Properties>
+  <Properties name="1e13ec5:C:\EXTRA\MPFORMULATDM\MPFORMULAPY\SOURCE\MSOFFICE\EXCELDNA\FUNCTIONFORM.DESIGNER.VB">
+    <CaretOffset value="0" />
+    <ScrollPositionY value="0" />
+  </Properties>
+  <Properties name="1e13ec5:C:\EXTRA\MPFORMULATDM\MPFORMULAPY\SOURCE\MSOFFICE\EXCELDNA\FUNCTIONSFORM.VB">
+    <CaretOffset value="6058" />
+    <ScrollPositionY value="3084" />
+  </Properties>
+  <Properties name="1e13ec5:C:\EXTRA\MPFORMULATDM\MPFORMULAPY\SOURCE\MSOFFICE\EXCELDNA\MAINFORM.VB">
+    <CaretOffset value="192" />
+    <ScrollPositionY value="0" />
+  </Properties>
+  <Properties name="1e13ec5:C:\EXTRA\MPFORMULATDM\MPFORMULAPY\SOURCE\MSOFFICE\TESTMPFORMULA\PROGRAM.VB">
+    <CaretOffset value="325" />
+    <ScrollPositionY value="0" />
   </Properties>
   <Properties name="1e13ec5:C:\EXTRA\MPFORMULATDM\MPFORMULAXL\MPNUM\ADDINS\BACKENDBINDINGS\PYTHONBINDING\LIB\MPMATH\CTX_IV.PY">
     <CaretOffset value="10743" />
@@ -193,6 +265,14 @@
   </Properties>
   <Properties name="1e13ec5:E:\EXTRA\MPFORMULATDM\MPFORMULAXL\SOURCE\TOOLSMEUENTRY\TOOLSMEUENTRY\TOOLSMEUENTRY.ADDIN">
     <CaretOffset value="448" />
+    <ScrollPositionY value="0" />
+  </Properties>
+  <Properties name="1e13ec5:I:\DATA\MPFORMULATDM\MPFORMULAPY\SOURCE\MSOFFICE\EXCELDNA\FUNCTIONSFORM.VB">
+    <CaretOffset value="184" />
+    <ScrollPositionY value="0" />
+  </Properties>
+  <Properties name="1e13ec5:I:\DATA\MPFORMULATDM\MPFORMULAPY\SOURCE\MSOFFICE\EXCELDNA\MAINFORM.VB">
+    <CaretOffset value="0" />
     <ScrollPositionY value="0" />
   </Properties>
   <Properties name="1e13ec5:I:\DATA\MPFORMULATDM\MPFORMULAXL\SOURCE\DISTRIBUTIONS\DISTRIBUTIONSCSHARP\PROGRAM.CS">

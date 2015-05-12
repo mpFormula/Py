@@ -2,6 +2,7 @@
 using System;
 using System.Windows.Forms;
 using System.IO;
+using System.Reflection;
 using Microsoft.Win32;
 
 namespace TestAcro
@@ -44,19 +45,39 @@ namespace TestAcro
 		
 	    
 
-	public string RootDir32()
+
+public static string AssemblyDirectory
+{
+    get
+    {
+        string codeBase = Assembly.GetExecutingAssembly().CodeBase;
+        UriBuilder uri = new UriBuilder(codeBase);
+        string path = Uri.UnescapeDataString(uri.Path);
+        return Path.GetDirectoryName(path);
+    }
+}
+	    
+
+	private string RootDir32()
 	{
-		RegistryKey regKey = null;
-		string RootPath = "Not set";
-		try {
-			regKey = Registry.CurrentUser.OpenSubKey("SOFTWARE\\mpFormulaToolbox", false);
-			RootPath = regKey.GetValue("RootPath", "Not set").ToString();
-			regKey.Close();
-		} catch (Exception ex) {
-			MessageBox.Show("RootDir not set", ex.Message);
-		}
+		string RootPath = AssemblyDirectory + @"\\..\\";
 		return RootPath;
 	}
+	    
+//	    
+//	public string RootDir32()
+//	{
+//		RegistryKey regKey = null;
+//		string RootPath = "Not set";
+//		try {
+//			regKey = Registry.CurrentUser.OpenSubKey("SOFTWARE\\mpFormulaToolbox", false);
+//			RootPath = regKey.GetValue("RootPath", "Not set").ToString();
+//			regKey.Close();
+//		} catch (Exception ex) {
+//			MessageBox.Show("RootDir not set", ex.Message);
+//		}
+//		return RootPath;
+//	}
 
 	    
 //		public MainForm()

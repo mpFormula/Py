@@ -2,6 +2,9 @@
 Imports System
 Imports System.Diagnostics
 Imports System.ServiceModel
+Imports System.Reflection
+Imports System.IO
+
 
 Imports Microsoft.Win32
 
@@ -327,23 +330,42 @@ Public Class MpMathClientClass
 	End Sub
 	
 	
-	Private Function RootDir() As String
-		Dim regKey As RegistryKey = Nothing
-		Dim RootPath As String = "Not set"
-		Try
-			regKey = Registry.CurrentUser.OpenSubKey("SOFTWARE\mpFormulaToolbox", False)
-			RootPath = regKey.GetValue("RootPath", "Not set").ToString()
-			regKey.Close()
-		Catch generatedExceptionName As Exception
-'				Console.WriteLine("RootDir not set")
-		End Try
-		Return RootPath
-	End Function
+	
+		Public Shared ReadOnly Property AssemblyDirectory() As String
+			Get
+				Dim codeBase As String = Assembly.GetExecutingAssembly().CodeBase
+				Dim uri__1 As New UriBuilder(codeBase)
+				Dim path__2 As String = Uri.UnescapeDataString(uri__1.Path)
+				
+				Return Path.GetDirectoryName(path__2)
+			End Get
+		End Property
+
+	
+		Private Function RootDir() As String
+			Dim RootPath As String = AssemblyDirectory() + "\..\"
+			Return RootPath
+		End Function
+		
+
+'	
+'	Private Function RootDir() As String
+'		Dim regKey As RegistryKey = Nothing
+'		Dim RootPath As String = "Not set"
+'		Try
+'			regKey = Registry.CurrentUser.OpenSubKey("SOFTWARE\mpFormulaToolbox", False)
+'			RootPath = regKey.GetValue("RootPath", "Not set").ToString()
+'			regKey.Close()
+'		Catch generatedExceptionName As Exception
+''				Console.WriteLine("RootDir not set")
+'		End Try
+'		Return RootPath
+'	End Function
 
 
 	Private Sub StartApp(FName As String)
 	    Dim directory As String = RootDir() & FName
-'	    Console.WriteLine(directory)
+	    Console.WriteLine(directory)
 		Dim p As New ProcessStartInfo()
 		p.FileName = directory
 		'		p.WindowStyle = ProcessWindowStyle.Hidden;

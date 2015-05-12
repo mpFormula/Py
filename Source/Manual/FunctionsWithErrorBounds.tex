@@ -87,16 +87,18 @@ mpc(real='0.70710678118654757', imag='0.70710678118654757')
 
 \subsection{Setting the precision} 
 
-Mpmath uses a global working precision; it does not keep track of the precision or accuracy of individual numbers. Performing an arithmetic operation or calling mpf() rounds the result to the current working precision. The working precision is controlled by a context object
-called mp, which has the following default state:
+Mpmath uses a global working precision; it does not keep track of the precision or accuracy of individual numbers. Performing an arithmetic operation or calling mpf() rounds the result to the current working precision. The working precision is controlled by a context object called mp, which has the following default states:
 
 \lstset{language={Python}}
 \begin{lstlisting}
->>> print mp
-Mpmath settings:
-mp.prec = 53 [default: 53]
-mp.dps = 15 [default: 15]
-mp.trap_complex = False [default: False]
+>>> from mpFormulaPy import *
+>>> mp.dps
+25
+>>> mp.prec
+86
+>>> mp.trap_complex
+False
+>>>
 \end{lstlisting}
 
 
@@ -11656,6 +11658,7 @@ $b > 0$ and the support interval $(0,+\infty)$ :
 	{n? mpNum? A real number greater 0, representing the degrees of freedom}
 	{Output? String? A string describing the output choices}
 \end{mpFunctionsExtract}
+
 
 
 \vspace{0.3cm}

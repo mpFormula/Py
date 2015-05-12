@@ -2,6 +2,7 @@
 Imports System.Collections.Generic
 Imports System.Reflection
 Imports System.Text
+Imports System.IO
 
 Imports IronPython.Hosting
 Imports Microsoft.Scripting
@@ -764,18 +765,42 @@ Public Class MpMathClass
 	'***************************************************************************************************************
 	
 	
-	Public Function RootDir() As String
-		Dim regKey As RegistryKey = Nothing
-		Dim RootPath As String = "Not set"
-		Try
-			regKey = Registry.CurrentUser.OpenSubKey("SOFTWARE\mpFormulaToolbox", False)
-			RootPath = regKey.GetValue("RootPath", "Not set").ToString()
-			regKey.Close()
-		Catch generatedExceptionName As Exception
-			Console.WriteLine("RootDir not set")
-		End Try
-		Return RootPath
-	End Function
+	
+		
+
+		Public Shared ReadOnly Property AssemblyDirectory() As String
+			Get
+				Dim codeBase As String = Assembly.GetExecutingAssembly().CodeBase
+				Dim uri__1 As New UriBuilder(codeBase)
+				Dim path__2 As String = Uri.UnescapeDataString(uri__1.Path)
+				
+				Return Path.GetDirectoryName(path__2)
+			End Get
+		End Property
+
+	
+		Private Function RootDir() As String
+			Dim RootPath As String = AssemblyDirectory() + "\..\"
+			Return RootPath
+		End Function
+
+	
+'	Public Function RootDir() As String
+'		Dim regKey As RegistryKey = Nothing
+'		Dim RootPath As String = "Not set"
+'		Try
+'			regKey = Registry.CurrentUser.OpenSubKey("SOFTWARE\mpFormulaToolbox", False)
+'			RootPath = regKey.GetValue("RootPath", "Not set").ToString()
+'			regKey.Close()
+'		Catch generatedExceptionName As Exception
+'			Console.WriteLine("RootDir not set")
+'		End Try
+'		Return RootPath
+'	End Function
+	
+	
+	
+	
 	
 	Sub ReportException(e As Exception)
 		Dim s As [String] = e.ToString()

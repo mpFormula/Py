@@ -1239,13 +1239,13 @@ For $-1 \leq r \leq 1$, define $f_R(r, N; \rho)$ to be the probability density f
 See also \cite{subrahmaniam_extensions_1983}
 
 
-
-\begin{figure}[ht]
-	\centering
-	\includegraphics{Charts/pdf/PearsonRho.pdf}
-	\caption{pdf of the Distribution of the Sample Correlation Coefficient}
-	\label{Fig pdf of the Distribution of the Sample Correlation Coefficient}
-\end{figure}
+%
+%\begin{figure}[ht]
+%	\centering
+%	\includegraphics{Charts/pdf/PearsonRho.pdf}
+%	\caption{pdf of the Distribution of the Sample Correlation Coefficient}
+%	\label{Fig pdf of the Distribution of the Sample Correlation Coefficient}
+%\end{figure}
 
 
 
@@ -6818,7 +6818,7 @@ UpperNPower: 0.9285919
 
 
 \newpage
-\section{Tests for means from 1 or 2 samples (Student's t-test)}
+\section{Tests for the mean from 1 sample (Student's t-test)}
 \label{1SampleTTest}
 
 \subsection{Overview}
@@ -6873,39 +6873,39 @@ The test can also be expressed in terms of a correlation coefficient $r$ between
 \end{equation}
 
 
-
-%BEGIN 2 INDEPENDENT
-\begin{equation}
-	t= \frac{(\overline{x}_1-\overline{x}_2)}{s}, \text{ where}
-\end{equation}
-\begin{equation} \label{eq:TTest2i}
-	s = \sqrt{\textit{MSE}\left(\frac{1}{n_1}+\frac{1}{n_2}\right)}, \quad \textit{MSE} = \frac{(n_1-1)s_1^2+(n_2-1)s_2^2}{\nu}, \quad \nu=n_1+n_2-2.
-\end{equation}
-
-Then $p$-values and rejection criteria for $H_0$ can be calculated as summarized in Table \ref{TableStudentsttest,2i samples}.
-
-\begin{table}[ht]
-	\centering
-	\begin{tabular}{|l|l|l|}
-		\hline
-		Test problem & $p$-value & Reject $H_0$ if \\
-		\hline
-		$H_{01}: \mu_1 \leq \mu_2$ vs $H_{A1}: \mu_1 > \mu_2$ & $F_t\left(-t, \nu\right)$ &$t > t_{\nu;1-\alpha}$ \\
-		$H_{02}: \mu_1 \geq \mu_2$ vs $H_{A2}: \mu_1 < \mu_2$ & $F_t\left(t, \nu\right)$  &$t > t_{\nu;\alpha}$ \\
-		$H_{03}: \mu_1 = \mu_2$ vs $H_{A3}: \mu_1 \neq \mu_2$ & $F_t\left(t, \nu\right)-F_t\left(-t, \nu\right)$ &$t > t_{\nu;1-\alpha/2}$ or $t > t_{\nu;\alpha/2}$ \\
-		\hline
-	\end{tabular}
-	\caption{Student's t-test, 2 independent samples}
-	\label{TableStudentsttest,2i samples}
-\end{table}
-
-
-The test can also be expressed in terms of a correlation coefficient $r$ between the combined $X$ and an indicator variable, where $t$ and $r$ are related by
-
-\begin{equation}
-	r=\frac{t}{\sqrt{t^2+\nu}}, \quad t= \nu \frac{r}{1-r^2}.
-\end{equation}
-%END 2 INDEPENDENT
+%
+%%BEGIN 2 INDEPENDENT
+%\begin{equation}
+%	t= \frac{(\overline{x}_1-\overline{x}_2)}{s}, \text{ where}
+%\end{equation}
+%\begin{equation} \label{eq:TTest2i}
+%	s = \sqrt{\textit{MSE}\left(\frac{1}{n_1}+\frac{1}{n_2}\right)}, \quad \textit{MSE} = \frac{(n_1-1)s_1^2+(n_2-1)s_2^2}{\nu}, \quad \nu=n_1+n_2-2.
+%\end{equation}
+%
+%Then $p$-values and rejection criteria for $H_0$ can be calculated as summarized in Table \ref{TableStudentsttest,2i samples}.
+%
+%\begin{table}[ht]
+%	\centering
+%	\begin{tabular}{|l|l|l|}
+%		\hline
+%		Test problem & $p$-value & Reject $H_0$ if \\
+%		\hline
+%		$H_{01}: \mu_1 \leq \mu_2$ vs $H_{A1}: \mu_1 > \mu_2$ & $F_t\left(-t, \nu\right)$ &$t > t_{\nu;1-\alpha}$ \\
+%		$H_{02}: \mu_1 \geq \mu_2$ vs $H_{A2}: \mu_1 < \mu_2$ & $F_t\left(t, \nu\right)$  &$t > t_{\nu;\alpha}$ \\
+%		$H_{03}: \mu_1 = \mu_2$ vs $H_{A3}: \mu_1 \neq \mu_2$ & $F_t\left(t, \nu\right)-F_t\left(-t, \nu\right)$ &$t > t_{\nu;1-\alpha/2}$ or $t > t_{\nu;\alpha/2}$ \\
+%		\hline
+%	\end{tabular}
+%	\caption{Student's t-test, 2 independent samples}
+%	\label{TableStudentsttest,2i samples}
+%\end{table}
+%
+%
+%The test can also be expressed in terms of a correlation coefficient $r$ between the combined $X$ and an indicator variable, where $t$ and $r$ are related by
+%
+%\begin{equation}
+%	r=\frac{t}{\sqrt{t^2+\nu}}, \quad t= \nu \frac{r}{1-r^2}.
+%\end{equation}
+%%END 2 INDEPENDENT
 
 
 
@@ -6943,27 +6943,6 @@ Let $A_1=t_{\nu,\alpha} \cdot s$ and $A_2=t_{\nu,\alpha/2} \cdot s$, where $s$ a
 {Right-sided? $(\overline{x}_1-\mu_0 ) - A_1 \leq \mu_1 - \mu_0 \leq +\infty$}
 {Two-sided? $(\overline{x}_1-\mu_0 ) - A_2 \leq \mu_1 - \mu_0 \leq (\overline{x}_1-\mu_0 ) + A_2$}
 
-%BEGIN
-
-Let $A_1=t_{\nu,\alpha} \cdot s$ and $A_2=t_{\nu,\alpha/2} \cdot s$, where $s$ and $\nu$ are defined in (\ref{eq:TTest2i}), and $t_{\nu,\alpha}$ denotes the $\alpha$-quantile of the (central) $t$-distribution with $\nu$ degrees of freedom (see section \ref{tDistributionQuantile}). Then confidence intervals for the difference of 2 means can be calculated as summarized in Table \ref{TableStudentsttest,2i samples, CI}.
-
-\begin{table}[ht]
-	\centering
-	\begin{tabular}{|l|l|}
-		\hline
-		Type & Confidence Interval (Difference of Means)\\
-		\hline
-		Left-sided &  $-\infty \leq \mu_1 - \mu_2 \leq (\overline{x}_1-\overline{x}_2) + A_1$ \\
-		Right-sided &  $(\overline{x}_1-\overline{x}_2) - A_1 \leq \mu_1 - \mu_2 \leq +\infty$\\
-		Two-sided & $(\overline{x}_1-\overline{x}_2) - A_2 \leq \mu_1 - \mu_2 \leq (\overline{x}_1-\overline{x}_2) + A_2$ \\
-		\hline
-	\end{tabular}
-	\caption{2 independent samples, confidence intervals for means}
-	\label{TableStudentsttest,2i samples, CI}
-\end{table}
-
-
-%END
 
 
 \subsubsection{Confidence Intervals: examples}
@@ -7032,42 +7011,42 @@ and let $t_{\nu,\alpha}$ denote the $\alpha$-quantile of the central $t$-distrib
 
 
 %BEGIN
-
-\vspace{0.3cm}
-Let $\sigma_1^2 = \sigma_2^2 = \sigma^2$, $N = n_1 + n_2$, $q_1 = n_1 /N$, $q_2 = n_2 /N$, and $\nu=N-2$. Define
-
-\begin{equation} \label{eq:TTestPower2i}
-	\widetilde{\rho} = \frac{\mu_1-\mu_2}{\sigma} \sqrt{\frac{q_1+q_2}{q_1 \cdot q_2}}, \text{ and } \delta = \sqrt{N} \widetilde{\rho}.
-\end{equation}
-
-
-Let $F_{t'}\left(\cdot, \nu, \delta \right)$ denote the CDF of the (singly) noncentral $t$-distribution with $\nu$ degrees of freedom and noncentrality parameter $\delta$ (see section 
-%\ref{NoncentraltDistributionCDFBoost})
-and let $t_{\nu,\alpha}$ denote the $\alpha$-quantile of the central $t$-distribution with $\nu$ degrees of freedom (see section \ref{tDistributionQuantile}).
-Then the power for accepting $H_A$ at the confidence level $\alpha$ can be calculated as summarized in Table \ref{TableStudentsttest,2i samples,power}.
-
-
-\begin{table}[ht]
-	\centering
-	\begin{tabular}{|l|l|l|l|}
-		\hline
-		Test &Null Hypothesis &Alternative & Power \\
-		\hline
-		1 sided & $H_{01}: \mu_1 \leq \mu_2$ & $H_{A1}: \mu_1 > \mu_2$ & $F_{t'}\left(-t_{\nu;1-\alpha}, \nu, \delta \right)$ \\
-		1 sided & $H_{02}: \mu_1 \geq \mu_2$ & $H_{A2}: \mu_1 < \mu_2$ & $F_{t'}\left(t_{\nu;1-\alpha}, \nu, \delta \right)$  \\
-		\hline
-		2 sided & $H_{03}: \mu_1 = \mu_2$ & $H_{A1}: \mu_1 > \mu_2$ & $F_{t'}\left(-t_{\nu;1-\alpha/2}, \nu, \delta \right)$ \\
-		2 sided & $H_{03}: \mu_1 = \mu_2$ & $H_{A2}: \mu_1 < \mu_2$ & $F_{t'}\left(t_{\nu;1-\alpha/2}, \nu, \delta \right)$  \\
-		2 sided & $H_{03}: \mu_1 = \mu_2$ & $H_{A3}: \mu_1 \neq \mu_2$ & $F_{t'}\left(t_{\nu;1-\alpha/2}, \nu, \delta \right)-F_t\left(-t_{\nu;1-\alpha/2}, \nu\, \delta \right)$ \\
-		\hline
-	\end{tabular}
-	\caption{Student's t-test, 2 independent samples, power}
-	\label{TableStudentsttest,2i samples,power}
-\end{table}
-
-
-
-
+%
+%\vspace{0.3cm}
+%Let $\sigma_1^2 = \sigma_2^2 = \sigma^2$, $N = n_1 + n_2$, $q_1 = n_1 /N$, $q_2 = n_2 /N$, and $\nu=N-2$. Define
+%
+%\begin{equation} \label{eq:TTestPower2i}
+%	\widetilde{\rho} = \frac{\mu_1-\mu_2}{\sigma} \sqrt{\frac{q_1+q_2}{q_1 \cdot q_2}}, \text{ and } \delta = \sqrt{N} \widetilde{\rho}.
+%\end{equation}
+%
+%
+%Let $F_{t'}\left(\cdot, \nu, \delta \right)$ denote the CDF of the (singly) noncentral $t$-distribution with $\nu$ degrees of freedom and noncentrality parameter $\delta$ (see section 
+%%\ref{NoncentraltDistributionCDFBoost})
+%and let $t_{\nu,\alpha}$ denote the $\alpha$-quantile of the central $t$-distribution with $\nu$ degrees of freedom (see section \ref{tDistributionQuantile}).
+%Then the power for accepting $H_A$ at the confidence level $\alpha$ can be calculated as summarized in Table \ref{TableStudentsttest,2i samples,power}.
+%
+%
+%\begin{table}[ht]
+%	\centering
+%	\begin{tabular}{|l|l|l|l|}
+%		\hline
+%		Test &Null Hypothesis &Alternative & Power \\
+%		\hline
+%		1 sided & $H_{01}: \mu_1 \leq \mu_2$ & $H_{A1}: \mu_1 > \mu_2$ & $F_{t'}\left(-t_{\nu;1-\alpha}, \nu, \delta \right)$ \\
+%		1 sided & $H_{02}: \mu_1 \geq \mu_2$ & $H_{A2}: \mu_1 < \mu_2$ & $F_{t'}\left(t_{\nu;1-\alpha}, \nu, \delta \right)$  \\
+%		\hline
+%		2 sided & $H_{03}: \mu_1 = \mu_2$ & $H_{A1}: \mu_1 > \mu_2$ & $F_{t'}\left(-t_{\nu;1-\alpha/2}, \nu, \delta \right)$ \\
+%		2 sided & $H_{03}: \mu_1 = \mu_2$ & $H_{A2}: \mu_1 < \mu_2$ & $F_{t'}\left(t_{\nu;1-\alpha/2}, \nu, \delta \right)$  \\
+%		2 sided & $H_{03}: \mu_1 = \mu_2$ & $H_{A3}: \mu_1 \neq \mu_2$ & $F_{t'}\left(t_{\nu;1-\alpha/2}, \nu, \delta \right)-F_t\left(-t_{\nu;1-\alpha/2}, \nu\, \delta \right)$ \\
+%		\hline
+%	\end{tabular}
+%	\caption{Student's t-test, 2 independent samples, power}
+%	\label{TableStudentsttest,2i samples,power}
+%\end{table}
+%
+%
+%
+%
 %END
 
 
@@ -7129,30 +7108,30 @@ Let $N_{t'}\left(\alpha, \beta, \widetilde{\rho} \right)$ denote the sample size
 Note that the returned value of $N$ will in general not be an integer, and rounding up may be required.
 
 %BEGIN
-
-Let $N_{t'}\left(\alpha, \beta, \widetilde{\rho} \right)$ denote the sample size function of the (singly) noncentral $t$-distribution (see section \ref{NoncentralTDistributionSampleSize} ) for a given confidence level $\alpha$, power $\beta$ and noncentrality parameter $\widetilde{\rho}$ (as defined in equation \ref{eq:TTestPower2i}. The required total sample size $N$ can be calculated as summarized in Table \ref{TableStudentsttest,2i samples,sample size}. Note that the returned value of $N$ will in general not be an integer, and rounding up may be required to ensure that all $n_i$ are integers.
-
-
-\begin{table}[ht]
-	\centering
-	\begin{tabular}{|l|l|l|l|}
-		\hline
-		Test &Null Hypothesis &Alternative & Minimal sample size $N$ \\
-		\hline
-		1 sided & $H_{01}: \mu_1 \leq \mu_2$ & $H_{A1}: \mu_1 > \mu_2$ & $N_{t'}\left(\alpha, \beta, \widetilde{\rho} \right)$ \\
-		1 sided & $H_{02}: \mu_1 \geq \mu_2$ & $H_{A2}: \mu_1 < \mu_2$ & $N_{t'}\left(\alpha, \beta, \widetilde{\rho} \right)$  \\
-		\hline
-		2 sided & $H_{03}: \mu_1 = \mu_2$ & $H_{A1}: \mu_1 > \mu_2$ & $N_{t'}\left(\alpha, \beta, \widetilde{\rho} \right)$ \\
-		2 sided & $H_{03}: \mu_1 = \mu_2$ & $H_{A2}: \mu_1 < \mu_2$ & $N_{t'}\left(\alpha, \beta, \widetilde{\rho} \right)$  \\
-		2 sided & $H_{03}: \mu_1 = \mu_2$ & $H_{A3}: \mu_1 \neq \mu_2$ & $N2_{t'}\left(\alpha, \beta, \widetilde{\rho} \right)$ \\
-		\hline
-	\end{tabular}
-	\caption{Student's t-test, 2 independent samples, sample size}
-	\label{TableStudentsttest,2i samples,sample size}
-\end{table}
-
-
-
+%
+%Let $N_{t'}\left(\alpha, \beta, \widetilde{\rho} \right)$ denote the sample size function of the (singly) noncentral $t$-distribution (see section \ref{NoncentralTDistributionSampleSize} ) for a given confidence level $\alpha$, power $\beta$ and noncentrality parameter $\widetilde{\rho}$ (as defined in equation \ref{eq:TTestPower2i}. The required total sample size $N$ can be calculated as summarized in Table \ref{TableStudentsttest,2i samples,sample size}. Note that the returned value of $N$ will in general not be an integer, and rounding up may be required to ensure that all $n_i$ are integers.
+%
+%
+%\begin{table}[ht]
+%	\centering
+%	\begin{tabular}{|l|l|l|l|}
+%		\hline
+%		Test &Null Hypothesis &Alternative & Minimal sample size $N$ \\
+%		\hline
+%		1 sided & $H_{01}: \mu_1 \leq \mu_2$ & $H_{A1}: \mu_1 > \mu_2$ & $N_{t'}\left(\alpha, \beta, \widetilde{\rho} \right)$ \\
+%		1 sided & $H_{02}: \mu_1 \geq \mu_2$ & $H_{A2}: \mu_1 < \mu_2$ & $N_{t'}\left(\alpha, \beta, \widetilde{\rho} \right)$  \\
+%		\hline
+%		2 sided & $H_{03}: \mu_1 = \mu_2$ & $H_{A1}: \mu_1 > \mu_2$ & $N_{t'}\left(\alpha, \beta, \widetilde{\rho} \right)$ \\
+%		2 sided & $H_{03}: \mu_1 = \mu_2$ & $H_{A2}: \mu_1 < \mu_2$ & $N_{t'}\left(\alpha, \beta, \widetilde{\rho} \right)$  \\
+%		2 sided & $H_{03}: \mu_1 = \mu_2$ & $H_{A3}: \mu_1 \neq \mu_2$ & $N2_{t'}\left(\alpha, \beta, \widetilde{\rho} \right)$ \\
+%		\hline
+%	\end{tabular}
+%	\caption{Student's t-test, 2 independent samples, sample size}
+%	\label{TableStudentsttest,2i samples,sample size}
+%\end{table}
+%
+%
+%
 %END
 
 
@@ -7195,23 +7174,23 @@ Let $A_1=t_{\nu,\alpha} \cdot s$ and $A_2=t_{\nu,\alpha/2} \cdot s$, where $s$ a
 
 
 %BEGIN
-
-Let $A_1=t_{\nu,\alpha} \cdot s$ and $A_2=t_{\nu,\alpha/2} \cdot s$, where $s$ and $\nu$ are defined in (\ref{eq:TTest2i}), and $t_{\nu,\alpha}$ denotes the $\alpha$-quantile of the (central) $t$-distribution with $\nu$ degrees of freedom (see section \ref{tDistributionQuantile}). Then confidence intervals for the difference of 2 means can be calculated as summarized in Table \ref{TableStudentsttest,2i samples, EffectSize}.
-
-\begin{table}[ht]
-	\centering
-	\begin{tabular}{|l|l|}
-		\hline
-		Type & Confidence Interval (Effect size)\\
-		\hline
-		Left-sided &  $-\infty \leq \mu_1 - \mu_2 \leq (\overline{x}_1-\overline{x}_1) + A_1$ \\
-		Right-sided &  $(\overline{x}_1-\overline{x}_1) - A_1 \leq \mu_1 - \mu_2 \leq +\infty$\\
-		Two-sided & $(\overline{x}_1-\overline{x}_1) - A_2 \leq \mu_1 - \mu_2 \leq (\overline{x}_1-\overline{x}_1) + A_2$ \\
-		\hline
-	\end{tabular}
-	\caption{2 independent samples, confidence intervals for effect size}
-	\label{TableStudentsttest,2i samples, EffectSize}
-\end{table}
+%
+%Let $A_1=t_{\nu,\alpha} \cdot s$ and $A_2=t_{\nu,\alpha/2} \cdot s$, where $s$ and $\nu$ are defined in (\ref{eq:TTest2i}), and $t_{\nu,\alpha}$ denotes the $\alpha$-quantile of the (central) $t$-distribution with $\nu$ degrees of freedom (see section \ref{tDistributionQuantile}). Then confidence intervals for the difference of 2 means can be calculated as summarized in Table \ref{TableStudentsttest,2i samples, EffectSize}.
+%
+%\begin{table}[ht]
+%	\centering
+%	\begin{tabular}{|l|l|}
+%		\hline
+%		Type & Confidence Interval (Effect size)\\
+%		\hline
+%		Left-sided &  $-\infty \leq \mu_1 - \mu_2 \leq (\overline{x}_1-\overline{x}_1) + A_1$ \\
+%		Right-sided &  $(\overline{x}_1-\overline{x}_1) - A_1 \leq \mu_1 - \mu_2 \leq +\infty$\\
+%		Two-sided & $(\overline{x}_1-\overline{x}_1) - A_2 \leq \mu_1 - \mu_2 \leq (\overline{x}_1-\overline{x}_1) + A_2$ \\
+%		\hline
+%	\end{tabular}
+%	\caption{2 independent samples, confidence intervals for effect size}
+%	\label{TableStudentsttest,2i samples, EffectSize}
+%\end{table}
 
 
 %END
@@ -7259,583 +7238,16 @@ For the mean of $m$ future observations:
 	\left[Y_l,Y_u\right] = \overline{X}\pm t_{n-1;1-\alpha/2} \times \sqrt{\frac{1}{m}+\frac{1}{n}} \times s, \text{ for } m\geq1.
 \end{equation}
 
-where $m$ is the number of fututre observations, and $n$ is the number of points in the current analysis sample. The one-sided intervals are formed by using $1-\alpha$ in the quantile functions.
-
-
-
-
-
-\newpage
-\section{Tests for variances from 1 or 2 samples}
-\label{1SampleChiSquareTest}
-
-
-\subsection{Overview}
-\label{1SampleChiSquareTestOverview}
-
-The test criterion is $\chi^2=\frac{(n-1) s^2}{\sigma_0^2}$. This results in the following tests:
-
-\subsection{Test}
-\begin{tabular}{p{481pt}}
-	\toprule
-	\textsf{Function \textbf{Chi2VarianceTest}($\boldsymbol{a}\ As\ mpNum$, $\boldsymbol{b}\ As\ mpNum$) As mpNum}\index{Multiprecision Functions!Chi2VarianceTest} \\
-	\bottomrule
-\end{tabular}
-
-\vspace{0.3cm}
-
-
-\begin{table}[ht]
-	\centering
-	\begin{tabular}{|l|l|}
-		\hline
-		Test problem & Reject $H_0$ if \\
-		\hline
-		$H_{01}: \sigma^2 \leq \sigma^2_0$ vs $H_{A1}: \sigma^2 > \sigma^2_0$ & $\chi^2 > \chi^2_{n-1;1-\alpha}$ \\
-		$H_{02}: \sigma^2 \geq \sigma^2_0$ vs $H_{A2}: \sigma^2 < \sigma^2_0$ & $\chi^2 > \chi^2_{n-1;\alpha}$ \\
-		$H_{03}: \sigma^2 = \sigma^2_0$ vs $H_{A3}: \sigma^2 \neq \sigma^2_0$ & $\chi^2 > \chi^2_{n-1;1-\alpha/2}$ or $\chi^2 > \chi^2_{n-1;\alpha/2}$ \\
-		\hline
-	\end{tabular}
-	\caption{ChiSquareVariance-test, 1 sample}
-	\label{ChiSquareVariance-test, 1 sample}
-\end{table}
-
-
-\subsection{Confidence Interval for a sample variance}
-\begin{tabular}{p{481pt}}
-	\toprule
-	\textsf{Function \textbf{Chi2VarianceTestCI}($\boldsymbol{a}\ As\ mpNum$, $\boldsymbol{b}\ As\ mpNum$) As mpNum}\index{Multiprecision Functions!Chi2VarianceTestCI} \\
-	\bottomrule
-\end{tabular}
-
-\vspace{0.3cm}
-A 2-sided $1-\alpha$ Confidence Interval for the sample variance $\sigma^2$ is given by
-\begin{equation}
-	\frac{(n-1)s^2}{\chi^2_{n-1;1-\alpha/2}} \leq \sigma^2 \leq \frac{(n-1)s^2}{\chi^2_{n-1;\alpha/2}}
-\end{equation}
-
-
-\subsection{F-Test for 2 independent variances}
-\label{2iSamplesFTest}
-
-
-\begin{tabular}{p{481pt}}
-	\toprule
-	{\sffamily Function {\bfseries Test2i}("{\bfseries FTest}", {\itshape{\bfseries Type1Error} As mpNum, {\bfseries N} As mpNum[], {\bfseries Mean} As mpNum[], {\bfseries StDev} As mpNum[], {\bfseries Output} As String}) As mpNumList}\index{Multiprecision Functions!TDist} \\[0.2cm]
-	
-	{\sffamily Function {\bfseries TestPower2i}("{\bfseries FTest}", {\itshape{\bfseries Type1Error} As mpNum, {\bfseries N} As mpNum[], {\bfseries Mean} As mpNum[], {\bfseries StDev} As mpNum[], {\bfseries Output} As String}) As mpNumList}\index{Multiprecision Functions!TDist} \\[0.2cm]
-	
-	{\sffamily Function {\bfseries TestSampleSize2i}("{\bfseries FTest}", {\itshape{\bfseries Type1Error} As mpNum, {\bfseries Type2Error} As mpNum, {\bfseries Mean} As mpNum[], {\bfseries StDev} As mpNum[], {\bfseries Output} As String}) As mpNumList}\index{Multiprecision Functions!TDist} \\
-	\bottomrule
-\end{tabular}
-\vspace{0.3cm}
+where $m$ is the number of future observations, and $n$ is the number of points in the current analysis sample. The one-sided intervals are formed by using $1-\alpha$ in the quantile functions.
 
 
 
 \newpage
-\section{Tests for proportions from 1 or 2 samples}
-\label{1SampleBinomialTest}
-A general reference to categorical data analysis is \cite{Agresti_2002}
-
+\section{Tests for means from 2 independent samples (Student's t-test)}
+\label{2iSampleTTest}
 
 \subsection{Overview}
-\label{1SampleBinomialTestOverview}
-
-\lipsum[2]
-
-\subsection{BinomialTest}
-\begin{tabular}{p{481pt}}
-	\toprule
-	\textsf{Function \textbf{BinomialTest}($\boldsymbol{a}\ As\ mpNum$, $\boldsymbol{b}\ As\ mpNum$) As mpNum}\index{Multiprecision Functions!BinomialTest} \\
-	\bottomrule
-\end{tabular}
-
-\vspace{0.3cm}
-
-
-\begin{table}[ht]
-	\centering
-	\begin{tabular}{|l|l|}
-		\hline
-		Test problem & Reject $H_0$ if \\
-		\hline
-		$H_{01}: p \leq p_0$ vs $H_{A1}: p > p_0$ & $t > t_{n-1;1-\alpha}$ \\
-		$H_{02}: p \geq p_0$ vs $H_{A2}: p < p_0$ & $t > t_{n-1;\alpha}$ \\
-		$H_{03}: p = p_0$ vs $H_{A3}: p \neq p_0$ & $t > t_{n-1;1-\alpha/2}$ or $t > t_{n-1;\alpha/2}$ \\
-		\hline
-	\end{tabular}
-	\caption{Student's t-test, 1 sample}
-	\label{Table1SampleBinomialTest,1 sample}
-\end{table}
-
-
-
-\subsection{Fisher's Exact Test}
-
-
-
-\lipsum[2]
-
-
-
-\newpage
-\section{Wilcoxon Test (1 sample  or 2 correlated samples)}
-\label{1SampleWilcoxonTest}
-
-Book Reference: \cite{Sprent2007}
-
-Book Reference: \cite{Desu2004}
-
-Book Reference: \cite{Hollander_2013}
-
-See also \cite{conover1981}
-
-See also \cite{buening_nonparametric_1978}
-
-See also \cite{bortz_distribution_1990}
-
-Add: Noether
-
-\subsection{Overview}
-\label{1SampleWilcoxonTestOverview}
-
-NOTE: cover 1 sample and 2 correlated samples in this section
-
-We consider $N$ continously distributed random variables $D_i,i=1\ldots N$, with common pdf $h_0$. In a sample $(d_1,\ldots,d_N)$ of size $N$ let $r_i$ be the rank of $d_i$ in the ordered sample.
-
-\subsubsection{The $T_N$ and $W_N$ test criteria}
-The test criterion of Wilcoxon's Signed Rank is $T_N=\sum_{i=1}^N S(d_i)r_i$, where $S(d_i)=1$ for $x>0$ and $S(d_i)=0$ for $x<0$.
-$T_N$ can assume values between 0 and $\tfrac{1}{2}N(N+1)$ in steps of 1.
-
-Equivalent to $T_N$ is the criterion $W_N=\sum_{i=1}^N \text{sgn}(d_i)r_i$. $W_N$ can assume values between $-\tfrac{1}{2}N(N+1)$ and $\tfrac{1}{2}N(N+1)$ in steps of 2. 
-
-We have $W_N=2T_N-\tfrac{1}{2}N(N+1)$ and $T_N=(W_N+\tfrac{1}{2}N(N+1))$.
-
-
-
-
-\subsubsection{The $\widetilde{T}_N$ and $\widetilde{W}_N$ test criteria}
-$T$ can also be written as $T=T_1+\widetilde{T}_N, \quad T_1=\sum_{i=1}^N S(d_i), \quad \widetilde{T}_N=\sum_{i=1}^{N-1} \sum_{j=i+1}^N S(d_i+d_j)$.
-
-$T_1$ is the test criterion of the Sign test (see section ...).
-
-$\widetilde{T}_N$ is the test criterion of the modified Signed Rank test.
-
-$\widetilde{T}_N$ can also be written as $\widetilde{T}_N=\sum_{i=1}^N s(d_i) (r_i - 1)$. 
-$\widetilde{T}_N$ can assume values between 0 and $\tfrac{1}{2}N(N-1)$ in steps of 1.
-
-Equivalent to $\widetilde{T}_N$ is the criterion $\widetilde{W}_N=\sum_{i=1}^N \text{sgn}(d_i)(r_i - 1)$. 
-
-$\widetilde{W}_N$ can assume values between $-\tfrac{1}{2}N(N-1)$ and $\tfrac{1}{2}N(N-1)$ in steps of 2. 
-
-We have $\widetilde{W}_N=2\widetilde{T}_N-\tfrac{1}{2}N(N-1)$ and $\widetilde{T}_N=\tfrac{1}{2}(\widetilde{W}_N+\tfrac{1}{2}N(N-1))$.
-
-
-
-\vspace{2cm}
-
-\subsection{Relationship to other tests}
-$W$ (and therefore also $T$) is equivalent to the test criterion of Student's t-test, when applied to the rank=transformed data. The $t_R$ values of this t-test and $W$ are related as follows \citep{conover1981}:
-
-\begin{equation}
-	t_R = \frac{W}{\sqrt{(N-W^2)/(N-1)}} \quad and \quad W=t_R \sqrt{\frac{N}{(N-1)+t_r^2}}
-\end{equation}
-
-
-
-%
-%\subsection{Test}
-%\begin{tabular}{p{481pt}}
-%\toprule
-%\textsf{Function \textbf{WilcoxonTest1}($\boldsymbol{a}\ As\ mpNum$, $\boldsymbol{b}\ As\ mpNum$) As mpNum}\index{Multiprecision Functions!WilcoxonTest1} \\
-%\bottomrule
-%\end{tabular}
-%
-%\vspace{0.3cm}
-%
-%
-%
-%\begin{table}[ht]
-%\centering
-%\begin{tabular}{|l|l|}
-%\hline
-%Test problem & Reject $H_0$ if \\
-%\hline
-%$H_{01}: \mu \leq \mu_0$ vs $H_{A1}: \mu > \mu_0$ & $t > t_{n-1;1-\alpha}$ \\
-%$H_{02}: \mu \geq \mu_0$ vs $H_{A2}: \mu < \mu_0$ & $t > t_{n-1;\alpha}$ \\
-%$H_{03}: \mu = \mu_0$ vs $H_{A3}: \mu \neq \mu_0$ & $t > t_{n-1;1-\alpha/2}$ or $t > t_{n-1;\alpha/2}$ \\
-%\hline
-%\end{tabular}
-%\caption{Wilcoxon-test, 1 sample}
-%\label{TableWilcoxon-test, 1 sample}
-%\end{table}
-%
-%
-%\subsection{Power}
-%\begin{tabular}{p{481pt}}
-%\toprule
-%\textsf{Function \textbf{WilcoxonTest1Power}($\boldsymbol{a}\ As\ mpNum$, $\boldsymbol{b}\ As\ mpNum$) As mpNum}\index{Multiprecision Functions!WilcoxonTest1Power} \\
-%\bottomrule
-%\end{tabular}
-%
-%\vspace{0.3cm}
-%
-%\lipsum[4]
-%
-%\begin{figure}[ht]
-%\centering
-%\includegraphics{mpTemp2.pdf}
-%\caption{Power of Wilcoxon Test}
-%\label{FigPowerOf1SampleWilcoxon}
-%\end{figure}
-%
-%
-%\subsection{Sample Size Calculation}
-%\begin{tabular}{p{481pt}}
-%\toprule
-%\textsf{Function \textbf{WilcoxonTest1SampleSize}($\boldsymbol{a}\ As\ mpNum$, $\boldsymbol{b}\ As\ mpNum$) As mpNum}\index{Multiprecision Functions!WilcoxonTest1SampleSize} \\
-%\bottomrule
-%\end{tabular}
-%
-%\vspace{0.3cm}
-%
-%\lipsum[4]
-%
-
-
-
-\newpage
-\section{Mann-Whitney Test}
-\label{1SampleMannWhitneyTest}
-
-
-\subsection{Overview}
-\label{1SampleMannWhitneyTestOverview}
-
-\lipsum[2]
-%
-%\subsection{Test}
-%\begin{tabular}{p{481pt}}
-%\toprule
-%\textsf{Function \textbf{MannWhitneyTest}($\boldsymbol{a}\ As\ mpNum$, $\boldsymbol{b}\ As\ mpNum$) As mpNum}\index{Multiprecision Functions!MannWhitneyTest} \\
-%\bottomrule
-%\end{tabular}
-%
-%\vspace{0.3cm}
-%
-%The density of a central chi-square variable with $n$ degrees of freedom is given by
-%\begin{equation}
-%g(n,x) = \frac{1}{2^{n/2} \Gamma(n/2)} x^{(n-2)/2}e^{-x/2}.
-%\end{equation}
-%
-%\lipsum[3]
-%
-%\subsection{Confidence Interval}
-%\begin{tabular}{p{481pt}}
-%\toprule
-%\textsf{Function \textbf{MannWhitneyTestCI}($\boldsymbol{a}\ As\ mpNum$, $\boldsymbol{b}\ As\ mpNum$) As mpNum}\index{Multiprecision Functions!MannWhitneyTestCI} \\
-%\bottomrule
-%\end{tabular}
-%
-%\vspace{0.3cm}
-%
-%\lipsum[4]
-%
-%
-%
-%
-%\subsection{Power}
-%\begin{tabular}{p{481pt}}
-%\toprule
-%\textsf{Function \textbf{MannWhitneyTestPower}($\boldsymbol{a}\ As\ mpNum$, $\boldsymbol{b}\ As\ mpNum$) As mpNum}\index{Multiprecision Functions!MannWhitneyTestPower} \\
-%\bottomrule
-%\end{tabular}
-%
-%\vspace{0.3cm}
-%
-%\lipsum[6]
-%
-%
-%
-%\subsection{Sample Size Calculation}
-%\begin{tabular}{p{481pt}}
-%\toprule
-%\textsf{Function \textbf{MannWhitneyTestSampleSize}($\boldsymbol{a}\ As\ mpNum$, $\boldsymbol{b}\ As\ mpNum$) As mpNum}\index{Multiprecision Functions!MannWhitneyTestSampleSize} \\
-%\bottomrule
-%\end{tabular}
-%
-%\vspace{0.3cm}
-%
-%\lipsum[1]
-%
-%
-
-
-\newpage
-\section{Pearson's Rho and Linear Regression}
-\label{PearsonRhoTest}
-
-See \cite{Balakrishnan_2009}
-
-\subsection{Overview}
-\label{PearsonRhoTestOverview}
-
-\lipsum[2]
-%
-%\subsection{Test}
-%\begin{tabular}{p{481pt}}
-%\toprule
-%\textsf{Function \textbf{PearsonRhoTest}($\boldsymbol{a}\ As\ mpNum$, $\boldsymbol{b}\ As\ mpNum$) As mpNum}\index{Multiprecision Functions!PearsonRhoTest} \\
-%\bottomrule
-%\end{tabular}
-%
-%\vspace{0.3cm}
-%
-%The density of a central chi-square variable with $n$ degrees of freedom is given by
-%\begin{equation}
-%g(n,x) = \frac{1}{2^{n/2} \Gamma(n/2)} x^{(n-2)/2}e^{-x/2}.
-%\end{equation}
-%
-%\lipsum[3]
-%
-%\subsection{Confidence Interval}
-%\begin{tabular}{p{481pt}}
-%\toprule
-%\textsf{Function \textbf{PearsonRhoTestCI}($\boldsymbol{a}\ As\ mpNum$, $\boldsymbol{b}\ As\ mpNum$) As mpNum}\index{Multiprecision Functions!PearsonRhoTestCI} \\
-%\bottomrule
-%\end{tabular}
-%
-%\vspace{0.3cm}
-%
-%\lipsum[4]
-%
-%
-%
-%\subsection{Power}
-%\begin{tabular}{p{481pt}}
-%\toprule
-%\textsf{Function \textbf{PearsonRhoTestPower}($\boldsymbol{a}\ As\ mpNum$, $\boldsymbol{b}\ As\ mpNum$) As mpNum}\index{Multiprecision Functions!PearsonRhoTestPower} \\
-%\bottomrule
-%\end{tabular}
-%
-%\vspace{0.3cm}
-%
-%\lipsum[6]
-%
-%
-%
-%\subsection{Sample Size Calculation}
-%\begin{tabular}{p{481pt}}
-%\toprule
-%\textsf{Function \textbf{PearsonRhoTestSampleSize}($\boldsymbol{a}\ As\ mpNum$, $\boldsymbol{b}\ As\ mpNum$) As mpNum}\index{Multiprecision Functions!PearsonRhoTestSampleSize} \\
-%\bottomrule
-%\end{tabular}
-%
-%\vspace{0.3cm}
-%
-%\lipsum[1]
-%
-
-
-
-\newpage
-\section{Kendall's Tau and Spearman's Rho}
-\label{KendallTau}
-
-See \cite{Balakrishnan_2009}
-
-\subsection{Overview}
-\label{KendallTauOverview}
-
-\lipsum[2]
-%
-%\subsection{Test}
-%\begin{tabular}{p{481pt}}
-%\toprule
-%\textsf{Function \textbf{KendallTauTest}($\boldsymbol{a}\ As\ mpNum$, $\boldsymbol{b}\ As\ mpNum$) As mpNum}\index{Multiprecision Functions!KendallTauTest} \\
-%\bottomrule
-%\end{tabular}
-%
-%\vspace{0.3cm}
-%
-%The density of a central chi-square variable with $n$ degrees of freedom is given by
-%\begin{equation}
-%g(n,x) = \frac{1}{2^{n/2} \Gamma(n/2)} x^{(n-2)/2}e^{-x/2}.
-%\end{equation}
-%
-%\lipsum[3]
-%
-%\subsection{Confidence Interval}
-%\begin{tabular}{p{481pt}}
-%\toprule
-%\textsf{Function \textbf{KendallTauTestCI}($\boldsymbol{a}\ As\ mpNum$, $\boldsymbol{b}\ As\ mpNum$) As mpNum}\index{Multiprecision Functions!KendallTauTestCI} \\
-%\bottomrule
-%\end{tabular}
-%
-%\vspace{0.3cm}
-%
-%\lipsum[4]
-%
-%
-%\subsection{Power}
-%\begin{tabular}{p{481pt}}
-%\toprule
-%\textsf{Function \textbf{KendallTauTestPower}($\boldsymbol{a}\ As\ mpNum$, $\boldsymbol{b}\ As\ mpNum$) As mpNum}\index{Multiprecision Functions!KendallTauTestPower} \\
-%\bottomrule
-%\end{tabular}
-%
-%\vspace{0.3cm}
-%
-%\lipsum[6]
-%
-%
-%\subsection{Sample Size Calculation}
-%\begin{tabular}{p{481pt}}
-%\toprule
-%\textsf{Function \textbf{KendallTauTestSampleSize}($\boldsymbol{a}\ As\ mpNum$, $\boldsymbol{b}\ As\ mpNum$) As mpNum}\index{Multiprecision Functions!KendallTauTestSampleSize} \\
-%\bottomrule
-%\end{tabular}
-%
-%\vspace{0.3cm}
-%
-%\lipsum[1]
-%
-
-
-
-
-\newpage
-\section{Multiple Linear Regression}
-\label{MultipleLinearRegression}
-
-\subsection{Overview}
-\label{MultipleLinearRegressionOverview}
-
-This section should also cover covariance matrices.
-
-The distribution function of $R^2$ depends on the model. For the following description, it will be convenient to consider the distribution of
-\begin{equation}
-	F=\frac{R^2}{1-R^2} \frac{N-p}{p-1}
-\end{equation}
-
-See \cite{Gatsonis_1989}.
-
-\subsubsection{Null distribution}
-Let $R^2$ be the sample multiple correlation coefficent between $X$ (consisting of $p-1$ variates) and $Y$, based on $N$ observations. If $\rho^2 = 0$ then the 
-distribution of $F$ given $X$ fixed is a central F-distribution with $p-1$ and $N-p$ degrees of freedom.
-
-\subsubsection{Non-Null distribution, $X$ fixed}
-Let $R^2$ be the sample multiple correlation coefficent between $X$ (consisting of $p-1$ variates) and $Y$, based on $N$ observations. The conditional 
-distribution of $F$ given $X$ fixed is a non-central F-distribution with $p-1$ and $N-p$ degrees of freedom and noncentrality parameter $\lambda=\frac{\rho^2(N-p)}{1-\rho^2}$  \citep{Anderson_book_2003}
-
-\subsubsection{Non-Null distribution, $X$ and $Y$ random}
-Let $R^2$ be the sample multiple correlation coefficent between $X$ (consisting of $p-1$ variates) and $Y$, based on $N$ observations. The conditional 
-distribution of $R^2$ given both $X$ and $Y$ random is the distribution of the square of the multiple correlation coefficient. , as defined in section \ref{Rho2Distribution}   \citep{Anderson_book_2003}
-
-%
-%\subsection{Test}
-%\label{MultipleLinearRegressionTest}
-%The density of a central chi-square variable with $n$ degrees of freedom is given by
-%\begin{equation}
-%g(n,x) = \frac{1}{2^{n/2} \Gamma(n/2)} x^{(n-2)/2}e^{-x/2}.
-%\end{equation}
-%
-%\lipsum[3]
-%
-%\subsection{Confidence Interval}
-%\label{MultipleLinearRegressionCI}
-%\lipsum[4]
-%
-%\begin{table}[ht]
-%\centering
-%\begin{tabular}{|l|l|}
-%\hline
-%\multicolumn{2}{|c|}{Team sheet} \\
-%\hline
-%GK & Paul Robinson \\
-%LB & Lucus Radebe \\
-%DC & Michael Duberry \\
-%DC & Dominic Matteo \\
-%RB & Didier Domi \\
-%MC & David Batty \\
-%MC & Eirik Bakke \\
-%MC & Jody Morris \\
-%FW & Jamie McMaster \\
-%ST & Alan Smith \\
-%ST & Mark Viduka \\
-%\hline
-%\end{tabular}
-%\caption{MultipleLinearRegression Test}
-%\label{TableMultipleLinearRegression}
-%\end{table}
-%
-%
-%
-%\subsection{Power}
-%\label{MultipleLinearRegressionPower}
-%
-%\lipsum[6]
-%
-%\begin{figure}[ht]
-%\centering
-%\includegraphics{mpTemp2.pdf}
-%\caption{Power of MultipleLinearRegression Test}
-%\label{FigPowerOfMultipleLinearRegression}
-%\end{figure}
-%
-%
-%\subsection{Sample Size Calculation}
-%\label{MultipleLinearRegressionSampleSize}
-%\lipsum[1]
-%
-%\subsection{Function Reference}
-%\label{MultipleLinearRegressionFunctionReference}
-%
-%\noindent \textsf{Function \textbf{MultLinRegTest}($\boldsymbol{a}\ As\ mpNum$, $\boldsymbol{b}\ As\ mpNum$) As mpNum}\index{Multiprecision Functions!MultLinRegTest}
-%
-%These routines compute the complete elliptic integral K(k) to the accuracy specified by the mode variable mode. Note that Abramowitz  Stegun define this function in terms of the parameter m = k2. 
-%
-%\lipsum[3]
-%
-%
-%\subsection{Examples}
-%\label{MultipleLinearRegressionExamples}
-%
-%\begin{lstlisting}
-%Sub mpPrintMatrix(x(), Name)
-%Dim n, m, i, j
-%n = x.rows
-%m = x.cols
-%Print ("Listing of matrix " & Name & ",  " & n & " rows x " & m & " columns")
-%For j = 1 To m
-%Print ("#TableStart#")
-%Print (" " & "|" & "Column " & j)
-%For i = 1 To n
-%Print ("x(" & i & ", " & j & "): " & "|" & x(i,j).Str())
-%Next
-%Print("#TableEnd#")
-%Next
-%Print ("End of listing of matrix " & Name)
-%'This is a comment
-%Print ("")
-%End Sub
-%\end{lstlisting}
-%
-%
-%
-%
-%\lipsum[6]
-
-
-
-
-\newpage
-\section{Anova, 1-way and 2-way layout}
-
-
-
-\subsection{Overview}
-\label{Anova1wayOverview}
+\label{2iSampleTTestOverview}
 
 Let $(X_1, X_2, \ldots, X_N)$ denote a random sample of size $N$ from a normal distribution with mean $\mu$ and variance $\sigma^2$, and let
 \begin{equation}
@@ -7843,95 +7255,13 @@ Let $(X_1, X_2, \ldots, X_N)$ denote a random sample of size $N$ from a normal d
 \end{equation}
 be the usual sample estimates of the unkown population mean $\mu$ and unkown population variance $\sigma^2$. Then Student's t-test can be used to test hypotheses concerning $\mu$ with regard to a reference value $\mu_0$.
 
-See \cite{Rasch_2011}, \cite{kirk_experimental_1982}, \cite{kirk_experimental_1995}, \cite{kirk_experimental_2013}
-
-
-\subsubsection{ANOVA: General formulas}
-
-\begin{equation}
-	QS_{\text{Total}} = \sum_{i=1}^k \sum_{j=1}^{n_i} \left(x_{ij} - \bar{x}   \right)^2
-\end{equation}
-
-\begin{equation}
-	QS_{\text{Treat}} = \sum_{i=1}^k  \left(\bar{x}_{i} - \bar{x} \right)^2  = \sum_{i=1}^k  \frac{x_{i.}^2}{n_i} - \frac{x_{..}^2}{N} = QS_{\text{Total}} R^2
-\end{equation}
-
-\begin{equation}
-	QS_{\text{Err}} = \sum_{i=1}^k(n_i-1)s_i^2 = \sum_{i=1}^k \sum_{j=1}^{n_i}  \left(\bar{x}_{ij} - \bar{x}_i \right)^2  = \sum_{i=1}^k \sum_{j=1}^{n_i} x_{ij}^2 - \sum_{i=1}^k \frac{x_{i.}^2}{n_i} = QS_{\text{Total}}(1-R^2)
-\end{equation}
-
-
-\begin{equation}
-	MS_{\text{Total}} = \frac{QS_{\text{Total}}}{N-1}, \quad MS_{\text{Err}} = \frac{QS_{\text{Err}}}{N-k} , \quad MS_{\text{Treat}} = \frac{QS_{\text{Treat}}}{k-1}
-\end{equation}
-
-\begin{equation}
-	F = \frac{MS_{\text{Treat}}}{MS_{\text{Err}}} = \frac{R^2}{1-R^2} \frac{N-k}{k-1}
-\end{equation}
-
-\begin{equation}
-	R^2 = \frac{QS_{\text{Treat}}}{QS_{\text{Total}}} = \frac{F(k-1)}{F(k-1)+N-k}
-\end{equation}
-
-
-
-\subsubsection{Orthogonal polynomials}
-
-The problem of approximating the relation of a response variable to a predictor variabnle consists of (i) the determination of the degree of the polynomial that "best" describes any trends in the data and (ii) the evaluation of the coefficients of the approximating polynomial. One may approach the problem in one of two ways: (a) the usual polynomial regression, or (b) the orthogonal polynomial approach.
-
-
-The usual polynomial regression approach gives rise to the following difficulties: (i) the tests of significance for the various parameters are not independent, (ii) the estimates of the parameters of a polynomial of degree $(k-1)$ cannot be used for estimating coefficients of a polynomial of degree $k$, and (iii) for degrees of polynomial greater than 4, the estimates may be inaccurate due to round-off errors.
-
-
-The orthogonal polynomial approach does not suffer from the shortcomings associated with the usual polynomial regression.
-
-\cite{Narula_1978} gives the following algorithm: Let $x_i$  denote the $i$th value $(i=1,\ldots,k)$  of the predictor variable observed $n_i$  times. Then
-\begin{equation}
-	P_0(x_i)=1
-\end{equation}
-\begin{equation}
-	P_1(x_i)=(x_i- \alpha_1)P_0(x_i)
-\end{equation}
-\begin{equation}
-	P_j(x_i)=(x_i- \alpha_j)P_0(x_i) - \beta_{j-2}(x_i), \quad j=2,3,\ldots,m\leq k-1
-\end{equation}
-
-represents a set of orthogonal polynomials if
-\begin{equation}
-	\alpha_j = \frac{\sum_{i=1}^k n_i x_i P_{j-1}^2(x_i) }{\sum_{i=1}^k n_i P_{j-1}^2(x_i) }, \quad j=1,2,\ldots,m, \text{ and}
-\end{equation}
-
-\begin{equation}
-	\beta_j = \frac{\sum_{i=1}^k n_i x_i P_{j-2}(x_i) P_{j-1}(x_i)}{\sum_{i=1}^k n_i P_{j-1}^2(x_i) }, \quad j=2,3,\ldots,m.
-\end{equation}
-
-The orthogonal polynomial model can  be written as
-\begin{equation}
-	E(Y_{ij}) = \beta_0^* P_0(x_i) + \beta_1^* P_1(x_i) + \ldots + \beta_m^* P_m(x_i), \quad i=1,\ldots,k, \text{ and } j=1,\ldots,n_i,
-\end{equation}
-
-where  $Y_{ij}$ denotes the  $j$th values $(j=1,\ldots,n_i)$  of the response variable corresponding to $x_i$, the  $i$th value of the predictor variable, and  $P_j$ denote the orthogonal polynomials as given above.
-
-The least quares estimators $b_j^*$ of $\beta_j^*$ $(j=0,1,\ldots,m)$  are given by
-
-\begin{equation}
-	\beta_j^* = \frac{\sum_{i=1}^k Y_{i\bullet} P_{j}(x_i) }{\sum_{i=1}^k n_i P_{j}^2(x_i) }, \quad j=0,1,\ldots,m, 
-\end{equation}
-
-and the sum of squares due to the  $j$th degree polynomial, $P_j$ , is
-
-\begin{equation}
-	SS_j = \left(b_j^*\right)^2 \sum_{i=1}^k n_{i} P_j^2(x_i), \quad j=1,\ldots,m, \text{ where } Y_{i\bullet}=\sum_{j=1}^{n_i}Y_{ij} \text{ and } Y_{\bullet\bullet}=\sum_{i=1}^{k}Y_{i\bullet}
-\end{equation}
-
-
 
 
 \subsection{Tests and Confidence Intervals}
 
 \begin{mpFunctionsExtract}
 	\mpFunctionFiveNotImplemented
-	{Anova1way? mpNumList? p-values, confidence intervals and related information for Anova1way}
+	{StudentTTest2i? mpNumList? p-values, confidence intervals and related information for Student's t-test}
 	{Type1Error? mpNum? A real number greater then 0 and less than 1.}
 	{N? mpNum[]? An array of integers greater than 1, representing the samples sizes}
 	{Mean? mpNum[]? An array of reals, representing the means}
@@ -7940,87 +7270,146 @@ and the sum of squares due to the  $j$th degree polynomial, $P_j$ , is
 \end{mpFunctionsExtract}
 
 \vspace{0.3cm}
-See section \ref{Functions returning p-Values and Confidence Intervals} for the options for {\itshape\sffamily Type1Error} and {\itshape\sffamily Output}). Algorithms and formulas are given in sections \ref{Anova1way_Test} and \ref{Anova1way_CI}.
-
-This section needs to include
-\begin{itemize}		
-	\item Orthogonal Polynomials and Contrasts (maximum modulus)
-	\item Many One comparisons (Dunnett)
-	\item All pairs comparisons (Tukey, studentized range)
-	\item Scheffe type comparisons
-	\item Several adjustments (Welch, Huyn) to deal with unequal variances)
-\end{itemize}
+See section \ref{Functions returning p-Values and Confidence Intervals} for the options for {\itshape\sffamily Type1Error} and {\itshape\sffamily Output}). Algorithms and formulas are given in sections \ref{2iSampleTTest_Test} and \ref{2iSampleTTest_CI}.
 
 
 
-
-\subsubsection{Test}
-\label{Anova1way_Test}
+\subsubsection{Tests: algorithms and formulas}
+\label{2iSampleTTest_Test}
 Let $F_t\left(\cdot, \nu\right)$ denote the CDF (see section \ref{tDistributionCDF}) and let $t_{\nu,\alpha}$ denote the $\alpha$-quantile (see section \ref{tDistributionQuantile}) of the $t$-distribution with $\nu$ degrees of freedom. Define
 
 \begin{equation}
 	t= \frac{(\overline{x}_1-\overline{x}_2)}{s}, \text{ where}
 \end{equation}
-\begin{equation} \label{eq:Anova1way}
+\begin{equation} \label{eq:TTest2i}
 	s = \sqrt{\textit{MSE}\left(\frac{1}{n_1}+\frac{1}{n_2}\right)}, \quad \textit{MSE} = \frac{(n_1-1)s_1^2+(n_2-1)s_2^2}{\nu}, \quad \nu=n_1+n_2-2.
 \end{equation}
 
-Then $p$-values and rejection criteria for $H_0$ can be calculated as summarized in Table \ref{TableAnova1way}.
 
-\begin{table}[ht]
-	\centering
-	\begin{tabular}{|l|l|l|}
-		\hline
-		Test problem & $p$-value & Reject $H_0$ if \\
-		\hline
-		$H_{01}: \mu_1 \leq \mu_2$ vs $H_{A1}: \mu_1 > \mu_2$ & $F_t\left(-t, \nu\right)$ &$t > t_{\nu;1-\alpha}$ \\
-		$H_{02}: \mu_1 \geq \mu_2$ vs $H_{A2}: \mu_1 < \mu_2$ & $F_t\left(t, \nu\right)$  &$t > t_{\nu;\alpha}$ \\
-		$H_{03}: \mu_1 = \mu_2$ vs $H_{A3}: \mu_1 \neq \mu_2$ & $F_t\left(t, \nu\right)-F_t\left(-t, \nu\right)$ &$t > t_{\nu;1-\alpha/2}$ or $t > t_{\nu;\alpha/2}$ \\
-		\hline
-	\end{tabular}
-	\caption{Anova1way}
-	\label{TableAnova1way}
-\end{table}
+\mpTableThreeColsThreeRows
+{Then $p$-values and rejection criteria for $H_0$ can be calculated as summarized in ? Student's t-test, 2 independent samples, tests for the mean}
+{Test problem? $p$-value? Reject $H_0$}
+{$H_{01}: \mu_1 \leq \mu_2$ vs $H_{A1}: \mu_1 > \mu_2$ ? $F_t\left(-t, \nu\right)$ ?$t > t_{\nu;1-\alpha}$}
+{$H_{02}: \mu_1 \geq \mu_2$ vs $H_{A2}: \mu_1 < \mu_2$ ? $F_t\left(t, \nu\right)$  ?$t > t_{\nu;\alpha}$}
+{$H_{03}: \mu_1 = \mu_2$ vs $H_{A3}: \mu_1 \neq \mu_2$ ? $F_t\left(t, \nu\right)-F_t\left(-t, \nu\right)$ ?$t > t_{\nu;1-\alpha/2}$ or $t > t_{\nu;\alpha/2}$}
+
+
+%
+%{Left-sided? $-\infty \leq \mu_1 - \mu_2 \leq (\overline{x}_1-\overline{x}_2) + A_1$}
+%{Right-sided? $(\overline{x}_1-\overline{x}_2) - A_1 \leq \mu_1 - \mu_2 \leq +\infty$}
+%{Two-sided? $(\overline{x}_1-\overline{x}_2) - A_2 \leq \mu_1 - \mu_2 \leq (\overline{x}_1-\overline{x}_2) + A_2$}
 
 
 The test can also be expressed in terms of a correlation coefficient $r$ between the combined $X$ and an indicator variable, where $t$ and $r$ are related by
-
 \begin{equation}
 	r=\frac{t}{\sqrt{t^2+\nu}}, \quad t= \nu \frac{r}{1-r^2}.
 \end{equation}
 
 
 
-%\newpage
-\subsubsection{Confidence Interval (Difference of Means)}
-\label{Anova1way_CI}
-
-\vspace{0.3cm}
-Let $A_1=t_{\nu,\alpha} \cdot s$ and $A_2=t_{\nu,\alpha/2} \cdot s$, where $s$ and $\nu$ are defined in (\ref{eq:TTest2i}), and $t_{\nu,\alpha}$ denotes the $\alpha$-quantile of the (central) $t$-distribution with $\nu$ degrees of freedom (see section \ref{tDistributionQuantile}). Then confidence intervals for the difference of 2 means can be calculated as summarized in Table \ref{Anova1way, CI}.
-
-\begin{table}[ht]
-	\centering
-	\begin{tabular}{|l|l|}
-		\hline
-		Type & Confidence Interval (Difference of Means)\\
-		\hline
-		Left-sided &  $-\infty \leq \mu_1 - \mu_2 \leq (\overline{x}_1-\overline{x}_2) + A_1$ \\
-		Right-sided &  $(\overline{x}_1-\overline{x}_2) - A_1 \leq \mu_1 - \mu_2 \leq +\infty$\\
-		Two-sided & $(\overline{x}_1-\overline{x}_2) - A_2 \leq \mu_1 - \mu_2 \leq (\overline{x}_1-\overline{x}_2) + A_2$ \\
-		\hline
-	\end{tabular}
-	\caption{Anova1way, confidence intervals for means}
-	\label{Anova1way, CI}
-\end{table}
+%%BEGIN 2 INDEPENDENT
+%\begin{equation}
+%	t= \frac{(\overline{x}_1-\overline{x}_2)}{s}, \text{ where}
+%\end{equation}
+%\begin{equation} \label{eq:TTest2i}
+%	s = \sqrt{\textit{MSE}\left(\frac{1}{n_1}+\frac{1}{n_2}\right)}, \quad \textit{MSE} = \frac{(n_1-1)s_1^2+(n_2-1)s_2^2}{\nu}, \quad \nu=n_1+n_2-2.
+%\end{equation}
+%The test can also be expressed in terms of a correlation coefficient $r$ between the combined $X$ and an indicator variable, where $t$ and $r$ are related by
+%
+%\begin{equation}
+%	r=\frac{t}{\sqrt{t^2+\nu}}, \quad t= \nu \frac{r}{1-r^2}.
+%\end{equation}
+%%END 2 INDEPENDENT
 
 
-\subsection{Power Calculation}
-\label{Anova1way_Power}
 
+\subsubsection{Tests: examples}
+An actual call to the function, requesting Student's t-test with description, the critical value for a two-sided test, the p-value for $H_{03}$ (in the case of \textsf{TTest} this is $\mu_1 \neq \mu_2$), for 2 independent samples of size 10 and standard deviation 1 each, with means 2.3 and 4.5, and a type I error $\alpha=0.05$ would be
+
+\lstset{language={[Visual]Basic}}
+\begin{lstlisting}
+Result = Test2i("TTest", 0.05, 10, {2.3, 4.5}, 1, "Description + TCrit2 + PValueH03")
+mp.Show Result
+\end{lstlisting}
+which produces the output
+
+\begin{verbatim}
+df: 18
+Difference of Means: -2.2
+t-value: -4.9193496
+TCrit2: 2.100922
+PValueH03: 0.0001106
+\end{verbatim}
+
+
+
+
+\subsubsection{Confidence Intervals: algorithms and formulas}
+\label{2iSampleTTest_CI}
+
+Let $A_1=t_{\nu,\alpha} \cdot s$ and $A_2=t_{\nu,\alpha/2} \cdot s$, where $s$ and $\nu$ are defined in (\ref{eq:TTest2i}), and $t_{\nu,\alpha}$ denotes the $\alpha$-quantile of the (central) $t$-distribution with $\nu$ degrees of freedom (see section \ref{tDistributionQuantile}). 
+
+
+\mpTableTwoColsThreeRows
+{Then confidence intervals for $\mu_1 - \mu_2$ can be calculated as summarized in ? Student's t-test, 2 independent samples, confidence intervals for the difference of the means}
+{Type? Confidence Interval (Difference of Means)}
+{Left-sided? $-\infty \leq \mu_1 - \mu_2 \leq (\overline{x}_1-\overline{x}_2) + A_1$}
+{Right-sided? $(\overline{x}_1-\overline{x}_2) - A_1 \leq \mu_1 - \mu_2 \leq +\infty$}
+{Two-sided? $(\overline{x}_1-\overline{x}_2) - A_2 \leq \mu_1 - \mu_2 \leq (\overline{x}_1-\overline{x}_2) + A_2$}
+
+%BEGIN
+
+Let $A_1=t_{\nu,\alpha} \cdot s$ and $A_2=t_{\nu,\alpha/2} \cdot s$, where $s$ and $\nu$ are defined in (\ref{eq:TTest2i}), and $t_{\nu,\alpha}$ denotes the $\alpha$-quantile of the (central) $t$-distribution with $\nu$ degrees of freedom (see section \ref{tDistributionQuantile}). 
+
+%Then confidence intervals for the difference of 2 means can be calculated as summarized in Table \ref{TableStudentsttest,2i samples, CI}.
+%
+%\begin{table}[ht]
+%	\centering
+%	\begin{tabular}{|l|l|}
+%		\hline
+%		Type & Confidence Interval (Difference of Means)\\
+%		\hline
+%		Left-sided &  $-\infty \leq \mu_1 - \mu_2 \leq (\overline{x}_1-\overline{x}_2) + A_1$ \\
+%		Right-sided &  $(\overline{x}_1-\overline{x}_2) - A_1 \leq \mu_1 - \mu_2 \leq +\infty$\\
+%		Two-sided & $(\overline{x}_1-\overline{x}_2) - A_2 \leq \mu_1 - \mu_2 \leq (\overline{x}_1-\overline{x}_2) + A_2$ \\
+%		\hline
+%	\end{tabular}
+%	\caption{2 independent samples, confidence intervals for means}
+%	\label{TableStudentsttest,2i samples, CI}
+%\end{table}
+
+
+%END
+
+
+\subsubsection{Confidence Intervals: examples}
+An actual call to the function, requesting Student's t-test with description, the critical value for a two-sided test, the p-value for $H_{03}$ (in the case of \textsf{TTest} this is $\mu_1 \neq \mu_2$), for 2 independent samples of size 10 and standard deviation 1 each, with means 2.3 and 4.5, and a type I error $\alpha=0.05$ would be
+
+\lstset{language={[Visual]Basic}}
+\begin{lstlisting}
+Result = Test2i("TTest", 0.05, 10, {2.3, 4.5}, 1, "Description + TCrit2 + PValueH03")
+mp.Show Result
+\end{lstlisting}
+which produces the output
+
+\begin{verbatim}
+df: 18
+Difference of Means: -2.2
+t-value: -4.9193496
+TCrit2: 2.100922
+PValueH03: 0.0001106
+\end{verbatim}
+
+
+
+
+
+\newpage
+\subsection{Power}
 
 \begin{mpFunctionsExtract}
 	\mpFunctionFiveNotImplemented
-	{Anova1wayPower? mpNumList? returns power estimations and related information for Anova1way}
+	{StudentTTestPower2i? mpNumList? returns power estimations and related information for Student's t-test}
 	{Type1Error? mpNum? An real number greater then 0 and less than 1.}
 	{N? mpNum[]? An array of integers greater than 1, representing the samples sizes}
 	{Mean? mpNum[]? An array of reals, representing the means}
@@ -8029,12 +7418,24 @@ Let $A_1=t_{\nu,\alpha} \cdot s$ and $A_2=t_{\nu,\alpha/2} \cdot s$, where $s$ a
 \end{mpFunctionsExtract}
 
 \vspace{0.3cm}
-See section \ref{Functions returning Power Estimates} for the options for {\itshape\sffamily Type1Error} and {\itshape\sffamily Output}). Algorithms and formulas are given in section \ref{Anova1way_Power}.
+See section \ref{Functions returning Power Estimates} for the options for {\itshape\sffamily Type1Error} and {\itshape\sffamily Output}). Algorithms and formulas are given in section \ref{1SampleTTest_Power}.
+
+
+\subsubsection{Power calculations: algorithms and formulas}
+\label{2iSampleTTest_Power}
+Let $\sigma_1^2 = \sigma^2$ and $\nu=N-1$. Define
+
+\begin{equation} \label{eq:TTestPower2irho}
+	\widetilde{\rho} = \frac{\mu_1-\mu_0}{\sigma} \text{ and } \delta = \sqrt{N} \widetilde{\rho}.
+\end{equation}
+
+
+
 
 \vspace{0.3cm}
 Let $\sigma_1^2 = \sigma_2^2 = \sigma^2$, $N = n_1 + n_2$, $q_1 = n_1 /N$, $q_2 = n_2 /N$, and $\nu=N-2$. Define
 
-\begin{equation} \label{eq:Anova1wayPower}
+\begin{equation} \label{eq:TTestPower2i}
 	\widetilde{\rho} = \frac{\mu_1-\mu_2}{\sigma} \sqrt{\frac{q_1+q_2}{q_1 \cdot q_2}}, \text{ and } \delta = \sqrt{N} \widetilde{\rho}.
 \end{equation}
 
@@ -8042,35 +7443,76 @@ Let $\sigma_1^2 = \sigma_2^2 = \sigma^2$, $N = n_1 + n_2$, $q_1 = n_1 /N$, $q_2 
 Let $F_{t'}\left(\cdot, \nu, \delta \right)$ denote the CDF of the (singly) noncentral $t$-distribution with $\nu$ degrees of freedom and noncentrality parameter $\delta$ (see section 
 %\ref{NoncentraltDistributionCDFBoost})
 and let $t_{\nu,\alpha}$ denote the $\alpha$-quantile of the central $t$-distribution with $\nu$ degrees of freedom (see section \ref{tDistributionQuantile}).
-Then the power for accepting $H_A$ at the confidence level $\alpha$ can be calculated as summarized in Table \ref{TableAnova1way,power}.
 
 
-\begin{table}[ht]
-	\centering
-	\begin{tabular}{|l|l|l|l|}
-		\hline
-		Test &Null Hypothesis &Alternative & Power \\
-		\hline
-		1 sided & $H_{01}: \mu_1 \leq \mu_2$ & $H_{A1}: \mu_1 > \mu_2$ & $F_{t'}\left(-t_{\nu;1-\alpha}, \nu, \delta \right)$ \\
-		1 sided & $H_{02}: \mu_1 \geq \mu_2$ & $H_{A2}: \mu_1 < \mu_2$ & $F_{t'}\left(t_{\nu;1-\alpha}, \nu, \delta \right)$  \\
-		\hline
-		2 sided & $H_{03}: \mu_1 = \mu_2$ & $H_{A1}: \mu_1 > \mu_2$ & $F_{t'}\left(-t_{\nu;1-\alpha/2}, \nu, \delta \right)$ \\
-		2 sided & $H_{03}: \mu_1 = \mu_2$ & $H_{A2}: \mu_1 < \mu_2$ & $F_{t'}\left(t_{\nu;1-\alpha/2}, \nu, \delta \right)$  \\
-		2 sided & $H_{03}: \mu_1 = \mu_2$ & $H_{A3}: \mu_1 \neq \mu_2$ & $F_{t'}\left(t_{\nu;1-\alpha/2}, \nu, \delta \right)-F_t\left(-t_{\nu;1-\alpha/2}, \nu\, \delta \right)$ \\
-		\hline
-	\end{tabular}
-	\caption{Anova1way, power}
-	\label{TableAnova1way,power}
-\end{table}
+\mpTableFourColsTwoRowsThreeRows
+{Then the power for accepting $H_A$ at the confidence level $\alpha$ can be calculated as summarized in ? Student's t-test, 2 independent samples, power calculations}
+{Test? Null Hypothesis? Alternative? Power}
+{1 sided? $H_{01}: \mu_1 \leq \mu_2$ ? $H_{A1}: \mu_1 > \mu_2$ ? $F_{t'}\left(-t_{\nu;1-\alpha}, \nu, \delta \right)$}
+{1 sided? $H_{02}: \mu_1 \geq \mu_2$ ? $H_{A2}: \mu_1 < \mu_2$ ? $F_{t'}\left(t_{\nu;1-\alpha}, \nu, \delta \right)$}
+{2 sided? $H_{03}: \mu_1 = \mu_2$ ? $H_{A1}: \mu_1 > \mu_2$ ? $F_{t'}\left(-t_{\nu;1-\alpha/2}, \nu, \delta \right)$}
+{2 sided? $H_{03}: \mu_1 = \mu_2$ ? $H_{A2}: \mu_1 < \mu_2$ ? $F_{t'}\left(t_{\nu;1-\alpha/2}, \nu, \delta \right)$}
+{2 sided? $H_{03}: \mu_1 = \mu_2$ ? $H_{A3}: \mu_1 \neq \mu_2$ ? $F_{t'}\left(t_{\nu;1-\alpha/2}, \nu, \delta \right)-F_t\left(-t_{\nu;1-\alpha/2}, \nu\, \delta \right)$}
+
+
+
+
+%BEGIN
+
+%
+%\begin{table}[ht]
+%	\centering
+%	\begin{tabular}{|l|l|l|l|}
+%		\hline
+%		Test &Null Hypothesis &Alternative & Power \\
+%		\hline
+%		1 sided & $H_{01}: \mu_1 \leq \mu_2$ & $H_{A1}: \mu_1 > \mu_2$ & $F_{t'}\left(-t_{\nu;1-\alpha}, \nu, \delta \right)$ \\
+%		1 sided & $H_{02}: \mu_1 \geq \mu_2$ & $H_{A2}: \mu_1 < \mu_2$ & $F_{t'}\left(t_{\nu;1-\alpha}, \nu, \delta \right)$  \\
+%		\hline
+%		2 sided & $H_{03}: \mu_1 = \mu_2$ & $H_{A1}: \mu_1 > \mu_2$ & $F_{t'}\left(-t_{\nu;1-\alpha/2}, \nu, \delta \right)$ \\
+%		2 sided & $H_{03}: \mu_1 = \mu_2$ & $H_{A2}: \mu_1 < \mu_2$ & $F_{t'}\left(t_{\nu;1-\alpha/2}, \nu, \delta \right)$  \\
+%		2 sided & $H_{03}: \mu_1 = \mu_2$ & $H_{A3}: \mu_1 \neq \mu_2$ & $F_{t'}\left(t_{\nu;1-\alpha/2}, \nu, \delta \right)-F_t\left(-t_{\nu;1-\alpha/2}, \nu\, \delta \right)$ \\
+%		\hline
+%	\end{tabular}
+%	\caption{Student's t-test, 2 independent samples, power}
+%	\label{TableStudentsttest,2i samples,power}
+%\end{table}
+%
+
+
+
+%END
+
+
+\subsubsection{Power calculations: examples}
+An actual call to the function, requesting Student's t-test with description, the critical calue for a two-sided test, the power for $H_{A3}$ (in the case of \textsf{TTest} this is $\mu_1 \neq \mu_2$), for 2 independent samples of size 10 and standard deviation 1 each, with means 2.3 and 4.5, and a type I error $\alpha=0.05$ would be
+
+\lstset{language={[Visual]Basic}}
+\begin{lstlisting}
+Result = TestPower2i("TTest", 0.05, 10, {2.3, 4.5}, 1, "Description + TCrit2 + PowerHA3")
+mp.Print Result
+\end{lstlisting}
+which produces the output
+
+\begin{verbatim}
+df: 18
+Difference of Means: -2.2
+t-value: -4.9193496
+TCrit2: 2.100922
+PValueH03: 0.996354
+\end{verbatim}
+
+
 
 
 
 \newpage
 \subsection{Sample Size Calculation}
 
+
 \begin{mpFunctionsExtract}
 	\mpFunctionFiveNotImplemented
-	{Anova1waySampleSize? mpNumList? returns sample size estimations and related information for Anova1way}
+	{StudentTTestSampleSize2i? mpNumList? returns sample size estimations and related information for Student's t-test}
 	{Type1Error? mpNum? An real number greater then 0 and less than 1.}
 	{Type2Error? mpNum? An real number greater then 0 and less than 1.}
 	{Mean? mpNum[]? An array of reals, representing the means}
@@ -8081,34 +7523,71 @@ Then the power for accepting $H_A$ at the confidence level $\alpha$ can be calcu
 \vspace{0.3cm}
 See section \ref{Functions returning Power Estimates} for the options for {\itshape\sffamily Type1Error},  {\itshape\sffamily Type2Error} and {\itshape\sffamily Output}. Algorithms and formulas are given below.
 
+
+
 \subsubsection{Sample size calculations: algorithms and formulas}
-Let $N_{t'}\left(\alpha, \beta, \widetilde{\rho} \right)$ denote the sample size function of the (singly) noncentral $t$-distribution (see section \ref{NoncentralTDistributionSampleSize} ) for a given confidence level $\alpha$, power $\beta$ and noncentrality parameter $\widetilde{\rho}$ (as defined in equation \ref{eq:TTestPower2i}. The required total sample size $N$ can be calculated as summarized in Table \ref{TableStudentsttest,2i samples,sample size}. Note that the returned value of $N$ will in general not be an integer, and rounding up may be required to ensure that all $n_i$ are integers.
+%\label{1SampleTTest_SampleSize}
+%Let $N_{t'}\left(\alpha, \beta, \widetilde{\rho} \right)$ denote the sample size function of the (singly) noncentral $t$-distribution (see section \ref{NoncentralTDistributionSampleSize} ) for a given confidence level $\alpha$, power $\beta$ and noncentrality parameter $\widetilde{\rho}$ (as defined in equation \ref{eq:TTestPower1}. 
+
+Let $N_{t'}\left(\alpha, \beta, \widetilde{\rho} \right)$ denote the sample size function of the (singly) noncentral $t$-distribution (see section \ref{NoncentralTDistributionSampleSize} ) for a given confidence level $\alpha$, power $\beta$ and noncentrality parameter $\widetilde{\rho}$ (as defined in equation \ref{eq:TTestPower2i}.
 
 
-\begin{table}[ht]
-	\centering
-	\begin{tabular}{|l|l|l|l|}
-		\hline
-		Test &Null Hypothesis &Alternative & Minimal sample size $N$ \\
-		\hline
-		1 sided & $H_{01}: \mu_1 \leq \mu_2$ & $H_{A1}: \mu_1 > \mu_2$ & $N_{t'}\left(\alpha, \beta, \widetilde{\rho} \right)$ \\
-		1 sided & $H_{02}: \mu_1 \geq \mu_2$ & $H_{A2}: \mu_1 < \mu_2$ & $N_{t'}\left(\alpha, \beta, \widetilde{\rho} \right)$  \\
-		\hline
-		2 sided & $H_{03}: \mu_1 = \mu_2$ & $H_{A1}: \mu_1 > \mu_2$ & $N_{t'}\left(\alpha, \beta, \widetilde{\rho} \right)$ \\
-		2 sided & $H_{03}: \mu_1 = \mu_2$ & $H_{A2}: \mu_1 < \mu_2$ & $N_{t'}\left(\alpha, \beta, \widetilde{\rho} \right)$  \\
-		2 sided & $H_{03}: \mu_1 = \mu_2$ & $H_{A3}: \mu_1 \neq \mu_2$ & $N2_{t'}\left(\alpha, \beta, \widetilde{\rho} \right)$ \\
-		\hline
-	\end{tabular}
-	\caption{Anova1way, sample size}
-	\label{TableAnova1way,sample size}
-\end{table}
+\mpTableFourColsTwoRowsThreeRows
+{The required total sample size $N$ can be calculated as summarized in ? Student's t-test, 2 independent samples, sample size calculations}
+{Test? Null Hypothesis? Alternative? Minimal sample size}
+{1 sided? $H_{01}: \mu_1 \leq \mu_2$ ? $H_{A1}: \mu_1 > \mu_2$ ? $N_{t'}\left(\alpha, \beta, \widetilde{\rho} \right)$}
+{1 sided? $H_{02}: \mu_1 \geq \mu_2$ ? $H_{A2}: \mu_1 < \mu_2$ ? $N_{t'}\left(\alpha, \beta, \widetilde{\rho} \right)$}
+{2 sided? $H_{03}: \mu_1 = \mu_2$ ? $H_{A1}: \mu_1 > \mu_2$ ? $N_{t'}\left(\alpha, \beta, \widetilde{\rho} \right)$}
+{2 sided? $H_{03}: \mu_1 = \mu_2$ ? $H_{A2}: \mu_1 < \mu_2$ ? $N_{t'}\left(\alpha, \beta, \widetilde{\rho} \right)$}
+{2 sided? $H_{03}: \mu_1 = \mu_2$ ? $H_{A3}: \mu_1 \neq \mu_2$ ? $N2_{t'}\left(\alpha, \beta, \widetilde{\rho} \right)$}
+
+ Note that the returned value of $N$ will in general not be an integer, and rounding up may be required to ensure that all $n_i$ are integers.
+
+%BEGIN
+
+%
+%\begin{table}[ht]
+%	\centering
+%	\begin{tabular}{|l|l|l|l|}
+%		\hline
+%		Test &Null Hypothesis &Alternative & Minimal sample size $N$ \\
+%		\hline
+%		1 sided & $H_{01}: \mu_1 \leq \mu_2$ & $H_{A1}: \mu_1 > \mu_2$ & $N_{t'}\left(\alpha, \beta, \widetilde{\rho} \right)$ \\
+%		1 sided & $H_{02}: \mu_1 \geq \mu_2$ & $H_{A2}: \mu_1 < \mu_2$ & $N_{t'}\left(\alpha, \beta, \widetilde{\rho} \right)$  \\
+%		\hline
+%		2 sided & $H_{03}: \mu_1 = \mu_2$ & $H_{A1}: \mu_1 > \mu_2$ & $N_{t'}\left(\alpha, \beta, \widetilde{\rho} \right)$ \\
+%		2 sided & $H_{03}: \mu_1 = \mu_2$ & $H_{A2}: \mu_1 < \mu_2$ & $N_{t'}\left(\alpha, \beta, \widetilde{\rho} \right)$  \\
+%		2 sided & $H_{03}: \mu_1 = \mu_2$ & $H_{A3}: \mu_1 \neq \mu_2$ & $N2_{t'}\left(\alpha, \beta, \widetilde{\rho} \right)$ \\
+%		\hline
+%	\end{tabular}
+%	\caption{Student's t-test, 2 independent samples, sample size}
+%	\label{TableStudentsttest,2i samples,sample size}
+%\end{table}
+%
 
 
-\newpage
+%END
+
+
+\subsubsection{Sample size calculations: examples}
+An actual call to the function, requesting an upper sample size estimate (and actual power) for $\alpha = 0.95$, $\beta=0.1$ , and standard deviations $\sigma_1=\sigma_2=1$ , means $\mu_1=2.3$ and $\mu_2=4.5$,   would be
+
+\lstset{language={[Visual]Basic}}
+\begin{lstlisting}
+Result = TestSampleSize2i("TTest",0.05, 0.1, {2.3, 4.5}, 1, "UpperN + UpperNPower")
+mp.Print Result
+\end{lstlisting}
+which produces the output
+
+\begin{verbatim}
+UpperN: 2 x 6 = 12
+UpperNPower: 0.9285919
+\end{verbatim}
+
+
+
+%\newpage
 \subsection{Confidence Interval (Effect size)}
-
-
-\vspace{0.3cm}
 Let $T$ be a statistic according to the non-central $t$-distribution
 with $n$ degrees of freedom and a non-centrality parameter $\delta$. Then
 the lower confidence limit $\widehat{\delta}$ of level $1-\alpha$ and the two-sided confidence interval $[ \underline{\delta},\overline{\delta}]$ of the
@@ -8125,345 +7604,1232 @@ non-centrality parameter $\delta$ of level $1-\alpha$ are given by \cite{akahira
 where $k=1+(1-b^2)T^2$, $h$ and $b$ are defined in equation (\ref{Akahira_h_b}), and $z_\alpha$ denotes the $\alpha$-quantile of the normal distribution (see section \ref{sec:NormalDistribution_Quantiles}).
 
 
-Let $A_1=t_{\nu,\alpha} \cdot s$ and $A_2=t_{\nu,\alpha/2} \cdot s$, where $s$ and $\nu$ are defined in (\ref{eq:TTest2i}), and $t_{\nu,\alpha}$ denotes the $\alpha$-quantile of the (central) $t$-distribution with $\nu$ degrees of freedom (see section \ref{tDistributionQuantile}). Then confidence intervals for the difference of 2 means can be calculated as summarized in Table \ref{Anova1way, EffectSize}.
-
-\begin{table}[ht]
-	\centering
-	\begin{tabular}{|l|l|}
-		\hline
-		Type & Confidence Interval (Effect size)\\
-		\hline
-		Left-sided &  $-\infty \leq \mu_1 - \mu_2 \leq (\overline{x}_1-\overline{x}_1) + A_1$ \\
-		Right-sided &  $(\overline{x}_1-\overline{x}_1) - A_1 \leq \mu_1 - \mu_2 \leq +\infty$\\
-		Two-sided & $(\overline{x}_1-\overline{x}_1) - A_2 \leq \mu_1 - \mu_2 \leq (\overline{x}_1-\overline{x}_1) + A_2$ \\
-		\hline
-	\end{tabular}
-	\caption{Anova1way, confidence intervals for effect size}
-	\label{Anova1way, EffectSize}
-\end{table}
+Let $A_1=t_{\nu,\alpha} \cdot s$ and $A_2=t_{\nu,\alpha/2} \cdot s$, where $s$ and $\nu$ are defined in (\ref{eq:TTest2i}), and $t_{\nu,\alpha}$ denotes the $\alpha$-quantile of the (central) $t$-distribution with $\nu$ degrees of freedom (see section \ref{tDistributionQuantile}). Then confidence intervals for the difference of 2 means can be calculated (needs to be worked out).
 
 
+%BEGIN
+%
+%Let $A_1=t_{\nu,\alpha} \cdot s$ and $A_2=t_{\nu,\alpha/2} \cdot s$, where $s$ and $\nu$ are defined in (\ref{eq:TTest2i}), and $t_{\nu,\alpha}$ denotes the $\alpha$-quantile of the (central) $t$-distribution with $\nu$ degrees of freedom (see section \ref{tDistributionQuantile}). Then confidence intervals for the difference of 2 means can be calculated as summarized in Table \ref{TableStudentsttest,2i samples, EffectSize}.
+%
+%\begin{table}[ht]
+%	\centering
+%	\begin{tabular}{|l|l|}
+%		\hline
+%		Type & Confidence Interval (Effect size)\\
+%		\hline
+%		Left-sided &  $-\infty \leq \mu_1 - \mu_2 \leq (\overline{x}_1-\overline{x}_1) + A_1$ \\
+%		Right-sided &  $(\overline{x}_1-\overline{x}_1) - A_1 \leq \mu_1 - \mu_2 \leq +\infty$\\
+%		Two-sided & $(\overline{x}_1-\overline{x}_1) - A_2 \leq \mu_1 - \mu_2 \leq (\overline{x}_1-\overline{x}_1) + A_2$ \\
+%		\hline
+%	\end{tabular}
+%	\caption{2 independent samples, confidence intervals for effect size}
+%	\label{TableStudentsttest,2i samples, EffectSize}
+%\end{table}
 
 
+%END
 
 
-\newpage
-\section{Permutation tests for k samples, 1-way and 2-way layout}
-
-\subsection{Overview}
-%\label{kCorrelatedSamplesAnovaOverview}
-
-
-See \cite{Rasch_2011}
-
-See \cite{kirk_experimental_1982}, \cite{kirk_experimental_1995}, \cite{kirk_experimental_2013}
-
-
-\subsection{Overview}
-\label{Anova2wayOverview}
-
-Let $(X_1, X_2, \ldots, X_N)$ denote a random sample of size $N$ from a normal distribution with mean $\mu$ and variance $\sigma^2$, and let
-\begin{equation}
-	\overline{x}_1 = \frac{1}{N} \sum_{i=1}^N X_i \quad \text{and } s^2 = \frac{1}{N-1} \sum_{i=1}^N (X_i - \overline{x}_1)
-\end{equation}
-be the usual sample estimates of the unkown population mean $\mu$ and unkown population variance $\sigma^2$. Then Student's t-test can be used to test hypotheses concerning $\mu$ with regard to a reference value $\mu_0$.
-
-
-
-\subsection{Tests and Confidence Intervals}
-
-\begin{mpFunctionsExtract}
-	\mpFunctionFiveNotImplemented
-	{Anova2way? mpNumList? p-values, confidence intervals and related information for Anova2way}
-	{Type1Error? mpNum? A real number greater then 0 and less than 1.}
-	{N? mpNum[]? An array of integers greater than 1, representing the samples sizes}
-	{Mean? mpNum[]? An array of reals, representing the means}
-	{StDev? mpNum[]? An array of positive reals, representing the standard deviations}
-	{Output? String? A string describing the output choices}
-\end{mpFunctionsExtract}
-
-\vspace{0.3cm}
-See section \ref{Functions returning p-Values and Confidence Intervals} for the options for {\itshape\sffamily Type1Error} and {\itshape\sffamily Output}). Algorithms and formulas are given in sections \ref{Anova2way_Test} and \ref{Anova2way_CI}.
-
-
-
-
-\subsubsection{Test}
-\label{Anova2way_Test}
-Let $F_t\left(\cdot, \nu\right)$ denote the CDF (see section \ref{tDistributionCDF}) and let $t_{\nu,\alpha}$ denote the $\alpha$-quantile (see section \ref{tDistributionQuantile}) of the $t$-distribution with $\nu$ degrees of freedom. Define
-
-\begin{equation}
-	t= \frac{(\overline{x}_1-\overline{x}_2)}{s}, \text{ where}
-\end{equation}
-\begin{equation} \label{eq:Anova2way}
-	s = \sqrt{\textit{MSE}\left(\frac{1}{n_1}+\frac{1}{n_2}\right)}, \quad \textit{MSE} = \frac{(n_1-1)s_1^2+(n_2-1)s_2^2}{\nu}, \quad \nu=n_1+n_2-2.
-\end{equation}
-
-Then $p$-values and rejection criteria for $H_0$ can be calculated as summarized in Table \ref{TableAnova2way}.
-
-\begin{table}[ht]
-	\centering
-	\begin{tabular}{|l|l|l|}
-		\hline
-		Test problem & $p$-value & Reject $H_0$ if \\
-		\hline
-		$H_{01}: \mu_1 \leq \mu_2$ vs $H_{A1}: \mu_1 > \mu_2$ & $F_t\left(-t, \nu\right)$ &$t > t_{\nu;1-\alpha}$ \\
-		$H_{02}: \mu_1 \geq \mu_2$ vs $H_{A2}: \mu_1 < \mu_2$ & $F_t\left(t, \nu\right)$  &$t > t_{\nu;\alpha}$ \\
-		$H_{03}: \mu_1 = \mu_2$ vs $H_{A3}: \mu_1 \neq \mu_2$ & $F_t\left(t, \nu\right)-F_t\left(-t, \nu\right)$ &$t > t_{\nu;1-\alpha/2}$ or $t > t_{\nu;\alpha/2}$ \\
-		\hline
-	\end{tabular}
-	\caption{Anova2way}
-	\label{TableAnova2way}
-\end{table}
-
-
-The test can also be expressed in terms of a correlation coefficient $r$ between the combined $X$ and an indicator variable, where $t$ and $r$ are related by
-
-\begin{equation}
-	r=\frac{t}{\sqrt{t^2+\nu}}, \quad t= \nu \frac{r}{1-r^2}.
-\end{equation}
-
-
-
+%
 %\newpage
-\subsubsection{Confidence Interval (Difference of Means)}
-\label{Anova2way_CI}
-
-\vspace{0.3cm}
-Let $A_1=t_{\nu,\alpha} \cdot s$ and $A_2=t_{\nu,\alpha/2} \cdot s$, where $s$ and $\nu$ are defined in (\ref{eq:TTest2i}), and $t_{\nu,\alpha}$ denotes the $\alpha$-quantile of the (central) $t$-distribution with $\nu$ degrees of freedom (see section \ref{tDistributionQuantile}). Then confidence intervals for the difference of 2 means can be calculated as summarized in Table \ref{Anova2way, CI}.
-
-\begin{table}[ht]
-	\centering
-	\begin{tabular}{|l|l|}
-		\hline
-		Type & Confidence Interval (Difference of Means)\\
-		\hline
-		Left-sided &  $-\infty \leq \mu_1 - \mu_2 \leq (\overline{x}_1-\overline{x}_2) + A_1$ \\
-		Right-sided &  $(\overline{x}_1-\overline{x}_2) - A_1 \leq \mu_1 - \mu_2 \leq +\infty$\\
-		Two-sided & $(\overline{x}_1-\overline{x}_2) - A_2 \leq \mu_1 - \mu_2 \leq (\overline{x}_1-\overline{x}_2) + A_2$ \\
-		\hline
-	\end{tabular}
-	\caption{Anova2way, confidence intervals for means}
-	\label{Anova2way, CI}
-\end{table}
-
-
-\subsection{Power Calculation}
-\label{Anova2way_Power}
-
-
-\begin{mpFunctionsExtract}
-	\mpFunctionFiveNotImplemented
-	{Anova2wayPower? mpNumList? returns power estimations and related information for Anova2way}
-	{Type1Error? mpNum? An real number greater then 0 and less than 1.}
-	{N? mpNum[]? An array of integers greater than 1, representing the samples sizes}
-	{Mean? mpNum[]? An array of reals, representing the means}
-	{StDev? mpNum[]? An array of positive reals, representing the standard deviations}
-	{Output? String? A string describing the output choices}
-\end{mpFunctionsExtract}
-
-\vspace{0.3cm}
-See section \ref{Functions returning Power Estimates} for the options for {\itshape\sffamily Type1Error} and {\itshape\sffamily Output}). Algorithms and formulas are given in section \ref{Anova2way_Power}.
-
-\vspace{0.3cm}
-Let $\sigma_1^2 = \sigma_2^2 = \sigma^2$, $N = n_1 + n_2$, $q_1 = n_1 /N$, $q_2 = n_2 /N$, and $\nu=N-2$. Define
-
-\begin{equation} \label{eq:Anova2wayPower}
-	\widetilde{\rho} = \frac{\mu_1-\mu_2}{\sigma} \sqrt{\frac{q_1+q_2}{q_1 \cdot q_2}}, \text{ and } \delta = \sqrt{N} \widetilde{\rho}.
-\end{equation}
-
-
-Let $F_{t'}\left(\cdot, \nu, \delta \right)$ denote the CDF of the (singly) noncentral $t$-distribution with $\nu$ degrees of freedom and noncentrality parameter $\delta$ (see section 
-%\ref{NoncentraltDistributionCDFBoost})
-and let $t_{\nu,\alpha}$ denote the $\alpha$-quantile of the central $t$-distribution with $\nu$ degrees of freedom (see section \ref{tDistributionQuantile}).
-Then the power for accepting $H_A$ at the confidence level $\alpha$ can be calculated as summarized in Table \ref{TableAnova2way,power}.
-
-
-\begin{table}[ht]
-	\centering
-	\begin{tabular}{|l|l|l|l|}
-		\hline
-		Test &Null Hypothesis &Alternative & Power \\
-		\hline
-		1 sided & $H_{01}: \mu_1 \leq \mu_2$ & $H_{A1}: \mu_1 > \mu_2$ & $F_{t'}\left(-t_{\nu;1-\alpha}, \nu, \delta \right)$ \\
-		1 sided & $H_{02}: \mu_1 \geq \mu_2$ & $H_{A2}: \mu_1 < \mu_2$ & $F_{t'}\left(t_{\nu;1-\alpha}, \nu, \delta \right)$  \\
-		\hline
-		2 sided & $H_{03}: \mu_1 = \mu_2$ & $H_{A1}: \mu_1 > \mu_2$ & $F_{t'}\left(-t_{\nu;1-\alpha/2}, \nu, \delta \right)$ \\
-		2 sided & $H_{03}: \mu_1 = \mu_2$ & $H_{A2}: \mu_1 < \mu_2$ & $F_{t'}\left(t_{\nu;1-\alpha/2}, \nu, \delta \right)$  \\
-		2 sided & $H_{03}: \mu_1 = \mu_2$ & $H_{A3}: \mu_1 \neq \mu_2$ & $F_{t'}\left(t_{\nu;1-\alpha/2}, \nu, \delta \right)-F_t\left(-t_{\nu;1-\alpha/2}, \nu\, \delta \right)$ \\
-		\hline
-	\end{tabular}
-	\caption{Anova2way, power}
-	\label{TableAnova2way,power}
-\end{table}
-
-
-
-\newpage
-\subsection{Sample Size Calculation}
-
-\begin{mpFunctionsExtract}
-	\mpFunctionFiveNotImplemented
-	{Anova2waySampleSize? mpNumList? returns sample size estimations and related information for Anova2way}
-	{Type1Error? mpNum? An real number greater then 0 and less than 1.}
-	{Type2Error? mpNum? An real number greater then 0 and less than 1.}
-	{Mean? mpNum[]? An array of reals, representing the means}
-	{StDev? mpNum[]? An array of positive reals, representing the standard deviations}
-	{Output? String? A string describing the output choices}
-\end{mpFunctionsExtract}
-
-\vspace{0.3cm}
-See section \ref{Functions returning Power Estimates} for the options for {\itshape\sffamily Type1Error},  {\itshape\sffamily Type2Error} and {\itshape\sffamily Output}. Algorithms and formulas are given below.
-
-\subsubsection{Sample size calculations: algorithms and formulas}
-Let $N_{t'}\left(\alpha, \beta, \widetilde{\rho} \right)$ denote the sample size function of the (singly) noncentral $t$-distribution (see section \ref{NoncentralTDistributionSampleSize} ) for a given confidence level $\alpha$, power $\beta$ and noncentrality parameter $\widetilde{\rho}$ (as defined in equation \ref{eq:TTestPower2i}. The required total sample size $N$ can be calculated as summarized in Table \ref{TableStudentsttest,2i samples,sample size}. Note that the returned value of $N$ will in general not be an integer, and rounding up may be required to ensure that all $n_i$ are integers.
-
-
-\begin{table}[ht]
-	\centering
-	\begin{tabular}{|l|l|l|l|}
-		\hline
-		Test &Null Hypothesis &Alternative & Minimal sample size $N$ \\
-		\hline
-		1 sided & $H_{01}: \mu_1 \leq \mu_2$ & $H_{A1}: \mu_1 > \mu_2$ & $N_{t'}\left(\alpha, \beta, \widetilde{\rho} \right)$ \\
-		1 sided & $H_{02}: \mu_1 \geq \mu_2$ & $H_{A2}: \mu_1 < \mu_2$ & $N_{t'}\left(\alpha, \beta, \widetilde{\rho} \right)$  \\
-		\hline
-		2 sided & $H_{03}: \mu_1 = \mu_2$ & $H_{A1}: \mu_1 > \mu_2$ & $N_{t'}\left(\alpha, \beta, \widetilde{\rho} \right)$ \\
-		2 sided & $H_{03}: \mu_1 = \mu_2$ & $H_{A2}: \mu_1 < \mu_2$ & $N_{t'}\left(\alpha, \beta, \widetilde{\rho} \right)$  \\
-		2 sided & $H_{03}: \mu_1 = \mu_2$ & $H_{A3}: \mu_1 \neq \mu_2$ & $N2_{t'}\left(\alpha, \beta, \widetilde{\rho} \right)$ \\
-		\hline
-	\end{tabular}
-	\caption{Anova2way, sample size}
-	\label{TableAnova2way,sample size}
-\end{table}
-
-
-
-\subsection{Confidence Interval (Effect size)}
-
-
-\vspace{0.3cm}
-Let $T$ be a statistic according to the non-central $t$-distribution
-with $n$ degrees of freedom and a non-centrality parameter $\delta$. Then
-the lower confidence limit $\widehat{\delta}$ of level $1-\alpha$ and the two-sided confidence interval $[ \underline{\delta},\overline{\delta}]$ of the
-non-centrality parameter $\delta$ of level $1-\alpha$ are given by \cite{akahira_1995}:
-\begin{equation}
-	\widehat{\delta} = bT - z_\alpha \sqrt{k} +  h T^3 (z_\alpha^2 - 1)/k,
-\end{equation} 
-\begin{equation}
-	\underline{\delta} = bT - z_{\alpha/2} \sqrt{k} +  h T^3 (z_{\alpha/2}^2 - 1)/k,
-\end{equation} 
-\begin{equation}
-	\overline{\delta} = bT + z_{\alpha/2} \sqrt{k} -  h T^3 (z_{\alpha/2}^2 - 1)/k,
-\end{equation} 
-where $k=1+(1-b^2)T^2$, $h$ and $b$ are defined in equation (\ref{Akahira_h_b}), and $z_\alpha$ denotes the $\alpha$-quantile of the normal distribution (see section \ref{sec:NormalDistribution_Quantiles}).
-
-
-Let $A_1=t_{\nu,\alpha} \cdot s$ and $A_2=t_{\nu,\alpha/2} \cdot s$, where $s$ and $\nu$ are defined in (\ref{eq:TTest2i}), and $t_{\nu,\alpha}$ denotes the $\alpha$-quantile of the (central) $t$-distribution with $\nu$ degrees of freedom (see section \ref{tDistributionQuantile}). Then confidence intervals for the difference of 2 means can be calculated as summarized in Table \ref{Anova2way, EffectSize}.
-
-\begin{table}[ht]
-	\centering
-	\begin{tabular}{|l|l|}
-		\hline
-		Type & Confidence Interval (Effect size)\\
-		\hline
-		Left-sided &  $-\infty \leq \mu_1 - \mu_2 \leq (\overline{x}_1-\overline{x}_1) + A_1$ \\
-		Right-sided &  $(\overline{x}_1-\overline{x}_1) - A_1 \leq \mu_1 - \mu_2 \leq +\infty$\\
-		Two-sided & $(\overline{x}_1-\overline{x}_1) - A_2 \leq \mu_1 - \mu_2 \leq (\overline{x}_1-\overline{x}_1) + A_2$ \\
-		\hline
-	\end{tabular}
-	\caption{Anova2way, confidence intervals for effect size}
-	\label{Anova2way, EffectSize}
-\end{table}
-
-
-
-
-\newpage
-\section{Hotelling's T2 and MANOVA}
-\label{MANOVA}
-
-
-\subsection{Hotelling's T2}
-
-
-\lipsum[2]
-
-
-\subsection{MANOVA}
-
-
-\lipsum[2]
+%\section{Tests for variances from 1 or 2 samples}
+%\label{1SampleChiSquareTest}
+%
+%
+%\subsection{Overview}
+%\label{1SampleChiSquareTestOverview}
+%
+%The test criterion is $\chi^2=\frac{(n-1) s^2}{\sigma_0^2}$. This results in the following tests:
 %
 %\subsection{Test}
-%\label{MANOVATest}
-%\lipsum[3]
+%\begin{tabular}{p{481pt}}
+%	\toprule
+%	\textsf{Function \textbf{Chi2VarianceTest}($\boldsymbol{a}\ As\ mpNum$, $\boldsymbol{b}\ As\ mpNum$) As mpNum}\index{Multiprecision Functions!Chi2VarianceTest} \\
+%	\bottomrule
+%\end{tabular}
 %
-%\subsection{Confidence Interval}
-%\label{MANOVACI}
-%\lipsum[4]
-%
-%
-%
-%\subsection{Power}
-%\label{MANOVAPower}
-%
-%\lipsum[6]
-%
-%\begin{figure}[ht]
-%\centering
-%\includegraphics{mpTemp2.pdf}
-%\caption{Power of MANOVA Test}
-%\label{FigPowerOfMANOVA}
-%\end{figure}
+%\vspace{0.3cm}
 %
 %
-%\subsection{Sample Size Calculation}
-%\label{MANOVASampleSize}
-%\lipsum[1]
-
-
-
-
-\newpage
-\section{Canonical Correlation}
-\label{CanonicalCorrelation}
-
-
-\subsection{Overview}
-\label{CanonicalCorrelationOverview}
-
-\lipsum[2]
+%\begin{table}[ht]
+%	\centering
+%	\begin{tabular}{|l|l|}
+%		\hline
+%		Test problem & Reject $H_0$ if \\
+%		\hline
+%		$H_{01}: \sigma^2 \leq \sigma^2_0$ vs $H_{A1}: \sigma^2 > \sigma^2_0$ & $\chi^2 > \chi^2_{n-1;1-\alpha}$ \\
+%		$H_{02}: \sigma^2 \geq \sigma^2_0$ vs $H_{A2}: \sigma^2 < \sigma^2_0$ & $\chi^2 > \chi^2_{n-1;\alpha}$ \\
+%		$H_{03}: \sigma^2 = \sigma^2_0$ vs $H_{A3}: \sigma^2 \neq \sigma^2_0$ & $\chi^2 > \chi^2_{n-1;1-\alpha/2}$ or $\chi^2 > \chi^2_{n-1;\alpha/2}$ \\
+%		\hline
+%	\end{tabular}
+%	\caption{ChiSquareVariance-test, 1 sample}
+%	\label{ChiSquareVariance-test, 1 sample}
+%\end{table}
 %
-%\subsection{Test}
-%\label{CanonicalCorrelationTest}
-%The density of a central chi-square variable with $n$ degrees of freedom is given by
+%
+%\subsection{Confidence Interval for a sample variance}
+%\begin{tabular}{p{481pt}}
+%	\toprule
+%	\textsf{Function \textbf{Chi2VarianceTestCI}($\boldsymbol{a}\ As\ mpNum$, $\boldsymbol{b}\ As\ mpNum$) As mpNum}\index{Multiprecision Functions!Chi2VarianceTestCI} \\
+%	\bottomrule
+%\end{tabular}
+%
+%\vspace{0.3cm}
+%A 2-sided $1-\alpha$ Confidence Interval for the sample variance $\sigma^2$ is given by
 %\begin{equation}
-%g(n,x) = \frac{1}{2^{n/2} \Gamma(n/2)} x^{(n-2)/2}e^{-x/2}.
+%	\frac{(n-1)s^2}{\chi^2_{n-1;1-\alpha/2}} \leq \sigma^2 \leq \frac{(n-1)s^2}{\chi^2_{n-1;\alpha/2}}
 %\end{equation}
 %
-%\lipsum[3]
 %
-%\subsection{Confidence Interval}
-%\label{CanonicalCorrelationCI}
-%\lipsum[4]
+%\subsection{F-Test for 2 independent variances}
+%\label{2iSamplesFTest}
 %
 %
+%\begin{tabular}{p{481pt}}
+%	\toprule
+%	{\sffamily Function {\bfseries Test2i}("{\bfseries FTest}", {\itshape{\bfseries Type1Error} As mpNum, {\bfseries N} As mpNum[], {\bfseries Mean} As mpNum[], {\bfseries StDev} As mpNum[], {\bfseries Output} As String}) As mpNumList}\index{Multiprecision Functions!TDist} \\[0.2cm]
+%	
+%	{\sffamily Function {\bfseries TestPower2i}("{\bfseries FTest}", {\itshape{\bfseries Type1Error} As mpNum, {\bfseries N} As mpNum[], {\bfseries Mean} As mpNum[], {\bfseries StDev} As mpNum[], {\bfseries Output} As String}) As mpNumList}\index{Multiprecision Functions!TDist} \\[0.2cm]
+%	
+%	{\sffamily Function {\bfseries TestSampleSize2i}("{\bfseries FTest}", {\itshape{\bfseries Type1Error} As mpNum, {\bfseries Type2Error} As mpNum, {\bfseries Mean} As mpNum[], {\bfseries StDev} As mpNum[], {\bfseries Output} As String}) As mpNumList}\index{Multiprecision Functions!TDist} \\
+%	\bottomrule
+%\end{tabular}
+%\vspace{0.3cm}
 %
 %
-%\subsection{Power}
-%\label{CanonicalCorrelationPower}
 %
-%\lipsum[6]
+%\newpage
+%\section{Tests for proportions from 1 or 2 samples}
+%\label{1SampleBinomialTest}
+%A general reference to categorical data analysis is \cite{Agresti_2002}
 %
+%
+%\subsection{Overview}
+%\label{1SampleBinomialTestOverview}
+%
+%\lipsum[2]
+%
+%\subsection{BinomialTest}
+%\begin{tabular}{p{481pt}}
+%	\toprule
+%	\textsf{Function \textbf{BinomialTest}($\boldsymbol{a}\ As\ mpNum$, $\boldsymbol{b}\ As\ mpNum$) As mpNum}\index{Multiprecision Functions!BinomialTest} \\
+%	\bottomrule
+%\end{tabular}
+%
+%\vspace{0.3cm}
+%
+%
+%\begin{table}[ht]
+%	\centering
+%	\begin{tabular}{|l|l|}
+%		\hline
+%		Test problem & Reject $H_0$ if \\
+%		\hline
+%		$H_{01}: p \leq p_0$ vs $H_{A1}: p > p_0$ & $t > t_{n-1;1-\alpha}$ \\
+%		$H_{02}: p \geq p_0$ vs $H_{A2}: p < p_0$ & $t > t_{n-1;\alpha}$ \\
+%		$H_{03}: p = p_0$ vs $H_{A3}: p \neq p_0$ & $t > t_{n-1;1-\alpha/2}$ or $t > t_{n-1;\alpha/2}$ \\
+%		\hline
+%	\end{tabular}
+%	\caption{Student's t-test, 1 sample}
+%	\label{Table1SampleBinomialTest,1 sample}
+%\end{table}
+%
+%
+%
+%\subsection{Fisher's Exact Test}
+%
+%
+%
+%\lipsum[2]
+%
+%
+%
+%\newpage
+%\section{Wilcoxon Test (1 sample  or 2 correlated samples)}
+%\label{1SampleWilcoxonTest}
+%
+%Book Reference: \cite{Sprent2007}
+%
+%Book Reference: \cite{Desu2004}
+%
+%Book Reference: \cite{Hollander_2013}
+%
+%See also \cite{conover1981}
+%
+%See also \cite{buening_nonparametric_1978}
+%
+%See also \cite{bortz_distribution_1990}
+%
+%Add: Noether
+%
+%\subsection{Overview}
+%\label{1SampleWilcoxonTestOverview}
+%
+%NOTE: cover 1 sample and 2 correlated samples in this section
+%
+%We consider $N$ continously distributed random variables $D_i,i=1\ldots N$, with common pdf $h_0$. In a sample $(d_1,\ldots,d_N)$ of size $N$ let $r_i$ be the rank of $d_i$ in the ordered sample.
+%
+%\subsubsection{The $T_N$ and $W_N$ test criteria}
+%The test criterion of Wilcoxon's Signed Rank is $T_N=\sum_{i=1}^N S(d_i)r_i$, where $S(d_i)=1$ for $x>0$ and $S(d_i)=0$ for $x<0$.
+%$T_N$ can assume values between 0 and $\tfrac{1}{2}N(N+1)$ in steps of 1.
+%
+%Equivalent to $T_N$ is the criterion $W_N=\sum_{i=1}^N \text{sgn}(d_i)r_i$. $W_N$ can assume values between $-\tfrac{1}{2}N(N+1)$ and $\tfrac{1}{2}N(N+1)$ in steps of 2. 
+%
+%We have $W_N=2T_N-\tfrac{1}{2}N(N+1)$ and $T_N=(W_N+\tfrac{1}{2}N(N+1))$.
+%
+%
+%
+%
+%\subsubsection{The $\widetilde{T}_N$ and $\widetilde{W}_N$ test criteria}
+%$T$ can also be written as $T=T_1+\widetilde{T}_N, \quad T_1=\sum_{i=1}^N S(d_i), \quad \widetilde{T}_N=\sum_{i=1}^{N-1} \sum_{j=i+1}^N S(d_i+d_j)$.
+%
+%$T_1$ is the test criterion of the Sign test (see section ...).
+%
+%$\widetilde{T}_N$ is the test criterion of the modified Signed Rank test.
+%
+%$\widetilde{T}_N$ can also be written as $\widetilde{T}_N=\sum_{i=1}^N s(d_i) (r_i - 1)$. 
+%$\widetilde{T}_N$ can assume values between 0 and $\tfrac{1}{2}N(N-1)$ in steps of 1.
+%
+%Equivalent to $\widetilde{T}_N$ is the criterion $\widetilde{W}_N=\sum_{i=1}^N \text{sgn}(d_i)(r_i - 1)$. 
+%
+%$\widetilde{W}_N$ can assume values between $-\tfrac{1}{2}N(N-1)$ and $\tfrac{1}{2}N(N-1)$ in steps of 2. 
+%
+%We have $\widetilde{W}_N=2\widetilde{T}_N-\tfrac{1}{2}N(N-1)$ and $\widetilde{T}_N=\tfrac{1}{2}(\widetilde{W}_N+\tfrac{1}{2}N(N-1))$.
+%
+%
+%
+%\vspace{2cm}
+%
+%\subsection{Relationship to other tests}
+%$W$ (and therefore also $T$) is equivalent to the test criterion of Student's t-test, when applied to the rank=transformed data. The $t_R$ values of this t-test and $W$ are related as follows \citep{conover1981}:
+%
+%\begin{equation}
+%	t_R = \frac{W}{\sqrt{(N-W^2)/(N-1)}} \quad and \quad W=t_R \sqrt{\frac{N}{(N-1)+t_r^2}}
+%\end{equation}
+%
+%
+%
+%%
+%%\subsection{Test}
+%%\begin{tabular}{p{481pt}}
+%%\toprule
+%%\textsf{Function \textbf{WilcoxonTest1}($\boldsymbol{a}\ As\ mpNum$, $\boldsymbol{b}\ As\ mpNum$) As mpNum}\index{Multiprecision Functions!WilcoxonTest1} \\
+%%\bottomrule
+%%\end{tabular}
+%%
+%%\vspace{0.3cm}
+%%
+%%
+%%
+%%\begin{table}[ht]
+%%\centering
+%%\begin{tabular}{|l|l|}
+%%\hline
+%%Test problem & Reject $H_0$ if \\
+%%\hline
+%%$H_{01}: \mu \leq \mu_0$ vs $H_{A1}: \mu > \mu_0$ & $t > t_{n-1;1-\alpha}$ \\
+%%$H_{02}: \mu \geq \mu_0$ vs $H_{A2}: \mu < \mu_0$ & $t > t_{n-1;\alpha}$ \\
+%%$H_{03}: \mu = \mu_0$ vs $H_{A3}: \mu \neq \mu_0$ & $t > t_{n-1;1-\alpha/2}$ or $t > t_{n-1;\alpha/2}$ \\
+%%\hline
+%%\end{tabular}
+%%\caption{Wilcoxon-test, 1 sample}
+%%\label{TableWilcoxon-test, 1 sample}
+%%\end{table}
+%%
+%%
+%%\subsection{Power}
+%%\begin{tabular}{p{481pt}}
+%%\toprule
+%%\textsf{Function \textbf{WilcoxonTest1Power}($\boldsymbol{a}\ As\ mpNum$, $\boldsymbol{b}\ As\ mpNum$) As mpNum}\index{Multiprecision Functions!WilcoxonTest1Power} \\
+%%\bottomrule
+%%\end{tabular}
+%%
+%%\vspace{0.3cm}
+%%
+%%\lipsum[4]
+%%
 %%\begin{figure}[ht]
 %%\centering
 %%\includegraphics{mpTemp2.pdf}
-%%\caption{Power of CanonicalCorrelation Test}
-%%\label{FigPowerOfCanonicalCorrelation}
+%%\caption{Power of Wilcoxon Test}
+%%\label{FigPowerOf1SampleWilcoxon}
 %%\end{figure}
+%%
+%%
+%%\subsection{Sample Size Calculation}
+%%\begin{tabular}{p{481pt}}
+%%\toprule
+%%\textsf{Function \textbf{WilcoxonTest1SampleSize}($\boldsymbol{a}\ As\ mpNum$, $\boldsymbol{b}\ As\ mpNum$) As mpNum}\index{Multiprecision Functions!WilcoxonTest1SampleSize} \\
+%%\bottomrule
+%%\end{tabular}
+%%
+%%\vspace{0.3cm}
+%%
+%%\lipsum[4]
+%%
 %
 %
+%
+%\newpage
+%\section{Mann-Whitney Test}
+%\label{1SampleMannWhitneyTest}
+%
+%
+%\subsection{Overview}
+%\label{1SampleMannWhitneyTestOverview}
+%
+%\lipsum[2]
+%%
+%%\subsection{Test}
+%%\begin{tabular}{p{481pt}}
+%%\toprule
+%%\textsf{Function \textbf{MannWhitneyTest}($\boldsymbol{a}\ As\ mpNum$, $\boldsymbol{b}\ As\ mpNum$) As mpNum}\index{Multiprecision Functions!MannWhitneyTest} \\
+%%\bottomrule
+%%\end{tabular}
+%%
+%%\vspace{0.3cm}
+%%
+%%The density of a central chi-square variable with $n$ degrees of freedom is given by
+%%\begin{equation}
+%%g(n,x) = \frac{1}{2^{n/2} \Gamma(n/2)} x^{(n-2)/2}e^{-x/2}.
+%%\end{equation}
+%%
+%%\lipsum[3]
+%%
+%%\subsection{Confidence Interval}
+%%\begin{tabular}{p{481pt}}
+%%\toprule
+%%\textsf{Function \textbf{MannWhitneyTestCI}($\boldsymbol{a}\ As\ mpNum$, $\boldsymbol{b}\ As\ mpNum$) As mpNum}\index{Multiprecision Functions!MannWhitneyTestCI} \\
+%%\bottomrule
+%%\end{tabular}
+%%
+%%\vspace{0.3cm}
+%%
+%%\lipsum[4]
+%%
+%%
+%%
+%%
+%%\subsection{Power}
+%%\begin{tabular}{p{481pt}}
+%%\toprule
+%%\textsf{Function \textbf{MannWhitneyTestPower}($\boldsymbol{a}\ As\ mpNum$, $\boldsymbol{b}\ As\ mpNum$) As mpNum}\index{Multiprecision Functions!MannWhitneyTestPower} \\
+%%\bottomrule
+%%\end{tabular}
+%%
+%%\vspace{0.3cm}
+%%
+%%\lipsum[6]
+%%
+%%
+%%
+%%\subsection{Sample Size Calculation}
+%%\begin{tabular}{p{481pt}}
+%%\toprule
+%%\textsf{Function \textbf{MannWhitneyTestSampleSize}($\boldsymbol{a}\ As\ mpNum$, $\boldsymbol{b}\ As\ mpNum$) As mpNum}\index{Multiprecision Functions!MannWhitneyTestSampleSize} \\
+%%\bottomrule
+%%\end{tabular}
+%%
+%%\vspace{0.3cm}
+%%
+%%\lipsum[1]
+%%
+%%
+%
+%
+%\newpage
+%\section{Pearson's Rho and Linear Regression}
+%\label{PearsonRhoTest}
+%
+%See \cite{Balakrishnan_2009}
+%
+%\subsection{Overview}
+%\label{PearsonRhoTestOverview}
+%
+%\lipsum[2]
+%%
+%%\subsection{Test}
+%%\begin{tabular}{p{481pt}}
+%%\toprule
+%%\textsf{Function \textbf{PearsonRhoTest}($\boldsymbol{a}\ As\ mpNum$, $\boldsymbol{b}\ As\ mpNum$) As mpNum}\index{Multiprecision Functions!PearsonRhoTest} \\
+%%\bottomrule
+%%\end{tabular}
+%%
+%%\vspace{0.3cm}
+%%
+%%The density of a central chi-square variable with $n$ degrees of freedom is given by
+%%\begin{equation}
+%%g(n,x) = \frac{1}{2^{n/2} \Gamma(n/2)} x^{(n-2)/2}e^{-x/2}.
+%%\end{equation}
+%%
+%%\lipsum[3]
+%%
+%%\subsection{Confidence Interval}
+%%\begin{tabular}{p{481pt}}
+%%\toprule
+%%\textsf{Function \textbf{PearsonRhoTestCI}($\boldsymbol{a}\ As\ mpNum$, $\boldsymbol{b}\ As\ mpNum$) As mpNum}\index{Multiprecision Functions!PearsonRhoTestCI} \\
+%%\bottomrule
+%%\end{tabular}
+%%
+%%\vspace{0.3cm}
+%%
+%%\lipsum[4]
+%%
+%%
+%%
+%%\subsection{Power}
+%%\begin{tabular}{p{481pt}}
+%%\toprule
+%%\textsf{Function \textbf{PearsonRhoTestPower}($\boldsymbol{a}\ As\ mpNum$, $\boldsymbol{b}\ As\ mpNum$) As mpNum}\index{Multiprecision Functions!PearsonRhoTestPower} \\
+%%\bottomrule
+%%\end{tabular}
+%%
+%%\vspace{0.3cm}
+%%
+%%\lipsum[6]
+%%
+%%
+%%
+%%\subsection{Sample Size Calculation}
+%%\begin{tabular}{p{481pt}}
+%%\toprule
+%%\textsf{Function \textbf{PearsonRhoTestSampleSize}($\boldsymbol{a}\ As\ mpNum$, $\boldsymbol{b}\ As\ mpNum$) As mpNum}\index{Multiprecision Functions!PearsonRhoTestSampleSize} \\
+%%\bottomrule
+%%\end{tabular}
+%%
+%%\vspace{0.3cm}
+%%
+%%\lipsum[1]
+%%
+%
+%
+%
+%\newpage
+%\section{Kendall's Tau and Spearman's Rho}
+%\label{KendallTau}
+%
+%See \cite{Balakrishnan_2009}
+%
+%\subsection{Overview}
+%\label{KendallTauOverview}
+%
+%\lipsum[2]
+%%
+%%\subsection{Test}
+%%\begin{tabular}{p{481pt}}
+%%\toprule
+%%\textsf{Function \textbf{KendallTauTest}($\boldsymbol{a}\ As\ mpNum$, $\boldsymbol{b}\ As\ mpNum$) As mpNum}\index{Multiprecision Functions!KendallTauTest} \\
+%%\bottomrule
+%%\end{tabular}
+%%
+%%\vspace{0.3cm}
+%%
+%%The density of a central chi-square variable with $n$ degrees of freedom is given by
+%%\begin{equation}
+%%g(n,x) = \frac{1}{2^{n/2} \Gamma(n/2)} x^{(n-2)/2}e^{-x/2}.
+%%\end{equation}
+%%
+%%\lipsum[3]
+%%
+%%\subsection{Confidence Interval}
+%%\begin{tabular}{p{481pt}}
+%%\toprule
+%%\textsf{Function \textbf{KendallTauTestCI}($\boldsymbol{a}\ As\ mpNum$, $\boldsymbol{b}\ As\ mpNum$) As mpNum}\index{Multiprecision Functions!KendallTauTestCI} \\
+%%\bottomrule
+%%\end{tabular}
+%%
+%%\vspace{0.3cm}
+%%
+%%\lipsum[4]
+%%
+%%
+%%\subsection{Power}
+%%\begin{tabular}{p{481pt}}
+%%\toprule
+%%\textsf{Function \textbf{KendallTauTestPower}($\boldsymbol{a}\ As\ mpNum$, $\boldsymbol{b}\ As\ mpNum$) As mpNum}\index{Multiprecision Functions!KendallTauTestPower} \\
+%%\bottomrule
+%%\end{tabular}
+%%
+%%\vspace{0.3cm}
+%%
+%%\lipsum[6]
+%%
+%%
+%%\subsection{Sample Size Calculation}
+%%\begin{tabular}{p{481pt}}
+%%\toprule
+%%\textsf{Function \textbf{KendallTauTestSampleSize}($\boldsymbol{a}\ As\ mpNum$, $\boldsymbol{b}\ As\ mpNum$) As mpNum}\index{Multiprecision Functions!KendallTauTestSampleSize} \\
+%%\bottomrule
+%%\end{tabular}
+%%
+%%\vspace{0.3cm}
+%%
+%%\lipsum[1]
+%%
+%
+%
+%
+%
+%\newpage
+%\section{Multiple Linear Regression}
+%\label{MultipleLinearRegression}
+%
+%\subsection{Overview}
+%\label{MultipleLinearRegressionOverview}
+%
+%This section should also cover covariance matrices.
+%
+%The distribution function of $R^2$ depends on the model. For the following description, it will be convenient to consider the distribution of
+%\begin{equation}
+%	F=\frac{R^2}{1-R^2} \frac{N-p}{p-1}
+%\end{equation}
+%
+%See \cite{Gatsonis_1989}.
+%
+%\subsubsection{Null distribution}
+%Let $R^2$ be the sample multiple correlation coefficent between $X$ (consisting of $p-1$ variates) and $Y$, based on $N$ observations. If $\rho^2 = 0$ then the 
+%distribution of $F$ given $X$ fixed is a central F-distribution with $p-1$ and $N-p$ degrees of freedom.
+%
+%\subsubsection{Non-Null distribution, $X$ fixed}
+%Let $R^2$ be the sample multiple correlation coefficent between $X$ (consisting of $p-1$ variates) and $Y$, based on $N$ observations. The conditional 
+%distribution of $F$ given $X$ fixed is a non-central F-distribution with $p-1$ and $N-p$ degrees of freedom and noncentrality parameter $\lambda=\frac{\rho^2(N-p)}{1-\rho^2}$  \citep{Anderson_book_2003}
+%
+%\subsubsection{Non-Null distribution, $X$ and $Y$ random}
+%Let $R^2$ be the sample multiple correlation coefficent between $X$ (consisting of $p-1$ variates) and $Y$, based on $N$ observations. The conditional 
+%distribution of $R^2$ given both $X$ and $Y$ random is the distribution of the square of the multiple correlation coefficient. , as defined in section \ref{Rho2Distribution}   \citep{Anderson_book_2003}
+%
+%%
+%%\subsection{Test}
+%%\label{MultipleLinearRegressionTest}
+%%The density of a central chi-square variable with $n$ degrees of freedom is given by
+%%\begin{equation}
+%%g(n,x) = \frac{1}{2^{n/2} \Gamma(n/2)} x^{(n-2)/2}e^{-x/2}.
+%%\end{equation}
+%%
+%%\lipsum[3]
+%%
+%%\subsection{Confidence Interval}
+%%\label{MultipleLinearRegressionCI}
+%%\lipsum[4]
+%%
+%%\begin{table}[ht]
+%%\centering
+%%\begin{tabular}{|l|l|}
+%%\hline
+%%\multicolumn{2}{|c|}{Team sheet} \\
+%%\hline
+%%GK & Paul Robinson \\
+%%LB & Lucus Radebe \\
+%%DC & Michael Duberry \\
+%%DC & Dominic Matteo \\
+%%RB & Didier Domi \\
+%%MC & David Batty \\
+%%MC & Eirik Bakke \\
+%%MC & Jody Morris \\
+%%FW & Jamie McMaster \\
+%%ST & Alan Smith \\
+%%ST & Mark Viduka \\
+%%\hline
+%%\end{tabular}
+%%\caption{MultipleLinearRegression Test}
+%%\label{TableMultipleLinearRegression}
+%%\end{table}
+%%
+%%
+%%
+%%\subsection{Power}
+%%\label{MultipleLinearRegressionPower}
+%%
+%%\lipsum[6]
+%%
+%%\begin{figure}[ht]
+%%\centering
+%%\includegraphics{mpTemp2.pdf}
+%%\caption{Power of MultipleLinearRegression Test}
+%%\label{FigPowerOfMultipleLinearRegression}
+%%\end{figure}
+%%
+%%
+%%\subsection{Sample Size Calculation}
+%%\label{MultipleLinearRegressionSampleSize}
+%%\lipsum[1]
+%%
+%%\subsection{Function Reference}
+%%\label{MultipleLinearRegressionFunctionReference}
+%%
+%%\noindent \textsf{Function \textbf{MultLinRegTest}($\boldsymbol{a}\ As\ mpNum$, $\boldsymbol{b}\ As\ mpNum$) As mpNum}\index{Multiprecision Functions!MultLinRegTest}
+%%
+%%These routines compute the complete elliptic integral K(k) to the accuracy specified by the mode variable mode. Note that Abramowitz  Stegun define this function in terms of the parameter m = k2. 
+%%
+%%\lipsum[3]
+%%
+%%
+%%\subsection{Examples}
+%%\label{MultipleLinearRegressionExamples}
+%%
+%%\begin{lstlisting}
+%%Sub mpPrintMatrix(x(), Name)
+%%Dim n, m, i, j
+%%n = x.rows
+%%m = x.cols
+%%Print ("Listing of matrix " & Name & ",  " & n & " rows x " & m & " columns")
+%%For j = 1 To m
+%%Print ("#TableStart#")
+%%Print (" " & "|" & "Column " & j)
+%%For i = 1 To n
+%%Print ("x(" & i & ", " & j & "): " & "|" & x(i,j).Str())
+%%Next
+%%Print("#TableEnd#")
+%%Next
+%%Print ("End of listing of matrix " & Name)
+%%'This is a comment
+%%Print ("")
+%%End Sub
+%%\end{lstlisting}
+%%
+%%
+%%
+%%
+%%\lipsum[6]
+%
+%
+%
+%
+%\newpage
+%\section{Anova, 1-way and 2-way layout}
+%
+%
+%
+%\subsection{Overview}
+%\label{Anova1wayOverview}
+%
+%Let $(X_1, X_2, \ldots, X_N)$ denote a random sample of size $N$ from a normal distribution with mean $\mu$ and variance $\sigma^2$, and let
+%\begin{equation}
+%	\overline{x}_1 = \frac{1}{N} \sum_{i=1}^N X_i \quad \text{and } s^2 = \frac{1}{N-1} \sum_{i=1}^N (X_i - \overline{x}_1)
+%\end{equation}
+%be the usual sample estimates of the unkown population mean $\mu$ and unkown population variance $\sigma^2$. Then Student's t-test can be used to test hypotheses concerning $\mu$ with regard to a reference value $\mu_0$.
+%
+%See \cite{Rasch_2011}, \cite{kirk_experimental_1982}, \cite{kirk_experimental_1995}, \cite{kirk_experimental_2013}
+%
+%
+%\subsubsection{ANOVA: General formulas}
+%
+%\begin{equation}
+%	QS_{\text{Total}} = \sum_{i=1}^k \sum_{j=1}^{n_i} \left(x_{ij} - \bar{x}   \right)^2
+%\end{equation}
+%
+%\begin{equation}
+%	QS_{\text{Treat}} = \sum_{i=1}^k  \left(\bar{x}_{i} - \bar{x} \right)^2  = \sum_{i=1}^k  \frac{x_{i.}^2}{n_i} - \frac{x_{..}^2}{N} = QS_{\text{Total}} R^2
+%\end{equation}
+%
+%\begin{equation}
+%	QS_{\text{Err}} = \sum_{i=1}^k(n_i-1)s_i^2 = \sum_{i=1}^k \sum_{j=1}^{n_i}  \left(\bar{x}_{ij} - \bar{x}_i \right)^2  = \sum_{i=1}^k \sum_{j=1}^{n_i} x_{ij}^2 - \sum_{i=1}^k \frac{x_{i.}^2}{n_i} = QS_{\text{Total}}(1-R^2)
+%\end{equation}
+%
+%
+%\begin{equation}
+%	MS_{\text{Total}} = \frac{QS_{\text{Total}}}{N-1}, \quad MS_{\text{Err}} = \frac{QS_{\text{Err}}}{N-k} , \quad MS_{\text{Treat}} = \frac{QS_{\text{Treat}}}{k-1}
+%\end{equation}
+%
+%\begin{equation}
+%	F = \frac{MS_{\text{Treat}}}{MS_{\text{Err}}} = \frac{R^2}{1-R^2} \frac{N-k}{k-1}
+%\end{equation}
+%
+%\begin{equation}
+%	R^2 = \frac{QS_{\text{Treat}}}{QS_{\text{Total}}} = \frac{F(k-1)}{F(k-1)+N-k}
+%\end{equation}
+%
+%
+%
+%\subsubsection{Orthogonal polynomials}
+%
+%The problem of approximating the relation of a response variable to a predictor variabnle consists of (i) the determination of the degree of the polynomial that "best" describes any trends in the data and (ii) the evaluation of the coefficients of the approximating polynomial. One may approach the problem in one of two ways: (a) the usual polynomial regression, or (b) the orthogonal polynomial approach.
+%
+%
+%The usual polynomial regression approach gives rise to the following difficulties: (i) the tests of significance for the various parameters are not independent, (ii) the estimates of the parameters of a polynomial of degree $(k-1)$ cannot be used for estimating coefficients of a polynomial of degree $k$, and (iii) for degrees of polynomial greater than 4, the estimates may be inaccurate due to round-off errors.
+%
+%
+%The orthogonal polynomial approach does not suffer from the shortcomings associated with the usual polynomial regression.
+%
+%\cite{Narula_1978} gives the following algorithm: Let $x_i$  denote the $i$th value $(i=1,\ldots,k)$  of the predictor variable observed $n_i$  times. Then
+%\begin{equation}
+%	P_0(x_i)=1
+%\end{equation}
+%\begin{equation}
+%	P_1(x_i)=(x_i- \alpha_1)P_0(x_i)
+%\end{equation}
+%\begin{equation}
+%	P_j(x_i)=(x_i- \alpha_j)P_0(x_i) - \beta_{j-2}(x_i), \quad j=2,3,\ldots,m\leq k-1
+%\end{equation}
+%
+%represents a set of orthogonal polynomials if
+%\begin{equation}
+%	\alpha_j = \frac{\sum_{i=1}^k n_i x_i P_{j-1}^2(x_i) }{\sum_{i=1}^k n_i P_{j-1}^2(x_i) }, \quad j=1,2,\ldots,m, \text{ and}
+%\end{equation}
+%
+%\begin{equation}
+%	\beta_j = \frac{\sum_{i=1}^k n_i x_i P_{j-2}(x_i) P_{j-1}(x_i)}{\sum_{i=1}^k n_i P_{j-1}^2(x_i) }, \quad j=2,3,\ldots,m.
+%\end{equation}
+%
+%The orthogonal polynomial model can  be written as
+%\begin{equation}
+%	E(Y_{ij}) = \beta_0^* P_0(x_i) + \beta_1^* P_1(x_i) + \ldots + \beta_m^* P_m(x_i), \quad i=1,\ldots,k, \text{ and } j=1,\ldots,n_i,
+%\end{equation}
+%
+%where  $Y_{ij}$ denotes the  $j$th values $(j=1,\ldots,n_i)$  of the response variable corresponding to $x_i$, the  $i$th value of the predictor variable, and  $P_j$ denote the orthogonal polynomials as given above.
+%
+%The least quares estimators $b_j^*$ of $\beta_j^*$ $(j=0,1,\ldots,m)$  are given by
+%
+%\begin{equation}
+%	\beta_j^* = \frac{\sum_{i=1}^k Y_{i\bullet} P_{j}(x_i) }{\sum_{i=1}^k n_i P_{j}^2(x_i) }, \quad j=0,1,\ldots,m, 
+%\end{equation}
+%
+%and the sum of squares due to the  $j$th degree polynomial, $P_j$ , is
+%
+%\begin{equation}
+%	SS_j = \left(b_j^*\right)^2 \sum_{i=1}^k n_{i} P_j^2(x_i), \quad j=1,\ldots,m, \text{ where } Y_{i\bullet}=\sum_{j=1}^{n_i}Y_{ij} \text{ and } Y_{\bullet\bullet}=\sum_{i=1}^{k}Y_{i\bullet}
+%\end{equation}
+%
+%
+%
+%
+%\subsection{Tests and Confidence Intervals}
+%
+%\begin{mpFunctionsExtract}
+%	\mpFunctionFiveNotImplemented
+%	{Anova1way? mpNumList? p-values, confidence intervals and related information for Anova1way}
+%	{Type1Error? mpNum? A real number greater then 0 and less than 1.}
+%	{N? mpNum[]? An array of integers greater than 1, representing the samples sizes}
+%	{Mean? mpNum[]? An array of reals, representing the means}
+%	{StDev? mpNum[]? An array of positive reals, representing the standard deviations}
+%	{Output? String? A string describing the output choices}
+%\end{mpFunctionsExtract}
+%
+%\vspace{0.3cm}
+%See section \ref{Functions returning p-Values and Confidence Intervals} for the options for {\itshape\sffamily Type1Error} and {\itshape\sffamily Output}). Algorithms and formulas are given in sections \ref{Anova1way_Test} and \ref{Anova1way_CI}.
+%
+%This section needs to include
+%\begin{itemize}		
+%	\item Orthogonal Polynomials and Contrasts (maximum modulus)
+%	\item Many One comparisons (Dunnett)
+%	\item All pairs comparisons (Tukey, studentized range)
+%	\item Scheffe type comparisons
+%	\item Several adjustments (Welch, Huyn) to deal with unequal variances)
+%\end{itemize}
+%
+%
+%
+%
+%\subsubsection{Test}
+%\label{Anova1way_Test}
+%Let $F_t\left(\cdot, \nu\right)$ denote the CDF (see section \ref{tDistributionCDF}) and let $t_{\nu,\alpha}$ denote the $\alpha$-quantile (see section \ref{tDistributionQuantile}) of the $t$-distribution with $\nu$ degrees of freedom. Define
+%
+%\begin{equation}
+%	t= \frac{(\overline{x}_1-\overline{x}_2)}{s}, \text{ where}
+%\end{equation}
+%\begin{equation} \label{eq:Anova1way}
+%	s = \sqrt{\textit{MSE}\left(\frac{1}{n_1}+\frac{1}{n_2}\right)}, \quad \textit{MSE} = \frac{(n_1-1)s_1^2+(n_2-1)s_2^2}{\nu}, \quad \nu=n_1+n_2-2.
+%\end{equation}
+%
+%Then $p$-values and rejection criteria for $H_0$ can be calculated as summarized in Table \ref{TableAnova1way}.
+%
+%\begin{table}[ht]
+%	\centering
+%	\begin{tabular}{|l|l|l|}
+%		\hline
+%		Test problem & $p$-value & Reject $H_0$ if \\
+%		\hline
+%		$H_{01}: \mu_1 \leq \mu_2$ vs $H_{A1}: \mu_1 > \mu_2$ & $F_t\left(-t, \nu\right)$ &$t > t_{\nu;1-\alpha}$ \\
+%		$H_{02}: \mu_1 \geq \mu_2$ vs $H_{A2}: \mu_1 < \mu_2$ & $F_t\left(t, \nu\right)$  &$t > t_{\nu;\alpha}$ \\
+%		$H_{03}: \mu_1 = \mu_2$ vs $H_{A3}: \mu_1 \neq \mu_2$ & $F_t\left(t, \nu\right)-F_t\left(-t, \nu\right)$ &$t > t_{\nu;1-\alpha/2}$ or $t > t_{\nu;\alpha/2}$ \\
+%		\hline
+%	\end{tabular}
+%	\caption{Anova1way}
+%	\label{TableAnova1way}
+%\end{table}
+%
+%
+%The test can also be expressed in terms of a correlation coefficient $r$ between the combined $X$ and an indicator variable, where $t$ and $r$ are related by
+%
+%\begin{equation}
+%	r=\frac{t}{\sqrt{t^2+\nu}}, \quad t= \nu \frac{r}{1-r^2}.
+%\end{equation}
+%
+%
+%
+%%\newpage
+%\subsubsection{Confidence Interval (Difference of Means)}
+%\label{Anova1way_CI}
+%
+%\vspace{0.3cm}
+%Let $A_1=t_{\nu,\alpha} \cdot s$ and $A_2=t_{\nu,\alpha/2} \cdot s$, where $s$ and $\nu$ are defined in (\ref{eq:TTest2i}), and $t_{\nu,\alpha}$ denotes the $\alpha$-quantile of the (central) $t$-distribution with $\nu$ degrees of freedom (see section \ref{tDistributionQuantile}). Then confidence intervals for the difference of 2 means can be calculated as summarized in Table \ref{Anova1way, CI}.
+%
+%\begin{table}[ht]
+%	\centering
+%	\begin{tabular}{|l|l|}
+%		\hline
+%		Type & Confidence Interval (Difference of Means)\\
+%		\hline
+%		Left-sided &  $-\infty \leq \mu_1 - \mu_2 \leq (\overline{x}_1-\overline{x}_2) + A_1$ \\
+%		Right-sided &  $(\overline{x}_1-\overline{x}_2) - A_1 \leq \mu_1 - \mu_2 \leq +\infty$\\
+%		Two-sided & $(\overline{x}_1-\overline{x}_2) - A_2 \leq \mu_1 - \mu_2 \leq (\overline{x}_1-\overline{x}_2) + A_2$ \\
+%		\hline
+%	\end{tabular}
+%	\caption{Anova1way, confidence intervals for means}
+%	\label{Anova1way, CI}
+%\end{table}
+%
+%
+%\subsection{Power Calculation}
+%\label{Anova1way_Power}
+%
+%
+%\begin{mpFunctionsExtract}
+%	\mpFunctionFiveNotImplemented
+%	{Anova1wayPower? mpNumList? returns power estimations and related information for Anova1way}
+%	{Type1Error? mpNum? An real number greater then 0 and less than 1.}
+%	{N? mpNum[]? An array of integers greater than 1, representing the samples sizes}
+%	{Mean? mpNum[]? An array of reals, representing the means}
+%	{StDev? mpNum[]? An array of positive reals, representing the standard deviations}
+%	{Output? String? A string describing the output choices}
+%\end{mpFunctionsExtract}
+%
+%\vspace{0.3cm}
+%See section \ref{Functions returning Power Estimates} for the options for {\itshape\sffamily Type1Error} and {\itshape\sffamily Output}). Algorithms and formulas are given in section \ref{Anova1way_Power}.
+%
+%\vspace{0.3cm}
+%Let $\sigma_1^2 = \sigma_2^2 = \sigma^2$, $N = n_1 + n_2$, $q_1 = n_1 /N$, $q_2 = n_2 /N$, and $\nu=N-2$. Define
+%
+%\begin{equation} \label{eq:Anova1wayPower}
+%	\widetilde{\rho} = \frac{\mu_1-\mu_2}{\sigma} \sqrt{\frac{q_1+q_2}{q_1 \cdot q_2}}, \text{ and } \delta = \sqrt{N} \widetilde{\rho}.
+%\end{equation}
+%
+%
+%Let $F_{t'}\left(\cdot, \nu, \delta \right)$ denote the CDF of the (singly) noncentral $t$-distribution with $\nu$ degrees of freedom and noncentrality parameter $\delta$ (see section 
+%%\ref{NoncentraltDistributionCDFBoost})
+%and let $t_{\nu,\alpha}$ denote the $\alpha$-quantile of the central $t$-distribution with $\nu$ degrees of freedom (see section \ref{tDistributionQuantile}).
+%Then the power for accepting $H_A$ at the confidence level $\alpha$ can be calculated as summarized in Table \ref{TableAnova1way,power}.
+%
+%
+%\begin{table}[ht]
+%	\centering
+%	\begin{tabular}{|l|l|l|l|}
+%		\hline
+%		Test &Null Hypothesis &Alternative & Power \\
+%		\hline
+%		1 sided & $H_{01}: \mu_1 \leq \mu_2$ & $H_{A1}: \mu_1 > \mu_2$ & $F_{t'}\left(-t_{\nu;1-\alpha}, \nu, \delta \right)$ \\
+%		1 sided & $H_{02}: \mu_1 \geq \mu_2$ & $H_{A2}: \mu_1 < \mu_2$ & $F_{t'}\left(t_{\nu;1-\alpha}, \nu, \delta \right)$  \\
+%		\hline
+%		2 sided & $H_{03}: \mu_1 = \mu_2$ & $H_{A1}: \mu_1 > \mu_2$ & $F_{t'}\left(-t_{\nu;1-\alpha/2}, \nu, \delta \right)$ \\
+%		2 sided & $H_{03}: \mu_1 = \mu_2$ & $H_{A2}: \mu_1 < \mu_2$ & $F_{t'}\left(t_{\nu;1-\alpha/2}, \nu, \delta \right)$  \\
+%		2 sided & $H_{03}: \mu_1 = \mu_2$ & $H_{A3}: \mu_1 \neq \mu_2$ & $F_{t'}\left(t_{\nu;1-\alpha/2}, \nu, \delta \right)-F_t\left(-t_{\nu;1-\alpha/2}, \nu\, \delta \right)$ \\
+%		\hline
+%	\end{tabular}
+%	\caption{Anova1way, power}
+%	\label{TableAnova1way,power}
+%\end{table}
+%
+%
+%
+%\newpage
 %\subsection{Sample Size Calculation}
-%\label{CanonicalCorrelationSampleSize}
-%\lipsum[1]
+%
+%\begin{mpFunctionsExtract}
+%	\mpFunctionFiveNotImplemented
+%	{Anova1waySampleSize? mpNumList? returns sample size estimations and related information for Anova1way}
+%	{Type1Error? mpNum? An real number greater then 0 and less than 1.}
+%	{Type2Error? mpNum? An real number greater then 0 and less than 1.}
+%	{Mean? mpNum[]? An array of reals, representing the means}
+%	{StDev? mpNum[]? An array of positive reals, representing the standard deviations}
+%	{Output? String? A string describing the output choices}
+%\end{mpFunctionsExtract}
+%
+%\vspace{0.3cm}
+%See section \ref{Functions returning Power Estimates} for the options for {\itshape\sffamily Type1Error},  {\itshape\sffamily Type2Error} and {\itshape\sffamily Output}. Algorithms and formulas are given below.
+%
+%\subsubsection{Sample size calculations: algorithms and formulas}
+%Let $N_{t'}\left(\alpha, \beta, \widetilde{\rho} \right)$ denote the sample size function of the (singly) noncentral $t$-distribution (see section \ref{NoncentralTDistributionSampleSize} ) for a given confidence level $\alpha$, power $\beta$ and noncentrality parameter $\widetilde{\rho}$ (as defined in equation \ref{eq:TTestPower2i}. The required total sample size $N$ can be calculated as summarized in Table \ref{TableStudentsttest,2i samples,sample size}. Note that the returned value of $N$ will in general not be an integer, and rounding up may be required to ensure that all $n_i$ are integers.
+%
+%
+%\begin{table}[ht]
+%	\centering
+%	\begin{tabular}{|l|l|l|l|}
+%		\hline
+%		Test &Null Hypothesis &Alternative & Minimal sample size $N$ \\
+%		\hline
+%		1 sided & $H_{01}: \mu_1 \leq \mu_2$ & $H_{A1}: \mu_1 > \mu_2$ & $N_{t'}\left(\alpha, \beta, \widetilde{\rho} \right)$ \\
+%		1 sided & $H_{02}: \mu_1 \geq \mu_2$ & $H_{A2}: \mu_1 < \mu_2$ & $N_{t'}\left(\alpha, \beta, \widetilde{\rho} \right)$  \\
+%		\hline
+%		2 sided & $H_{03}: \mu_1 = \mu_2$ & $H_{A1}: \mu_1 > \mu_2$ & $N_{t'}\left(\alpha, \beta, \widetilde{\rho} \right)$ \\
+%		2 sided & $H_{03}: \mu_1 = \mu_2$ & $H_{A2}: \mu_1 < \mu_2$ & $N_{t'}\left(\alpha, \beta, \widetilde{\rho} \right)$  \\
+%		2 sided & $H_{03}: \mu_1 = \mu_2$ & $H_{A3}: \mu_1 \neq \mu_2$ & $N2_{t'}\left(\alpha, \beta, \widetilde{\rho} \right)$ \\
+%		\hline
+%	\end{tabular}
+%	\caption{Anova1way, sample size}
+%	\label{TableAnova1way,sample size}
+%\end{table}
+%
+%
+%\newpage
+%\subsection{Confidence Interval (Effect size)}
+%
+%
+%\vspace{0.3cm}
+%Let $T$ be a statistic according to the non-central $t$-distribution
+%with $n$ degrees of freedom and a non-centrality parameter $\delta$. Then
+%the lower confidence limit $\widehat{\delta}$ of level $1-\alpha$ and the two-sided confidence interval $[ \underline{\delta},\overline{\delta}]$ of the
+%non-centrality parameter $\delta$ of level $1-\alpha$ are given by \cite{akahira_1995}:
+%\begin{equation}
+%	\widehat{\delta} = bT - z_\alpha \sqrt{k} +  h T^3 (z_\alpha^2 - 1)/k,
+%\end{equation} 
+%\begin{equation}
+%	\underline{\delta} = bT - z_{\alpha/2} \sqrt{k} +  h T^3 (z_{\alpha/2}^2 - 1)/k,
+%\end{equation} 
+%\begin{equation}
+%	\overline{\delta} = bT + z_{\alpha/2} \sqrt{k} -  h T^3 (z_{\alpha/2}^2 - 1)/k,
+%\end{equation} 
+%where $k=1+(1-b^2)T^2$, $h$ and $b$ are defined in equation (\ref{Akahira_h_b}), and $z_\alpha$ denotes the $\alpha$-quantile of the normal distribution (see section \ref{sec:NormalDistribution_Quantiles}).
+%
+%
+%Let $A_1=t_{\nu,\alpha} \cdot s$ and $A_2=t_{\nu,\alpha/2} \cdot s$, where $s$ and $\nu$ are defined in (\ref{eq:TTest2i}), and $t_{\nu,\alpha}$ denotes the $\alpha$-quantile of the (central) $t$-distribution with $\nu$ degrees of freedom (see section \ref{tDistributionQuantile}). Then confidence intervals for the difference of 2 means can be calculated as summarized in Table \ref{Anova1way, EffectSize}.
+%
+%\begin{table}[ht]
+%	\centering
+%	\begin{tabular}{|l|l|}
+%		\hline
+%		Type & Confidence Interval (Effect size)\\
+%		\hline
+%		Left-sided &  $-\infty \leq \mu_1 - \mu_2 \leq (\overline{x}_1-\overline{x}_1) + A_1$ \\
+%		Right-sided &  $(\overline{x}_1-\overline{x}_1) - A_1 \leq \mu_1 - \mu_2 \leq +\infty$\\
+%		Two-sided & $(\overline{x}_1-\overline{x}_1) - A_2 \leq \mu_1 - \mu_2 \leq (\overline{x}_1-\overline{x}_1) + A_2$ \\
+%		\hline
+%	\end{tabular}
+%	\caption{Anova1way, confidence intervals for effect size}
+%	\label{Anova1way, EffectSize}
+%\end{table}
+%
+%
+%
+%
+%
+%
+%\newpage
+%\section{Permutation tests for k samples, 1-way and 2-way layout}
+%
+%\subsection{Overview}
+%%\label{kCorrelatedSamplesAnovaOverview}
+%
+%
+%See \cite{Rasch_2011}
+%
+%See \cite{kirk_experimental_1982}, \cite{kirk_experimental_1995}, \cite{kirk_experimental_2013}
+%
+%
+%\subsection{Overview}
+%\label{Anova2wayOverview}
+%
+%Let $(X_1, X_2, \ldots, X_N)$ denote a random sample of size $N$ from a normal distribution with mean $\mu$ and variance $\sigma^2$, and let
+%\begin{equation}
+%	\overline{x}_1 = \frac{1}{N} \sum_{i=1}^N X_i \quad \text{and } s^2 = \frac{1}{N-1} \sum_{i=1}^N (X_i - \overline{x}_1)
+%\end{equation}
+%be the usual sample estimates of the unkown population mean $\mu$ and unkown population variance $\sigma^2$. Then Student's t-test can be used to test hypotheses concerning $\mu$ with regard to a reference value $\mu_0$.
+%
+%
+%
+%\subsection{Tests and Confidence Intervals}
+%
+%\begin{mpFunctionsExtract}
+%	\mpFunctionFiveNotImplemented
+%	{Anova2way? mpNumList? p-values, confidence intervals and related information for Anova2way}
+%	{Type1Error? mpNum? A real number greater then 0 and less than 1.}
+%	{N? mpNum[]? An array of integers greater than 1, representing the samples sizes}
+%	{Mean? mpNum[]? An array of reals, representing the means}
+%	{StDev? mpNum[]? An array of positive reals, representing the standard deviations}
+%	{Output? String? A string describing the output choices}
+%\end{mpFunctionsExtract}
+%
+%\vspace{0.3cm}
+%See section \ref{Functions returning p-Values and Confidence Intervals} for the options for {\itshape\sffamily Type1Error} and {\itshape\sffamily Output}). Algorithms and formulas are given in sections \ref{Anova2way_Test} and \ref{Anova2way_CI}.
+%
+%
+%
+%
+%\subsubsection{Test}
+%\label{Anova2way_Test}
+%Let $F_t\left(\cdot, \nu\right)$ denote the CDF (see section \ref{tDistributionCDF}) and let $t_{\nu,\alpha}$ denote the $\alpha$-quantile (see section \ref{tDistributionQuantile}) of the $t$-distribution with $\nu$ degrees of freedom. Define
+%
+%\begin{equation}
+%	t= \frac{(\overline{x}_1-\overline{x}_2)}{s}, \text{ where}
+%\end{equation}
+%\begin{equation} \label{eq:Anova2way}
+%	s = \sqrt{\textit{MSE}\left(\frac{1}{n_1}+\frac{1}{n_2}\right)}, \quad \textit{MSE} = \frac{(n_1-1)s_1^2+(n_2-1)s_2^2}{\nu}, \quad \nu=n_1+n_2-2.
+%\end{equation}
+%
+%Then $p$-values and rejection criteria for $H_0$ can be calculated as summarized in Table \ref{TableAnova2way}.
+%
+%\begin{table}[ht]
+%	\centering
+%	\begin{tabular}{|l|l|l|}
+%		\hline
+%		Test problem & $p$-value & Reject $H_0$ if \\
+%		\hline
+%		$H_{01}: \mu_1 \leq \mu_2$ vs $H_{A1}: \mu_1 > \mu_2$ & $F_t\left(-t, \nu\right)$ &$t > t_{\nu;1-\alpha}$ \\
+%		$H_{02}: \mu_1 \geq \mu_2$ vs $H_{A2}: \mu_1 < \mu_2$ & $F_t\left(t, \nu\right)$  &$t > t_{\nu;\alpha}$ \\
+%		$H_{03}: \mu_1 = \mu_2$ vs $H_{A3}: \mu_1 \neq \mu_2$ & $F_t\left(t, \nu\right)-F_t\left(-t, \nu\right)$ &$t > t_{\nu;1-\alpha/2}$ or $t > t_{\nu;\alpha/2}$ \\
+%		\hline
+%	\end{tabular}
+%	\caption{Anova2way}
+%	\label{TableAnova2way}
+%\end{table}
+%
+%
+%The test can also be expressed in terms of a correlation coefficient $r$ between the combined $X$ and an indicator variable, where $t$ and $r$ are related by
+%
+%\begin{equation}
+%	r=\frac{t}{\sqrt{t^2+\nu}}, \quad t= \nu \frac{r}{1-r^2}.
+%\end{equation}
+%
+%
+%
+%%\newpage
+%\subsubsection{Confidence Interval (Difference of Means)}
+%\label{Anova2way_CI}
+%
+%\vspace{0.3cm}
+%Let $A_1=t_{\nu,\alpha} \cdot s$ and $A_2=t_{\nu,\alpha/2} \cdot s$, where $s$ and $\nu$ are defined in (\ref{eq:TTest2i}), and $t_{\nu,\alpha}$ denotes the $\alpha$-quantile of the (central) $t$-distribution with $\nu$ degrees of freedom (see section \ref{tDistributionQuantile}). Then confidence intervals for the difference of 2 means can be calculated as summarized in Table \ref{Anova2way, CI}.
+%
+%\begin{table}[ht]
+%	\centering
+%	\begin{tabular}{|l|l|}
+%		\hline
+%		Type & Confidence Interval (Difference of Means)\\
+%		\hline
+%		Left-sided &  $-\infty \leq \mu_1 - \mu_2 \leq (\overline{x}_1-\overline{x}_2) + A_1$ \\
+%		Right-sided &  $(\overline{x}_1-\overline{x}_2) - A_1 \leq \mu_1 - \mu_2 \leq +\infty$\\
+%		Two-sided & $(\overline{x}_1-\overline{x}_2) - A_2 \leq \mu_1 - \mu_2 \leq (\overline{x}_1-\overline{x}_2) + A_2$ \\
+%		\hline
+%	\end{tabular}
+%	\caption{Anova2way, confidence intervals for means}
+%	\label{Anova2way, CI}
+%\end{table}
+%
+%
+%\subsection{Power Calculation}
+%\label{Anova2way_Power}
+%
+%
+%\begin{mpFunctionsExtract}
+%	\mpFunctionFiveNotImplemented
+%	{Anova2wayPower? mpNumList? returns power estimations and related information for Anova2way}
+%	{Type1Error? mpNum? An real number greater then 0 and less than 1.}
+%	{N? mpNum[]? An array of integers greater than 1, representing the samples sizes}
+%	{Mean? mpNum[]? An array of reals, representing the means}
+%	{StDev? mpNum[]? An array of positive reals, representing the standard deviations}
+%	{Output? String? A string describing the output choices}
+%\end{mpFunctionsExtract}
+%
+%\vspace{0.3cm}
+%See section \ref{Functions returning Power Estimates} for the options for {\itshape\sffamily Type1Error} and {\itshape\sffamily Output}). Algorithms and formulas are given in section \ref{Anova2way_Power}.
+%
+%\vspace{0.3cm}
+%Let $\sigma_1^2 = \sigma_2^2 = \sigma^2$, $N = n_1 + n_2$, $q_1 = n_1 /N$, $q_2 = n_2 /N$, and $\nu=N-2$. Define
+%
+%\begin{equation} \label{eq:Anova2wayPower}
+%	\widetilde{\rho} = \frac{\mu_1-\mu_2}{\sigma} \sqrt{\frac{q_1+q_2}{q_1 \cdot q_2}}, \text{ and } \delta = \sqrt{N} \widetilde{\rho}.
+%\end{equation}
+%
+%
+%Let $F_{t'}\left(\cdot, \nu, \delta \right)$ denote the CDF of the (singly) noncentral $t$-distribution with $\nu$ degrees of freedom and noncentrality parameter $\delta$ (see section 
+%%\ref{NoncentraltDistributionCDFBoost})
+%and let $t_{\nu,\alpha}$ denote the $\alpha$-quantile of the central $t$-distribution with $\nu$ degrees of freedom (see section \ref{tDistributionQuantile}).
+%Then the power for accepting $H_A$ at the confidence level $\alpha$ can be calculated as summarized in Table \ref{TableAnova2way,power}.
+%
+%
+%\begin{table}[ht]
+%	\centering
+%	\begin{tabular}{|l|l|l|l|}
+%		\hline
+%		Test &Null Hypothesis &Alternative & Power \\
+%		\hline
+%		1 sided & $H_{01}: \mu_1 \leq \mu_2$ & $H_{A1}: \mu_1 > \mu_2$ & $F_{t'}\left(-t_{\nu;1-\alpha}, \nu, \delta \right)$ \\
+%		1 sided & $H_{02}: \mu_1 \geq \mu_2$ & $H_{A2}: \mu_1 < \mu_2$ & $F_{t'}\left(t_{\nu;1-\alpha}, \nu, \delta \right)$  \\
+%		\hline
+%		2 sided & $H_{03}: \mu_1 = \mu_2$ & $H_{A1}: \mu_1 > \mu_2$ & $F_{t'}\left(-t_{\nu;1-\alpha/2}, \nu, \delta \right)$ \\
+%		2 sided & $H_{03}: \mu_1 = \mu_2$ & $H_{A2}: \mu_1 < \mu_2$ & $F_{t'}\left(t_{\nu;1-\alpha/2}, \nu, \delta \right)$  \\
+%		2 sided & $H_{03}: \mu_1 = \mu_2$ & $H_{A3}: \mu_1 \neq \mu_2$ & $F_{t'}\left(t_{\nu;1-\alpha/2}, \nu, \delta \right)-F_t\left(-t_{\nu;1-\alpha/2}, \nu\, \delta \right)$ \\
+%		\hline
+%	\end{tabular}
+%	\caption{Anova2way, power}
+%	\label{TableAnova2way,power}
+%\end{table}
+%
+%
+%
+%\newpage
+%\subsection{Sample Size Calculation}
+%
+%\begin{mpFunctionsExtract}
+%	\mpFunctionFiveNotImplemented
+%	{Anova2waySampleSize? mpNumList? returns sample size estimations and related information for Anova2way}
+%	{Type1Error? mpNum? An real number greater then 0 and less than 1.}
+%	{Type2Error? mpNum? An real number greater then 0 and less than 1.}
+%	{Mean? mpNum[]? An array of reals, representing the means}
+%	{StDev? mpNum[]? An array of positive reals, representing the standard deviations}
+%	{Output? String? A string describing the output choices}
+%\end{mpFunctionsExtract}
+%
+%\vspace{0.3cm}
+%See section \ref{Functions returning Power Estimates} for the options for {\itshape\sffamily Type1Error},  {\itshape\sffamily Type2Error} and {\itshape\sffamily Output}. Algorithms and formulas are given below.
+%
+%\subsubsection{Sample size calculations: algorithms and formulas}
+%Let $N_{t'}\left(\alpha, \beta, \widetilde{\rho} \right)$ denote the sample size function of the (singly) noncentral $t$-distribution (see section \ref{NoncentralTDistributionSampleSize} ) for a given confidence level $\alpha$, power $\beta$ and noncentrality parameter $\widetilde{\rho}$ (as defined in equation \ref{eq:TTestPower2i}. The required total sample size $N$ can be calculated as summarized in Table \ref{TableStudentsttest,2i samples,sample size}. Note that the returned value of $N$ will in general not be an integer, and rounding up may be required to ensure that all $n_i$ are integers.
+%
+%
+%\begin{table}[ht]
+%	\centering
+%	\begin{tabular}{|l|l|l|l|}
+%		\hline
+%		Test &Null Hypothesis &Alternative & Minimal sample size $N$ \\
+%		\hline
+%		1 sided & $H_{01}: \mu_1 \leq \mu_2$ & $H_{A1}: \mu_1 > \mu_2$ & $N_{t'}\left(\alpha, \beta, \widetilde{\rho} \right)$ \\
+%		1 sided & $H_{02}: \mu_1 \geq \mu_2$ & $H_{A2}: \mu_1 < \mu_2$ & $N_{t'}\left(\alpha, \beta, \widetilde{\rho} \right)$  \\
+%		\hline
+%		2 sided & $H_{03}: \mu_1 = \mu_2$ & $H_{A1}: \mu_1 > \mu_2$ & $N_{t'}\left(\alpha, \beta, \widetilde{\rho} \right)$ \\
+%		2 sided & $H_{03}: \mu_1 = \mu_2$ & $H_{A2}: \mu_1 < \mu_2$ & $N_{t'}\left(\alpha, \beta, \widetilde{\rho} \right)$  \\
+%		2 sided & $H_{03}: \mu_1 = \mu_2$ & $H_{A3}: \mu_1 \neq \mu_2$ & $N2_{t'}\left(\alpha, \beta, \widetilde{\rho} \right)$ \\
+%		\hline
+%	\end{tabular}
+%	\caption{Anova2way, sample size}
+%	\label{TableAnova2way,sample size}
+%\end{table}
+%
+%
+%
+%\subsection{Confidence Interval (Effect size)}
+%
+%
+%\vspace{0.3cm}
+%Let $T$ be a statistic according to the non-central $t$-distribution
+%with $n$ degrees of freedom and a non-centrality parameter $\delta$. Then
+%the lower confidence limit $\widehat{\delta}$ of level $1-\alpha$ and the two-sided confidence interval $[ \underline{\delta},\overline{\delta}]$ of the
+%non-centrality parameter $\delta$ of level $1-\alpha$ are given by \cite{akahira_1995}:
+%\begin{equation}
+%	\widehat{\delta} = bT - z_\alpha \sqrt{k} +  h T^3 (z_\alpha^2 - 1)/k,
+%\end{equation} 
+%\begin{equation}
+%	\underline{\delta} = bT - z_{\alpha/2} \sqrt{k} +  h T^3 (z_{\alpha/2}^2 - 1)/k,
+%\end{equation} 
+%\begin{equation}
+%	\overline{\delta} = bT + z_{\alpha/2} \sqrt{k} -  h T^3 (z_{\alpha/2}^2 - 1)/k,
+%\end{equation} 
+%where $k=1+(1-b^2)T^2$, $h$ and $b$ are defined in equation (\ref{Akahira_h_b}), and $z_\alpha$ denotes the $\alpha$-quantile of the normal distribution (see section \ref{sec:NormalDistribution_Quantiles}).
+%
+%
+%Let $A_1=t_{\nu,\alpha} \cdot s$ and $A_2=t_{\nu,\alpha/2} \cdot s$, where $s$ and $\nu$ are defined in (\ref{eq:TTest2i}), and $t_{\nu,\alpha}$ denotes the $\alpha$-quantile of the (central) $t$-distribution with $\nu$ degrees of freedom (see section \ref{tDistributionQuantile}). Then confidence intervals for the difference of 2 means can be calculated as summarized in Table \ref{Anova2way, EffectSize}.
+%
+%\begin{table}[ht]
+%	\centering
+%	\begin{tabular}{|l|l|}
+%		\hline
+%		Type & Confidence Interval (Effect size)\\
+%		\hline
+%		Left-sided &  $-\infty \leq \mu_1 - \mu_2 \leq (\overline{x}_1-\overline{x}_1) + A_1$ \\
+%		Right-sided &  $(\overline{x}_1-\overline{x}_1) - A_1 \leq \mu_1 - \mu_2 \leq +\infty$\\
+%		Two-sided & $(\overline{x}_1-\overline{x}_1) - A_2 \leq \mu_1 - \mu_2 \leq (\overline{x}_1-\overline{x}_1) + A_2$ \\
+%		\hline
+%	\end{tabular}
+%	\caption{Anova2way, confidence intervals for effect size}
+%	\label{Anova2way, EffectSize}
+%\end{table}
+%
+%
+%
+%
+%\newpage
+%\section{Hotelling's T2 and MANOVA}
+%\label{MANOVA}
+%
+%
+%\subsection{Hotelling's T2}
+%
+%
+%\lipsum[2]
+%
+%
+%\subsection{MANOVA}
+%
+%
+%\lipsum[2]
+%%
+%%\subsection{Test}
+%%\label{MANOVATest}
+%%\lipsum[3]
+%%
+%%\subsection{Confidence Interval}
+%%\label{MANOVACI}
+%%\lipsum[4]
+%%
+%%
+%%
+%%\subsection{Power}
+%%\label{MANOVAPower}
+%%
+%%\lipsum[6]
+%%
+%%\begin{figure}[ht]
+%%\centering
+%%\includegraphics{mpTemp2.pdf}
+%%\caption{Power of MANOVA Test}
+%%\label{FigPowerOfMANOVA}
+%%\end{figure}
+%%
+%%
+%%\subsection{Sample Size Calculation}
+%%\label{MANOVASampleSize}
+%%\lipsum[1]
+%
+%
+%
+%
+%\newpage
+%\section{Canonical Correlation}
+%\label{CanonicalCorrelation}
+%
+%
+%\subsection{Overview}
+%\label{CanonicalCorrelationOverview}
+%
+%\lipsum[2]
+%%
+%%\subsection{Test}
+%%\label{CanonicalCorrelationTest}
+%%The density of a central chi-square variable with $n$ degrees of freedom is given by
+%%\begin{equation}
+%%g(n,x) = \frac{1}{2^{n/2} \Gamma(n/2)} x^{(n-2)/2}e^{-x/2}.
+%%\end{equation}
+%%
+%%\lipsum[3]
+%%
+%%\subsection{Confidence Interval}
+%%\label{CanonicalCorrelationCI}
+%%\lipsum[4]
+%%
+%%
+%%
+%%
+%%\subsection{Power}
+%%\label{CanonicalCorrelationPower}
+%%
+%%\lipsum[6]
+%%
+%%%\begin{figure}[ht]
+%%%\centering
+%%%\includegraphics{mpTemp2.pdf}
+%%%\caption{Power of CanonicalCorrelation Test}
+%%%\label{FigPowerOfCanonicalCorrelation}
+%%%\end{figure}
+%%
+%%
+%%\subsection{Sample Size Calculation}
+%%\label{CanonicalCorrelationSampleSize}
+%%\lipsum[1]
