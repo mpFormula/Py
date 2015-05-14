@@ -1,9 +1,10 @@
 ### Welcome to mpFormulaPy!
-The mpFormulaPy library is based on the [Python](https://www.python.org/) runtime and the [mpmath](http://mpmath.org/) library, both of which implement multiprecision arithmetic. Additional functionality includes integration in [Microsoft Excel](https://products.office.com/en-us/excel) (Windows)  and [LibreOffice Calc](https://www.libreoffice.org/) (Windows, Mac OSX, GNU/Linux), with multiprecision support for the numerical functions of these spreadsheet programs.
+The mpFormulaPy library provides a comprehensive set of real and complex functions in multiprecision arithmetic. For a subset of functions there is also support for decimal and interval arithmetic. mpFormulaPy is based on the [Python](https://www.python.org/) runtime and the [mpmath](http://mpmath.org/) library, both of which implement multiprecision arithmetic. Additional planned functionality includes integration in [Microsoft Excel](https://products.office.com/en-us/excel) (Windows)  and [LibreOffice Calc](https://www.libreoffice.org/) (Windows, Mac OSX, GNU/Linux), with multiprecision support for the numerical functions of these spreadsheet programs.
+The current version is 0.1, alpha1 (pre-release), and much of the planned functionality is still missing.
 
 
 ### Manual
-The manual is also available separately as pdf file: [mpFormulaPy.pdf](https://github.com/mpFormula/Py/raw/master/Manual/mpFormula.pdf).
+The manual is also available separately as pdf file: [mpFormulaPy.pdf](https://github.com/mpFormula/Py/raw/master/Manual/mpFormulaPy.pdf).
 
 
 ### Quick start under Windows
@@ -26,11 +27,15 @@ You can copy and paste the Python code of the examples from the manual into the 
 
 
 ### Quick start with Microsoft Excel (Windows)
-To use the mpFormulaPy functions from within Excel, you need to install the mpFormulaPy add-in for Excel.
+To use the mpFormulaPy functions from within Excel, you need to install the mpFormulaPy add-in for Excel: Within Excel open the Add-Ins dialogue. Click on Browse, and navigate to the mpFormulaPy directory. Within this directory, open the mpNum directory, and select `mpFormula32.xll` or  `mpFormula64.xll`, matching your version of Excel (32 bit or 64 bit).
 
 
 ### Quick start with LibreOffice Calc (Windows, Mac OSX, GNU/Linux)
-To use the mpFormulaPy functions from within LibreOffice Calc, you need to install the mpFormulaPy add-in for LibreOffice.
+To use the mpFormulaPy functions from within LibreOffice Calc, you need to install the mpFormulaPy add-in for LibreOffice (see the manual, appendix B, for details).
+
+
+### Additional Information
+The site ["Numerical Explorations"](https://duhadler.wordpress.com/) contains background information related to Python and Verified Computing in general, and mpFormulaPy in particular.
 
 
 ### License
@@ -40,4 +45,3 @@ The mpFormulaPy Library and Toolbox is free software. It is licensed under the G
 
 
 
-  
