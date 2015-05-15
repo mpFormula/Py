@@ -4112,18 +4112,17 @@ f''(z)+\frac{1}{z} f'(z) + \left(1-\frac{\nu^2}{z^2} \right)f(z) = \frac{1}{\pi 
 Examples
 
 Evaluation for real and complex parameter and argument:
-!!!!!!Correction needed!!!!!!
 
 \lstset{language={Python}}
 \begin{lstlisting}
->>> from mpFormulaPy import *
+>>> from mpmath import *
 >>> mp.dps = 25; mp.pretty = True
 >>> webere(2,3)
 -0.1057668973099018425662646
 >>> webere(-3+4j, 2+5j)
 (-585.8081418209852019290498 - 5033.314488899926921597203j)
 >>> webere(3.25, 1e6j)
-(-1.117960409887505906848456e+434291 - 4.630743639715893346570743
+(-1.117960409887505906848456e+434291 - 4.630743639715893346570743e+434290j)
 >>> webere(3.25, 1e6)
 -0.00002812518265894315604914453
 \end{lstlisting}
@@ -4892,7 +4891,7 @@ V(a, z) = \frac{\Gamma(a+\frac{1}{2}) (U(a, -z) - \sin(\pi a)U(a, z))}{\pi}
 
 Examples
 
-Wronskian relation between ???? and ????: !!!!Needs Correction!!!!!
+Wronskian relation between $U$ and $V$:
 
 \lstset{language={Python}}
 \begin{lstlisting}
@@ -7101,25 +7100,26 @@ The sum of the generalized 2D hypergeometric series is calculated as
 where $(a)=(a_1,\ldots,a_r)$, $(b)=(b_1,\ldots,b_r)$ and where $P$ and $Q$ are products of rising factorials such as $(a_j)_n$ or $(a_j)_{m+n}$. $P$ and $Q$ are specified in the form of dicts, with the $m$ and $n$ dependence as keys and parameter lists as values. The supported rising factorials are given in the following table (note that only a few are supported in $Q$):
 
 
-!!! Needs correction !!!!
 
-Key Rising factorial
-
-'m' Yes
-
-'n' Yes
-
-'m+n' Yes
-
-'m-n' No
-
-'n-m' No
-
-'2m+n' No
-
-'2m-n' No
-
-'2n-m' No
+\begin{table}[ht]
+	\centering
+	\begin{tabular}{|l|l|l|}
+		\hline
+		Key & Rising factorial & $Q$\\
+		\hline
+		"m" & $(a_j)_m$ &  Yes \\
+		"n" & $(a_j)_n$ &  Yes \\
+		"m+n" & $(a_j)_{m+n}$ &  Yes \\				
+		"m-n" & $(a_j)_{m-n}$ &  No \\
+		"n-m" & $(a_j)_{n-m}$ &  No \\
+		"2m+n" & $(a_j)_{2m+n}$ &  No \\				
+		"2m-n" & $(a_j)_{2m-n}$ &  No \\
+		"2n-m" & $(a_j)_{2n-m}$ &  No \\
+		\hline
+	\end{tabular}
+	%	\caption{\result}
+	%	\label{\result} 
+\end{table}
 
 For example, the Appell F1 and F4 functions
 
@@ -7134,9 +7134,15 @@ F_4 = \sum_{m=0}^{\infty} \sum_{n=0}^{\infty} \frac{(a)_{m+n}(b)_{m+n} }{(d)_{m+
 
 can be represented respectively as
 
+
+\lstset{language={Python}}
+\begin{lstlisting}
 hyper2d({'m+n':[a], 'm':[b], 'n':[c]}, {'m+n':[d]}, x, y)
 
 hyper2d({'m+n':[a,b]}, {'m':[c], 'n':[d]}, x, y)
+\end{lstlisting}
+
+
 
 More generally, hyper2d() can evaluate any of the 34 distinct convergent secondorder (generalized Gaussian) hypergeometric series enumerated by Horn, as well as the Kampe de Feriet function.
 
@@ -7861,7 +7867,7 @@ Evaluation is supported for arbitrary complex $m$:
 \end{mpFunctionsExtract}
 
 
-!!! NOTE: CHANGE FROM mpFormulaPy syntax !!!!!
+%!!! NOTE: CHANGE FROM mpmath syntax !!!!!
 
 \vpara
 The Legendre complete elliptic integral of the second kind is defined by
@@ -9298,9 +9304,8 @@ Examples
 \end{mpFunctionsExtract}
 
 
-!!!! needs correction !!!!
 
-For a nonnegative integer $n$, stieltjes(n) computes the $n$-th Stieltjes constant , defined as the -th coefficient in the Laurent series expansion of the Riemann zeta function around the pole at $s=1$. That is, we have:
+For a nonnegative integer $n$, stieltjes(n) computes the $n$-th Stieltjes constant $\gamma_n$, defined as the $n$-th coefficient in the Laurent series expansion of the Riemann zeta function around the pole at $s=1$. That is, we have:
 
 \begin{equation}
 \zeta(s) = \frac{1}{s-1} \sum_{n=0}^{\infty} \frac{(-1)^n}{n!} \gamma_n(s-1)^n

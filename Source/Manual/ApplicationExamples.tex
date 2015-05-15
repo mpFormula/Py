@@ -965,7 +965,6 @@ Korin (1969), Anderson 1984, p.420
 
 
 %\subsubsection{Test for k samples having the same Multivariate Means and Covariance Matrices}
-%\lipsum[2]
 % See Siotani p. 356
 
 
@@ -2365,16 +2364,7 @@ The density in the central case is given by
 	p(x) = k(k-1)  \int_{-\infty}^\infty \left( \Phi(y) - \Phi(y-x) \right)^{k-2} \phi(y) \phi(y-x) dy
 \end{equation}
 
-%
-%\subsection{CDF}
-%\begin{tabular}{p{481pt}}
-%\toprule
-%\textsf{Function \textbf{StudentizedRangeDist}($\boldsymbol{a}\ As\ mpNum$, $\boldsymbol{b}\ As\ mpNum$) As mpNum}\index{Multiprecision Functions!StudentizedRangeDist} \\
-%\bottomrule
-%\end{tabular}
-%
-%\vspace{0.3cm}
-%\lipsum[2]
+
 \subsubsection{Normal Range}
 
 \begin{equation}
@@ -5730,7 +5720,7 @@ See section \ref{Functions returning Random numbers} for the options for  {\itsh
 %\end{tabular}
 %
 %\vspace{0.3cm}
-%\lipsum[2]
+
 %
 %
 %\subsection{Sample Size}
@@ -5740,7 +5730,6 @@ See section \ref{Functions returning Random numbers} for the options for  {\itsh
 %\subsection{Properties}
 %\label{NoncentralHypergeometricDistributionProperties}
 %
-%\lipsum[6]
 %
 %
 %\subsection{Random Numbers}
@@ -5751,7 +5740,7 @@ See section \ref{Functions returning Random numbers} for the options for  {\itsh
 %\end{tabular}
 %
 %\vspace{0.3cm}
-%\lipsum[2]
+
 
 
 \newpage
@@ -6145,7 +6134,7 @@ See \cite{noether_sample_1987}
 %\subsection{Properties}
 %\label{NoncentralWilcoxonWDistributionProperties}
 %
-%\lipsum[6]
+
 
 
 
@@ -6520,7 +6509,7 @@ See \cite{Fan_2011}
 See \cite{Fan_2012}
 
 \subsubsection{Koziol Test}
-%\lipsum[2]
+
 
 See also \cite{Koziol1982}
 
@@ -6578,15 +6567,15 @@ See \cite{Roehmel_1997}
 See \cite{Gansky_2001}
 
 \subsubsection{Cochran Test}
-%\lipsum[2]
+
 
 \subsubsection{Quade Test}
-%\lipsum[2]
+
 
 See \cite{Quade_1979}
 
 \subsubsection{Mack-Skillings Test}
-%\lipsum[2]
+
 
 See also \cite{Mack_1980}
 
@@ -6595,7 +6584,7 @@ See also \cite{Skillings_1981}
 
 
 \subsubsection{Koziol Test}
-%\lipsum[2]
+
 
 See also \cite{Koziol1982}
 
@@ -6873,41 +6862,6 @@ The test can also be expressed in terms of a correlation coefficient $r$ between
 \end{equation}
 
 
-%
-%%BEGIN 2 INDEPENDENT
-%\begin{equation}
-%	t= \frac{(\overline{x}_1-\overline{x}_2)}{s}, \text{ where}
-%\end{equation}
-%\begin{equation} \label{eq:TTest2i}
-%	s = \sqrt{\textit{MSE}\left(\frac{1}{n_1}+\frac{1}{n_2}\right)}, \quad \textit{MSE} = \frac{(n_1-1)s_1^2+(n_2-1)s_2^2}{\nu}, \quad \nu=n_1+n_2-2.
-%\end{equation}
-%
-%Then $p$-values and rejection criteria for $H_0$ can be calculated as summarized in Table \ref{TableStudentsttest,2i samples}.
-%
-%\begin{table}[ht]
-%	\centering
-%	\begin{tabular}{|l|l|l|}
-%		\hline
-%		Test problem & $p$-value & Reject $H_0$ if \\
-%		\hline
-%		$H_{01}: \mu_1 \leq \mu_2$ vs $H_{A1}: \mu_1 > \mu_2$ & $F_t\left(-t, \nu\right)$ &$t > t_{\nu;1-\alpha}$ \\
-%		$H_{02}: \mu_1 \geq \mu_2$ vs $H_{A2}: \mu_1 < \mu_2$ & $F_t\left(t, \nu\right)$  &$t > t_{\nu;\alpha}$ \\
-%		$H_{03}: \mu_1 = \mu_2$ vs $H_{A3}: \mu_1 \neq \mu_2$ & $F_t\left(t, \nu\right)-F_t\left(-t, \nu\right)$ &$t > t_{\nu;1-\alpha/2}$ or $t > t_{\nu;\alpha/2}$ \\
-%		\hline
-%	\end{tabular}
-%	\caption{Student's t-test, 2 independent samples}
-%	\label{TableStudentsttest,2i samples}
-%\end{table}
-%
-%
-%The test can also be expressed in terms of a correlation coefficient $r$ between the combined $X$ and an indicator variable, where $t$ and $r$ are related by
-%
-%\begin{equation}
-%	r=\frac{t}{\sqrt{t^2+\nu}}, \quad t= \nu \frac{r}{1-r^2}.
-%\end{equation}
-%%END 2 INDEPENDENT
-
-
 
 \subsubsection{Tests: examples}
 An actual call to the function, requesting Student's t-test with description, the critical value for a two-sided test, the p-value for $H_{03}$ (in the case of \textsf{TTest} this is $\mu_1 \neq \mu_2$), for 2 independent samples of size 10 and standard deviation 1 each, with means 2.3 and 4.5, and a type I error $\alpha=0.05$ would be
@@ -7010,44 +6964,6 @@ and let $t_{\nu,\alpha}$ denote the $\alpha$-quantile of the central $t$-distrib
 {2 sided? $H_{03}: \mu = \mu_0$? $H_{A3}: \mu \neq \mu_0$? $F_{t'}\left(t_{\nu;1-\alpha/2}, \nu, \delta \right)-F_t\left(-t_{\nu;1-\alpha/2}, \nu\, \delta \right)$}
 
 
-%BEGIN
-%
-%\vspace{0.3cm}
-%Let $\sigma_1^2 = \sigma_2^2 = \sigma^2$, $N = n_1 + n_2$, $q_1 = n_1 /N$, $q_2 = n_2 /N$, and $\nu=N-2$. Define
-%
-%\begin{equation} \label{eq:TTestPower2i}
-%	\widetilde{\rho} = \frac{\mu_1-\mu_2}{\sigma} \sqrt{\frac{q_1+q_2}{q_1 \cdot q_2}}, \text{ and } \delta = \sqrt{N} \widetilde{\rho}.
-%\end{equation}
-%
-%
-%Let $F_{t'}\left(\cdot, \nu, \delta \right)$ denote the CDF of the (singly) noncentral $t$-distribution with $\nu$ degrees of freedom and noncentrality parameter $\delta$ (see section 
-%%\ref{NoncentraltDistributionCDFBoost})
-%and let $t_{\nu,\alpha}$ denote the $\alpha$-quantile of the central $t$-distribution with $\nu$ degrees of freedom (see section \ref{tDistributionQuantile}).
-%Then the power for accepting $H_A$ at the confidence level $\alpha$ can be calculated as summarized in Table \ref{TableStudentsttest,2i samples,power}.
-%
-%
-%\begin{table}[ht]
-%	\centering
-%	\begin{tabular}{|l|l|l|l|}
-%		\hline
-%		Test &Null Hypothesis &Alternative & Power \\
-%		\hline
-%		1 sided & $H_{01}: \mu_1 \leq \mu_2$ & $H_{A1}: \mu_1 > \mu_2$ & $F_{t'}\left(-t_{\nu;1-\alpha}, \nu, \delta \right)$ \\
-%		1 sided & $H_{02}: \mu_1 \geq \mu_2$ & $H_{A2}: \mu_1 < \mu_2$ & $F_{t'}\left(t_{\nu;1-\alpha}, \nu, \delta \right)$  \\
-%		\hline
-%		2 sided & $H_{03}: \mu_1 = \mu_2$ & $H_{A1}: \mu_1 > \mu_2$ & $F_{t'}\left(-t_{\nu;1-\alpha/2}, \nu, \delta \right)$ \\
-%		2 sided & $H_{03}: \mu_1 = \mu_2$ & $H_{A2}: \mu_1 < \mu_2$ & $F_{t'}\left(t_{\nu;1-\alpha/2}, \nu, \delta \right)$  \\
-%		2 sided & $H_{03}: \mu_1 = \mu_2$ & $H_{A3}: \mu_1 \neq \mu_2$ & $F_{t'}\left(t_{\nu;1-\alpha/2}, \nu, \delta \right)-F_t\left(-t_{\nu;1-\alpha/2}, \nu\, \delta \right)$ \\
-%		\hline
-%	\end{tabular}
-%	\caption{Student's t-test, 2 independent samples, power}
-%	\label{TableStudentsttest,2i samples,power}
-%\end{table}
-%
-%
-%
-%
-%END
 
 
 \subsubsection{Power calculations: examples}
@@ -7107,33 +7023,6 @@ Let $N_{t'}\left(\alpha, \beta, \widetilde{\rho} \right)$ denote the sample size
 
 Note that the returned value of $N$ will in general not be an integer, and rounding up may be required.
 
-%BEGIN
-%
-%Let $N_{t'}\left(\alpha, \beta, \widetilde{\rho} \right)$ denote the sample size function of the (singly) noncentral $t$-distribution (see section \ref{NoncentralTDistributionSampleSize} ) for a given confidence level $\alpha$, power $\beta$ and noncentrality parameter $\widetilde{\rho}$ (as defined in equation \ref{eq:TTestPower2i}. The required total sample size $N$ can be calculated as summarized in Table \ref{TableStudentsttest,2i samples,sample size}. Note that the returned value of $N$ will in general not be an integer, and rounding up may be required to ensure that all $n_i$ are integers.
-%
-%
-%\begin{table}[ht]
-%	\centering
-%	\begin{tabular}{|l|l|l|l|}
-%		\hline
-%		Test &Null Hypothesis &Alternative & Minimal sample size $N$ \\
-%		\hline
-%		1 sided & $H_{01}: \mu_1 \leq \mu_2$ & $H_{A1}: \mu_1 > \mu_2$ & $N_{t'}\left(\alpha, \beta, \widetilde{\rho} \right)$ \\
-%		1 sided & $H_{02}: \mu_1 \geq \mu_2$ & $H_{A2}: \mu_1 < \mu_2$ & $N_{t'}\left(\alpha, \beta, \widetilde{\rho} \right)$  \\
-%		\hline
-%		2 sided & $H_{03}: \mu_1 = \mu_2$ & $H_{A1}: \mu_1 > \mu_2$ & $N_{t'}\left(\alpha, \beta, \widetilde{\rho} \right)$ \\
-%		2 sided & $H_{03}: \mu_1 = \mu_2$ & $H_{A2}: \mu_1 < \mu_2$ & $N_{t'}\left(\alpha, \beta, \widetilde{\rho} \right)$  \\
-%		2 sided & $H_{03}: \mu_1 = \mu_2$ & $H_{A3}: \mu_1 \neq \mu_2$ & $N2_{t'}\left(\alpha, \beta, \widetilde{\rho} \right)$ \\
-%		\hline
-%	\end{tabular}
-%	\caption{Student's t-test, 2 independent samples, sample size}
-%	\label{TableStudentsttest,2i samples,sample size}
-%\end{table}
-%
-%
-%
-%END
-
 
 \subsubsection{Sample size calculations: examples}
 An actual call to the function, requesting an upper sample size estimate (and actual power) for $\alpha = 0.95$, $\beta=0.1$ , and standard deviations $\sigma_1=\sigma_2=1$ , means $\mu_1=2.3$ and $\mu_2=4.5$,   would be
@@ -7171,29 +7060,6 @@ where $k=1+(1-b^2)T^2$, $h$ and $b$ are defined in equation (\ref{Akahira_h_b}),
 
 
 Let $A_1=t_{\nu,\alpha} \cdot s$ and $A_2=t_{\nu,\alpha/2} \cdot s$, where $s$ and $\nu$ are defined in (\ref{eq:TTest2i}), and $t_{\nu,\alpha}$ denotes the $\alpha$-quantile of the (central) $t$-distribution with $\nu$ degrees of freedom (see section \ref{tDistributionQuantile}). Then confidence intervals for the difference of 2 means can be calculated (needs to be worked out).
-
-
-%BEGIN
-%
-%Let $A_1=t_{\nu,\alpha} \cdot s$ and $A_2=t_{\nu,\alpha/2} \cdot s$, where $s$ and $\nu$ are defined in (\ref{eq:TTest2i}), and $t_{\nu,\alpha}$ denotes the $\alpha$-quantile of the (central) $t$-distribution with $\nu$ degrees of freedom (see section \ref{tDistributionQuantile}). Then confidence intervals for the difference of 2 means can be calculated as summarized in Table \ref{TableStudentsttest,2i samples, EffectSize}.
-%
-%\begin{table}[ht]
-%	\centering
-%	\begin{tabular}{|l|l|}
-%		\hline
-%		Type & Confidence Interval (Effect size)\\
-%		\hline
-%		Left-sided &  $-\infty \leq \mu_1 - \mu_2 \leq (\overline{x}_1-\overline{x}_1) + A_1$ \\
-%		Right-sided &  $(\overline{x}_1-\overline{x}_1) - A_1 \leq \mu_1 - \mu_2 \leq +\infty$\\
-%		Two-sided & $(\overline{x}_1-\overline{x}_1) - A_2 \leq \mu_1 - \mu_2 \leq (\overline{x}_1-\overline{x}_1) + A_2$ \\
-%		\hline
-%	\end{tabular}
-%	\caption{2 independent samples, confidence intervals for effect size}
-%	\label{TableStudentsttest,2i samples, EffectSize}
-%\end{table}
-
-
-%END
 
 
 
@@ -7294,11 +7160,6 @@ Let $F_t\left(\cdot, \nu\right)$ denote the CDF (see section \ref{tDistributionC
 {$H_{03}: \mu_1 = \mu_2$ vs $H_{A3}: \mu_1 \neq \mu_2$ ? $F_t\left(t, \nu\right)-F_t\left(-t, \nu\right)$ ?$t > t_{\nu;1-\alpha/2}$ or $t > t_{\nu;\alpha/2}$}
 
 
-%
-%{Left-sided? $-\infty \leq \mu_1 - \mu_2 \leq (\overline{x}_1-\overline{x}_2) + A_1$}
-%{Right-sided? $(\overline{x}_1-\overline{x}_2) - A_1 \leq \mu_1 - \mu_2 \leq +\infty$}
-%{Two-sided? $(\overline{x}_1-\overline{x}_2) - A_2 \leq \mu_1 - \mu_2 \leq (\overline{x}_1-\overline{x}_2) + A_2$}
-
 
 The test can also be expressed in terms of a correlation coefficient $r$ between the combined $X$ and an indicator variable, where $t$ and $r$ are related by
 \begin{equation}
@@ -7306,20 +7167,6 @@ The test can also be expressed in terms of a correlation coefficient $r$ between
 \end{equation}
 
 
-
-%%BEGIN 2 INDEPENDENT
-%\begin{equation}
-%	t= \frac{(\overline{x}_1-\overline{x}_2)}{s}, \text{ where}
-%\end{equation}
-%\begin{equation} \label{eq:TTest2i}
-%	s = \sqrt{\textit{MSE}\left(\frac{1}{n_1}+\frac{1}{n_2}\right)}, \quad \textit{MSE} = \frac{(n_1-1)s_1^2+(n_2-1)s_2^2}{\nu}, \quad \nu=n_1+n_2-2.
-%\end{equation}
-%The test can also be expressed in terms of a correlation coefficient $r$ between the combined $X$ and an indicator variable, where $t$ and $r$ are related by
-%
-%\begin{equation}
-%	r=\frac{t}{\sqrt{t^2+\nu}}, \quad t= \nu \frac{r}{1-r^2}.
-%\end{equation}
-%%END 2 INDEPENDENT
 
 
 
@@ -7357,29 +7204,6 @@ Let $A_1=t_{\nu,\alpha} \cdot s$ and $A_2=t_{\nu,\alpha/2} \cdot s$, where $s$ a
 {Right-sided? $(\overline{x}_1-\overline{x}_2) - A_1 \leq \mu_1 - \mu_2 \leq +\infty$}
 {Two-sided? $(\overline{x}_1-\overline{x}_2) - A_2 \leq \mu_1 - \mu_2 \leq (\overline{x}_1-\overline{x}_2) + A_2$}
 
-%BEGIN
-
-Let $A_1=t_{\nu,\alpha} \cdot s$ and $A_2=t_{\nu,\alpha/2} \cdot s$, where $s$ and $\nu$ are defined in (\ref{eq:TTest2i}), and $t_{\nu,\alpha}$ denotes the $\alpha$-quantile of the (central) $t$-distribution with $\nu$ degrees of freedom (see section \ref{tDistributionQuantile}). 
-
-%Then confidence intervals for the difference of 2 means can be calculated as summarized in Table \ref{TableStudentsttest,2i samples, CI}.
-%
-%\begin{table}[ht]
-%	\centering
-%	\begin{tabular}{|l|l|}
-%		\hline
-%		Type & Confidence Interval (Difference of Means)\\
-%		\hline
-%		Left-sided &  $-\infty \leq \mu_1 - \mu_2 \leq (\overline{x}_1-\overline{x}_2) + A_1$ \\
-%		Right-sided &  $(\overline{x}_1-\overline{x}_2) - A_1 \leq \mu_1 - \mu_2 \leq +\infty$\\
-%		Two-sided & $(\overline{x}_1-\overline{x}_2) - A_2 \leq \mu_1 - \mu_2 \leq (\overline{x}_1-\overline{x}_2) + A_2$ \\
-%		\hline
-%	\end{tabular}
-%	\caption{2 independent samples, confidence intervals for means}
-%	\label{TableStudentsttest,2i samples, CI}
-%\end{table}
-
-
-%END
 
 
 \subsubsection{Confidence Intervals: examples}
@@ -7423,16 +7247,6 @@ See section \ref{Functions returning Power Estimates} for the options for {\itsh
 
 \subsubsection{Power calculations: algorithms and formulas}
 \label{2iSampleTTest_Power}
-Let $\sigma_1^2 = \sigma^2$ and $\nu=N-1$. Define
-
-\begin{equation} \label{eq:TTestPower2irho}
-	\widetilde{\rho} = \frac{\mu_1-\mu_0}{\sigma} \text{ and } \delta = \sqrt{N} \widetilde{\rho}.
-\end{equation}
-
-
-
-
-\vspace{0.3cm}
 Let $\sigma_1^2 = \sigma_2^2 = \sigma^2$, $N = n_1 + n_2$, $q_1 = n_1 /N$, $q_2 = n_2 /N$, and $\nu=N-2$. Define
 
 \begin{equation} \label{eq:TTestPower2i}
@@ -7456,32 +7270,6 @@ and let $t_{\nu,\alpha}$ denote the $\alpha$-quantile of the central $t$-distrib
 
 
 
-
-%BEGIN
-
-%
-%\begin{table}[ht]
-%	\centering
-%	\begin{tabular}{|l|l|l|l|}
-%		\hline
-%		Test &Null Hypothesis &Alternative & Power \\
-%		\hline
-%		1 sided & $H_{01}: \mu_1 \leq \mu_2$ & $H_{A1}: \mu_1 > \mu_2$ & $F_{t'}\left(-t_{\nu;1-\alpha}, \nu, \delta \right)$ \\
-%		1 sided & $H_{02}: \mu_1 \geq \mu_2$ & $H_{A2}: \mu_1 < \mu_2$ & $F_{t'}\left(t_{\nu;1-\alpha}, \nu, \delta \right)$  \\
-%		\hline
-%		2 sided & $H_{03}: \mu_1 = \mu_2$ & $H_{A1}: \mu_1 > \mu_2$ & $F_{t'}\left(-t_{\nu;1-\alpha/2}, \nu, \delta \right)$ \\
-%		2 sided & $H_{03}: \mu_1 = \mu_2$ & $H_{A2}: \mu_1 < \mu_2$ & $F_{t'}\left(t_{\nu;1-\alpha/2}, \nu, \delta \right)$  \\
-%		2 sided & $H_{03}: \mu_1 = \mu_2$ & $H_{A3}: \mu_1 \neq \mu_2$ & $F_{t'}\left(t_{\nu;1-\alpha/2}, \nu, \delta \right)-F_t\left(-t_{\nu;1-\alpha/2}, \nu\, \delta \right)$ \\
-%		\hline
-%	\end{tabular}
-%	\caption{Student's t-test, 2 independent samples, power}
-%	\label{TableStudentsttest,2i samples,power}
-%\end{table}
-%
-
-
-
-%END
 
 
 \subsubsection{Power calculations: examples}
@@ -7526,8 +7314,6 @@ See section \ref{Functions returning Power Estimates} for the options for {\itsh
 
 
 \subsubsection{Sample size calculations: algorithms and formulas}
-%\label{1SampleTTest_SampleSize}
-%Let $N_{t'}\left(\alpha, \beta, \widetilde{\rho} \right)$ denote the sample size function of the (singly) noncentral $t$-distribution (see section \ref{NoncentralTDistributionSampleSize} ) for a given confidence level $\alpha$, power $\beta$ and noncentrality parameter $\widetilde{\rho}$ (as defined in equation \ref{eq:TTestPower1}. 
 
 Let $N_{t'}\left(\alpha, \beta, \widetilde{\rho} \right)$ denote the sample size function of the (singly) noncentral $t$-distribution (see section \ref{NoncentralTDistributionSampleSize} ) for a given confidence level $\alpha$, power $\beta$ and noncentrality parameter $\widetilde{\rho}$ (as defined in equation \ref{eq:TTestPower2i}.
 
@@ -7543,30 +7329,6 @@ Let $N_{t'}\left(\alpha, \beta, \widetilde{\rho} \right)$ denote the sample size
 
  Note that the returned value of $N$ will in general not be an integer, and rounding up may be required to ensure that all $n_i$ are integers.
 
-%BEGIN
-
-%
-%\begin{table}[ht]
-%	\centering
-%	\begin{tabular}{|l|l|l|l|}
-%		\hline
-%		Test &Null Hypothesis &Alternative & Minimal sample size $N$ \\
-%		\hline
-%		1 sided & $H_{01}: \mu_1 \leq \mu_2$ & $H_{A1}: \mu_1 > \mu_2$ & $N_{t'}\left(\alpha, \beta, \widetilde{\rho} \right)$ \\
-%		1 sided & $H_{02}: \mu_1 \geq \mu_2$ & $H_{A2}: \mu_1 < \mu_2$ & $N_{t'}\left(\alpha, \beta, \widetilde{\rho} \right)$  \\
-%		\hline
-%		2 sided & $H_{03}: \mu_1 = \mu_2$ & $H_{A1}: \mu_1 > \mu_2$ & $N_{t'}\left(\alpha, \beta, \widetilde{\rho} \right)$ \\
-%		2 sided & $H_{03}: \mu_1 = \mu_2$ & $H_{A2}: \mu_1 < \mu_2$ & $N_{t'}\left(\alpha, \beta, \widetilde{\rho} \right)$  \\
-%		2 sided & $H_{03}: \mu_1 = \mu_2$ & $H_{A3}: \mu_1 \neq \mu_2$ & $N2_{t'}\left(\alpha, \beta, \widetilde{\rho} \right)$ \\
-%		\hline
-%	\end{tabular}
-%	\caption{Student's t-test, 2 independent samples, sample size}
-%	\label{TableStudentsttest,2i samples,sample size}
-%\end{table}
-%
-
-
-%END
 
 
 \subsubsection{Sample size calculations: examples}
@@ -7605,29 +7367,6 @@ where $k=1+(1-b^2)T^2$, $h$ and $b$ are defined in equation (\ref{Akahira_h_b}),
 
 
 Let $A_1=t_{\nu,\alpha} \cdot s$ and $A_2=t_{\nu,\alpha/2} \cdot s$, where $s$ and $\nu$ are defined in (\ref{eq:TTest2i}), and $t_{\nu,\alpha}$ denotes the $\alpha$-quantile of the (central) $t$-distribution with $\nu$ degrees of freedom (see section \ref{tDistributionQuantile}). Then confidence intervals for the difference of 2 means can be calculated (needs to be worked out).
-
-
-%BEGIN
-%
-%Let $A_1=t_{\nu,\alpha} \cdot s$ and $A_2=t_{\nu,\alpha/2} \cdot s$, where $s$ and $\nu$ are defined in (\ref{eq:TTest2i}), and $t_{\nu,\alpha}$ denotes the $\alpha$-quantile of the (central) $t$-distribution with $\nu$ degrees of freedom (see section \ref{tDistributionQuantile}). Then confidence intervals for the difference of 2 means can be calculated as summarized in Table \ref{TableStudentsttest,2i samples, EffectSize}.
-%
-%\begin{table}[ht]
-%	\centering
-%	\begin{tabular}{|l|l|}
-%		\hline
-%		Type & Confidence Interval (Effect size)\\
-%		\hline
-%		Left-sided &  $-\infty \leq \mu_1 - \mu_2 \leq (\overline{x}_1-\overline{x}_1) + A_1$ \\
-%		Right-sided &  $(\overline{x}_1-\overline{x}_1) - A_1 \leq \mu_1 - \mu_2 \leq +\infty$\\
-%		Two-sided & $(\overline{x}_1-\overline{x}_1) - A_2 \leq \mu_1 - \mu_2 \leq (\overline{x}_1-\overline{x}_1) + A_2$ \\
-%		\hline
-%	\end{tabular}
-%	\caption{2 independent samples, confidence intervals for effect size}
-%	\label{TableStudentsttest,2i samples, EffectSize}
-%\end{table}
-
-
-%END
 
 
 %
@@ -7707,7 +7446,6 @@ Let $A_1=t_{\nu,\alpha} \cdot s$ and $A_2=t_{\nu,\alpha/2} \cdot s$, where $s$ a
 %\subsection{Overview}
 %\label{1SampleBinomialTestOverview}
 %
-%\lipsum[2]
 %
 %\subsection{BinomialTest}
 %\begin{tabular}{p{481pt}}
@@ -7740,7 +7478,6 @@ Let $A_1=t_{\nu,\alpha} \cdot s$ and $A_2=t_{\nu,\alpha/2} \cdot s$, where $s$ a
 %
 %
 %
-%\lipsum[2]
 %
 %
 %
@@ -7846,7 +7583,6 @@ Let $A_1=t_{\nu,\alpha} \cdot s$ and $A_2=t_{\nu,\alpha/2} \cdot s$, where $s$ a
 %%
 %%\vspace{0.3cm}
 %%
-%%\lipsum[4]
 %%
 %%\begin{figure}[ht]
 %%\centering
@@ -7865,7 +7601,6 @@ Let $A_1=t_{\nu,\alpha} \cdot s$ and $A_2=t_{\nu,\alpha/2} \cdot s$, where $s$ a
 %%
 %%\vspace{0.3cm}
 %%
-%%\lipsum[4]
 %%
 %
 %
@@ -7878,7 +7613,6 @@ Let $A_1=t_{\nu,\alpha} \cdot s$ and $A_2=t_{\nu,\alpha/2} \cdot s$, where $s$ a
 %\subsection{Overview}
 %\label{1SampleMannWhitneyTestOverview}
 %
-%\lipsum[2]
 %%
 %%\subsection{Test}
 %%\begin{tabular}{p{481pt}}
@@ -7894,7 +7628,6 @@ Let $A_1=t_{\nu,\alpha} \cdot s$ and $A_2=t_{\nu,\alpha/2} \cdot s$, where $s$ a
 %%g(n,x) = \frac{1}{2^{n/2} \Gamma(n/2)} x^{(n-2)/2}e^{-x/2}.
 %%\end{equation}
 %%
-%%\lipsum[3]
 %%
 %%\subsection{Confidence Interval}
 %%\begin{tabular}{p{481pt}}
@@ -7905,7 +7638,6 @@ Let $A_1=t_{\nu,\alpha} \cdot s$ and $A_2=t_{\nu,\alpha/2} \cdot s$, where $s$ a
 %%
 %%\vspace{0.3cm}
 %%
-%%\lipsum[4]
 %%
 %%
 %%
@@ -7919,7 +7651,6 @@ Let $A_1=t_{\nu,\alpha} \cdot s$ and $A_2=t_{\nu,\alpha/2} \cdot s$, where $s$ a
 %%
 %%\vspace{0.3cm}
 %%
-%%\lipsum[6]
 %%
 %%
 %%
@@ -7932,7 +7663,6 @@ Let $A_1=t_{\nu,\alpha} \cdot s$ and $A_2=t_{\nu,\alpha/2} \cdot s$, where $s$ a
 %%
 %%\vspace{0.3cm}
 %%
-%%\lipsum[1]
 %%
 %%
 %
@@ -7946,7 +7676,6 @@ Let $A_1=t_{\nu,\alpha} \cdot s$ and $A_2=t_{\nu,\alpha/2} \cdot s$, where $s$ a
 %\subsection{Overview}
 %\label{PearsonRhoTestOverview}
 %
-%\lipsum[2]
 %%
 %%\subsection{Test}
 %%\begin{tabular}{p{481pt}}
@@ -7962,7 +7691,6 @@ Let $A_1=t_{\nu,\alpha} \cdot s$ and $A_2=t_{\nu,\alpha/2} \cdot s$, where $s$ a
 %%g(n,x) = \frac{1}{2^{n/2} \Gamma(n/2)} x^{(n-2)/2}e^{-x/2}.
 %%\end{equation}
 %%
-%%\lipsum[3]
 %%
 %%\subsection{Confidence Interval}
 %%\begin{tabular}{p{481pt}}
@@ -7973,7 +7701,6 @@ Let $A_1=t_{\nu,\alpha} \cdot s$ and $A_2=t_{\nu,\alpha/2} \cdot s$, where $s$ a
 %%
 %%\vspace{0.3cm}
 %%
-%%\lipsum[4]
 %%
 %%
 %%
@@ -7986,8 +7713,6 @@ Let $A_1=t_{\nu,\alpha} \cdot s$ and $A_2=t_{\nu,\alpha/2} \cdot s$, where $s$ a
 %%
 %%\vspace{0.3cm}
 %%
-%%\lipsum[6]
-%%
 %%
 %%
 %%\subsection{Sample Size Calculation}
@@ -7999,7 +7724,6 @@ Let $A_1=t_{\nu,\alpha} \cdot s$ and $A_2=t_{\nu,\alpha/2} \cdot s$, where $s$ a
 %%
 %%\vspace{0.3cm}
 %%
-%%\lipsum[1]
 %%
 %
 %
@@ -8013,7 +7737,6 @@ Let $A_1=t_{\nu,\alpha} \cdot s$ and $A_2=t_{\nu,\alpha/2} \cdot s$, where $s$ a
 %\subsection{Overview}
 %\label{KendallTauOverview}
 %
-%\lipsum[2]
 %%
 %%\subsection{Test}
 %%\begin{tabular}{p{481pt}}
@@ -8029,7 +7752,6 @@ Let $A_1=t_{\nu,\alpha} \cdot s$ and $A_2=t_{\nu,\alpha/2} \cdot s$, where $s$ a
 %%g(n,x) = \frac{1}{2^{n/2} \Gamma(n/2)} x^{(n-2)/2}e^{-x/2}.
 %%\end{equation}
 %%
-%%\lipsum[3]
 %%
 %%\subsection{Confidence Interval}
 %%\begin{tabular}{p{481pt}}
@@ -8040,7 +7762,6 @@ Let $A_1=t_{\nu,\alpha} \cdot s$ and $A_2=t_{\nu,\alpha/2} \cdot s$, where $s$ a
 %%
 %%\vspace{0.3cm}
 %%
-%%\lipsum[4]
 %%
 %%
 %%\subsection{Power}
@@ -8052,7 +7773,6 @@ Let $A_1=t_{\nu,\alpha} \cdot s$ and $A_2=t_{\nu,\alpha/2} \cdot s$, where $s$ a
 %%
 %%\vspace{0.3cm}
 %%
-%%\lipsum[6]
 %%
 %%
 %%\subsection{Sample Size Calculation}
@@ -8064,7 +7784,6 @@ Let $A_1=t_{\nu,\alpha} \cdot s$ and $A_2=t_{\nu,\alpha/2} \cdot s$, where $s$ a
 %%
 %%\vspace{0.3cm}
 %%
-%%\lipsum[1]
 %%
 %
 %
@@ -8106,11 +7825,9 @@ Let $A_1=t_{\nu,\alpha} \cdot s$ and $A_2=t_{\nu,\alpha/2} \cdot s$, where $s$ a
 %%g(n,x) = \frac{1}{2^{n/2} \Gamma(n/2)} x^{(n-2)/2}e^{-x/2}.
 %%\end{equation}
 %%
-%%\lipsum[3]
 %%
 %%\subsection{Confidence Interval}
 %%\label{MultipleLinearRegressionCI}
-%%\lipsum[4]
 %%
 %%\begin{table}[ht]
 %%\centering
@@ -8140,7 +7857,6 @@ Let $A_1=t_{\nu,\alpha} \cdot s$ and $A_2=t_{\nu,\alpha/2} \cdot s$, where $s$ a
 %%\subsection{Power}
 %%\label{MultipleLinearRegressionPower}
 %%
-%%\lipsum[6]
 %%
 %%\begin{figure}[ht]
 %%\centering
@@ -8152,7 +7868,6 @@ Let $A_1=t_{\nu,\alpha} \cdot s$ and $A_2=t_{\nu,\alpha/2} \cdot s$, where $s$ a
 %%
 %%\subsection{Sample Size Calculation}
 %%\label{MultipleLinearRegressionSampleSize}
-%%\lipsum[1]
 %%
 %%\subsection{Function Reference}
 %%\label{MultipleLinearRegressionFunctionReference}
@@ -8161,7 +7876,6 @@ Let $A_1=t_{\nu,\alpha} \cdot s$ and $A_2=t_{\nu,\alpha/2} \cdot s$, where $s$ a
 %%
 %%These routines compute the complete elliptic integral K(k) to the accuracy specified by the mode variable mode. Note that Abramowitz  Stegun define this function in terms of the parameter m = k2. 
 %%
-%%\lipsum[3]
 %%
 %%
 %%\subsection{Examples}
@@ -8190,7 +7904,6 @@ Let $A_1=t_{\nu,\alpha} \cdot s$ and $A_2=t_{\nu,\alpha/2} \cdot s$, where $s$ a
 %%
 %%
 %%
-%%\lipsum[6]
 %
 %
 %
@@ -8753,28 +8466,23 @@ Let $A_1=t_{\nu,\alpha} \cdot s$ and $A_2=t_{\nu,\alpha/2} \cdot s$, where $s$ a
 %\subsection{Hotelling's T2}
 %
 %
-%\lipsum[2]
 %
 %
 %\subsection{MANOVA}
 %
 %
-%\lipsum[2]
 %%
 %%\subsection{Test}
 %%\label{MANOVATest}
-%%\lipsum[3]
 %%
 %%\subsection{Confidence Interval}
 %%\label{MANOVACI}
-%%\lipsum[4]
 %%
 %%
 %%
 %%\subsection{Power}
 %%\label{MANOVAPower}
 %%
-%%\lipsum[6]
 %%
 %%\begin{figure}[ht]
 %%\centering
@@ -8786,7 +8494,6 @@ Let $A_1=t_{\nu,\alpha} \cdot s$ and $A_2=t_{\nu,\alpha/2} \cdot s$, where $s$ a
 %%
 %%\subsection{Sample Size Calculation}
 %%\label{MANOVASampleSize}
-%%\lipsum[1]
 %
 %
 %
@@ -8799,7 +8506,6 @@ Let $A_1=t_{\nu,\alpha} \cdot s$ and $A_2=t_{\nu,\alpha/2} \cdot s$, where $s$ a
 %\subsection{Overview}
 %\label{CanonicalCorrelationOverview}
 %
-%\lipsum[2]
 %%
 %%\subsection{Test}
 %%\label{CanonicalCorrelationTest}
@@ -8808,11 +8514,9 @@ Let $A_1=t_{\nu,\alpha} \cdot s$ and $A_2=t_{\nu,\alpha/2} \cdot s$, where $s$ a
 %%g(n,x) = \frac{1}{2^{n/2} \Gamma(n/2)} x^{(n-2)/2}e^{-x/2}.
 %%\end{equation}
 %%
-%%\lipsum[3]
 %%
 %%\subsection{Confidence Interval}
 %%\label{CanonicalCorrelationCI}
-%%\lipsum[4]
 %%
 %%
 %%
@@ -8820,7 +8524,6 @@ Let $A_1=t_{\nu,\alpha} \cdot s$ and $A_2=t_{\nu,\alpha/2} \cdot s$, where $s$ a
 %%\subsection{Power}
 %%\label{CanonicalCorrelationPower}
 %%
-%%\lipsum[6]
 %%
 %%%\begin{figure}[ht]
 %%%\centering
@@ -8832,4 +8535,3 @@ Let $A_1=t_{\nu,\alpha} \cdot s$ and $A_2=t_{\nu,\alpha/2} \cdot s$, where $s$ a
 %%
 %%\subsection{Sample Size Calculation}
 %%\label{CanonicalCorrelationSampleSize}
-%%\lipsum[1]

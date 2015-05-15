@@ -1,0 +1,14 @@
+This is makeindex, version 2.15 [MiKTeX 2.9] (kpathsea + Thai support).
+Scanning style file C:/Extra/mpFormulaTDM/ExternalTools/MiktekPortable/makeindex/nomencl/nomencl.ist.......
+** Input style error (file = C:/Extra/mpFormulaTDM/ExternalTools/MiktekPortable/makeindex/nomencl/nomencl.ist, line = 70):
+   -- Unknown specifier lethead_prefix.
+** Input style error (file = C:/Extra/mpFormulaTDM/ExternalTools/MiktekPortable/makeindex/nomencl/nomencl.ist, line = 71):
+   -- Unknown specifier lethead_suffix.
+** Input style error (file = C:/Extra/mpFormulaTDM/ExternalTools/MiktekPortable/makeindex/nomencl/nomencl.ist, line = 72):
+   -- Unknown specifier lethead_flag.
+...done (10 attributes redefined, 3 ignored).
+Scanning input file mpFormulaPy.nlo....done (63 entries accepted, 0 rejected).
+Sorting entries....done (382 comparisons).
+Generating output file mpFormulaPy.nls....done (132 lines written, 0 warnings).
+Output written in mpFormulaPy.nls.
+Transcript written in mpFormulaPy.nlg.

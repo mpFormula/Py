@@ -83,17 +83,33 @@
     <CaretOffset value="8127" />
     <ScrollPositionY value="4553" />
   </Properties>
+  <Properties name="1e13ec5:C:\EXTRA\MPFORMULATDM\MPFORMULAPY\SOURCE\MPFORMULATOOLBOX\FILEVIEWER\MAINFORM.VB">
+    <CaretOffset value="0" />
+    <ScrollPositionY value="0" />
+  </Properties>
+  <Properties name="1e13ec5:C:\EXTRA\MPFORMULATDM\MPFORMULAPY\SOURCE\MPFORMULATOOLBOX\FILEVIEWER\PROGRAM.VB">
+    <CaretOffset value="0" />
+    <ScrollPositionY value="0" />
+  </Properties>
   <Properties name="1e13ec5:C:\EXTRA\MPFORMULATDM\MPFORMULAPY\SOURCE\MPFORMULATOOLBOX\FUNCTIONNAVIGATOR\FUNCTIONSFORM.VB">
-    <CaretOffset value="6721" />
-    <ScrollPositionY value="3039" />
+    <CaretOffset value="7814" />
+    <ScrollPositionY value="3714" />
   </Properties>
   <Properties name="1e13ec5:C:\EXTRA\MPFORMULATDM\MPFORMULAPY\SOURCE\MPFORMULATOOLBOX\FUNCTIONNAVIGATOR\PROGRAM.VB">
     <CaretOffset value="0" />
     <ScrollPositionY value="0" />
   </Properties>
+  <Properties name="1e13ec5:C:\EXTRA\MPFORMULATDM\MPFORMULAPY\SOURCE\MPFORMULATOOLBOX\TESTACRO\CLSWINDOWMESSAGING.CS">
+    <CaretOffset value="806" />
+    <ScrollPositionY value="205" />
+  </Properties>
   <Properties name="1e13ec5:C:\EXTRA\MPFORMULATDM\MPFORMULAPY\SOURCE\MPFORMULATOOLBOX\TESTACRO\MAINFORM.CS">
-    <CaretOffset value="1418" />
-    <ScrollPositionY value="675.00000000000023" />
+    <CaretOffset value="492" />
+    <ScrollPositionY value="289.5" />
+  </Properties>
+  <Properties name="1e13ec5:C:\EXTRA\MPFORMULATDM\MPFORMULAPY\SOURCE\MPFORMULATOOLBOX\TESTACRO\PROGRAM.CS">
+    <CaretOffset value="0" />
+    <ScrollPositionY value="0" />
   </Properties>
   <Properties name="1e13ec5:C:\EXTRA\MPFORMULATDM\MPFORMULAPY\SOURCE\MPMATH\MPFORMULAONECOM\LIBRARY.VB">
     <CaretOffset value="10993" />
@@ -265,14 +281,6 @@
   </Properties>
   <Properties name="1e13ec5:E:\EXTRA\MPFORMULATDM\MPFORMULAXL\SOURCE\TOOLSMEUENTRY\TOOLSMEUENTRY\TOOLSMEUENTRY.ADDIN">
     <CaretOffset value="448" />
-    <ScrollPositionY value="0" />
-  </Properties>
-  <Properties name="1e13ec5:I:\DATA\MPFORMULATDM\MPFORMULAPY\SOURCE\MSOFFICE\EXCELDNA\FUNCTIONSFORM.VB">
-    <CaretOffset value="184" />
-    <ScrollPositionY value="0" />
-  </Properties>
-  <Properties name="1e13ec5:I:\DATA\MPFORMULATDM\MPFORMULAPY\SOURCE\MSOFFICE\EXCELDNA\MAINFORM.VB">
-    <CaretOffset value="0" />
     <ScrollPositionY value="0" />
   </Properties>
   <Properties name="1e13ec5:I:\DATA\MPFORMULATDM\MPFORMULAXL\SOURCE\DISTRIBUTIONS\DISTRIBUTIONSCSHARP\PROGRAM.CS">

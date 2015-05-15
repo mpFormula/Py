@@ -1,12 +1,12 @@
-[FormatInfo]
+﻿[FormatInfo]
 Type=TeXnicCenterProjectInformation
 Version=4
 
 [ProjectInfo]
 MainFile=mpFormulaPy.tex
-UseBibTeX=0
-UseMakeIndex=0
+UseBibTeX=1
+UseMakeIndex=1
 ActiveProfile=LaTeX ⇨ PDF
-ProjectLanguage=en
-ProjectDialect=US
+ProjectLanguage=de
+ProjectDialect=DE
 

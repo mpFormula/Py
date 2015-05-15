@@ -3,87 +3,87 @@
  \nomgroup{A}
 
   \item [{$\chi^2_{\nu,\alpha}$}]\begingroup $\alpha$ quantile of the central $\chi^2$-distribution with $\nu$ degrees of freedom\nomeqref {6.4.6}
-		\nompageref{189}
+		\nompageref{188}
   \item [{$\Gamma(x)$}]\begingroup Gamma Function\nomeqref {4.8.6}
 		\nompageref{154}
   \item [{$\Gamma_p(x)$}]\begingroup Multivariate Gamma Function\nomeqref {28.1.0}
-		\nompageref{594}
+		\nompageref{592}
   \item [{$\mathbb{C}$}]\begingroup Set of complex numbers\nomeqref {H.0.0}
-		\nompageref{890}
+		\nompageref{887}
   \item [{$\mathbb{N}$}]\begingroup Set of natural numbers\nomeqref {H.0.0}
-		\nompageref{890}
+		\nompageref{887}
   \item [{$\mathbb{Q}$}]\begingroup Set of rational numbers\nomeqref {H.0.0}
-		\nompageref{890}
+		\nompageref{887}
   \item [{$\mathbb{R}$}]\begingroup Set of real numbers\nomeqref {H.0.0}
-		\nompageref{890}
+		\nompageref{887}
   \item [{$\mathbb{Z}$}]\begingroup Set of integer numbers\nomeqref {H.0.0}
-		\nompageref{890}
+		\nompageref{887}
   \item [{$\Phi(x)$}]\begingroup CDF of the standardized normal distribution\nomeqref {6.11.3}
-		\nompageref{218}
+		\nompageref{217}
   \item [{$\phi(x)$}]\begingroup pdf of the standardized normal distribution\nomeqref {6.11.0}
-		\nompageref{217}
+		\nompageref{216}
   \item [{$\Phi^{-1}(\alpha)$}]\begingroup Inverse CDF of the standardized normal distribution\nomeqref {6.11.6}
-		\nompageref{218}
-  \item [{$F_F(m,n,x)$}]\begingroup CDF of the central $F$-distribution\nomeqref {6.6.1}
-		\nompageref{197}
-  \item [{$f_F(m,n,x)$}]\begingroup pdf of the central $F$-distribution\nomeqref {6.6.0}
-		\nompageref{197}
-  \item [{$F_N(x; \mu, \sigma^2)$}]\begingroup CDF of the normal distribution with mean $\mu$ and variance $\sigma^2$\nomeqref {6.11.3}
-		\nompageref{218}
-  \item [{$F_N(x; \mu, \sigma^2)$}]\begingroup pdf of the normal distribution with mean $\mu$ and variance $\sigma^2$\nomeqref {6.11.0}
 		\nompageref{217}
+  \item [{$F_F(m,n,x)$}]\begingroup CDF of the central $F$-distribution\nomeqref {6.6.1}
+		\nompageref{196}
+  \item [{$f_F(m,n,x)$}]\begingroup pdf of the central $F$-distribution\nomeqref {6.6.0}
+		\nompageref{196}
+  \item [{$F_N(x; \mu, \sigma^2)$}]\begingroup CDF of the normal distribution with mean $\mu$ and variance $\sigma^2$\nomeqref {6.11.3}
+		\nompageref{217}
+  \item [{$F_N(x; \mu, \sigma^2)$}]\begingroup pdf of the normal distribution with mean $\mu$ and variance $\sigma^2$\nomeqref {6.11.0}
+		\nompageref{216}
   \item [{$F_N^{-1}(\alpha; \mu, \sigma^2)$}]\begingroup Inverse CDF of the normal distribution with mean $\mu$ and variance $\sigma^2$\nomeqref {6.11.6}
-		\nompageref{218}
+		\nompageref{217}
   \item [{$f_R(r, N; \rho)$}]\begingroup pdf of the Distribution of the Sample Correlation Coefficient\nomeqref {30.1.3}
-		\nompageref{618}
+		\nompageref{616}
   \item [{$F_t(n, x)$}]\begingroup CDF of the central $t$-distribution\nomeqref {6.13.1}
-		\nompageref{225}
+		\nompageref{224}
   \item [{$f_t(n, x)$}]\begingroup pdf of the central $t$-distribution\nomeqref {6.13.0}
-		\nompageref{225}
+		\nompageref{224}
   \item [{$F_{\chi^2}(n, x)$}]\begingroup CDF of the central chi-square distribution\nomeqref {6.4.1}
-		\nompageref{188}
+		\nompageref{187}
   \item [{$f_{\chi^2}(n, x)$}]\begingroup pdf of the central chi-square distribution\nomeqref {6.4.0}
-		\nompageref{188}
+		\nompageref{187}
   \item [{$F_{\chi^2}(n, x; \lambda)$}]\begingroup CDF of the noncentral chi-square distribution\nomeqref {30.6.4}
-		\nompageref{644}
+		\nompageref{642}
   \item [{$f_{\chi^2}(n, x; \lambda)$}]\begingroup pdf of the noncentral chi-square distribution\nomeqref {30.6.0}
-		\nompageref{643}
+		\nompageref{641}
   \item [{$F_{\nu_1,\nu_2,\alpha}$}]\begingroup $\alpha$ quantile of the central $F$-distribution with $\nu_1$ and $\nu_2$ degrees of freedom\nomeqref {6.6.7}
-		\nompageref{197}
+		\nompageref{196}
   \item [{$F_{\text{Beta'}}(x;a,b,\lambda)$}]\begingroup CDF of the (singly) noncentral Beta-distribution\nomeqref {30.7.1}
-		\nompageref{651}
+		\nompageref{649}
   \item [{$f_{\text{Beta'}}(x;a,b,\lambda)$}]\begingroup pdf of the (singly) noncentral Beta-distribution\nomeqref {30.7.0}
-		\nompageref{651}
+		\nompageref{649}
   \item [{$F_{\text{Beta}}(a,b,x)$}]\begingroup CDF of the central Beta-distribution\nomeqref {6.2.1}
-		\nompageref{179}
+		\nompageref{178}
   \item [{$f_{\text{Beta}}(a,b,x)$}]\begingroup pdf of the central Beta-distribution\nomeqref {6.2.0}
-		\nompageref{179}
+		\nompageref{178}
   \item [{$F_{\text{Bin}}(n, k; p)$}]\begingroup CDF of the binomial distribution\nomeqref {6.3.1}
-		\nompageref{184}
+		\nompageref{183}
   \item [{$f_{\text{Bin}}(n, k; p)$}]\begingroup pmf of the  binomial distribution\nomeqref {6.3.0}
-		\nompageref{184}
+		\nompageref{183}
   \item [{$F_{\text{NegBin}}(n, k; p)$}]\begingroup CDF of the negative binomial distribution\nomeqref {6.10.1}
-		\nompageref{214}
+		\nompageref{213}
   \item [{$f_{\text{NegBin}}(n, k; p)$}]\begingroup pmf of the negative binomial distribution\nomeqref {6.10.0}
-		\nompageref{214}
+		\nompageref{213}
   \item [{$f_{F''}(x;m,n)$}]\begingroup pdf of the doubly noncentral $F$-distribution\nomeqref {30.11.1}
-		\nompageref{673}
+		\nompageref{671}
   \item [{$f_{F'}(x;m,n)$}]\begingroup CDF of the (singly) noncentral $F$-distribution\nomeqref {30.10.0}
-		\nompageref{667}
+		\nompageref{665}
   \item [{$f_{F'}(x;m,n)$}]\begingroup pdf of the (singly) noncentral $F$-distribution\nomeqref {30.10.0}
-		\nompageref{667}
+		\nompageref{665}
   \item [{$F_{R^2}(x;p,n,\rho^2)$}]\begingroup CDF of the Square of the Multiple Sample Correlation Coefficient\nomeqref {30.2.9}
-		\nompageref{627}
+		\nompageref{625}
   \item [{$f_{R^2}(x;p,n,\rho^2)$}]\begingroup pdf of the Square of the Multiple Sample Correlation Coefficient\nomeqref {30.2.4}
-		\nompageref{627}
+		\nompageref{625}
   \item [{$F_{t''}(t;n;\delta,\theta)$}]\begingroup CDF of the doubly noncentral t-square distribution\nomeqref {30.9.4}
-		\nompageref{662}
+		\nompageref{660}
   \item [{$f_{t''}(t;n;\delta,\theta)$}]\begingroup pdf of the doubly noncentral t-square distribution\nomeqref {30.9.0}
-		\nompageref{661}
+		\nompageref{659}
   \item [{$F_{t'}\left(n,x, \delta\right)$}]\begingroup CDF of the (singly) noncentral t-distribution\nomeqref {30.8.5}
-		\nompageref{655}
+		\nompageref{653}
   \item [{$f_{t'}\left(n,x, \delta\right)$}]\begingroup pdf of the (singly) noncentral t-distribution\nomeqref {30.8.0}
-		\nompageref{654}
+		\nompageref{652}
   \item [{$I_{\nu}(z)$}]\begingroup Modified Bessel function of the first kind of real order $\nu$\nomeqref {4.8.2}
 		\nompageref{152}
   \item [{$J_{\nu}(z)$}]\begingroup Bessel function of the first kind of real order $\nu$\nomeqref {4.8.0}
@@ -91,42 +91,42 @@
   \item [{$K_{\nu}(z)$}]\begingroup Modified Bessel function of the second kind of real order $\nu$\nomeqref {4.8.3}
 		\nompageref{153}
   \item [{$N_{Rho}\left(\alpha, \beta, \widetilde{\rho} \right)$}]\begingroup Sample size function of the noncentral $t$-distribution for a given confidence level $\alpha$, power $\beta$ and modified noncentrality parameter $\widetilde{\rho}$\nomeqref {30.1.57}
-		\nompageref{625}
+		\nompageref{623}
   \item [{$N_{t''}\left(\alpha, \beta, \widetilde{\rho} \right)$}]\begingroup Sample size function of the doubly noncentral $t$-distribution for a given confidence level $\alpha$, power $\beta$ and modified noncentrality parameter $\widetilde{\rho}$\nomeqref {30.8.30}
-		\nompageref{660}
+		\nompageref{658}
   \item [{$N_{t''}\left(\alpha, \beta, \widetilde{\rho} \right)$}]\begingroup Sample size function of the doubly noncentral $t$-distribution for a given confidence level $\alpha$, power $\beta$ and modified noncentrality parameter $\widetilde{\rho}$\nomeqref {30.9.17}
-		\nompageref{665}
+		\nompageref{663}
   \item [{$t_{\nu,\alpha}$}]\begingroup $\alpha$ quantile of the central $t$-distribution with $\nu$ degrees of freedom\nomeqref {6.13.9}
-		\nompageref{226}
+		\nompageref{225}
   \item [{$T_{\text{Owen}}(a,b)$}]\begingroup Owen's T-Function\nomeqref {30.3.6}
-		\nompageref{635}
+		\nompageref{633}
   \item [{$t_{n,\delta;\alpha}$}]\begingroup $\alpha$ quantile of the noncentral $t$-distribution with $\nu$ degrees of freedom and noncentrality parameter $\delta$\nomeqref {30.8.19}
-		\nompageref{657}
+		\nompageref{655}
   \item [{$Y_{\nu}(z)$}]\begingroup Bessel function of the second kind of real order $\nu$\nomeqref {4.8.1}
 		\nompageref{152}
   \item [{$z_{\alpha}$}]\begingroup $\alpha$ quantile of the standardized normal distribution\nomeqref {6.11.6}
-		\nompageref{218}
+		\nompageref{217}
   \item [{${}_0\widetilde{F}_1(b;x)$}]\begingroup Regularized Confluent Hypergeometric Limit Function\nomeqref {13.1.4}
-		\nompageref{424}
+		\nompageref{422}
   \item [{${}_0F_1(a;\Omega)$}]\begingroup Confluent Hypergeometric Limit Function for Matrix Argument\nomeqref {28.1.13}
-		\nompageref{598}
-  \item [{${}_1\widetilde{F}_1(a,b;z)$}]\begingroup Kummer's Regularized Confluent Hypergeometric Function\nomeqref {13.2.5}
-		\nompageref{426}
-  \item [{${}_1F_1(a,b;\Omega)$}]\begingroup Kummer's Confluent Hypergeometric Function for Matrix Argument\nomeqref {28.1.11}
-		\nompageref{597}
-  \item [{${}_1F_1(a,b;z)$}]\begingroup Kummer's Confluent Hypergeometric Function\nomeqref {13.2.0}
-		\nompageref{425}
-  \item [{${}_2\widetilde{F}_1(a,b;c;z)$}]\begingroup Gauss Regularized Hypergeometric Function\nomeqref {13.4.4}
-		\nompageref{433}
-  \item [{${}_2F_1(a,b;c;\textbf{T})$}]\begingroup Gauss Hypergeometric Function of Matrix Argument\nomeqref {28.1.9}
 		\nompageref{596}
-  \item [{${}_2F_1(a,b;c;x)$}]\begingroup Gauss Hypergeometric Function\nomeqref {13.4.0}
+  \item [{${}_1\widetilde{F}_1(a,b;z)$}]\begingroup Kummer's Regularized Confluent Hypergeometric Function\nomeqref {13.2.5}
+		\nompageref{424}
+  \item [{${}_1F_1(a,b;\Omega)$}]\begingroup Kummer's Confluent Hypergeometric Function for Matrix Argument\nomeqref {28.1.11}
+		\nompageref{595}
+  \item [{${}_1F_1(a,b;z)$}]\begingroup Kummer's Confluent Hypergeometric Function\nomeqref {13.2.0}
+		\nompageref{423}
+  \item [{${}_2\widetilde{F}_1(a,b;c;z)$}]\begingroup Gauss Regularized Hypergeometric Function\nomeqref {13.4.4}
 		\nompageref{431}
+  \item [{${}_2F_1(a,b;c;\textbf{T})$}]\begingroup Gauss Hypergeometric Function of Matrix Argument\nomeqref {28.1.9}
+		\nompageref{594}
+  \item [{${}_2F_1(a,b;c;x)$}]\begingroup Gauss Hypergeometric Function\nomeqref {13.4.0}
+		\nompageref{429}
   \item [{CDF}]\begingroup cumulative distribution function\nomeqref {6.1.0}
-		\nompageref{171}
+		\nompageref{170}
   \item [{pdf}]\begingroup probability density function\nomeqref {6.1.0}
-		\nompageref{171}
+		\nompageref{170}
   \item [{pmf}]\begingroup probability mass function\nomeqref {6.1.0}
-		\nompageref{171}
+		\nompageref{170}
 
 \end{thenomenclature}

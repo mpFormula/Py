@@ -196,19 +196,18 @@
   </Properties>
   <Properties name="RecentOpen">
     <Array name="Files">
-      <Element value="I:\Data\mpFormulaTDM\mpFormulaPy\Source\MSOffice\ExcelDNA\FunctionsForm.vb" />
-      <Element value="I:\Data\mpFormulaTDM\mpFormulaPy\Source\MSOffice\ExcelDNA\MainForm.vb" />
-      <Element value="http://community.sharpdevelop.net/forums/" />
-      <Element value="http://wiki.sharpdevelop.net/" />
-      <Element value="http://www.dotgnu.org" />
+      <Element value="C:\Extra\mpFormulaTDM\mpFormulaPy\Source\mpFormulaToolbox\FileViewer\MainForm.vb" />
+      <Element value="C:\Extra\mpFormulaTDM\mpFormulaPy\Source\mpFormulaToolbox\FileViewer\Program.vb" />
+      <Element value="C:\Extra\mpFormulaTDM\mpFormulaPy\Source\mpFormulaToolbox\TestAcro\clsWindowMessaging.cs" />
+      <Element value="C:\Extra\mpFormulaTDM\mpFormulaPy\Source\mpFormulaToolbox\TestAcro\Program.cs" />
       <Element value="C:\Extra\mpFormulaTDM\mpFormulaPy\Source\mpFormulaToolbox\FunctionNavigator\FunctionsForm.vb" />
       <Element value="C:\Extra\mpFormulaTDM\mpFormulaPy\Source\mpFormulaToolbox\FunctionNavigator\Program.vb" />
       <Element value="C:\Extra\mpFormulaTDM\mpFormulaPy\Source\mpFormulaToolbox\TestAcro\MainForm.cs" />
-      <Element value="C:\Extra\mpFormulaTDM\mpFormulaPy\Source\MpMath\MpMathClientDLL\MpMathClientDLLProgram.vb" />
-      <Element value="C:\Extra\mpFormulaTDM\mpFormulaPy\Source\MpMath\MpMathClient\CallMpMathProgram.vb" />
+      <Element value="http://community.sharpdevelop.net/forums/" />
+      <Element value="http://wiki.sharpdevelop.net/" />
+      <Element value="http://www.dotgnu.org" />
     </Array>
     <Array name="Projects">
-      <Element value="I:\Data\mpFormulaTDM\mpFormulaPy\Source\MSOffice\MSOffice.sln" />
       <Element value="C:\Extra\mpFormulaTDM\mpFormulaPy\Source\mpFormulaToolbox\mpFormulaToolbox.sln" />
       <Element value="C:\Extra\mpFormulaTDM\mpFormulaPy\Source\MpMath\MpMath.sln" />
       <Element value="C:\Extra\mpFormulaTDM\mpFormulaXL\Source\MpMathListing\mpmathListing.sln" />
@@ -218,6 +217,7 @@
       <Element value="I:\Data\mpFormulaTDM\mpFormulaXL\Source\Distributions\Distributions.sln" />
       <Element value="E:\Extra\mpFormulaTDM\mpFormulaXL\Source\MpMath\MpMath.sln" />
       <Element value="E:\Extra\mpFormulaTDM\mpFormulaXL\Source\ToolsMeuEntry\ToolsMeuEntry.sln" />
+      <Element value="E:\Extra\mpFormulaTDM\mpFormulaXL\Source\CustomTool1\CustomTool1.sln" />
     </Array>
   </Properties>
   <RegExpTk.WindowBounds value="960, 240, 960, 560" />

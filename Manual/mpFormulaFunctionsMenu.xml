@@ -1674,7 +1674,6 @@
 \end{mpFunctionsExtract}
 "/>
 </node>
-  <node text="Time Series" imageindex="3" tag="Section Info on Time Series"/>
 </node>
 <node text="Distribution Functions" imageindex="2" tag="Chapter Info on Distribution Functions">
   <node text="Introduction to Distribution Functions" imageindex="3" tag="Section Info on Introduction to Distribution Functions"/>
@@ -3183,7 +3182,6 @@
 \end{mpFunctionsExtract}
 "/>
 </node>
-  <node text="Rank Transformations" imageindex="3" tag="Section Info on Rank Transformations"/>
   <node text="Sums, Means, Moments and Cumulants" imageindex="3" tag="Section Info on Sums, Means, Moments and Cumulants">
   <node text="SUM? mpNum? the sum of the numbers in an array" imageindex="6" tag="Function Info on 
 \mpWorksheetFunctionOneNotImplemented
@@ -7320,7 +7318,6 @@
   <node text="Microsoft Excel" imageindex="3" tag="Section Info on Microsoft Excel"/>
   <node text="Spreadsheet functions implemented in mpFormulaPy" imageindex="3" tag="Section Info on Spreadsheet functions implemented in mpFormulaPy"/>
   <node text="Spreadsheet functions not implemented in mpFormulaPy" imageindex="3" tag="Section Info on Spreadsheet functions not implemented in mpFormulaPy"/>
-  <node text="Spreadsheet macros: equivalent functions in mpFormulaPy" imageindex="3" tag="Section Info on Spreadsheet macros: equivalent functions in mpFormulaPy"/>
 </node>
 <node text="Languages with CLR Support" imageindex="2" tag="Chapter Info on Languages with CLR Support">
   <node text="Visual Basic .NET" imageindex="3" tag="Section Info on Visual Basic .NET"/>
