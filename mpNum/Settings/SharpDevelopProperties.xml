@@ -30,9 +30,6 @@
   </Properties>
   <SerializedValue name="CodeEditorOptions">
     <CodeEditorOptions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-      <ShowSpaces>true</ShowSpaces>
-      <ShowTabs>true</ShowTabs>
-      <ShowEndOfLine>true</ShowEndOfLine>
       <ConvertTabsToSpaces>true</ConvertTabsToSpaces>
       <AllowScrollBelowDocument>true</AllowScrollBelowDocument>
       <FontFamily>Consolas</FontFamily>
@@ -116,13 +113,13 @@
       <DebuggeeExceptionWindowState>Normal</DebuggeeExceptionWindowState>
     </DebuggingOptions>
   </SerializedValue>
-  <Dialogs.NewFileDialog.CategoryViewState value="[]" />
-  <Dialogs.NewFileDialog.LastSelectedCategory value="C#" />
+  <Dialogs.NewFileDialog.CategoryViewState value="[VB[]]" />
+  <Dialogs.NewFileDialog.LastSelectedCategory value="VB" />
   <Dialogs.NewFileDialog.LastSelectedTemplate value="${res:Templates.File.EmptyClass.Name}" />
   <Dialogs.NewProjectDialog.CategoryTreeState value="[VB[]]" />
   <Dialogs.NewProjectDialog.CreateDirectoryForSolution value="True" />
   <Dialogs.NewProjectDialog.LargeImages value="True" />
-  <Dialogs.NewProjectDialog.LastSelectedCategory value="Python" />
+  <Dialogs.NewProjectDialog.LastSelectedCategory value="VB\Windows Applications" />
   <Dialogs.NewProjectDialog.TargetFramework value="v4.0" />
   <SerializedValue name="DisabledContextActionProviders">
     <ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
@@ -196,18 +193,21 @@
   </Properties>
   <Properties name="RecentOpen">
     <Array name="Files">
+      <Element value="I:\Extra\mpFormulaTDM\mpFormulaPy\Source\TestString\TestString\Program.vb" />
+      <Element value="I:\Data\mpFormulaTDM\mpFormulaPy\Source\MpMath\mpFormulaXLClassLib\Class1.vb" />
+      <Element value="I:\Data\mpFormulaTDM\mpFormulaPy\Source\MpMath\mpFormulaXLClassLib\mpFormulaClass.vb" />
+      <Element value="I:\Data\mpFormulaTDM\mpFormulaPy\Source\MpMath\MpMathNetLib\MpMathClass.vb" />
+      <Element value="I:\Data\mpFormulaTDM\mpFormulaPy\Source\MpMath\MpMathPythonLib\MyModule.py" />
+      <Element value="I:\Data\mpFormulaTDM\mpFormulaPy\Source\MpMath\TestFormulaXLClassLib\TestMpFormula.vb" />
+      <Element value="I:\Data\mpFormulaTDM\mpFormulaPy\Source\MpMath\mpFormulaOneCOM\Library.vb" />
+      <Element value="I:\Data\mpFormulaTDM\mpFormulaPy\Source\NetOffice\xlDemo1\Program.vb" />
       <Element value="C:\Extra\mpFormulaTDM\mpFormulaPy\Source\mpFormulaToolbox\FileViewer\MainForm.vb" />
       <Element value="C:\Extra\mpFormulaTDM\mpFormulaPy\Source\mpFormulaToolbox\FileViewer\Program.vb" />
-      <Element value="C:\Extra\mpFormulaTDM\mpFormulaPy\Source\mpFormulaToolbox\TestAcro\clsWindowMessaging.cs" />
-      <Element value="C:\Extra\mpFormulaTDM\mpFormulaPy\Source\mpFormulaToolbox\TestAcro\Program.cs" />
-      <Element value="C:\Extra\mpFormulaTDM\mpFormulaPy\Source\mpFormulaToolbox\FunctionNavigator\FunctionsForm.vb" />
-      <Element value="C:\Extra\mpFormulaTDM\mpFormulaPy\Source\mpFormulaToolbox\FunctionNavigator\Program.vb" />
-      <Element value="C:\Extra\mpFormulaTDM\mpFormulaPy\Source\mpFormulaToolbox\TestAcro\MainForm.cs" />
-      <Element value="http://community.sharpdevelop.net/forums/" />
-      <Element value="http://wiki.sharpdevelop.net/" />
-      <Element value="http://www.dotgnu.org" />
     </Array>
     <Array name="Projects">
+      <Element value="I:\Extra\mpFormulaTDM\mpFormulaPy\Source\TestString\TestString.sln" />
+      <Element value="I:\Data\mpFormulaTDM\mpFormulaPy\Source\MpMath\MpMath.sln" />
+      <Element value="I:\Data\mpFormulaTDM\mpFormulaPy\Source\NetOffice\xlDemo1.sln" />
       <Element value="C:\Extra\mpFormulaTDM\mpFormulaPy\Source\mpFormulaToolbox\mpFormulaToolbox.sln" />
       <Element value="C:\Extra\mpFormulaTDM\mpFormulaPy\Source\MpMath\MpMath.sln" />
       <Element value="C:\Extra\mpFormulaTDM\mpFormulaXL\Source\MpMathListing\mpmathListing.sln" />
@@ -215,9 +215,6 @@
       <Element value="C:\Extra\mpFormulaTDM\mpFormulaXL\Source\mpFormulaToolbox\mpFormulaToolbox.sln" />
       <Element value="C:\Extra\mpFormulaTDM\mpFormulaXL\Source\Distributions\Distributions.sln" />
       <Element value="I:\Data\mpFormulaTDM\mpFormulaXL\Source\Distributions\Distributions.sln" />
-      <Element value="E:\Extra\mpFormulaTDM\mpFormulaXL\Source\MpMath\MpMath.sln" />
-      <Element value="E:\Extra\mpFormulaTDM\mpFormulaXL\Source\ToolsMeuEntry\ToolsMeuEntry.sln" />
-      <Element value="E:\Extra\mpFormulaTDM\mpFormulaXL\Source\CustomTool1\CustomTool1.sln" />
     </Array>
   </Properties>
   <RegExpTk.WindowBounds value="960, 240, 960, 560" />
@@ -228,6 +225,9 @@
   <SearchAndReplace.GroupResultsByFile value="False" />
   <Properties name="SearchAndReplaceProperties2">
     <Array name="FindPatterns">
+      <Element value="PERCENTILE" />
+      <Element value=".Var" />
+      <Element value="VAR" />
       <Element value="Double" />
       <Element value="Const" />
       <Element value="Double" />
@@ -261,9 +261,13 @@
     <IncludeSubdirectories value="False" />
     <LookIn value="C:\" />
     <LookInFiletypes value="*.*" />
-    <MatchCase value="False" />
+    <MatchCase value="True" />
     <MatchWholeWord value="False" />
     <Array name="ReplacePatterns">
+      <Element value="QUARTILE" />
+      <Element value=".Stdev" />
+      <Element value="Stdev" />
+      <Element value="STDEV" />
       <Element value="Double = " />
       <Element value="Dim" />
       <Element value="Double = " />
@@ -330,7 +334,7 @@
   </Properties>
   <SharpDevelop.UI.UseProjectAmbience value="True" />
   <ShowTipsAtStartup value="True" />
-  <TreeViewOptionsDialog.WindowBounds value="88,43,913,582" />
+  <TreeViewOptionsDialog.WindowBounds value="33,42,912,581" />
   <Properties name="UnitTesting.Options">
     <CreateXmlOutputFile value="False" />
     <Labels value="False" />
@@ -342,8 +346,8 @@
   <VBBinding.TextEditor.EnableCasing value="True" />
   <VBBinding.TextEditor.EnableEndConstructs value="True" />
   <Properties name="WorkbenchMemento">
-    <Bounds value="261,158,1132,704" />
-    <WindowState value="Maximized" />
+    <Bounds value="212,95,1132,704" />
+    <WindowState value="Normal" />
   </Properties>
   <Properties name="XamlBinding.Options">
     <EventForeground value="#FF008000" />

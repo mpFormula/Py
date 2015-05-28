@@ -21,10 +21,18 @@ class MyClass:
     def __init__(self):
         pass
 
+    def pygetfp(self):
+    	return fp
+
+
     def pygetmp(self):
     	return mp
 
-    	
+
+    def pygetiv(self):
+    	return iv
+
+
     def pympf(self, x):
     	return mpf(x)
 

@@ -42,6 +42,9 @@
     <BaseIntermediateOutputPath>obj\</BaseIntermediateOutputPath>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ExcelApi">
+      <HintPath>..\..\..\mpNum\ExcelApi.dll</HintPath>
+    </Reference>
     <Reference Include="IronPython">
       <HintPath>..\..\..\mpNum\AddIns\BackendBindings\PythonBinding\IronPython.dll</HintPath>
     </Reference>
@@ -54,11 +57,14 @@
     <Reference Include="Microsoft.Scripting">
       <HintPath>..\..\..\mpNum\AddIns\BackendBindings\PythonBinding\Microsoft.Scripting.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Scripting">
-      <HintPath>..\..\..\mpNum\AddIns\BackendBindings\PythonBinding\Microsoft.Scripting.dll</HintPath>
-    </Reference>
     <Reference Include="MpMathNetLib">
       <HintPath>..\..\..\mpNum\MpMathNetLib.dll</HintPath>
+    </Reference>
+    <Reference Include="NetOffice">
+      <HintPath>..\..\..\mpNum\NetOffice.dll</HintPath>
+    </Reference>
+    <Reference Include="OfficeApi">
+      <HintPath>..\..\..\mpNum\OfficeApi.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
@@ -82,6 +88,7 @@
     <Import Include="System.Diagnostics" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class1.vb" />
     <Compile Include="mpFormulaClass.vb" />
     <Compile Include="Properties\AssemblyInfo.vb" />
   </ItemGroup>

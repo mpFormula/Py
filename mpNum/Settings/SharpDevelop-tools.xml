@@ -12,15 +12,6 @@
   <TOOL>
     <INITIALDIRECTORY>
     </INITIALDIRECTORY>
-    <ARGUMENTS>${StartupPath}\..\..\Source\Manual\mpFormulaPy.tex  --master --start-always</ARGUMENTS>
-    <COMMAND>${StartupPath}\..\..\..\ExternalTools\texstudio2.8.8\texstudio.exe</COMMAND>
-    <MENUCOMMAND>TexStudio (mpFormulaPy Manual)</MENUCOMMAND>
-    <PROMPTFORARGUMENTS>False</PROMPTFORARGUMENTS>
-    <USEOUTPUTPAD>False</USEOUTPUTPAD>
-  </TOOL>
-  <TOOL>
-    <INITIALDIRECTORY>
-    </INITIALDIRECTORY>
     <ARGUMENTS>
     </ARGUMENTS>
     <COMMAND>${StartupPath}\..\..\GUI\CalculatorDlg.exe</COMMAND>
@@ -69,9 +60,18 @@
   <TOOL>
     <INITIALDIRECTORY>
     </INITIALDIRECTORY>
+    <ARGUMENTS>${StartupPath}\..\..\Source\Manual\mpFormulaPy.tex  --master --start-always</ARGUMENTS>
+    <COMMAND>${StartupPath}\..\..\..\ExternalTools\texstudio2.8.8\texstudio.exe</COMMAND>
+    <MENUCOMMAND>TexStudio (mpFormulaPy Manual)</MENUCOMMAND>
+    <PROMPTFORARGUMENTS>False</PROMPTFORARGUMENTS>
+    <USEOUTPUTPAD>False</USEOUTPUTPAD>
+  </TOOL>
+  <TOOL>
+    <INITIALDIRECTORY>
+    </INITIALDIRECTORY>
     <ARGUMENTS>
     </ARGUMENTS>
-    <COMMAND>${StartupPath}\..\..\..\..\WinPython-32bit-3.3.5.0\Spyder.exe</COMMAND>
+    <COMMAND>${StartupPath}\..\..\..\..\PortableApps\WinPython-32bit-3.3.5.0\Spyder.exe</COMMAND>
     <MENUCOMMAND>CPython 32 bit</MENUCOMMAND>
     <PROMPTFORARGUMENTS>False</PROMPTFORARGUMENTS>
     <USEOUTPUTPAD>False</USEOUTPUTPAD>
@@ -81,7 +81,7 @@
     </INITIALDIRECTORY>
     <ARGUMENTS>
     </ARGUMENTS>
-    <COMMAND>${StartupPath}\..\..\..\..\R\RStudio\bin\rstudio.exe</COMMAND>
+    <COMMAND>${StartupPath}\..\..\..\..\PortableApps\R\RStudio\bin\rstudio.exe</COMMAND>
     <MENUCOMMAND>R Studio 32 bit</MENUCOMMAND>
     <PROMPTFORARGUMENTS>False</PROMPTFORARGUMENTS>
     <USEOUTPUTPAD>False</USEOUTPUTPAD>
@@ -91,7 +91,7 @@
     </INITIALDIRECTORY>
     <ARGUMENTS>
     </ARGUMENTS>
-    <COMMAND>${StartupPath}\..\..\..\..\LibreOfficePortable\LibreOfficePortable.exe</COMMAND>
+    <COMMAND>${StartupPath}\..\..\..\..\PortableApps\LibreOfficePortable\LibreOfficePortable.exe</COMMAND>
     <MENUCOMMAND>LibreOffice</MENUCOMMAND>
     <PROMPTFORARGUMENTS>False</PROMPTFORARGUMENTS>
     <USEOUTPUTPAD>False</USEOUTPUTPAD>
@@ -103,6 +103,15 @@
     </ARGUMENTS>
     <COMMAND>${StartupPath}\..\..\</COMMAND>
     <MENUCOMMAND>Open Root Directory</MENUCOMMAND>
+    <PROMPTFORARGUMENTS>False</PROMPTFORARGUMENTS>
+    <USEOUTPUTPAD>False</USEOUTPUTPAD>
+  </TOOL>
+  <TOOL>
+    <INITIALDIRECTORY>
+    </INITIALDIRECTORY>
+    <ARGUMENTS>https://duhadler.wordpress.com/</ARGUMENTS>
+    <COMMAND>C:\Program Files\Internet Explorer\iexplore.exe</COMMAND>
+    <MENUCOMMAND>Numerical Explorations</MENUCOMMAND>
     <PROMPTFORARGUMENTS>False</PROMPTFORARGUMENTS>
     <USEOUTPUTPAD>False</USEOUTPUTPAD>
   </TOOL>

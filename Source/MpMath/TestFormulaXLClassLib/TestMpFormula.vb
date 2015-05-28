@@ -18,17 +18,24 @@ Module Program
 '        c = mp.pi()
         Console.WriteLine(c.Str())
         
+        Console.WriteLine("Hello World fp!")
+        Dim c1 As New Object()
+        c1 = fp.sin(2.0)
         
         
-'         c = a - b
-'        Console.WriteLine(c.Str())
-'        c = a * b
-'        Console.WriteLine(c.Str())
-'        c = a / b
-'        Console.WriteLine(c.Str())
+        
+        Console.WriteLine(c1.ToString())
+        
+        
+         c = a - b
+        Console.WriteLine(c.Str())
+        c = a * b
+        Console.WriteLine(c.Str())
+        c = a / b
+        Console.WriteLine(c.Str())
 '        c = mp.pi()
 '        Console.WriteLine(c.Str())
-'        
+        
 '        c = mp.sqrt(a)
 '        Console.WriteLine(c.Str())
 '        
@@ -37,8 +44,8 @@ Module Program
 '        
 '        
 '        c = mp.npdf(a, b, d)
-'        Console.WriteLine(c.Str())
-'        
+        Console.WriteLine(c.Str())
+        
 '        d=c
 '        
 '        Dim Cmp As Boolean = (d <> c)

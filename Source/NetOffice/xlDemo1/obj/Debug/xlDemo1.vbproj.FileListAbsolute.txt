@@ -1,0 +1,6 @@
+I:\Data\mpFormulaTDM\mpFormulaPy\mpNum\xlDemo1.exe.config
+I:\Data\mpFormulaTDM\mpFormulaPy\mpNum\xlDemo1.exe
+I:\Data\mpFormulaTDM\mpFormulaPy\mpNum\xlDemo1.pdb
+I:\Data\mpFormulaTDM\mpFormulaPy\Source\NetOffice\xlDemo1\obj\Debug\xlDemo1.vbprojResolveAssemblyReference.cache
+I:\Data\mpFormulaTDM\mpFormulaPy\Source\NetOffice\xlDemo1\obj\Debug\xlDemo1.exe
+I:\Data\mpFormulaTDM\mpFormulaPy\Source\NetOffice\xlDemo1\obj\Debug\xlDemo1.pdb

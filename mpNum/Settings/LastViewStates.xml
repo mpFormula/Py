@@ -283,6 +283,34 @@
     <CaretOffset value="448" />
     <ScrollPositionY value="0" />
   </Properties>
+  <Properties name="1e13ec5:I:\DATA\MPFORMULATDM\MPFORMULAPY\SOURCE\MPMATH\MPFORMULAONECOM\LIBRARY.VB">
+    <CaretOffset value="8700" />
+    <ScrollPositionY value="5576" />
+  </Properties>
+  <Properties name="1e13ec5:I:\DATA\MPFORMULATDM\MPFORMULAPY\SOURCE\MPMATH\MPFORMULAXLCLASSLIB\CLASS1.VB">
+    <CaretOffset value="92067" />
+    <ScrollPositionY value="50454" />
+  </Properties>
+  <Properties name="1e13ec5:I:\DATA\MPFORMULATDM\MPFORMULAPY\SOURCE\MPMATH\MPFORMULAXLCLASSLIB\MPFORMULACLASS.VB">
+    <CaretOffset value="187987" />
+    <ScrollPositionY value="105514" />
+  </Properties>
+  <Properties name="1e13ec5:I:\DATA\MPFORMULATDM\MPFORMULAPY\SOURCE\MPMATH\MPMATHNETLIB\MPMATHCLASS.VB">
+    <CaretOffset value="37149" />
+    <ScrollPositionY value="13189" />
+  </Properties>
+  <Properties name="1e13ec5:I:\DATA\MPFORMULATDM\MPFORMULAPY\SOURCE\MPMATH\MPMATHPYTHONLIB\MYMODULE.PY">
+    <CaretOffset value="404" />
+    <ScrollPositionY value="209.27601809954786" />
+  </Properties>
+  <Properties name="1e13ec5:I:\DATA\MPFORMULATDM\MPFORMULAPY\SOURCE\MPMATH\TESTFORMULAXLCLASSLIB\TESTMPFORMULA.VB">
+    <CaretOffset value="600" />
+    <ScrollPositionY value="0" />
+  </Properties>
+  <Properties name="1e13ec5:I:\DATA\MPFORMULATDM\MPFORMULAPY\SOURCE\NETOFFICE\XLDEMO1\PROGRAM.VB">
+    <CaretOffset value="634" />
+    <ScrollPositionY value="0" />
+  </Properties>
   <Properties name="1e13ec5:I:\DATA\MPFORMULATDM\MPFORMULAXL\SOURCE\DISTRIBUTIONS\DISTRIBUTIONSCSHARP\PROGRAM.CS">
     <CaretOffset value="13877" />
     <ScrollPositionY value="9522.5041087651" />
@@ -306,5 +334,9 @@
   <Properties name="1e13ec5:I:\DATA\MPFORMULATDM\MPFORMULAXL\SOURCE\MPFORMULATOOLBOX\MPFORMULATOOLBOX\MAINFORM.VB">
     <CaretOffset value="3148" />
     <ScrollPositionY value="1744.5" />
+  </Properties>
+  <Properties name="1e13ec5:I:\EXTRA\MPFORMULATDM\MPFORMULAPY\SOURCE\TESTSTRING\TESTSTRING\PROGRAM.VB">
+    <CaretOffset value="1888" />
+    <ScrollPositionY value="640.06182380216364" />
   </Properties>
 </Properties>

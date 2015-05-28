@@ -1,0 +1,6 @@
+I:\Extra\mpFormulaTDM\mpFormulaPy\Source\TestString\TestString\bin\Release\TestString.exe.config
+I:\Extra\mpFormulaTDM\mpFormulaPy\Source\TestString\TestString\bin\Release\TestString.exe
+I:\Extra\mpFormulaTDM\mpFormulaPy\Source\TestString\TestString\obj\Release\TestString.vbprojResolveAssemblyReference.cache
+I:\Extra\mpFormulaTDM\mpFormulaPy\Source\TestString\TestString\obj\Release\TestString.exe
+I:\Extra\mpFormulaTDM\ExternalLibraries\Python33\Release\TestString.exe.config
+I:\Extra\mpFormulaTDM\ExternalLibraries\Python33\Release\TestString.exe
