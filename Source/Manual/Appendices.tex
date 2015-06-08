@@ -488,7 +488,7 @@ Note: This function requires matplotlib (pylab) 0.98.5.3 or higher.
 
 \subsection{Using the C-API}
 
-This document describes how to write modules in C or C++ to extend the Python interpreter with new modules. Those modules can not only define new functions but also new object types and their methods. The document also describes how to embed the Python interpreter in another application, for use as an extension language. Finally, it shows how to compile and link extension modules so that they can be loaded dynamically (at run time) into the interpreter, if the underlying operating system supports this feature.
+This section describes how to write modules in C or C++ to extend the Python interpreter with new modules. Those modules can not only define new functions but also new object types and their methods. The document also describes how to embed the Python interpreter in another application, for use as an extension language. Finally, it shows how to compile and link extension modules so that they can be loaded dynamically (at run time) into the interpreter, if the underlying operating system supports this feature.
 
 This document assumes basic knowledge about Python. For an informal introduction to the language, see The Python Tutorial. The Python Language Reference gives a more formal definition of the language. The Python Standard Library documents the existing object types, functions and modules (both built-in and written in Python) that give the language its wide application range.
 
@@ -505,22 +505,7 @@ The compilation of an extension module depends on its intended use as well as on
 Note:
 The C extension interface is specific to CPython, and extension modules do not work on other Python implementations. In many cases, it is possible to avoid writing C extensions and preserve portability to other implementations. For example, if your use case is calling C library functions or system calls, you should consider using the ctypes module or the cffi library rather than writing custom C code. These modules let you write Python code to interface with C code and are more portable between implementations of Python than writing and compiling a C extension module.
 
-
-\subsubsection{Downloading and installing Gmpy2}
-
-GMPY and GMPY2 are C-coded Python extension modules that support fast multiple-precision arithmetic. GMPY only supports the GMP library and provides fast multiple-precision integer and rational arithmetic. The limited mpf type from GMP is also supported. GMPY2 supports the GMP library for integer and rational arithmetic but GMPY2 adds support for multiple-precision real and complex arithmetic as provided by the MPFR and MPC libraries. 
-
-GMPY2 can be downloaded from
-
-\vpara
-\href{https://code.google.com/p/gmpy/}{https://code.google.com/p/gmpy/}.
-
-The file which needs to downloaded is specific for the Python version. For Python 2.7x 32 bit, the file gmpy2-2.0.3.win32-py2.7.exe needs to be downloaded. After download, start the executable file and follow the instructions.
-
-\vpara
-The license can be found in appendix \ref{LGPLv3})
-
-The contributors are listed in section \ref{Contributors to mpMath}
+As an example for an extension module which provides additional functionality in multi-precision computing, see the documentation on gmpy2 (section \ref{gmpy2}).
 
 
 
@@ -550,315 +535,559 @@ Although the product originated as an IDE for the C programming language, the co
 \vpara
 For further information on Microsoft Visual C++, see \href{http://en.wikipedia.org/wiki/Visual_C\%2B\%2B}{Wikipedia: MSVC} (the text above has been copied from this reference), or the  \href{http://msdn.microsoft.com/en-us/vstudio/hh386302}{MSVC Homepage}.
 
-\newpage
-\subsubsection{Windows, GNU/Linux, Mac OSX: C}
-In computing, C is a general-purpose programming language initially developed by Dennis Ritchie between 1969 and 1973 at AT\&T Bell Labs.[5][6] Like most imperative languages in the ALGOL tradition, C has facilities for structured programming and allows lexical variable scope and recursion, while a static type system prevents many unintended operations. Its design provides constructs that map efficiently to typical machine instructions, and therefore it has found lasting use in applications that had formerly been coded in assembly language, most notably system software like the Unix computer operating system.[7]
 
 \vpara
-C is one of the most widely used programming languages of all time,[8][9] and C compilers are available for the majority of available computer architectures and operating systems.
-
-\vpara
-Many later languages have borrowed directly or indirectly from C, including D, Go, Rust, Java, JavaScript, Limbo, LPC, C\#, Objective-C, Perl, PHP, Python, Verilog (hardware description language),[4] and Unix's C shell. These languages have drawn many of their control structures and other basic features from C. Most of them (with Python being the most dramatic exception) are also very syntactically similar to C in general, and they tend to combine the recognizable expression and statement syntax of C with underlying type systems, data models, and semantics that can be radically different. C++ and Objective-C started as compilers that generated C code; C++ is currently nearly a superset of C,[10] while Objective-C is a strict superset of C.[11]
-
-\vpara
-Before there was an official standard for C, many users and implementors relied on an informal specification contained in a book by Dennis Ritchie and Brian Kernighan; that version is generally referred to as "K\&R" C. In 1989 the American National Standards Institute published a standard for C (generally called "ANSI C" or "C89"). The next year, the same specification was approved by the International Organization for Standardization as an international standard (generally called "C90"). ISO later released an extension to the internationalization support of the standard in 1995, and a revised standard (known as "C99") in 1999. The current version of the standard (now known as "C11") was approved in December 2011.[12]
-
-
-\vpara
-For further information on C++, see \href{http://en.wikipedia.org/wiki/C_(programming_language)}{Wikipedia: C} (the text above has been copied from this reference), or the  \href{http://en.wikipedia.org/wiki/GNU_Compiler_Collection}{Wikipedia: GCC} (the text above has been copied from this reference), or the  \href{http://gcc.gnu.org/}{GCC Homepage}.
-
-
-
-\vpara
-Example in C
-
-
-\lstset{language={C++}}
-\begin{lstlisting}
-#include <iostream>
-#include "mpreal.h"
-
-using mpfr::mpreal;    
-using std::cout;
-using std::endl;
-
-// double - version
-double schwefel(double x)
-{
-    return  418.9829 - x * sin(sqrt(abs(x)));
-}
- 
-//MPFR C - version
-void mpfr_schwefel(mpfr_t y, mpfr_t x)
-{
-   mpfr_t t;
-   mpfr_init(t);
-   mpfr_abs(t,x,GMP_RNDN);
-   mpfr_sqrt(t,t,GMP_RNDN);
-   mpfr_sin(t,t,GMP_RNDN);
-   mpfr_mul(t,t,x,GMP_RNDN);
-   mpfr_set_str(y,"418.9829",10,GMP_RNDN);
-   mpfr_sub(y,y,t,GMP_RNDN);
-   mpfr_clear(t);
-}
-
-// MPFR C++ - version
-mpreal mpfr_schwefel(mpreal& x)
-{
-    return  "418.9829" - x*sin(sqrt(abs(x)));
-}
-
-
-
-int main(int argc, char* argv[])
-{
-    const int digits = 50; 
-    mpreal::set_default_prec(mpfr::digits2bits(digits));
-    const mpreal pi          =    mpfr::const_pi();
-	mpreal x          =   "-343.5"; 
-    mpreal SResult = mpfr_schwefel(x);
-    cout.precision(digits);    // Show all the digits
-    cout << "pi         =    "<<    pi          << endl;    
-    cout << "SResult    =    "<<    SResult     << endl;   
-    return 0;
-}
-\end{lstlisting}
-
-
-
-\newpage
-\subsubsection{Windows, GNU/Linux, Mac OSX: C++}
-C++ (pronounced "see plus plus") is a statically typed, free-form, multi-paradigm, compiled, general-purpose programming language. It is regarded as an intermediate-level language, as it comprises both high-level and low-level language features.[3] Developed by Bjarne Stroustrup starting in 1979 at Bell Labs, C++ was originally named C with Classes, adding object oriented features, such as classes, and other enhancements to the C programming language. The language was renamed C++ in 1983,[4] as a pun involving the increment operator.
-
-\vpara
-C++ is one of the most popular programming languages[5][6] and is implemented on a wide variety of hardware and operating system platforms. As an efficient compiler to native code, its application domains include systems software, application software, device drivers, embedded software, high-performance server and client applications, and entertainment software such as video games.[7] Several groups provide both free and proprietary C++ compiler software, including the GNU Project, LLVM, Microsoft, Intel and Embarcadero Technologies. C++ has greatly influenced many other popular programming languages, most notably C\# and Java.
-
-\vpara
-C++ is also used for hardware design, where the design is initially described in C++, then analyzed, architecturally constrained, and scheduled to create a register-transfer level hardware description language via high-level synthesis.[8]
-
-\vpara
-The language began as enhancements to C, first adding classes, then virtual functions, operator overloading, multiple inheritance, templates and exception handling, among other features. After years of development, the C++ programming language standard was ratified in 1998 as ISO/IEC 14882:1998. The standard was amended by the 2003 technical corrigendum, ISO/IEC 14882:2003. The current standard extending C++ with new features was ratified and published by ISO in September 2011 as ISO/IEC 14882:2011 (informally known as C++11).[9]
-
-\vpara
-For further information on C++, see \href{http://en.wikipedia.org/wiki/C\%2B\%2B}{Wikipedia: C++} (the text above has been copied from this reference), or the  \href{http://gcc.gnu.org/}{GCC Homepage}.
-
-
-\vpara
-Example in C++
-
+The following C file makes a number of direct calls into Python, passing arguments as strings and receiving a result as string:
 
 \lstset{language={C++}}
 \begin{lstlisting}
 
-#include <iostream>
-#include "mpreal.h"
+#include "stdafx.h"
+#include "CallPython.h"
 
-int main(int argc, char* argv[])
+int main(int argc, const char *argv[])
 {
-using mpfr::mpreal;    
-using std::cout;
-using std::endl;
+long ResultLong = SetSpecialValue_Long(2,3,4);
+printf( "This is a long: %d\n",  ResultLong);
 
-// Required precision of computations in decimal digits
-// Play with it to check different precisions
-const int digits = 50; 
+double ResultDouble = SetSpecialValue_Double(2.0,3.0,4.0);
+printf( "This is a double: %f\n",  ResultDouble);
 
-// Setup default precision for all subsequent computations
-// MPFR accepts precision in bits - so we do the conversion 
-mpreal::set_default_prec(mpfr::digits2bits(digits));
+const char *sLong2[] = {"TestLong", "lll", "3", "1432"};
+MyPythonFunction(4, sLong2);
 
-// Compute all the vital characteristics of mpreal (in current precision)
-// Analogous to lamch from LAPACK
-const mpreal one         =    1.0;
-const mpreal zero        =    0.0;
-const mpreal eps         =    std::numeric_limits<mpreal>::epsilon();
-const int    base        =    std::numeric_limits<mpreal>::radix;
-const mpreal prec        =    eps * base;
-const int bindigits      =    std::numeric_limits<mpreal>::digits(); // eqv. to mpfr::mpreal::get_default_prec();
-const mpreal rnd         =    std::numeric_limits<mpreal>::round_error();
-const mpreal maxval      =    std::numeric_limits<mpreal>::max();
-const mpreal minval      =    std::numeric_limits<mpreal>::min();
-const mpreal small       =    one / maxval;
-const mpreal sfmin       =    (small > minval) ? small * (one + eps) : minval;
-const mpreal round       =    std::numeric_limits<mpreal>::round_style();
-const int    min_exp     =    std::numeric_limits<mpreal>::min_exponent;
-const mpreal underflow   =    std::numeric_limits<mpreal>::min();
-const int    max_exp     =    std::numeric_limits<mpreal>::max_exponent;
-const mpreal overflow    =    std::numeric_limits<mpreal>::max();
+const char *sDouble2[] = {"TestDouble", "fff", "13.5", "265.34"};
+MyPythonFunction(4, sDouble2);
 
-// Additionally compute pi with required accuracy - just for fun :)
-const mpreal pi          =    mpfr::const_pi();
+const char *sString2[] = {"TestStringFunc", "sss", "3", "2"};
+MyPythonFunction(4, sString2);
 
-cout.precision(digits);    // Show all the digits
-cout << "pi         =    "<<    pi          << endl;    
-cout << "eps        =    "<<    eps         << endl;
-cout << "base       =    "<<    base        << endl;
-cout << "prec       =    "<<    prec        << endl;
-cout << "b.digits   =    "<<    bindigits   << endl;
-cout << "rnd        =    "<<    rnd         << endl;
-cout << "maxval     =    "<<    maxval      << endl;    
-cout << "minval     =    "<<    minval      << endl;    
-cout << "small      =    "<<    small       << endl;    
-cout << "sfmin      =    "<<    sfmin       << endl;    
-cout << "1/sfmin    =    "<<    1 / sfmin   << endl;    
-cout << "round      =    "<<    round       << endl;    
-cout << "max_exp    =    "<<    max_exp     << endl;
-cout << "min_exp    =    "<<    min_exp     << endl;
-cout << "underflow  =    "<<    underflow   << endl;    
-cout << "overflow   =    "<<    overflow    << endl;
+const char *sString3[] = {"TestStringMpf2", "3", "2.456"};
+MyPythonFunctionString2(3, sString3);
 
+char buffer[1600]; // 1600 bytes allocated here on the stack.
+int size0a = MyPythonFunctionStringReturn(3, sString3, buffer, sizeof(buffer));
+printf("New New0a %s\n", buffer); // prints "Mar"
+//printf("Length of string: %ld\n", size0a);
+
+char buffer0[1600]; // 1600 bytes allocated here on the stack.
+int size0 = MyPythonFunctionStringReturn00("TestStringMpf0", buffer0, sizeof(buffer0));
+printf("New New0 %s\n", buffer0); // prints "Mar"
+//printf("Length of string0: %ld\n", size0);
+
+char buffer1[1600]; // 1600 bytes allocated here on the stack.
+int size1 = MyPythonFunctionStringReturn01("TestStringMpf1", "3", buffer1, sizeof(buffer1));
+printf("New New1 %s\n", buffer1); // prints "Mar"
+//printf("Length of string: %ld\n", size1);
+
+char buffer2[1600]; // 1600 bytes allocated here on the stack.
+int size2 = MyPythonFunctionStringReturn02("TestStringMpf2", "3", "2.456", buffer2, sizeof(buffer2));
+printf("New New2 %s\n", buffer2); // prints "Mar"
+//printf("Length of string: %ld\n", size2);
+
+ClosePy();
 return 0;
 }
 
 \end{lstlisting}
 
+The header file CallPython.h looks like this:
 
-
-\newpage
-\subsubsection{Mac OSX: Objective C}
-Objective-C is a general-purpose, object-oriented programming language that adds Smalltalk-style messaging to the C programming language. It is the main programming language used by Apple for the OS X and iOS operating systems, and their respective application programming interfaces (APIs), Cocoa and Cocoa Touch.
-
-\vpara
-The programming language Objective-C was originally developed in the early 1980s. It was selected as the main language used by NeXT for its NeXTSTEP operating system, from which OS X and iOS are derived.[2] Generic Objective-C programs that do not use the Cocoa or Cocoa Touch libraries, or using parts that may be ported or reimplemented for other systems can also be compiled for any system supported by GCC or Clang.
-
-\vpara
-Objective-C source code program files usually have .m filename extensions, while Objective-C header files have .h extensions, the same as for C header files. Objective-C++ files are denoted with a .mm file extension.
-
-
-\vpara
-For further information on C++, see \href{http://en.wikipedia.org/wiki/Objective-C}{Wikipedia: Objective C} (the text above has been copied from this reference), or the  \href{http://gcc.gnu.org/}{GCC Homepage}.
-
-
-
-\vpara
-Example in Objective C
-
-\lstset{language={C++}}
 \begin{lstlisting}
-# import "Forwarder.h"
-# import "Recipient.h"
- 
-int main(void) {
- Forwarder *forwarder = [Forwarder new];
- Recipient *recipient = [Recipient new];
- 
- [forwarder setRecipient:recipient]; //Set the recipient.
- /*
- * Observe forwarder does not respond to a hello message! It will
- * be forwarded. All unrecognized methods will be forwarded to
- * the recipient
- * (if the recipient responds to them, as written in the Forwarder)
- */
- [forwarder hello];
- 
- [recipient release];
- [forwarder release];
- 
- return 0;
+#pragma warning(disable: 4244)
+
+#ifdef CALLPYTHON_EXPORTS
+#define MPNUMC_DLL_IMPORTEXPORT __declspec(dllexport)
+#else
+#define MPNUMC_DLL_IMPORTEXPORT __declspec(dllimport)
+#endif
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+MPNUMC_DLL_IMPORTEXPORT long SetSpecialValue_Long(long m, long n, long what);
+MPNUMC_DLL_IMPORTEXPORT double SetSpecialValue_Double(double m, double n, double what);
+MPNUMC_DLL_IMPORTEXPORT int CallPythonFunction(int argc, const char *argv[]);
+MPNUMC_DLL_IMPORTEXPORT int MyPythonFunction(int argc, const char *argv[]);
+MPNUMC_DLL_IMPORTEXPORT int MyPythonFunctionString(int argc, const char *argv[]);
+MPNUMC_DLL_IMPORTEXPORT int MyPythonFunctionString2(int argc, const char *argv[]);
+MPNUMC_DLL_IMPORTEXPORT int MyPythonFunctionStringReturn(int argc, const char *argv[], char* buffer, int buffersize);
+
+MPNUMC_DLL_IMPORTEXPORT int MyPythonFunctionStringReturn00(const char* FuncName, char* buffer, int buffersize);
+MPNUMC_DLL_IMPORTEXPORT int MyPythonFunctionStringReturn01(const char* FuncName, const char* Arg01, char* buffer, int buffersize);
+MPNUMC_DLL_IMPORTEXPORT int MyPythonFunctionStringReturn02(const char* FuncName, const char* Arg01, const char* Arg02, char* buffer, int buffersize);
+
+MPNUMC_DLL_IMPORTEXPORT void ClosePy();
+#ifdef __cplusplus
 }
+#endif
 \end{lstlisting}
 
 
-
-
-\newpage
-\subsubsection{Mac OSX: Objective C++}
-Objective-C++ is a language variant accepted by the front-end to the GNU Compiler Collection and Clang, which can compile source files that use a combination of C++ and Objective-C syntax. Objective-C++ adds to C++ the extensions that Objective-C adds to C. As nothing is done to unify the semantics behind the various language features, certain restrictions apply:
-
-A C++ class cannot derive from an Objective-C class and vice versa.
-
-C++ namespaces cannot be declared inside an Objective-C declaration.
-
-Objective-C declarations may appear only in global scope, not inside a C++ namespace
-
-Objective-C classes cannot have instance variables of C++ classes that do not have a default constructor or that have one or more virtual methods,[citation needed] but pointers to C++ objects can be used as instance variables without restriction (allocate them with new in the -init method).
-
-C++ "by value" semantics cannot be applied to Objective-C objects, which are only accessible through pointers.
-
-An Objective-C declaration cannot be within a C++ template declaration and vice versa. However, Objective-C types, (e.g., Classname *) can be used as C++ template parameters.
-
-Objective-C and C++ exception handling is distinct; the handlers of each cannot handle exceptions of the other type. This is mitigated in recent runtimes as Objective-C exceptions are either replaced by C++ exceptions completely (Apple runtime), or partly when Objective-C++ library is linked (GNUstep libobjc2).
-
-Care must be taken since the destructor calling conventions of Objective-C and C++’s exception run-time models do not match (i.e., a C++ destructor will not be called when an Objective-C exception exits the C++ object’s scope). The new 64-bit runtime resolves this by introducing interoperability with C++ exceptions in this sense.[15]
-
-Objective-C blocks and C++11 lambdas are distinct entities, however a block is transparently generated on Mac OS X when passing a lambda where a block is expected.[16]
-
-Objective-C++ is Objective-C (probably with COCOA Framework) with the ability to link with C++ code (probable classes).
-
-\vpara
-Yes, you can use this language in XCODE to develop for Mac OS X, iPhone/iPodTouch, iPad. It works very well.
-
-You don't have to do anything weird in your project to use Objective-C++. Just name your Objective-C files with the extension .mm (instead of .m) and you are good to go.
-
-\vpara
-It is my favorite architecture: develop base class library of my game/application in C++ so I can reuse it in other platforms (Windows, Linux) and use COCOA just for the iPhone/iPad UI specific stuff.
-
-
-
-\vpara
-For further information on Objective C++, see \href{http://en.wikipedia.org/wiki/C\%2B\%2B}{Wikipedia: C++} (the text above has been copied from this reference), or the  \href{http://gcc.gnu.org/}{GCC Homepage}.
-
-
-\vpara
-Example in C++
-
+The C file CallPython.cpp (which produces the dynamic link library) looks like this:
 
 \lstset{language={C++}}
 \begin{lstlisting}
+// CallPython.cpp : Defines the exported functions for the DLL application.
+//
 
-#include <iostream>
-#include "mpreal.h"
+#define _CRT_SECURE_NO_WARNINGS
+#include "CallPython.h"
+#include "stdafx.h"
+#include<stdio.h>
+#include <Python.h>
 
-int main(int argc, char* argv[])
+
+long SetSpecialValue_Long(long m, long n, long what)
 {
-    using mpfr::mpreal;    
-    using std::cout;
-    using std::endl;
-    
-    // Required precision of computations in decimal digits
-    // Play with it to check different precisions
-    const int digits = 50; 
-
-    // Setup default precision for all subsequent computations
-    // MPFR accepts precision in bits - so we do the conversion 
-    mpreal::set_default_prec(mpfr::digits2bits(digits));
-
-    // Compute all the vital characteristics of mpreal (in current precision)
-    // Analogous to lamch from LAPACK
-    const mpreal one         =    1.0;
-    const mpreal zero        =    0.0;
-    const mpreal eps         =    std::numeric_limits<mpreal>::epsilon();
-    const int    base        =    std::numeric_limits<mpreal>::radix;
-    const mpreal prec        =    eps * base;
-    const int bindigits      =    std::numeric_limits<mpreal>::digits(); // eqv. to mpfr::mpreal::get_default_prec();
-    const mpreal rnd         =    std::numeric_limits<mpreal>::round_error();
-    const mpreal maxval      =    std::numeric_limits<mpreal>::max();
-    const mpreal minval      =    std::numeric_limits<mpreal>::min();
-    const mpreal small       =    one / maxval;
-    const mpreal sfmin       =    (small > minval) ? small * (one + eps) : minval;
-
-    
-    // Additionally compute pi with required accuracy - just for fun :)
-    const mpreal pi          =    mpfr::const_pi();
-        
-    cout.precision(digits);    // Show all the digits
-    cout << "pi         =    "<<    pi          << endl;    
-    cout << "eps        =    "<<    eps         << endl;
-    cout << "base       =    "<<    base        << endl;
-    cout << "prec       =    "<<    prec        << endl;
-    cout << "b.digits   =    "<<    bindigits   << endl;
-    cout << "rnd        =    "<<    rnd         << endl;
-    cout << "maxval     =    "<<    maxval      << endl;    
-    cout << "minval     =    "<<    minval      << endl;    
-    cout << "small      =    "<<    small       << endl;    
-    cout << "sfmin      =    "<<    sfmin       << endl;    
-    cout << "1/sfmin    =    "<<    1 / sfmin   << endl;    
- 
-    return 0;
+return (m + n + 1) * what;
 }
 
-\end{lstlisting}
 
+
+double SetSpecialValue_Double(double m, double n, double what)
+{
+return (m + n) * what;
+}
+
+
+
+
+int CallPythonFunction(int argc, const char *argv[])
+{
+PyObject *pName, *pModule, *pFunc;
+PyObject *pArgs, *pValue;
+int i;
+
+if (argc < 3) {
+fprintf(stderr,"Usage: call pythonfile funcname [args]\n");
+return 1;
+}
+
+//numargs = argc;
+//PyImport_AppendInittab("emb", &PyInit_emb);
+
+Py_Initialize();
+pName = PyUnicode_FromString(argv[1]);
+/* Error checking of pName left out */
+
+char argtype_string[50];
+strcpy (argtype_string, argv[3]);
+
+pModule = PyImport_Import(pName);
+Py_DECREF(pName);
+
+if (pModule != NULL) {
+pFunc = PyObject_GetAttrString(pModule, argv[2]);
+/* pFunc is a new reference */
+
+if (pFunc && PyCallable_Check(pFunc)) {
+pArgs = PyTuple_New(argc - 4);
+for (i = 0; i < argc - 4; ++i) {
+char c = argtype_string[i];
+if (c == 's') {printf("Input Type: s\n");}
+if (c == 'f') {printf("Input Type: f\n");}
+if (c == 'l') {printf("Input Type: l\n");}
+
+if (c == 's') {pValue = PyUnicode_FromString(argv[i + 4]);;}
+if (c == 'f') {pValue = PyFloat_FromDouble(atof(argv[i + 4]));}
+if (c == 'l') {pValue = PyLong_FromLong(atoi(argv[i + 4]));}
+
+if (!pValue) {
+Py_DECREF(pArgs);
+Py_DECREF(pModule);
+fprintf(stderr, "Cannot convert argument\n");
+return 1;
+}
+/* pValue reference stolen here: */
+PyTuple_SetItem(pArgs, i, pValue);
+}
+pValue = PyObject_CallObject(pFunc, pArgs);
+Py_DECREF(pArgs);
+if (pValue != NULL) {
+char c2 = argtype_string[argc-4];
+if (c2 == 's') {printf("Output Type: s\n");}
+if (c2 == 'f') {printf("Output Type: f\n");}
+if (c2 == 'l') {printf("Output Type: l\n");}
+
+if (c2 == 's') {printf("Result of call: %s\n", PyUnicode_AsUTF8(pValue));}
+if (c2 == 'f') {printf("Result of call: %f\n", PyFloat_AsDouble(pValue));}
+if (c2 == 'l') {printf("Result of call: %ld\n", PyLong_AsLong(pValue));}
+
+// d = PyFloat_AsDouble(pValue);
+Py_DECREF(pValue);
+}
+else {
+Py_DECREF(pFunc);
+Py_DECREF(pModule);
+PyErr_Print();
+fprintf(stderr,"Call failed\n");
+return 1;
+}
+}
+else {
+if (PyErr_Occurred())
+PyErr_Print();
+fprintf(stderr, "Cannot find function \"%s\"\n", argv[2]);
+}
+Py_XDECREF(pFunc);
+Py_DECREF(pModule);
+}
+else {
+PyErr_Print();
+fprintf(stderr, "Failed to load \"%s\"\n", argv[1]);
+return 1;
+}
+Py_Finalize();
+
+
+//char c = getc(stdin);
+return 0;
+}
+
+
+
+PyObject* GetPythonModule2()
+{
+static PyObject *pModule = NULL;
+PyObject *pName;
+
+if (pModule == NULL) {
+Py_Initialize();
+pName = PyUnicode_FromString("CallMpmath");
+pModule = PyImport_Import(pName);
+Py_DECREF(pName);
+
+if (pModule != NULL) {
+}
+else {
+PyErr_Print();
+fprintf(stderr, "Failed to load \"%s\"\n", "CallMpmath");
+//return 1;
+}
+}
+//Py_Finalize();
+return pModule;
+}
+
+
+
+
+int MyPythonFunction(int argc, const char *argv[])
+{
+PyObject *pDict, *pFunc;
+PyObject *pArgs, *pValue;
+int i;
+
+PyObject *pModule;
+pModule = GetPythonModule2();
+
+char argtype_string[50];
+strcpy (argtype_string, argv[3-2]);
+pFunc = PyObject_GetAttrString(pModule, argv[2-2]);
+/* pFunc is a new reference */
+
+if (pFunc && PyCallable_Check(pFunc)) {
+pArgs = PyTuple_New(argc - (4-2));
+for (i = 0; i < argc - (4-2); ++i) {
+char c = argtype_string[i];
+if (c == 's') {printf("Input Type: s\n");}
+if (c == 'f') {printf("Input Type: f\n");}
+if (c == 'l') {printf("Input Type: l\n");}
+
+if (c == 's') {pValue = PyUnicode_FromString(argv[i + 4-2]);;}
+if (c == 'f') {pValue = PyFloat_FromDouble(atof(argv[i + 4-2]));}
+if (c == 'l') {pValue = PyLong_FromLong(atoi(argv[i + 4-2]));}
+
+if (!pValue) {
+Py_DECREF(pArgs);
+//Py_DECREF(pModule);
+fprintf(stderr, "Cannot convert argument\n");
+return 1;
+}
+/* pValue reference stolen here: */
+PyTuple_SetItem(pArgs, i, pValue);
+}
+pValue = PyObject_CallObject(pFunc, pArgs);
+Py_DECREF(pArgs);
+if (pValue != NULL) {
+char c2 = argtype_string[argc-4];
+if (c2 == 's') {printf("Output Type: s\n");}
+if (c2 == 'f') {printf("Output Type: f\n");}
+if (c2 == 'l') {printf("Output Type: l\n");}
+
+if (c2 == 's') {printf("Result of call: %s\n", PyUnicode_AsUTF8(pValue));}
+if (c2 == 'f') {printf("Result of call: %f\n", PyFloat_AsDouble(pValue));}
+if (c2 == 'l') {printf("Result of call: %ld\n", PyLong_AsLong(pValue));}
+
+// d = PyFloat_AsDouble(pValue);
+Py_DECREF(pValue);
+}
+else {
+Py_DECREF(pFunc);
+//Py_DECREF(pModule);
+PyErr_Print();
+fprintf(stderr,"Call failed\n");
+return 1;
+}
+}
+else {
+if (PyErr_Occurred())
+PyErr_Print();
+fprintf(stderr, "Cannot find function \"%s\"\n", argv[2]);
+}
+Py_XDECREF(pFunc);
+
+}
+
+
+
+int MyPythonFunctionString(int argc, const char *argv[])
+{
+PyObject *pDict, *pFunc;
+PyObject *pArgs, *pValue;
+int i;
+
+PyObject *pModule;
+pModule = GetPythonModule2();
+
+pFunc = PyObject_GetAttrString(pModule, argv[2-2]);
+
+if (pFunc && PyCallable_Check(pFunc)) {
+pArgs = PyTuple_New(argc - (4-2));
+for (i = 0; i < argc - (4-2); ++i) {
+pValue = PyUnicode_FromString(argv[i + 4-2]);
+
+if (!pValue) {
+Py_DECREF(pArgs);
+fprintf(stderr, "Cannot convert argument\n");
+return 1;
+}
+PyTuple_SetItem(pArgs, i, pValue);
+}
+pValue = PyObject_CallObject(pFunc, pArgs);
+Py_DECREF(pArgs);
+if (pValue != NULL) {
+
+printf("Result of call: %s\n", PyUnicode_AsUTF8(pValue));
+Py_DECREF(pValue);
+}
+else {
+Py_DECREF(pFunc);
+PyErr_Print();
+fprintf(stderr,"Call failed\n");
+return 1;
+}
+}
+else {
+if (PyErr_Occurred())
+PyErr_Print();
+fprintf(stderr, "Cannot find function \"%s\"\n", argv[2-2]);
+}
+Py_XDECREF(pFunc);
+
+}
+
+
+
+int MyPythonFunctionString2(int argc, const char *argv[])
+{
+PyObject *pDict, *pFunc;
+PyObject *pArgs, *pValue;
+int i;
+
+PyObject *pModule;
+pModule = GetPythonModule2();
+
+pFunc = PyObject_GetAttrString(pModule, argv[0]);
+
+if (pFunc && PyCallable_Check(pFunc)) {
+pArgs = PyTuple_New(argc - 1);
+for (i = 0; i < argc - 1; ++i) {
+pValue = PyUnicode_FromString(argv[i + 1]);
+
+if (!pValue) {
+Py_DECREF(pArgs);
+fprintf(stderr, "Cannot convert argument\n");
+return 1;
+}
+PyTuple_SetItem(pArgs, i, pValue);
+}
+pValue = PyObject_CallObject(pFunc, pArgs);
+Py_DECREF(pArgs);
+if (pValue != NULL) {
+
+printf("Result of call: %s\n", PyUnicode_AsUTF8(pValue));
+Py_DECREF(pValue);
+}
+else {
+Py_DECREF(pFunc);
+PyErr_Print();
+fprintf(stderr,"Call failed\n");
+return 1;
+}
+}
+else {
+if (PyErr_Occurred())
+PyErr_Print();
+fprintf(stderr, "Cannot find function \"%s\"\n", argv[0]);
+}
+Py_XDECREF(pFunc);
+
+}
+
+
+int MyPythonFunctionStringReturn(int argc, const char *argv[], char* buffer, int buffersize)
+{
+PyObject *pDict, *pFunc;
+PyObject *pArgs, *pValue;
+Py_ssize_t size1;
+ssize_t size2;
+
+
+int i;
+
+PyObject *pModule;
+pModule = GetPythonModule2();
+
+pFunc = PyObject_GetAttrString(pModule, argv[0]);
+
+if (pFunc && PyCallable_Check(pFunc)) {
+pArgs = PyTuple_New(argc - 1);
+for (i = 0; i < argc - 1; ++i) {
+pValue = PyUnicode_FromString(argv[i + 1]);
+
+if (!pValue) {
+Py_DECREF(pArgs);
+fprintf(stderr, "Cannot convert argument\n");
+return 1;
+}
+PyTuple_SetItem(pArgs, i, pValue);
+}
+pValue = PyObject_CallObject(pFunc, pArgs);
+Py_DECREF(pArgs);
+if (pValue != NULL) {
+
+printf("Result of call: %s\n", PyUnicode_AsUTF8AndSize(pValue, &size1));
+printf("Length of call: %ld\n", size1);
+strncpy(buffer, PyUnicode_AsUTF8(pValue), buffersize-1);
+Py_DECREF(pValue);
+}
+else {
+Py_DECREF(pFunc);
+PyErr_Print();
+fprintf(stderr,"Call failed\n");
+return 1;
+}
+}
+else {
+if (PyErr_Occurred())
+PyErr_Print();
+fprintf(stderr, "Cannot find function \"%s\"\n", argv[0]);
+}
+Py_XDECREF(pFunc);
+return size1;
+}
+
+
+//
+
+
+int MyPythonFunctionStringReturn00(const char* FuncName, char* buffer, int buffersize)
+{
+PyObject *pFunc;
+PyObject *pValue;
+Py_ssize_t size;
+PyObject *pModule= GetPythonModule2();
+pFunc = PyObject_GetAttrString(pModule, FuncName);
+if (pFunc && PyCallable_Check(pFunc)) {
+pValue = PyObject_CallObject(pFunc, NULL);
+if (pValue != NULL) {
+strncpy(buffer, PyUnicode_AsUTF8AndSize(pValue, &size), buffersize-1);
+Py_DECREF(pValue);
+}
+}
+Py_XDECREF(pFunc);
+return size;
+}
+
+int MyPythonFunctionStringReturn01(const char* FuncName, const char* Arg01, char* buffer, int buffersize)
+{
+PyObject *pFunc, *pArgs, *pValue;
+PyObject *pModule= GetPythonModule2();
+Py_ssize_t size;
+pFunc = PyObject_GetAttrString(pModule, FuncName);
+if (pFunc && PyCallable_Check(pFunc)) {
+pArgs = PyTuple_New(1);
+pValue = PyUnicode_FromString(Arg01);
+PyTuple_SetItem(pArgs, 0, pValue);
+
+pValue = PyObject_CallObject(pFunc, pArgs);
+Py_DECREF(pArgs);
+if (pValue != NULL) {
+strncpy(buffer, PyUnicode_AsUTF8AndSize(pValue, &size), buffersize-1);
+Py_DECREF(pValue);
+}
+}
+Py_XDECREF(pFunc);
+return size;
+}
+
+
+int MyPythonFunctionStringReturn02(const char* FuncName, const char* Arg01, const char* Arg02, char* buffer, int buffersize)
+{
+PyObject *pFunc, *pArgs, *pValue;
+PyObject *pModule= GetPythonModule2();
+Py_ssize_t size;
+
+pFunc = PyObject_GetAttrString(pModule, FuncName);
+
+if (pFunc && PyCallable_Check(pFunc)) {
+pArgs = PyTuple_New(2);
+pValue = PyUnicode_FromString(Arg01);
+PyTuple_SetItem(pArgs, 0, pValue);
+
+pValue = PyUnicode_FromString(Arg02);
+PyTuple_SetItem(pArgs, 1, pValue);
+
+pValue = PyObject_CallObject(pFunc, pArgs);
+Py_DECREF(pArgs);
+if (pValue != NULL) {
+strncpy(buffer, PyUnicode_AsUTF8AndSize(pValue, &size), buffersize-1);
+Py_DECREF(pValue);
+}
+}
+Py_XDECREF(pFunc);
+return size;
+}
+
+
+//
+//void StartPy()
+//{
+//	Py_Initialize();
+//}
+
+
+void ClosePy()
+{
+PyObject *pModule;
+pModule = GetPythonModule2();
+Py_DECREF(pModule);
+Py_Finalize();
+}
+
+
+
+//
+//int UnLoadPythonModule(PyObject *pModule)
+//{
+//	  Py_DECREF(pModule);
+//		return 0;
+//}
+
+\end{lstlisting}
 
 
 
@@ -1076,6 +1305,2399 @@ With the integrated UI Editor, you can create user interfaces for your scripts w
 
 
 
+\chapter{gmpy2}
+
+\section{Overview of gmpy2}
+\label{gmpy2}
+
+gmpy2 is a C-coded Python extension module that supports multiple-precision arithmetic.
+
+gmpy2 is the successor to the original gmpy module. The gmpy module only supported the
+GMP multiple-precision library. gmpy2 adds support for the MPFR (correctly rounded real
+floating-point arithmetic) and MPC (correctly rounded complex floating-point arithmetic)
+libraries. gmpy2 also updates the API and naming conventions to be more consistent and
+support the additional functionality.
+
+The following libraries are supported:
+
+\vpara
+GMP for integer and rational arithmetic \citep{Granlund12}
+
+
+\vpara
+MPIR is based on the GMP library but adds support for Microsoft's Visual Studio
+compiler . It is used to create the Windows binaries  \citep{mpir}.
+
+
+\vpara
+MPFR for correctly rounded real floating-point arithmetic \citep{MPFR_2007}
+
+
+\vpara
+MPC for correctly rounded complex floating-point arithmetic MPC \citep{mpc_2012}
+
+
+\vpara
+Generalized Lucas sequences and primality tests are based on the following code:
+
+\vpara
+mpz\_lucas: \href{http://sourceforge.net/projects/mpzlucas/}{http://sourceforge.net/projects/mpzlucas/}. 
+
+mpz\_prp: \href{http://sourceforge.net/projects/mpzprp/}{http://sourceforge.net/projects/mpzprp/}. 
+
+
+
+
+
+\subsection{Downloading and installing Gmpy2}
+
+GMPY2 can be downloaded from
+
+\vpara
+\href{https://code.google.com/p/gmpy/}{https://code.google.com/p/gmpy/}.
+
+The file which needs to downloaded is specific for the Python version. For Python 2.7x 32 bit, the file gmpy2-2.0.3.win32-py2.7.exe needs to be downloaded. After download, start the executable file and follow the instructions.
+
+\vpara
+The license can be found in appendix \ref{LGPLv3})
+
+The contributors are listed in section \ref{Contributors to gmpy2}
+
+
+
+\subsection{Running Tests}
+
+gmpy2 comes with a test suite, which is pre-installed in the directory
+
+\vpara
+\verb|..\mpFormulaPy\Win32_Python33\Lib\site-packages\gmpy2_tests|.
+
+\vpara
+The tests can be run from the CPython console or from within PyScripter. All tests should pass.
+
+
+\subsection{Tutorial}
+
+The mpz type is compatible with Python's built-in int/long type but is significanly faster for
+large values. The cutover point for performance varies, but can be as low as 20 to 40 digits.
+A variety of additional integer functions are provided.
+
+\lstset{language={Python}}
+\begin{lstlisting}
+>>> import gmpy2
+>>> from gmpy2 import mpz,mpq,mpfr,mpc
+>>> mpz(99) * 43
+mpz(4257)
+>>> pow(mpz(99), 37, 59)
+mpz(18)
+>>> gmpy2.isqrt(99)
+mpz(9)
+>>> gmpy2.isqrt\_rem(99)
+(mpz(9), mpz(18))
+>>> gmpy2.gcd(123,27)
+mpz(3)
+>>> gmpy2.lcm(123,27)
+mpz(1107)
+\end{lstlisting}
+
+The mpq type is compatible with the fractions.Fraction type included with Python.
+
+\lstset{language={Python}}
+\begin{lstlisting}
+>>> mpq(3,7)/7
+mpq(3,49)
+>>> mpq(45,3) * mpq(11,8)
+mpq(165,8)
+\end{lstlisting}
+
+The most significant new features in gmpy2 are support for correctly rounded arbitrary
+precision real and complex arithmetic based on the MPFR and MPC libraries. Floating point
+contexts are used to control exceptional conditions. For example, division by zero can either return an Infinity or raise an exception.
+
+\lstset{language={Python}}
+\begin{lstlisting}
+>>> mpfr(1)/7
+mpfr('0.14285714285714285')
+>>> gmpy2.get\_context().precision=200
+>>> mpfr(1)/7
+mpfr('0.1428571428571428571428571428571428571428571428571428571428571',200)
+>>> gmpy2.get\_context()
+context(precision=200, real\_prec=Default, imag\_prec=Default,
+round=RoundToNearest, real\_round=Default, imag\_round=Default,
+emax=1073741823, emin=-1073741823,
+subnormalize=False,
+trap\_underflow=False, underflow=False,
+trap\_overflow=False, overflow=False,
+trap\_inexact=False, inexact=True,
+trap_invalid=False, invalid=False,
+trap_erange=False, erange=False,
+trap_divzero=False, divzero=False,
+trap_expbound=False,
+allow_complex=False)
+>>> mpfr(1)/0
+mpfr('inf')
+>>> gmpy2.get_context().trap_divzero=True
+>>> mpfr(1)/0
+Traceback (most recent call last):
+File "<stdin>", line 1, in <module>
+gmpy2.DivisionByZeroError: 'mpfr' division by zero in division
+>>> gmpy2.get_context()
+context(precision=200, real_prec=Default, imag_prec=Default,
+round=RoundToNearest, real_round=Default, imag_round=Default,
+emax=1073741823, emin=-1073741823,
+subnormalize=False,
+trap_underflow=False, underflow=False,
+trap_overflow=False, overflow=False,
+trap_inexact=False, inexact=True,
+trap_invalid=False, invalid=False,
+trap_erange=False, erange=False,
+trap_divzero=True, divzero=True,
+trap_expbound=False,
+allow_complex=False)
+>>> gmpy2.sqrt(mpfr(-2))
+mpfr('nan')
+>>> gmpy2.get_context().allow_complex=True
+>>> gmpy2.get_context().precision=53
+>>> gmpy2.sqrt(mpfr(-2))
+mpc('0.0+1.4142135623730951j')
+>>>
+>>> gmpy2.set_context(gmpy2.context())
+>>> with gmpy2.local_context() as ctx:
+... print(gmpy2.const_pi())
+... ctx.precision+=20
+... print(gmpy2.const_pi())
+... ctx.precision+=20
+... print(gmpy2.const_pi())
+...
+3.1415926535897931
+3.1415926535897932384628
+3.1415926535897932384626433831
+>>> print(gmpy2.const_pi())
+3.1415926535897931
+>>>
+\end{lstlisting}
+
+\subsection{Miscellaneous gmpy2 Functions}
+
+\subsubsection{from\_binary(...)}
+
+from\_binary(bytes) returns a gmpy2 object from a byte sequence created by to\_binary().
+
+\subsubsection{get\_cache(...)}
+
+get\_cache() returns the current cache size (number of objects) and the maximum size per
+object (number of limbs).
+
+gmpy2 maintains an internal list of freed mpz, xmpz, mpq, mpfr, and mpc objects for reuse.
+The cache significantly improves performance but also increases the memory footprint.
+
+\subsubsection{license(...)}
+
+license() returns the gmpy2 license information.
+
+\subsubsection{mp\_limbsize(...)}
+
+mp\_limbsize() returns the number of bits per limb used by the GMP or MPIR libarary.
+
+\subsubsection{mp\_version(...)}
+
+mp\_version() returns the version of the GMP or MPIR library.
+
+\subsubsection{mpc\_version(...)}
+
+mpc\_version() returns the version of the MPC library.
+
+\subsubsection{mpfr\_version(...)}
+
+mpfr\_version() returns the version of the MPFR library.
+
+\subsubsection{random\_state(...)}
+
+random\_state([seed]) returns a new object containing state information for the random number
+generator. An optional integer argument can be specified as the seed value. Only the
+Mersenne Twister random number generator is supported.
+
+\subsubsection{set\_cache(...)}
+
+set\_cache(number, size) updates the maximum number of freed objects of each type that are
+cached and the maximum size (in limbs) of each object. The maximum number of objects of
+each type that can be cached is 1000. The maximum size of an object is 16384. The maximum
+size of an object is approximately 64K on 32-bit systems and 128K on 64-bit systems.
+Note
+The caching options are global to gmpy2. Changes are not thread-safe. A change in one
+thread will impact all threads.
+
+\subsubsection{to\_binary(...)}
+
+to\_binary(x) returns a byte sequence from a gmpy2 object. All object types are supported.
+
+\subsubsection{version(...)}
+
+version() returns the version of gmpy2.
+
+
+\newpage
+\section{Multiple-precision Integers}
+
+
+The gmpy2 mpz type supports arbitrary precision integers. It should be a drop-in
+replacement for Python's long type. Depending on the platform and the specific operation,
+an mpz will be faster than Python's long once the precision exceeds 20 to 50 digits. All the
+special integer functions in GMP are supported.
+
+Examples
+
+\lstset{language={Python}}
+\begin{lstlisting}
+>>> import gmpy2
+>>> from gmpy2 import mpz
+>>> mpz('123') + 1
+mpz(124)
+>>> 10 - mpz(1)
+mpz(9)
+>>> gmpy2.is_prime(17)
+True
+\end{lstlisting}
+
+
+
+Note: The use of from gmpy2 import * is not recommended. The names in gmpy2 have
+been chosen to avoid conflict with Python's builtin names but gmpy2 does use names that
+may conflict with other modules or variable names.
+
+\subsection{mpz Methods}
+
+\subsubsection{bit\_clear(...)}
+
+x.bit\_clear(n) returns a copy of x with bit n set to 0.
+
+\subsubsection{bit\_flip(...)}
+
+x.bit\_flip(n) returns a copy of x with bit n inverted.
+
+\subsubsection{bit\_length(...)}
+
+x.bit\_length() returns the number of significant bits in the radix-2 representation of x. For compatibility with Python, mpz(0).bit\_length() returns 0.
+
+\subsubsection{bit\_scan0(...)}
+
+x.bit\_scan0(n) returns the index of the first 0-bit of x with index $\ge$ n. If there are no more 0-bits in x at or above index n (which can only happen for x $<$ 0, assuming an infinitely long 2's complement format), then None is returned. n must be $\ge$ 0.
+
+\subsubsection{bit\_scan1(...)}
+
+x.bit\_scan1(n) returns the index of the first 1-bit of x with index $\ge$ n. If there are no more 1-bits in x at or above index n (which can only happen for x $\ge$ 0, assuming an infinitely long 2's complement format), then None is returned. n must be $\ge$ 0.
+
+\subsubsection{bit\_set(...)}
+
+x.bit\_set(n) returns a copy of x with bit n set to 0.
+
+\subsubsection{bit\_test(...)}
+
+x.bit\_test(n) returns True if bit n of x is set, and False if it is not set.
+
+\subsubsection{denominator(...)}
+
+x.denominator() returns mpz(1).
+
+\subsubsection{digits(...)}
+
+x.digits([base=10]) returns a string representing x in radix base.
+
+\subsubsection{numerator(...)}
+
+x.numerator() returns a copy of x.
+
+\subsubsection{num\_digits(...)}
+
+x.num\_digits([base=10]) returns the length of the string representing the absolute value of x in radix base. The result is correct if base is a power of 2. For other other bases, the result is usually correct but may be 1 too large. base can range between 2 and 62, inclusive.
+
+
+
+\subsection{mpz Functions}
+
+\subsubsection{add(...)}
+
+add(x, y) returns x + y. The result type depends on the input types.
+
+\subsubsection{bincoef(...)}
+
+bincoef(x, n) returns the binomial coefficient. n must be $\ge$ 0.
+
+\subsubsection{bit\_clear(...)}
+
+bit\_clear(x, n) returns a copy of x with bit n set to 0.
+
+\subsubsection{bit\_flip(...)}
+
+bit\_flip(x, n) returns a copy of x with bit n inverted.
+
+\subsubsection{bit\_length(...)}
+
+bit\_length(x) returns the number of significant bits in the radix-2 representation of x. For
+compatibility with Python, mpz(0).bit\_length() returns 0 while mpz(0).num\_digits(2) returns 1.
+
+\subsubsection{bit\_mask(...)}
+
+bit\_mask(n) returns an mpz object exactly n bits in length with all bits set.
+
+\subsubsection{bit\_scan0(...)}
+
+bit\_scan0(x, n) returns the index of the first 0-bit of x with index $\ge$ n. If there are no more
+0-bits in x at or above index n (which can only happen for x $<$ 0, assuming an infinitely long 2's
+complement format), then None is returned. n must be $\ge$ 0.
+
+\subsubsection{bit\_scan1(...)}
+
+bit\_scan1(x, n) returns the index of the first 1-bit of x with index $\ge$ n. If there are no more
+1-bits in x at or above index n (which can only happen for x $\ge$ 0, assuming an infinitely long 2's
+complement format), then None is returned. n must be $\ge$ 0.
+
+\subsubsection{bit\_set(...)}
+
+bit\_set(x, n) returns a copy of x with bit n set to 0.
+
+\subsubsection{bit\_test(...)}
+
+bit\_test(x, n) returns True if bit n of x is set, and False if it is not set.
+
+\subsubsection{c\_div(...)}
+
+c\_div(x, y) returns the quotient of x divided by y. The quotient is rounded towards +Inf (ceiling
+rounding). x and y must be integers.
+
+\subsubsection{c\_div\_2exp(...)}
+
+c\_div\_2exp(x, n) returns the quotient of x divided by 2**n. The quotient is rounded towards +Inf
+(ceiling rounding). x must be an integer and n must be $>$ 0.
+
+\subsubsection{c\_divmod(...)}
+
+c\_divmod(x, y) returns the quotient and remainder of x divided by y. The quotient is rounded
+towards +Inf (ceiling rounding) and the remainder will have the opposite sign of y. x and y must
+be integers.
+
+\subsubsection{c\_divmod\_2exp(...)}
+
+c\_divmod\_2exp(x ,n) returns the quotient and remainder of x divided by 2**n. The quotient is
+rounded towards +Inf (ceiling rounding) and the remainder will be negative or zero. x must be
+an integer and n must be $>$ 0.
+
+\subsubsection{c\_mod(...)}
+
+c\_mod(x, y) returns the remainder of x divided by y. The remainder will have the opposite sign
+of y. x and y must be integers.
+
+\subsubsection{c\_mod\_2exp(...)}
+
+c\_mod\_2exp(x, n) returns the remainder of x divided by 2**n. The remainder will be negative. x
+must be an integer and n must be $>$ 0.
+
+\subsubsection{comb(...)}
+
+comb(x, n) returns the number of combinations of x things, taking n at a time. n must be $\ge$ 0.
+
+\subsubsection{digits(...)}
+
+digits(x[, base=10]) returns a string representing x in radix base.
+
+\subsubsection{div(...)}
+
+div(x, y) returns x / y. The result type depends on the input types.
+
+\subsubsection{divexact(...)}
+
+divexact(x, y) returns the quotient of x divided by y. Faster than standard division but requires
+the remainder is zero!
+
+\subsubsection{divm(...)}
+
+divm(a, b, m) returns x such that b * x == a modulo m. Raises a ZeroDivisionError exception if
+no such value x exists.
+
+\subsubsection{f\_div(...)}
+
+f\_div(x, y) returns the quotient of x divided by y. The quotient is rounded towards -Inf (floor
+rounding). x and y must be integers.
+
+\subsubsection{f\_div\_2exp(...)}
+
+f\_div\_2exp(x, n) returns the quotient of x divided by 2**n. The quotient is rounded towards -Inf
+(floor rounding). x must be an integer and n must be $>$ 0.
+
+\subsubsection{f\_divmod(...)}
+
+f\_divmod(x, y) returns the quotient and remainder of x divided by y. The quotient is rounded
+towards -Inf (floor rounding) and the remainder will have the same sign as y. x and y must be
+integers.
+
+\subsubsection{f\_divmod\_2exp(...)}
+
+f\_divmod\_2exp(x, n) returns quotient and remainder after dividing x by 2**n. The quotient is
+rounded towards -Inf (floor rounding) and the remainder will be positive. x must be an integer
+and n must be $>$ 0.
+
+\subsubsection{f\_mod(...)}
+
+f\_mod(x, y) returns the remainder of x divided by y. The remainder will have the same sign as
+y. x and y must be integers.
+
+\subsubsection{f\_mod\_2exp(...)}
+
+f\_mod\_2exp(x, n) returns remainder of x divided by 2**n. The remainder will be positive. x must
+be an integer and n must be $>$ 0.
+
+\subsubsection{fac(...)}
+
+fac(n) returns the exact factorial of n. Use factorial() to get the floating-point approximation.
+
+\subsubsection{fib(...)}
+
+fib(n) returns the n-th Fibonacci number.
+
+\subsubsection{fib2(...)}
+
+fib2(n) returns a 2-tuple with the (n-1)-th and n-th Fibonacci numbers.
+
+\subsubsection{gcd(...)}
+
+gcd(a, b) returns the greatest common denominator of integers a and b.
+
+\subsubsection{gcdext(...)}
+
+gcdext(a, b) returns a 3-element tuple (g, s, t) such that
+g == gcd(a, b) and g == a * s + b * t
+
+\subsubsection{hamdist(...)}
+
+hamdist(x, y) returns the Hamming distance (number of bit-positions where the bits differ)
+between integers x and y.
+
+\subsubsection{invert(...)}
+
+invert(x, m) returns y such that x * y == 1 modulo m, or 0 if no such y exists.
+
+\subsubsection{iroot(...)}
+
+iroot(x,n) returns a 2-element tuple (y, b) such that y is the integer n-th root of x and b is True if
+the root is exact. x must be $\ge$ 0 and n must be $>$ 0.
+
+\subsubsection{iroot\_rem(...)}
+
+iroot\_rem(x,n) returns a 2-element tuple (y, r) such that y is the integer n-th root of x and x =
+y**n + r. x must be $\ge$ 0 and n must be $>$ 0.
+
+\subsubsection{is\_even(...)}
+
+is\_even(x) returns True if x is even, False otherwise.
+
+\subsubsection{is\_odd(...)}
+
+is\_odd(x) returns True if x is odd, False otherwise.
+
+\subsubsection{is\_power(...)}
+
+is\_power(x) returns True if x is a perfect power, False otherwise.
+
+\subsubsection{is\_prime(...)}
+
+is\_prime(x[, n=25]) returns True if x is probably prime. False is returned if x is definately
+composite. x is checked for small divisors and up to n Miller-Rabin tests are performed. The
+actual tests performed may vary based on version of GMP or MPIR used.
+
+\subsubsection{is\_square(...)}
+
+is\_square(x) returns True if x is a perfect square, False otherwise.
+
+\subsubsection{isqrt(...)}
+
+isqrt(x) returns the integer square root of an integer x. x must be $\ge$ 0.
+
+\subsubsection{isqrt\_rem(...)}
+
+isqrt\_rem(x) returns a 2-tuple (s, t) such that s = isqrt(x) and t = x - s * s. x must be $\ge$ 0.
+
+\subsubsection{jacobi(...)}
+
+jacobi(x, y) returns the Jacobi symbol (x | y). y must be odd and $>$ 0.
+
+\subsubsection{kronecker(...)}
+
+kronecker(x, y) returns the Kronecker-Jacobi symbol (x | y).
+
+\subsubsection{lcm(...)}
+
+lcm(a, b) returns the lowest common multiple of integers a and b.
+
+\subsubsection{legendre(...)}
+
+legendre(x, y) returns the Legendre symbol (x | y). y is assumed to be an odd prime.
+
+\subsubsection{lucas(...)}
+
+lucas(n) returns the n-th Lucas number.
+
+\subsubsection{lucas2(...)}
+
+lucas2(n) returns a 2-tuple with the (n-1)-th and n-th Lucas numbers.
+
+\subsubsection{mpz(...)}
+
+mpz() returns a new mpz object set to 0.
+
+\subsubsection{mpz(n) }
+mpz(n) returns a new mpz object from a numeric value n. If n is not an integer, it will be
+truncated to an integer.
+
+\subsubsection{mpz(s, base=0)}
+mpz(s[, base=0]) returns a new mpz object from a string s made of digits in the given base. If
+base = 0, then binary, octal, or hex Python strings are recognized by leading 0b, 0o, or 0x
+characters. Otherwise the string is assumed to be decimal. Values for base can range
+between 2 and 62.
+
+\subsubsection{mpz\_random(...)}
+
+mpz\_random(random\_state, n) returns a uniformly distributed random integer between 0 and
+n-1. The parameter random\_state must be created by random\_state() first.
+
+\subsubsection{mpz\_rrandomb(...)}
+
+mpz\_rrandomb(random\_state, b) returns a random integer between 0 and 2**b - 1 with long
+sequences of zeros and one in its binary representation. The parameter random\_state must
+be created by random\_state() first.
+
+\subsubsection{mpz\_urandomb(...)}
+
+mpz\_urandomb(random\_state, b) returns a uniformly distributed random integer between 0 and
+2**b - 1. The parameter random\_state must be created by random\_state() first.
+
+\subsubsection{mul(...)}
+
+mul(x, y) returns x * y. The result type depends on the input types.
+
+\subsubsection{next\_prime(...)}
+
+next\_prime(x) returns the next probable prime number $>$ x.
+
+\subsubsection{num\_digits(...)}
+
+num\_digits(x[, base=10]) returns the length of the string representing the absolute value of x in
+radix base. The result is correct if base is a power of 2. For other other bases, the result is
+usually correct but may be 1 too large. base can range between 2 and 62, inclusive.
+
+\subsubsection{popcount(...)}
+
+popcount(x) returns the number of bits with value 1 in x. If x $<$ 0, the number of bits with value 1
+is infinite so -1 is returned in that case.
+
+\subsubsection{powmod(...)}
+
+powmod(x, y, m) returns (x ** y) mod m. The exponenent y can be negative, and the correct
+result will be returned if the inverse of x mod m exists. Otherwise, a ValueError is raised.
+
+\subsubsection{remove(...)}
+
+remove(x, f) will remove the factor f from x as many times as possible and return a 2-tuple (y,
+m) where y = x // (f ** m). f does not divide y. m is the multiplicity of the factor f in x. f must be $>$ 1.
+
+\subsubsection{sub(...)}
+
+sub(x, y) returns x - y. The result type depends on the input types.
+
+\subsubsection{t\_div(...)}
+
+t\_div(x, y) returns the quotient of x divided by y. The quotient is rounded towards zero
+(truncation). x and y must be integers.
+
+\subsubsection{t\_div\_2exp(...)}
+
+t\_div\_2exp(x, n) returns the quotient of x divided by 2**n. The quotient is rounded towards zero
+(truncation). n must be $>$ 0.
+
+\subsubsection{t\_divmod(...)}
+
+t\_divmod(x, y) returns the quotient and remainder of x divided by y. The quotient is rounded
+towards zero (truncation) and the remainder will have the same sign as x. x and y must be
+integers.
+
+\subsubsection{t\_divmod\_2exp(...)}
+
+t\_divmod\_2exp(x, n) returns the quotient and remainder of x divided by 2**n. The quotient is
+rounded towards zero (truncation) and the remainder will have the same sign as x. x must be
+an integer and n must be $>$ 0.
+
+\subsubsection{t\_mod(...)}
+
+t\_mod(x, y) returns the remainder of x divided by y. The remainder will have the same sign as
+x. x and y must be integers.
+
+\subsubsection{t\_mod\_2exp(...)}
+
+t\_mod\_2exp(x, n) returns the remainder of x divided by 2**n. The remainder will have the same
+sign as x. x must be an integer and n must be $>$ 0.
+
+
+
+
+
+
+\newpage
+\section{Multiple-precision Integers (Advanced topics)}
+
+\subsection{The xmpz type}
+
+gmpy2 provides access to an experimental integer type called xmpz. The xmpz type is a
+mutable integer type. In-place operations (+=, //=, etc.) modify the orignal object and do not create a new object. Instances of xmpz cannot be used as dictionary keys.
+
+\lstset{language={Python}}
+\begin{lstlisting}
+>>> import gmpy2
+>>> from gmpy2 import xmpz
+>>> a = xmpz(123)
+>>> b = a
+>>> a += 1
+>>> a
+xmpz(124)
+>>> b
+xmpz(124)
+\end{lstlisting}
+
+The ability to change an xmpz object in-place allows for efficient and rapid bit manipulation.
+
+Individual bits can be set or cleared:
+
+\lstset{language={Python}}
+\begin{lstlisting}
+>>> a[10]=1
+>>> a
+xmpz(1148)
+\end{lstlisting}
+
+Slice notation is supported. The bits referenced by a slice can be either "read from" or
+"written to". To clear a slice of bits, use a source value of 0. In 2s-complement format, 0 is represented by an arbitrary number of 0-bits. To set a slice of bits, use a source value of ~0.
+
+The tilde operator inverts, or complements the bits in an integer. (~0 is -1 so you can also
+use -1.) In 2s-complement format, -1 is represented by an arbitrary number of 1-bits.
+If a value for stop is specified in a slice assignment and the actual bit-length of the xmpz is less than stop, then the destination xmpz is logically padded with 0-bits to length stop.
+
+\lstset{language={Python}}
+\begin{lstlisting}
+>>> a=xmpz(0)
+>>> a[8:16] = ~0
+>>> bin(a)
+'0b1111111100000000'
+>>> a[4:12] = ~a[4:12]
+>>> bin(a)
+'0b1111000011110000'
+\end{lstlisting}
+
+Bits can be reversed:
+
+\lstset{language={Python}}
+\begin{lstlisting}
+>>> bin(a)
+'0b10001111100'
+>>> a[::] = a[::-1]
+>>> bin(a)
+'0b111110001'
+\end{lstlisting}
+
+The iter\_bits() method returns a generator that returns True or False for each bit position.
+The methods iter\_clear(), and iter\_set() return generators that return the bit positions that
+are 1 or 0. The methods support arguments start and stop that define the beginning and
+ending bit positions that are used. To mimic the behavior of slices. the bit positions checked include start but the last position checked is stop - 1.
+
+\lstset{language={Python}}
+\begin{lstlisting}
+>>> a=xmpz(117)
+>>> bin(a)
+'0b1110101'
+>>> list(a.iter_bits())
+[True, False, True, False, True, True, True]
+>>> list(a.iter_clear())
+[1, 3]
+>>> list(a.iter_set())
+[0, 2, 4, 5, 6]
+>>> list(a.iter_bits(stop=12))
+[True, False, True, False, True, True, True, False, False, False, False, False]
+\end{lstlisting}
+
+The following program uses the Sieve of Eratosthenes to generate a list of prime numbers.
+
+\lstset{language={Python}}
+\begin{lstlisting}
+from __future__ import print_function
+import time
+import gmpy2
+def sieve(limit=1000000):
+'''Returns a generator that yields the prime numbers up to limit.'''
+# Increment by 1 to account for the fact that slices do not include
+# the last index value but we do want to include the last value for
+# calculating a list of primes.
+sieve_limit = gmpy2.isqrt(limit) + 1
+limit += 1
+# Mark bit positions 0 and 1 as not prime.
+bitmap = gmpy2.xmpz(3)
+# Process 2 separately. This allows us to use p+p for the step size
+# when sieving the remaining primes.
+bitmap[4 : limit : 2] = -1
+# Sieve the remaining primes.
+for p in bitmap.iter_clear(3, sieve_limit):
+bitmap[p*p : limit : p+p] = -1
+return bitmap.iter_clear(2, limit)
+if __name__ == "__main__":
+start = time.time()
+result = list(sieve())
+print(time.time() - start)
+print(len(result))
+\end{lstlisting}
+
+
+
+
+\newpage
+%\section{Additional Numbertheoretic Functions}
+\label{AdditionalNumbertheoreticFunctions}
+
+\subsection{Pseudoprimes}
+
+An overview is provided by \cite{Grantham_2001}.
+
+\vspace{0.6cm}
+\begin{mpFunctionsExtract}
+	\mpFunctionOne
+	{gmpy2.is\_bpsw\_prp? Boolean? True if $n$ is a Baillie-Pomerance-Selfridge-Wagstaff (BPSW) probable prime.}
+	{n? Integer? An Integer.}
+\end{mpFunctionsExtract}
+
+\vspace{0.3cm}
+A BPSW probable prime passes the is\_strong\_prp() test with base 2 and the is\_selfridge\_prp() test.
+
+
+\vspace{0.6cm}
+\begin{mpFunctionsExtract}
+	\mpFunctionTwo
+	{gmpy2.is\_euler\_prp? Boolean? True if $n$ is an Euler (also known as Solovay-Strassen) probable prime to the base $a$.}
+	{n? Integer? An odd integer.}
+	{a? Integer? An Integer.}
+\end{mpFunctionsExtract}
+
+\vspace{0.3cm}
+
+Assuming: gcd(n, a) == 1, and n is odd.
+
+Then an Euler probable prime requires: a**((n-1)/2) == 1 (mod n).
+
+
+\vspace{0.6cm}
+\begin{mpFunctionsExtract}
+	\mpFunctionTwo
+	{gmpy2.is\_extra\_strong\_lucas\_prp? Boolean? True if $n$ is an extra strong Lucas probable prime with parameters ($p$, 1).}
+	{n? Integer? An odd Integer.}
+	{p? Integer? An Integer.}
+\end{mpFunctionsExtract}
+
+\vspace{0.3cm}
+Assuming: n is odd; D = p*p - 4, D != 0.
+
+gcd(n, 2*D) == 1; n = s*(2**r) + Jacobi(D,n), s odd.
+
+\vpara
+Then an extra strong Lucas probable prime requires:
+
+lucasu(p,1,s) == 0 (mod n), or
+
+lucasv(p,1,s) == +/-2 (mod n), or
+
+lucasv(p,1,s*(2**t)) == 0 (mod n) 
+
+for some t, 0 $\le$ t $<$ r.
+
+
+
+
+\vspace{0.6cm}
+\begin{mpFunctionsExtract}
+	\mpFunctionTwo
+	{gmpy2.is\_fermat\_prp? Boolean? True if $n$ is a Fermat probable prime to the base $a$.}
+	{n? Integer? An Integer.}
+	{a? Integer? An Integer.}
+\end{mpFunctionsExtract}
+
+\vspace{0.3cm}
+
+Assuming: gcd(n,a) == 1.
+
+Then a Fermat probable prime requires: a**(n-1) == 1 (mod n).
+
+
+
+
+
+
+\vspace{0.6cm}
+\begin{mpFunctionsExtract}
+	\mpFunctionThree
+	{gmpy2.is\_fibonacci\_prp(n,p,q)? Boolean? True if $n$ is an Fibonacci probable prime with parameters ($p$, $q$).}
+	{n? Integer? An Integer.}
+	{p? Integer? An Integer.}
+	{q? Integer? An Integer.}
+\end{mpFunctionsExtract}
+
+\vspace{0.3cm}
+Assuming: n is odd; p $>$ 0, q = +/-1; p*p - 4*q != 0.
+
+Then a Fibonacci probable prime requires: lucasv(p,q,n) == p (mod n).
+
+
+
+
+
+\vspace{0.6cm}
+\begin{mpFunctionsExtract}
+	\mpFunctionThree
+	{gmpy2.is\_lucas\_prp? Boolean? True if $n$ is a Lucas probable prime with parameters ($p$, $q$).}
+	{n? Integer? An Integer.}
+	{p? Integer? An Integer.}
+	{q? Integer? An Integer.}
+\end{mpFunctionsExtract}
+
+\vspace{0.3cm}
+Assuming: n is odd; D = p*p - 4*q, D != 0; gcd(n, 2*q*D) == 1.
+
+Then a Lucas probable prime requires: lucasu(p,q,n - Jacobi(D,n)) == 0 (mod n).
+
+
+
+\vspace{0.6cm}
+
+\begin{mpFunctionsExtract}
+	\mpFunctionOne
+	{gmpy2.is\_selfridge\_prp? Boolean? True if $n$ is a Lucas probable prime with Selfridge parameters (p,q).}
+	{n? Integer? An Integer.}
+\end{mpFunctionsExtract}
+
+\vspace{0.3cm}
+The Selfridge parameters are chosen by finding the first element D in the sequence {5, -7, 9, -11, 13, ...} such that Jacobi(D,n) == -1. Let p=1 and q = (1-D)/4 and then perform a Lucas probable prime test.
+
+
+
+\vspace{0.6cm}
+\begin{mpFunctionsExtract}
+	\mpFunctionOne
+	{gmpy2.is\_strong\_bpsw\_prp? Boolean? True if $n$ is a strong Baillie-Pomerance-Selfridge-Wagstaff probable prime}
+	{n? Integer? An Integer.}
+\end{mpFunctionsExtract}
+
+\vspace{0.3cm}
+A strong BPSW probable prime passes the is\_strong\_prp() test with base 2 and the is\_strongselfridge\_prp() test.
+
+
+
+\vspace{0.6cm}
+\begin{mpFunctionsExtract}
+	\mpFunctionThree
+	{gmpy2.is\_strong\_lucas\_prp? Boolean? True if $n$ is a strong Lucas probable prime with parameters ($p$, $q$).}
+	{n? Integer? An Integer.}
+	{p? Integer? An Integer.}
+	{q? Integer? An Integer.}
+\end{mpFunctionsExtract}
+
+\vspace{0.3cm}
+
+Assuming: n is odd; D = p*p - 4*q, D != 0.
+
+gcd(n, 2*q*D) == 1; n = s*(2**r) + Jacobi(D,n), s odd.
+
+\vpara
+Then a strong Lucas probable prime requires: lucasu(p,q,s) == 0 (mod n), or
+
+lucasv(p,q,s*(2**t)) == 0 (mod n) for some t, 0 $\le$ t $<$ r.
+
+
+
+
+
+
+
+\vspace{0.6cm}
+\begin{mpFunctionsExtract}
+	\mpFunctionTwo
+	{gmpy2.is\_strong\_prp? Boolean? True if $n$ is an strong (also known as Miller-Rabin) probable prime to the base $a$.}
+	{n? Integer? An odd Integer.}
+	{a? Integer? An Integer.}
+\end{mpFunctionsExtract}
+
+\vspace{0.3cm}
+Assuming: gcd(n,a) == 1; n is odd; n = s*(2**r) + 1, with s odd.
+
+Then a strong probable prime requires one of the following is true:
+
+a**s == 1 (mod n), or
+
+a**(s*(2**t)) == -1 (mod n) for some t, 0 $\le$ t $<$ r.
+
+
+
+\vspace{0.6cm}
+\begin{mpFunctionsExtract}
+	\mpFunctionOne
+	{gmpy2.is\_strong\_selfridge\_prp? mpNum? True if $n$ is a strong Lucas probable prime with Selfridge parameters}
+	{n? mpNum? An Integer.}
+\end{mpFunctionsExtract}
+
+\vspace{0.3cm}
+The Selfridge parameters are chosen by finding the first element D in the sequence {5, -7, 9, -11, 13, ...} such that Jacobi(D,n) == -1. Let p=1 and q = (1-D)/4 and then perform a strong Lucas probable prime test.
+
+
+
+\subsection{Lucas Sequences}
+
+An overview is provided by \cite{Joye_1996}.
+
+\vspace{0.6cm}
+\begin{mpFunctionsExtract}
+	\mpFunctionThree
+	{gmpy2.lucasu? Integer? the $k$-th element of the Lucas $U$ sequence defined by $p$, $q$}
+	{p? Integer? An Integer.}
+	{q? Integer? An Integer.}
+	{k? Integer? An Integer.}
+\end{mpFunctionsExtract}
+
+\vspace{0.3cm}
+p*p - 4*q must not equal 0; k must be greater than or equal to 0.
+
+
+
+
+\vspace{0.6cm}
+\begin{mpFunctionsExtract}
+	\mpFunctionFour
+	{gmpy2.lucasu\_mod? Integer? the $k$-th element of the Lucas $U$ sequence defined by $p$, $q$ (mod $n$)}
+	{p? Integer? An Integer.}
+	{q? Integer? An Integer.}
+	{k? Integer? An Integer.}
+	{n? Integer? An Integer.}
+\end{mpFunctionsExtract}
+
+\vspace{0.3cm}
+p*p - 4*q must not equal 0; k must be greater than or equal to 0; n must be greater than 0.
+
+
+\vspace{0.6cm}
+\begin{mpFunctionsExtract}
+	\mpFunctionThree
+	{gmpy2.lucasv? Integer? the $k$-th element of the Lucas $V$ sequence defined by parameters ($p$, $q$)}
+	{p? Integer? An Integer.}
+	{q? Integer? An Integer.}
+	{k? Integer? An Integer.}
+\end{mpFunctionsExtract}
+
+\vspace{0.3cm}
+p*p - 4*q must not equal 0; k must be greater than or equal to 0.
+
+
+
+
+\vspace{0.6cm}
+\begin{mpFunctionsExtract}
+	\mpFunctionFour
+	{gmpy2.lucasv\_mod? Integer? the $k$-th element of the Lucas $V$ sequence defined by $p$, $q$ (mod $n$)}
+	{p? Integer? An Integer.}
+	{q? Integer? An Integer.}
+	{k? Integer? An Integer.}
+	{n? Integer? An Integer.}
+\end{mpFunctionsExtract}
+
+\vspace{0.3cm}
+p*p - 4*q must not equal 0; k must be greater than or equal to 0; n must be greater than 0.
+
+
+
+
+\newpage
+\section{Multiple-precision Rationals}
+
+gmpy2 provides a rational type call mpq. It should be a replacement for Python's
+fractions.Fraction module.
+
+\lstset{language={Python}}
+\begin{lstlisting}
+>>> import gmpy2
+>>> from gmpy2 import mpq
+>>> mpq(1,7)
+mpq(1,7)
+>>> mpq(1,7) * 11
+mpq(11,7)
+>>> mpq(11,7)/13
+mpq(11,91)
+\end{lstlisting}
+
+
+\subsection{mpq Methods}
+
+\subsubsection{digits(...)}
+
+x.digits([base=10]) returns a Python string representing x in the given base (2 to 62, default is 10). A leading "-" is present if x $<$ 0, but no leading "+" is present if x $\ge$ 0.
+
+
+\subsection{mpq Attributes}
+
+\subsubsection{denominator}
+
+x.denominator returns the denominator of x.
+
+\subsubsection{numerator}
+
+x.numerator returns the numerator of x.
+
+
+\subsection{mpq Functions}
+
+\subsubsection{add(...)}
+
+add(x, y) returns x + y. The result type depends on the input types.
+
+\subsubsection{div(...)}
+
+div(x, y) returns x / y. The result type depends on the input types.
+
+\subsubsection{f2q(...)}
+
+f2q(x[, err]) returns the best mpq approximating x to within relative error err. Default is the precision of x. If x is not an mpfr, it is converted to an mpfr. Uses Stern-Brocot tree to find the best approximation. An mpz is returned if the the denominator is 1. If err $<$ 0, then the relative error sought is 2.0 ** err.
+
+\subsubsection{mpq(...)}
+
+mpq() returns an mpq object set to 0/1.
+
+\subsubsection{mpq(n)}
+mpq(n) returns an mpq object with a numeric value n. Decimal and Fraction values are
+converted exactly.
+
+\subsubsection{mpq(n, m)}
+mpq(n, m) returns an mpq object with a numeric value n / m.
+
+\subsubsection{mpq(s, base=10)}
+mpq(s[, base=10]) returns an mpq object from a string s made up of digits in the given base. s may be made up of two numbers in the same base separated by a "/" character. If base == 10, then an embedded "." indicates a number with a decimal fractional part.
+
+\subsubsection{mul(...)}
+
+mul(x, y) returns x * y. The result type depends on the input types.
+
+\subsubsection{qdiv(...)}
+
+qdiv(x[, y=1]) returns x/y as mpz if possible, or as mpq if x is not exactly divisible by y.
+
+\subsubsection{sub(...)}
+
+sub(x, y) returns x - y. The result type depends on the input types.
+
+
+
+
+
+
+\newpage
+\section{Multiple-precision Reals}
+
+
+gmpy2 replaces the mpf type from gmpy 1.x with a new mpfr type based on the MPFR
+library. The new mpfr type supports correct rounding, selectable rounding modes, and many
+trigonometric, exponential, and special functions. A context manager is used to control
+precision, rounding modes, and the behavior of exceptions.
+
+\vpara
+The default precision of an mpfr is 53 bits - the same precision as Python's float type. If the precision is changed, then mpfr(float('1.2')) differs from mpfr('1.2'). To take
+advantage of the higher precision provided by the mpfr type, always pass constants as
+strings.
+
+\lstset{language={Python}}
+\begin{lstlisting}
+>>> import gmpy2
+>>> from gmpy2 import mpfr
+>>> mpfr('1.2')
+mpfr('1.2')
+>>> mpfr(float('1.2'))
+mpfr('1.2')
+>>> gmpy2.get_context().precision=100
+>>> mpfr('1.2')
+mpfr('1.2000000000000000000000000000006',100)
+>>> mpfr(float('1.2'))
+mpfr('1.1999999999999999555910790149937',100)
+>>>
+\end{lstlisting}
+
+
+\subsection{Contexts}
+
+Contexts and context managers are not thread-safe! Modifying the context in one thread
+will impact all other threads.
+
+\vpara
+A context is used to control the behavior of mpfr and mpc arithmetic. In addition to
+controlling the precision, the rounding mode can be specified, minimum and maximum
+exponent values can be changed, various exceptions can be raised or ignored, gradual
+underflow can be enabled, and returning complex results can be enabled.
+gmpy2.context() creates a new context with all options set to default.
+
+\vpara
+gmpy2.set\_context(ctx) will set the active context to ctx. gmpy2.get\_context() will
+return a reference to the active context. Note that contexts are mutable: modifying the
+reference returned by get\_context() will modify the active context until a new context is
+enabled with set\_context(). The copy() method of a context will return a copy of the
+context.
+
+\vpara
+The following example just modifies the precision. The remaining options will be discussed
+later.
+
+\lstset{language={Python}}
+\begin{lstlisting}
+>>> gmpy2.set_context(gmpy2.context())
+>>> gmpy2.get_context()
+context(precision=53, real_prec=Default, imag_prec=Default,
+round=RoundToNearest, real_round=Default, imag_round=Default,
+emax=1073741823, emin=-1073741823,
+subnormalize=False,
+trap_underflow=False, underflow=False,
+trap_overflow=False, overflow=False,
+trap_inexact=False, inexact=False,
+trap_invalid=False, invalid=False,
+trap_erange=False, erange=False,
+trap_divzero=False, divzero=False,
+trap_expbound=False,
+allow_complex=False)
+>>> gmpy2.sqrt(5)
+mpfr('2.2360679774997898')
+>>> gmpy2.get_context().precision=100
+>>> gmpy2.sqrt(5)
+mpfr('2.2360679774997896964091736687316',100)
+>>> gmpy2.get_context().precision+=20
+>>> gmpy2.sqrt(5)
+mpfr('2.2360679774997896964091736687312762351',120)
+>>> ctx=gmpy2.get_context()
+>>> ctx.precision+=20
+>>> gmpy2.sqrt(5)
+mpfr('2.2360679774997896964091736687312762354406182',140)
+>>> gmpy2.set_context(gmpy2.context())
+>>> gmpy2.sqrt(5)
+mpfr('2.2360679774997898')
+>>> ctx.precision+=20
+>>> gmpy2.sqrt(5)
+mpfr('2.2360679774997898')
+>>> gmpy2.set_context(ctx)
+>>> gmpy2.sqrt(5)
+mpfr('2.2360679774997896964091736687312762354406183596116',160)
+>>>
+\end{lstlisting}
+
+
+\subsection{Context Attributes}
+
+\subsubsection{precision}
+
+This attribute controls the precision of an mpfr result. The precision is specified in bits, not
+decimal digits. The maximum precision that can be specified is platform dependent and can be
+retrieved with get\_max\_precision().
+
+Note: Specifying a value for precision that is too close to the maximum precision will cause the
+MPFR library to fail.
+
+\subsubsection{real\_prec}
+
+This attribute controls the precision of the real part of an mpc result. If the value is Default,
+then the value of the precision attribute is used.
+
+\subsubsection{imag\_prec}
+
+This attribute controls the precision of the imaginary part of an mpc result. If the value is
+Default, then the value of real\_prec is used.
+
+\subsubsection{round}
+
+There are five rounding modes availble to mpfr types:
+
+RoundAwayZero: The result is rounded away from 0.0.
+
+RoundDown: The result is rounded towards -Infinity.
+
+RoundToNearest: Round to the nearest value; ties are rounded to an even value.
+
+RoundToZero: The result is rounded towards 0.0.
+
+RoundUp: The result is rounded towards +Infinity.
+
+
+
+\subsubsection{real\_round}
+
+This attribute controls the rounding mode for the real part of an mpc result. If the value is
+Default, then the value of the round attribute is used. Note: RoundAwayZero is not a valid
+rounding mode for mpc.
+
+\subsubsection{imag\_round}
+
+This attribute controls the rounding mode for the imaginary part of an mpc result. If the value is
+Default, then the value of the real\_round attribute is used. Note: RoundAwayZero is not a valid
+rounding mode for mpc.
+
+\subsubsection{emax}
+
+This attribute controls the maximum allowed exponent of an mpfr result. The maximum
+exponent is platform dependent and can be retrieved with get\_emax\_max().
+
+\subsubsection{emin}
+
+This attribute controls the minimum allowed exponent of an mpfr result. The minimum exponent
+is platform dependent and can be retrieved with get\_emin\_min().
+
+\vpara
+Note: It is possible to change the values of emin/emax such that previous mpfr values are no
+longer valid numbers but should either underflow to +/-0.0 or overflow to +/-Infinity. To
+raise an exception if this occurs, see trap\_expbound.
+
+\subsubsection{subnormalize}
+
+The usual IEEE-754 floating point representation supports gradual underflow when the
+minimum exponent is reached. The MFPR library does not enable gradual underflow by default
+but it can be enabled to precisely mimic the results of IEEE-754 floating point operations.
+
+\subsubsection{trap\_underflow}
+
+If set to False, a result that is smaller than the smallest possible mpfr given the current
+exponent range will be replaced by +/-0.0. If set to True, an UnderflowResultError exception
+is raised.
+
+\subsubsection{underflow}
+
+This flag is not user controllable. It is automatically set if a result underflowed to +/-0.0 and
+trap\_underflow is False.
+
+\subsubsection{trap\_overflow}
+
+If set to False, a result that is larger than the largest possible mpfr given the current exponent
+range will be replaced by +/-Infinity. If set to True, an OverflowResultError exception is
+raised.
+
+\subsubsection{overflow}
+
+This flag is not user controllable. It is automatically set if a result overflowed to +/-Infinity and
+trap\_overflow is False.
+
+\subsubsection{trap\_inexact}
+
+This attribute controls whether or not an InexactResultError exception is raised if an inexact
+result is returned. To check if the result is greater or less than the exact result, check the rc
+attribute of the mpfr result.
+
+\subsubsection{inexact}
+
+This flag is not user controllable. It is automatically set if an inexact result is returned.
+
+\subsubsection{trap\_invalid}
+
+This attribute controls whether or not an InvalidOperationError exception is raised if a
+numerical result is not defined. A special NaN (Not-A-Number) value will be returned if an
+exception is not raised. The InvalidOperationError is a sub-class of Python's ValueError.
+For example, gmpy2.sqrt(-2) will normally return mpfr('nan'). However, if allow\_complex is
+set to True, then an mpc result will be returned.
+
+\subsubsection{invalid}
+
+This flag is not user controllable. It is automatically set if an invalid (Not-A-Number) result is
+returned.
+
+\subsubsection{trap\_erange}
+
+This attribute controls whether or not a RangeError exception is raised when certain
+operations are performed on NaN and/or Infinity values. Setting trap\_erange to True can be
+used to raise an exception if comparisons are attempted with a NaN.
+
+\lstset{language={Python}}
+\begin{lstlisting}
+>>> gmpy2.set_context(gmpy2.context())
+>>> mpfr('nan') == mpfr('nan')
+False
+>>> gmpy2.get_context().trap_erange=True
+>>> mpfr('nan') == mpfr('nan')
+Traceback (most recent call last):
+File "<stdin>", line 1, in <module>
+gmpy2.RangeError: comparison with NaN
+>>>
+\end{lstlisting}
+
+\subsubsection{erange}
+
+This flag is not user controllable. It is automatically set if an erange error occurred.
+
+\subsubsection{trap\_divzero}
+
+This attribute controls whether or not a DivisionByZeroError exception is raised if division by
+0 occurs. The DivisionByZeroError is a sub-class of Python's ZeroDivisionError.
+
+\subsubsection{divzero}
+
+This flag is not user controllable. It is automatically set if a division by zero occurred and NaN
+result was returned.
+
+\subsubsection{trap\_expbound}
+
+This attribute controls whether or not an ExponentOutOfBoundsError exception is raised if
+exponents in an operand are outside the current emin/emax limits.
+
+\subsubsection{allow\_complex}
+
+This attribute controls whether or not an mpc result can be returned if an mpfr result would
+normally not be possible.
+
+
+\subsection{Context Methods}
+
+\subsubsection{clear\_flags()}
+
+Clear the underflow, overflow, inexact, invalid, erange, and divzero flags.
+
+\subsubsection{copy()}
+
+Return a copy of the context.
+
+
+\subsection{Contexts and the with statement}
+
+Contexts can also be used in conjunction with Python's with ... statement to temporarily
+change the context settings for a block of code and then restore the original settings when
+the block of code exits.
+
+\vpara
+gmpy2.local\_context() first save the current context and then creates a new context
+based on a context passed as the first argument, or the current context if no context is
+passed. The new context is modified if any optional keyword arguments are given. The
+orginal active context is restored when the block completes.
+
+\vpara
+In the following example, the current context is saved by gmpy2.local\_context() and then
+the block begins with a copy of the default context and the precision set to 100. When the
+block is finished, the original context is restored.
+
+\lstset{language={Python}}
+\begin{lstlisting}
+>>> with gmpy2.local_context(gmpy2.context(), precision=100) as ctx
+... print(gmpy2.sqrt(2))
+... ctx.precision += 100
+... print(gmpy2.sqrt(2))
+...
+1.4142135623730950488016887242092
+1.4142135623730950488016887242096980785696718753769480731766796
+>>>
+\end{lstlisting}
+
+A context object can also be used directly to create a context manager block. However,
+instead of restoring the context to the active context when the with ... statement is
+executed, the restored context is the context used before any keyword argument
+modifications.
+The code:
+
+\lstset{language={Python}}
+\begin{lstlisting}
+::
+with gmpy2.ieee(64) as ctx:
+\end{lstlisting}
+
+is equivalent to:
+
+\lstset{language={Python}}
+\begin{lstlisting}
+::
+gmpy2.set\_context(gmpy2.ieee(64)) with gmpy2.local\_context() as ctx:
+\end{lstlisting}
+
+Contexts that implement the standard single, double, and quadruple precision floating point
+types can be created using ieee().
+
+
+
+\subsection{mpfr Methods}
+
+\subsubsection{as\_integer\_ratio()}
+
+Returns a 2-tuple containing the numerator and denominator after converting the mpfr object
+into the exact rational equivalent. The return 2-tuple is equivalent to Python's as\_integer\_ratio()
+method of built-in float objects.
+
+\subsubsection{as\_mantissa\_exp()}
+
+Returns a 2-tuple containing the mantissa and exponent.
+
+\subsubsection{as\_simple\_fraction()}
+
+Returns an mpq containing the simplest rational value that approximates the mpfr value with
+an error less than 1/(2**precision).
+
+\subsubsection{conjugate()}
+
+Returns the complex conjugate. For mpfr objects, returns a copy of the original object.
+
+\subsubsection{digits()}
+
+Returns a 3-tuple containing the mantissa, the exponent, and the number of bits of precision.
+The mantissa is represented as a string in the specified base with up to "prec" digits. If "prec" is
+0, as many digits that are available are returned. No more digits than available given x's
+precision are returned. "base" must be between 2 and 62, inclusive.
+
+\subsubsection{is\_integer()}
+
+Returns True if the mpfr object is an integer.
+
+
+
+
+\subsection{mpfr Attributes}
+
+\subsubsection{imag}
+
+Returns the imaginary component. For mpfr objects, returns 0.
+
+\subsubsection{precision}
+
+Returns the precision of the mpfr object.
+
+\subsubsection{rc}
+
+The result code (also known as ternary value in the MPFR documentation) is 0 if the value of
+the mpfr object is exactly equal to the exact, infinite precision value. If the result code is 1, then
+the value of the mpfr object is greater than the exact value. If the result code is -1, then the
+value of the mpfr object is less than the exact, infinite precision value.
+
+\subsubsection{real}
+
+Returns the real component. For mpfr objects, returns a copy of the original object.
+
+
+
+\subsection{mpfr Functions}
+
+\subsubsection{acos(...)}
+
+acos(x) returns the arc-cosine of x. x is measured in radians. If context.allow\_complex is True,
+then an mpc result will be returned for abs(x) > 1.
+
+\subsubsection{acosh(...)}
+
+acosh(x) returns the inverse hyperbolic cosine of x.
+
+\subsubsection{add(...)}
+
+add(x, y) returns x + y. The type of the result is based on the types of the arguments.
+
+\subsubsection{agm(...)}
+
+agm(x, y) returns the arithmetic-geometric mean of x and y.
+
+\subsubsection{ai(...)}
+
+ai(x) returns the Airy function of x.
+
+\subsubsection{asin(...)}
+
+asin(x) returns the arc-sine of x. x is measured in radians. If context.allow\_complex is True,
+then an mpc result will be returned for abs(x) $>$ 1.
+
+\subsubsection{asinh(...)}
+
+asinh(x) return the inverse hyperbolic sine of x.
+
+\subsubsection{atan(...)}
+
+atan(x) returns the arc-tangent of x. x is measured in radians.
+
+\subsubsection{atan2(...)}
+
+atan2(y, x) returns the arc-tangent of (y/x).
+
+\subsubsection{atanh(...)}
+
+atanh(x) returns the inverse hyperbolic tangent of x. If context.allow\_complex is True, then an
+mpc result will be returned for abs(x) $>$ 1.
+
+\subsubsection{cbrt(...)}
+
+cbrt(x) returns the cube root of x.
+
+\subsubsection{ceil(...)}
+
+ceil(x) returns the "mpfr" that is the smallest integer $\ge$ x.
+
+\subsubsection{check\_range(...)}
+
+check\_range(x) return a new "mpfr" with exponent that lies within the current range of emin and
+emax.
+
+\subsubsection{const\_catalan(...)}
+
+const\_catalan([precision=0]) returns the catalan constant using the specified precision. If no
+precision is specified, the default precision is used.
+
+\subsubsection{const\_euler(...)}
+
+const\_euler([precision=0]) returns the euler constant using the specified precision. If no
+precision is specified, the default precision is used.
+
+\subsubsection{const\_log2(...)}
+
+const\_log2([precision=0]) returns the log2 constant using the specified precision. If no
+precision is specified, the default precision is used.
+
+\subsubsection{const\_pi(...)}
+
+const\_pi([precision=0]) returns the constant pi using the specified precision. If no precision is
+specified, the default precision is used.
+
+\subsubsection{context(...)}
+
+context() returns a new context manager controlling MPFR and MPC arithmetic.
+
+\subsubsection{cos(...)}
+
+cos(x) seturns the cosine of x. x is measured in radians.
+
+\subsubsection{cosh(...)}
+
+cosh(x) returns the hyperbolic cosine of x.
+
+\subsubsection{cot(...)}
+
+cot(x) returns the cotangent of x. x is measured in radians.
+
+\subsubsection{coth(...)}
+
+coth(x) returns the hyperbolic cotangent of x.
+
+\subsubsection{csc(...)}
+
+csc(x) returns the cosecant of x. x is measured in radians.
+
+\subsubsection{csch(...)}
+
+csch(x) returns the hyperbolic cosecant of x.
+
+\subsubsection{degrees(...)}
+
+degrees(x) converts an angle measurement x from radians to degrees.
+
+\subsubsection{digamma(...)}
+
+digamma(x) returns the digamma of x.
+
+\subsubsection{div(...)}
+
+div(x, y) returns x / y. The type of the result is based on the types of the arguments.
+
+\subsubsection{div\_2exp(...)}
+
+div\_2exp(x, n) returns an "mpfr" or "mpc" divided by 2**n.
+
+\subsubsection{eint(...)}
+
+eint(x) returns the exponential integral of x.
+
+\subsubsection{erf(...)}
+
+erf(x) returns the error function of x.
+
+\subsubsection{erfc(...)}
+
+erfc(x) returns the complementary error function of x.
+
+\subsubsection{exp(...)}
+
+exp(x) returns e**x.
+
+\subsubsection{exp10(...)}
+
+exp10(x) returns 10**x.
+
+\subsubsection{exp2(...)}
+
+exp2(x) returns 2**x.
+
+\subsubsection{expm1(...)}
+
+expm1(x) returns e**x - 1. expm1() is more accurate than exp(x) - 1 when x is small.
+
+\subsubsection{f2q(...)}
+
+f2q(x[,err]) returns the simplest mpq approximating x to within relative error err. Default is the
+precision of x. Uses Stern-Brocot tree to find the simplist approximation. An mpz is returned if
+the the denominator is 1. If err $<$ 0, error sought is 2.0 ** err.
+
+\subsubsection{factorial(...)}
+
+factorial(n) returns the floating-point approximation to the factorial of n.
+See fac(n) to get the exact integer result.
+
+\subsubsection{floor(...)}
+
+floor(x) returns the "mpfr" that is the smallest integer $\le$ x.
+
+\subsubsection{fma(...)}
+
+fma(x, y, z) returns correctly rounded result of (x * y) + z.
+
+\subsubsection{fmod(...)}
+
+fmod(x, y) returns x - n*y where n is the integer quotient of x/y, rounded to 0.
+
+\subsubsection{fms(...)}
+
+fms(x, y, z) returns correctly rounded result of (x * y) - z.
+
+\subsubsection{frac(...)}
+
+frac(x) returns the fractional part of x.
+
+\subsubsection{frexp(...)}
+
+frexp(x) returns a tuple containing the exponent and mantissa of x.
+
+\subsubsection{fsum(...)}
+
+fsum(iterable) returns the accurate sum of the values in the iterable.
+
+\subsubsection{gamma(...)}
+
+gamma(x) returns the gamma of x.
+
+\subsubsection{get\_exp(...)}
+
+get\_exp(mpfr) returns the exponent of an mpfr. Returns 0 for NaN or Infinity and sets the
+erange flag and will raise an exception if trap\_erange is set.
+
+\subsubsection{hypot(...)}
+
+hypot(y, x) returns square root of (x**2 + y**2).
+
+\subsubsection{ieee(...)}
+
+ieee(bitwidth) returns a context with settings for 32-bit (aka single), 64-bit (aka double), or
+128-bit (aka quadruple) precision floating point types.
+
+\subsubsection{inf(...)}
+
+inf(n) returns an mpfr initialized to Infinity with the same sign as n. If n is not given, +Infinity is returned.
+
+\subsubsection{is\_finite(...)}
+
+is\_finite(x) returns True if x is an actual number (i.e. not NaN or Infinity).
+
+\subsubsection{is\_inf(...)}
+
+is\_inf(x) returns True if x is Infinity or -Infinity.
+
+Note: is\_inf() is deprecated; please use if\_infinite().
+
+
+\subsubsection{is\_infinite(...)}
+
+is\_infinite(x) returns True if x Infinity or -Infinity.
+
+\subsubsection{is\_nan(...)}
+
+is\_nan(x) returns True if x is NaN (Not-A-Number).
+
+\subsubsection{is\_number(...)}
+
+is\_number(x) returns True if x is an actual number (i.e. not NaN or Infinity).
+
+Note: is\_number() is deprecated; please use is\_finite().
+
+\subsubsection{is\_regular(...)}
+
+is\_regular(x) returns True if x is not zero, NaN, or Infinity.
+
+\subsubsection{is\_signed(...)}
+
+is\_signed(x) returns True if the sign bit of x is set.
+
+\subsubsection{is\_unordered(...)}
+
+is\_unordered(x,y) returns True if either x and/or y is NaN.
+
+\subsubsection{is\_zero(...)}
+
+is\_zero(x) returns True if x is zero.
+
+\subsubsection{j0(...)}
+
+j0(x) returns the Bessel function of the first kind of order 0 of x.
+
+\subsubsection{j1(...)}
+
+j1(x) returns the Bessel function of the first kind of order 1 of x.
+
+\subsubsection{jn(...)}
+
+jn(x,n) returns the Bessel function of the first kind of order n of x.
+
+\subsubsection{lgamma(...)}
+
+lgamma(x) returns a tuple containing the logarithm of the absolute value of gamma(x) and the
+sign of gamma(x)
+
+\subsubsection{li2(...)}
+
+li2(x) returns the real part of dilogarithm of x.
+
+\subsubsection{lngamma(...)}
+
+lngamma(x) returns the logarithm of gamma(x).
+
+\subsubsection{log(...)}
+
+log(x) returns the natural logarithm of x.
+
+\subsubsection{log10(...)}
+
+log10(x) returns the base-10 logarithm of x.
+
+\subsubsection{log1p(...)}
+
+log1p(x) returns the natural logarithm of (1+x).
+
+\subsubsection{log2(...)}
+
+log2(x) returns the base-2 logarithm of x.
+
+\subsubsection{max2(...)}
+
+max2(x, y) returns the maximum of x and y. The result may be rounded to match the current
+context. Use the builtin max() to get an exact copy of the largest object without any rounding.
+
+\subsubsection{min2(...)}
+
+min2(x, y) returns the minimum of x and y. The result may be rounded to match the current
+context. Use the builtin min() to get an exact copy of the smallest object without any rounding.
+
+\subsubsection{modf(...)}
+
+modf(x) returns a tuple containing the integer and fractional portions of x.
+
+\subsubsection{mpfr(...)}
+
+mpfr() returns and mpfr object set to 0.0.
+
+\subsubsection{mpfr(n, precison=0)}
+mpfr(n[, precison=0]) returns an mpfr object after converting a numeric value n. If no precision,
+or a precision of 0, is specified; the precision is taken from the current context.
+mpfr(s[, precision=0[, [base=0]]) returns an mpfr object after converting a string "s" made up of
+digits in the given base, possibly with fractional part (with period as a separator) and/or
+exponent (with exponent marker "e" for base $\le$ 10, else "@"). If no precision, or a precision of
+0, is specified; the precison is taken from the current context. The base of the string
+representation must be 0 or in the interval 2 ... 62. If the base is 0, the leading digits of the
+string are used to identify the base: 0b implies base=2, 0x implies base=16, otherwise
+base=10 is assumed.
+
+\subsubsection{mpfr\_from\_old\_binary(...)}
+
+mpfr\_from\_old\_binary(string) returns an mpfr from a GMPY 1.x binary mpf format. Please use
+to\_binary()/from\_binary() to convert GMPY2 objects to or from a binary format.
+
+\subsubsection{mpfr\_grandom(...)}
+
+mpfr\_grandom(random\_state) returns two random numbers with gaussian distribution. The
+parameter random\_state must be created by random\_state() first.
+
+\subsubsection{mpfr\_random(...)}
+
+mpfr\_random(random\_state) returns a uniformly distributed number between [0,1]. The
+parameter random\_state must be created by random\_state() first.
+
+\subsubsection{mul(...)}
+
+mul(x, y) returns x * y. The type of the result is based on the types of the arguments.
+
+\subsubsection{mul\_2exp(...)}
+
+mul\_2exp(x, n) returns "mpfr" or "mpc" multiplied by 2**n.
+
+\subsubsection{nan(...)}
+
+nan() returns an "mpfr" initialized to NaN (Not-A-Number).
+
+\subsubsection{next\_above(...)}
+
+next\_above(x) returns the next "mpfr" from x toward +Infinity.
+
+\subsubsection{next\_below(...)}
+
+next\_below(x) returns the next "mpfr" from x toward -Infinity.
+
+\subsubsection{radians(...)}
+
+radians(x) converts an angle measurement x from degrees to radians.
+
+\subsubsection{rec\_sqrt(...)}
+
+rec\_sqrt(x) returns the reciprocal of the square root of x.
+
+\subsubsection{reldiff(...)}
+
+reldiff(x, y) returns the relative difference between x and y. Result is equal to abs(x-y)/x.
+
+\subsubsection{remainder(...)}
+
+remainder(x, y) returns x - n*y where n is the integer quotient of x/y, rounded to the nearest
+integer and ties rounded to even.
+
+\subsubsection{remquo(...)}
+
+remquo(x, y) returns a tuple containing the remainder(x,y) and the low bits of the quotient.
+
+\subsubsection{rint(...)}
+
+rint(x) returns x rounded to the nearest integer using the current rounding mode.
+
+\subsubsection{rint\_ceil(...)}
+
+rint\_ceil(x) returns x rounded to the nearest integer by first rounding to the next higher or equal
+integer and then, if needed, using the current rounding mode.
+
+\subsubsection{rint\_floor(...)}
+
+rint\_floor(x) returns x rounded to the nearest integer by first rounding to the next lower or equal
+integer and then, if needed, using the current rounding mode.
+
+\subsubsection{rint\_round(...)}
+
+rint\_round(x) returns x rounded to the nearest integer by first rounding to the nearest integer
+(ties away from 0) and then, if needed, using the current rounding mode.
+
+\subsubsection{rint\_trunc(...)}
+
+rint\_trunc(x) returns x rounded to the nearest integer by first rounding towards zero and then, if
+needed, using the current rounding mode.
+
+\subsubsection{root(...)}
+
+root(x, n) returns n-th root of x. The result always an mpfr.
+
+\subsubsection{round2(...)}
+
+round2(x[, n]) returns x rounded to n bits. Uses default precision if n is not specified. See
+round\_away() to access the mpfr\_round() function. Use the builtin round() to round x to n
+decimal digits.
+
+\subsubsection{round\_away(...)}
+
+round\_away(x) returns an mpfr by rounding x the nearest integer, with ties rounded away from 0.
+
+\subsubsection{sec(...)}
+
+sec(x) returns the secant of x. x is measured in radians.
+
+\subsubsection{sech(...)}
+
+sech(x) returns the hyperbolic secant of x.
+
+\subsubsection{set\_exp(...)}
+
+set\_exp(x, n) sets the exponent of a given mpfr to n. If n is outside the range of valid
+exponents, set\_exp() will set the erange flag and either return the original value or raise an
+exception if trap\_erange is set.
+
+\subsubsection{set\_sign(...)}
+
+set\_sign(x, bool) returns a copy of x with its sign bit set if bool evaluates to True.
+
+\subsubsection{sign(...)}
+
+sign(x) returns -1 if x $<$ 0, 0 if x == 0, or +1 if x $>$ 0.
+
+\subsubsection{sin(...)}
+
+sin(x) returns the sine of x. x is measured in radians.
+
+\subsubsection{sin\_cos(...)}
+
+sin\_cos(x) returns a tuple containing the sine and cosine of x. x is measured in radians.
+
+\subsubsection{sinh(...)}
+
+sinh(x) returns the hyberbolic sine of x.
+
+\subsubsection{sinh\_cosh(...)}
+
+sinh\_cosh(x) returns a tuple containing the hyperbolic sine and cosine of x.
+
+\subsubsection{sqrt(...)}
+
+sqrt(x) returns the square root of x. If x is integer, rational, or real, then an mpfr will be
+returned. If x is complex, then an mpc will be returned. If context.allow\_complex is True,
+negative values of x will return an mpc.
+
+\subsubsection{square(...)}
+
+square(x) returns x * x. The type of the result is based on the types of the arguments.
+
+\subsubsection{sub(...)}
+
+sub(x, y) returns x - y. The type of the result is based on the types of the arguments.
+
+\subsubsection{tan(...)}
+
+tan(x) returns the tangent of x. x is measured in radians.
+
+\subsubsection{tanh(...)}
+
+tanh(x) returns the hyperbolic tangent of x.
+
+\subsubsection{trunc(...)}
+
+trunc(x) returns an "mpfr" that is x truncated towards 0. Same as x.floor() if x $\ge$ 0 or x.ceil() if
+x $<$ 0.
+
+\subsubsection{y0(...)}
+
+y0(x) returns the Bessel function of the second kind of order 0 of x.
+
+\subsubsection{y1(...)}
+
+y1(x) returns the Bessel function of the second kind of order 1 of x.
+
+\subsubsection{yn(...)}
+
+yn(x,n) returns the Bessel function of the second kind of order n of x.
+
+\subsubsection{zero(...)}
+
+zero(n) returns an mpfr inialized to 0.0 with the same sign as n. If n is not given, +0.0 is
+returned.
+
+\subsubsection{zeta(...)}
+
+zeta(x) returns the Riemann zeta of x.
+
+
+
+\subsection{mpfr Formatting}
+
+
+The mpfr type supports the \_\_format\_\_() special method to allow custom output formatting.
+
+\subsubsection{\_\_format\_\_(...)}
+
+
+x.\_\_format\_\_(fmt) returns a Python string by formatting "x" using the format string "fmt". 
+
+A valid format string consists of:
+
+optional alignment code:
+
+\lstset{language={Python}}
+\begin{lstlisting}
+"<" : left shifted in field
+">" : right shifted in field
+"^" : centered in field
+\end{lstlisting}
+
+optional leading sign code
+\lstset{language={Python}}
+\begin{lstlisting}
+"+" : always display leading sign
+"-" : only display minus for negative values
+" " : minus for negative values, space for positive values
+\end{lstlisting}
+
+optional width.precision
+
+optional rounding mode:
+\lstset{language={Python}}
+\begin{lstlisting}
+"U" : round toward plus infinity
+"D" : round toward minus infinity
+"Y" : round away from zero
+"Z" : round toward zero
+"N" : round to nearest
+\end{lstlisting}
+
+
+optional conversion code:
+\lstset{language={Python}}
+\begin{lstlisting}
+"a","A" : hex format
+"b" : binary format
+"e","E" : scientific format
+"f","F" : fixed point format
+"g","G" : fixed or scientific format
+\end{lstlisting}
+
+Note: The formatting codes must be specified in the order shown above.
+
+\lstset{language={Python}}
+\begin{lstlisting}
+>>> import gmpy2
+>>> from gmpy2 import mpfr
+>>> a=mpfr("1.23456")
+>>> "{0:15.3f}".format(a)
+' 1.235'
+>>> "{0:15.3Uf}".format(a)
+' 1.235'
+>>> "{0:15.3Df}".format(a)
+' 1.234'
+>>> "{0:.3Df}".format(a)
+'1.234'
+>>> "{0:+.3Df}".format(a)
+'+1.234'
+\end{lstlisting}
+
+
+
+
+\newpage
+\section{Multiple-precision Complex}
+
+gmpy2 adds a multiple-precision complex type called mpc that is based on the MPC library.
+The context manager settings for mpfr arithmetic are applied to mpc arithmetic by default. It is possible to specifiy different precision and rounding modes for both the real and
+imaginary components of an mpc.
+
+\lstset{language={Python}}
+\begin{lstlisting}
+>>> import gmpy2
+>>> from gmpy2 import mpc
+>>> gmpy2.sqrt(mpc("1+2j"))
+mpc('1.272019649514069+0.78615137775742328j')
+>>> gmpy2.get_context(real_prec=100,imag_prec=200)
+context(precision=53, real_prec=100, imag_prec=200,
+round=RoundToNearest, real_round=Default, imag_round=Default,
+emax=1073741823, emin=-1073741823,
+subnormalize=False,
+trap_underflow=False, underflow=False,
+trap_overflow=False, overflow=False,
+trap_inexact=False, inexact=True,
+trap_invalid=False, invalid=False,
+trap_erange=False, erange=False,
+trap_divzero=False, divzero=False,
+trap_expbound=False,
+allow_complex=False)
+>>> gmpy2.sqrt(mpc("1+2j"))
+mpc('1.2720196495140689642524224617376+0.7861513777574232860695585858429589295231220
+\end{lstlisting}
+
+Exceptions are normally raised in Python when the result of a real operation is not defined
+over the reals; for example, sqrt(-4) will raise an exception. The default context in gmpy2
+implements the same behavior but by setting allow\_complex to True, complex results will be
+returned.
+
+\lstset{language={Python}}
+\begin{lstlisting}
+>>> import gmpy2
+>>> from gmpy2 import mpc
+>>> gmpy2.sqrt(-4)
+mpfr('nan')
+>>> gmpy2.get_context(allow_complex=True)
+context(precision=53, real_prec=Default, imag_prec=Default,
+round=RoundToNearest, real_round=Default, imag_round=Default,
+emax=1073741823, emin=-1073741823,
+subnormalize=False,
+trap_underflow=False, underflow=False,
+trap_overflow=False, overflow=False,
+trap_inexact=False, inexact=False,
+trap_invalid=False, invalid=True,
+trap_erange=False, erange=False,
+trap_divzero=False, divzero=False,
+trap_expbound=False,
+allow_complex=True)
+>>> gmpy2.sqrt(-4)
+mpc('0.0+2.0j')
+\end{lstlisting}
+
+
+\subsection{mpc Methods}
+
+\subsubsection{conjugate()}
+
+Returns the complex conjugate.
+
+\subsubsection{digits()}
+
+Returns a two element tuple where each element represents the real and imaginary
+components as a 3-tuple containing the mantissa, the exponent, and the number of bits of precision. 
+The mantissa is represented as a string in the specified base with up to "prec" digits. If "prec" is 0, as many digits that are available are returned. No more digits than available given x's precision are returned. "base" must be between 2 and 62, inclusive.
+
+
+
+\subsection{mpc Attributes}
+
+\subsubsection{imag}
+
+Returns the imaginary component.
+
+\subsubsection{precision}
+
+Returns a 2-tuple containing the the precision of the real and imaginary components.
+
+\subsubsection{rc}
+
+Returns a 2-tuple containing the ternary value of the real and imaginary components. The
+ternary value is 0 if the value of the component is exactly equal to the exact, infinite precision
+value. If the result code is 1, then the value of the component is greater than the exact value. If
+the result code is -1, then the value of the component is less than the exact, infinite precision
+value.
+
+\subsubsection{real}
+
+Returns the real component.
+
+
+
+
+\subsection{mpc Functions}
+
+\subsubsection{acos(...)}
+
+acos(x) returns the arc-cosine of x.
+
+\subsubsection{acosh(...)}
+
+acosh(x) returns the inverse hyperbolic cosine of x.
+
+\subsubsection{add(...)}
+
+add(x, y) returns x + y. The type of the result is based on the types of the arguments.
+
+\subsubsection{asin(...)}
+
+asin(x) returns the arc-sine of x.
+
+\subsubsection{asinh(...)}
+
+asinh(x) return the inverse hyperbolic sine of x.
+
+\subsubsection{atan(...)}
+
+atan(x) returns the arc-tangent of x.
+
+\subsubsection{atanh(...)}
+
+atanh(x) returns the inverse hyperbolic tangent of x.
+
+\subsubsection{cos(...)}
+
+cos(x) seturns the cosine of x.
+
+\subsubsection{cosh(...)}
+
+cosh(x) returns the hyperbolic cosine of x.
+
+\subsubsection{div(...)}
+
+div(x, y) returns x / y. The type of the result is based on the types of the arguments.
+
+\subsubsection{div\_2exp(...)}
+
+div\_2exp(x, n) returns an "mpfr" or "mpc" divided by 2**n.
+
+\subsubsection{exp(...)}
+
+exp(x) returns e**x.
+
+\subsubsection{fma(...)}
+
+fma(x, y, z) returns correctly rounded result of (x * y) + z.
+
+\subsubsection{fms(...)}
+
+fms(x, y, z) returns correctly rounded result of (x * y) - z.
+
+\subsubsection{is\_inf(...)}
+
+is\_inf(x) returns True if either the real or imaginary component of x is Infinity or -Infinity.
+
+\subsubsection{is\_nan(...)}
+
+is\_nan(x) returns True if either the real or imaginary component of x is NaN (Not-A-Number).
+
+\subsubsection{is\_zero(...)}
+
+is\_zero(x) returns True if x is zero.
+
+\subsubsection{log(...)}
+
+log(x) returns the natural logarithm of x.
+
+\subsubsection{log10(...)}
+
+log10(x) returns the base-10 logarithm of x.
+
+\subsubsection{mpc(...)}
+
+mpc() returns an mpc object set to 0.0+0.0j.
+
+\subsubsection{mpc(c, precision=0)}
+returns a new "mpc" object from an existing complex number (either a Python complex object or another "mpc" object). If the precision is not specified, then the precision is taken from the current context. The rounding mode is always taken from the current context.
+
+\subsubsection{mpc(r, i=0, precision=0)}
+mpc(r[, i=0[, precision=0]]) returns a new "mpc" object by converting two non-complex numbers
+into the real and imaginary components of an "mpc" object. If the precision is not specified, then
+the precision is taken from the current context. The rounding mode is always taken from the
+current context.
+
+\subsubsection{mpc(s, precision=0, base=10)}
+mpc(s[, [precision=0[, base=10]]) returns a new "mpc" object by converting a string s into a
+complex number. If base is omitted, then a base-10 representation is assumed otherwise a
+base between 2 and 36 can be specified. If the precision is not specified, then the precision is
+taken from the current context. The rounding mode is always taken from the current context.
+In addition to the standard Python string representation of a complex number: "1+2j", the
+string representation used by the MPC library: "(1 2)" is also supported.
+
+\vpara
+Note: The precision can be specified either a single number that is used for both the real and
+imaginary components, or as a 2-tuple that can specify different precisions for the real
+and imaginary components.
+
+\subsubsection{mpc\_random(...)}
+
+mpfc\_random(random\_state) returns a uniformly distributed number in the unit square
+[0,1]x[0,1]. The parameter random\_state must be created by random\_state() first.
+
+\subsubsection{mul(...)}
+
+mul(x, y) returns x * y. The type of the result is based on the types of the arguments.
+
+\subsubsection{mul\_2exp(...)}
+
+mul\_2exp(x, n) returns "mpfr" or "mpc" multiplied by 2**n.
+
+\subsubsection{norm(...)}
+
+norm(x) returns the norm of a complex x. The norm(x) is defined as x.real**2 + x.imag**2.
+
+\subsubsection{abs(...)}
+abs(x) is the square root of norm(x).
+
+\subsubsection{phase(...)}
+
+phase(x) returns the phase angle, also known as argument, of a complex x.
+
+\subsubsection{polar(...)}
+
+polar(x) returns the polar coordinate form of a complex x that is in rectangular form.
+
+\subsubsection{proj(...)}
+
+proj(x) returns the projection of a complex x on to the Riemann sphere.
+
+\subsubsection{rect(...)}
+
+rect(x) returns the polar coordinate form of a complex x that is in rectangular form.
+
+\subsubsection{sin(...)}
+
+sin(x) returns the sine of x.
+
+\subsubsection{sinh(...)}
+
+sinh(x) returns the hyberbolic sine of x.
+
+\subsubsection{sqrt(...)}
+
+sqrt(x) returns the square root of x. If x is integer, rational, or real, then an mpfr will be
+returned. If x is complex, then an mpc will be returned. If context.allow\_complex is True,
+negative values of x will return an mpc.
+
+\subsubsection{square(...)}
+
+square(x) returns x * x. The type of the result is based on the types of the arguments.
+
+\subsubsection{sub(...)}
+
+sub(x, y) returns x - y. The type of the result is based on the types of the arguments.
+
+\subsubsection{tan(...)}
+
+tan(x) returns the tangent of x. x is measured in radians.
+
+\subsubsection{tanh(...)}
+
+tanh(x) returns the hyperbolic tangent of x.
+
+
+\subsection{mpc Formatting}
+
+The mpc type supports the \_\_format\_\_() special method to allow custom output formatting.
+
+\subsubsection{\_\_format\_\_(...)}
+
+
+x.\_\_format\_\_(fmt) returns a Python string by formatting "x" using the format string "fmt". A valid
+format string consists of:
+
+
+optional alignment code:
+
+\lstset{language={Python}}
+\begin{lstlisting}
+"<" : left shifted in field
+">" : right shifted in field
+"^" : centered in field
+\end{lstlisting}
+
+optional leading sign code
+\lstset{language={Python}}
+\begin{lstlisting}
+"+" : always display leading sign
+"-" : only display minus for negative values
+" " : minus for negative values, space for positive values
+\end{lstlisting}
+
+optional width.real.precision,  width.imag.precision
+
+optional rounding mode:
+\lstset{language={Python}}
+\begin{lstlisting}
+"U" : round toward plus infinity
+"D" : round toward minus infinity
+"Z" : round toward zero
+"N" : round to nearest
+\end{lstlisting}
+
+optional output style:
+\lstset{language={Python}}
+\begin{lstlisting}
+"P" :  Python style, 1+2j, (default)
+"M" :  MPC style, (1 2)
+\end{lstlisting}
+
+optional conversion code:
+\lstset{language={Python}}
+\begin{lstlisting}
+"a","A" : hex format
+"b" : binary format
+"e","E" : scientific format
+"f","F" : fixed point format
+"g","G" : fixed or scientific format
+\end{lstlisting}
+
+
+Note: The formatting codes must be specified in the order shown above.
+
+\lstset{language={Python}}
+\begin{lstlisting}
+>>> import gmpy2
+>>> from gmpy2 import mpc
+>>> a=gmpy2.sqrt(mpc("1+2j"))
+>>> a
+mpc('1.272019649514069+0.78615137775742328j')
+>>> "{0:.4.4Mf}".format(a)
+'(1.2720 0.7862)'
+>>> "{0:.4.4f}".format(a)
+'1.2720+0.7862j'
+>>> "{0:^20.4.4U}".format(a)
+' 1.2721+0.7862j '
+>>> "{0:^20.4.4D}".format(a)
+' 1.2720+0.7861j '
+\end{lstlisting}
+
+
+
 
 
 \chapter{LibreOffice Calc and Microsoft Excel}
@@ -1098,6 +3720,13 @@ The following references are useful for automating LibreOffice:
 
 \vpara
 \href{https://wiki.documentfoundation.org/images/6/63/Makroprogrammierung\_V41.pdf}{https://wiki.documentfoundation.org/images/6/63/Makroprogrammierung\_V41.pdf}. 
+
+
+\vpara
+\href{https://code.google.com/p/pyscripter/}{https://code.google.com/p/pyscripter/}. 
+
+
+
 
 
 
@@ -1123,6 +3752,127 @@ The \verb|sheetFunction.py| file needs to be copied into the  LibreOffice Python
 \begin{verbatim}
 \LibreOfficePortable\App\libreoffice\share\Scripts\python
 \end{verbatim}
+
+
+Example for calling a worksheet function from within StarBasic.
+
+\lstset{language={[Visual]Basic}}
+\lstset{morekeywords={Imports, Module, New, As}}
+\begin{lstlisting}
+Function foo(x As Double) As Double
+	Dim svc As Object
+	svc = createUnoService("com.sun.star.sheet.FunctionAccess")
+	foo = svc.callFunction("ERFC",Array(x))
+End Function
+\end{lstlisting}
+
+
+
+Example for calling a worksheet function from within VB.NET using the Windows-specific COM Interface
+
+\lstset{language={[Visual]Basic}}
+\lstset{morekeywords={Imports, Module, New, As}}
+\begin{lstlisting}
+Module Program
+
+Sub CallLO()
+	Dim objServiceManager As Object = CreateObject("com.sun.star.ServiceManager")
+	Dim objDesktop As Object = objServiceManager.createInstance("com.sun.star.frame.Desktop")
+	
+	Dim objSvc As Object = objServiceManager.createInstance("com.sun.star.sheet.FunctionAccess")
+	Dim x As Double = 3.0
+	Dim arr1 As Double() = {x}
+	Dim Result As Double = objSvc.callFunction("ERFC", arr1)
+	
+	Dim arrEmpty As Object() = {}
+	Dim objCalcDoc As Object = objDesktop.loadComponentFromURL("private:factory/scalc", "_blank", 0, arrEmpty)
+	'Set objCalcDoc = objDesktop.loadComponentFromURL("file:///C:/file.ods", "_blank", 0, Array())
+	
+	Dim objSheet As Object = objCalcDoc.getSheets().getByIndex(0)
+	objSheet.getCellByPosition(0, 0).SetString("Result: " + Result.ToString())
+	objSheet.getCellByPosition(0, 0).charWeight = 150        
+End Sub
+
+Sub Main()
+	CallLO()
+End Sub
+
+End Module
+\end{lstlisting}
+
+Additional examples for calling LibreOffice via COM can be found here:
+
+\href{http://www.columbia.edu/~em36/wp-ood.vbs.html}{http://www.columbia.edu/~em36/wp-ood.vbs.html}. 
+
+
+\vpara
+It is possible to control LibreOffice from CPython using sockets or named pipes. This will work on Windows, Mac OSX and Linux, and requires access to uno.py, which is typically pre-installed with LibreOffice. The use of uno is much simplified by an uno wrapper like pyoo, which is available from here:
+
+\vpara
+\href{https://pypi.python.org/pypi/pyoo/1.0}{https://pypi.python.org/pypi/pyoo/1.0}. 
+
+This site also contains detailed installation instructions. 
+
+\vpara
+When calling uno from a CPython installation other than the one provided by LibreOffice, it is important to make sure that the first two digits of the Python versions are the same, e.g. on Windows, the most current LibreOffice version includes CPython 3.3.5. This is compatible with CPython 3.3.4, but NOT with CPython 3.4.3.
+
+
+\vpara
+It is also necessary to set a number of environment variables. 
+
+The following code assumes that pyoo is available in the CPython path, and that you have already started LibreOffice with sockets:
+
+
+\lstset{language={Python}}
+\begin{lstlisting}
+import os
+import sys
+
+## This is the hard-coded path of your LibreOffice installation
+## Adapt as appropriate
+LOPath = 'I:\\Extra\\PortableApps\\LibreOfficePortable\\App\\libreoffice\\'
+
+os.environ['PATH']  += os.pathsep + LOPath + 'URE\\bin'
+os.environ['PATH']  += os.pathsep + LOPath + 'program'
+os.environ['URE_BOOTSTRAP'] = 'vnd.sun.star.pathname:' + LOPath + 'program\\fundamental.ini'
+os.environ['UNO_PATH'] = LOPath + 'program\\'
+sys.path.append(LOPath + 'program')
+
+import pyoo
+desktop = pyoo.Desktop('localhost', 2002)
+doc = desktop.create_spreadsheet()
+doc.sheets[0]
+sheet = doc.sheets[0]
+str(sheet[0,0].address)
+sheet[0,0].value = 1
+sheet[0,1].value = 2
+sheet[0,2].formula = '$A$1+$B$1'
+sheet[0,2].formula = '=$A$1+$B$1'
+sheet[0,2].value
+sheet[1:3,0:2].values = [[3,4],[5,6]]
+sheet[3,0:2].formulas = ['=$A$1+$A$2+$A$3', '=$B$1+$B$2+$B$3']
+sheet[3,0:2].values
+##doc.close()
+\end{lstlisting}
+
+This file is available as 
+\verb|..\mpFormulaPy\Win32_Python33\Lib\TestUno.py|
+
+
+Additional background information can be found at the following links:
+
+\vpara
+\href{http://stackoverflow.com/questions/24965406/getting-python-to-import-uno-pyuno}{http://stackoverflow.com/questions/24965406/getting-python-to-import-uno-pyuno}. 
+
+
+\vpara
+\href{http://stackoverflow.com/questions/4270962/using-pyuno-with-my-existing-python-installation}{http://stackoverflow.com/questions/4270962/using-pyuno-with-my-existing-python-installation}. 
+
+An alternative uno wrapper can be found here:
+
+
+\vpara
+\href{https://pypi.python.org/pypi/oosheet}{https://pypi.python.org/pypi/oosheet}. 
 
 
 \subsection{Mac OSX}
@@ -2500,7 +5250,6 @@ All of these functions can be used in mpFormulaPy functions, but do not have an 
 %\end{center}
 %
 %
-
 
 
 
@@ -5455,6 +8204,14 @@ The following text has been copied from the mpMath manual (0.19):
 \vpara
 xxxx
 
+
+
+\subsection{Contributors to gmpy2}
+\label{Contributors to gmpy2}
+The following text has been copied from the gmpy2 manual (2.05):
+
+\vpara
+xxxx
 
 
 

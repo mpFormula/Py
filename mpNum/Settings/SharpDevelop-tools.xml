@@ -10,6 +10,24 @@
     <USEOUTPUTPAD>False</USEOUTPUTPAD>
   </TOOL>
   <TOOL>
+    <INITIALDIRECTORY>${StartupPath}\..\..\Win32_Python33</INITIALDIRECTORY>
+    <ARGUMENTS>
+    </ARGUMENTS>
+    <COMMAND>${StartupPath}\..\..\Win32_Python33\StartPyScripter.bat</COMMAND>
+    <MENUCOMMAND>PyScripter 32 bit</MENUCOMMAND>
+    <PROMPTFORARGUMENTS>False</PROMPTFORARGUMENTS>
+    <USEOUTPUTPAD>False</USEOUTPUTPAD>
+  </TOOL>
+  <TOOL>
+    <INITIALDIRECTORY>
+    </INITIALDIRECTORY>
+    <ARGUMENTS>-X:Frames -X:ColorfulConsole</ARGUMENTS>
+    <COMMAND>${StartupPath}\..\AddIns\BackendBindings\PythonBinding\ipy.exe</COMMAND>
+    <MENUCOMMAND>IronPython Command Line 32 bit</MENUCOMMAND>
+    <PROMPTFORARGUMENTS>False</PROMPTFORARGUMENTS>
+    <USEOUTPUTPAD>False</USEOUTPUTPAD>
+  </TOOL>
+  <TOOL>
     <INITIALDIRECTORY>
     </INITIALDIRECTORY>
     <ARGUMENTS>
@@ -42,18 +60,30 @@
   <TOOL>
     <INITIALDIRECTORY>
     </INITIALDIRECTORY>
-    <ARGUMENTS>-X:Frames -X:ColorfulConsole</ARGUMENTS>
-    <COMMAND>${StartupPath}\..\AddIns\BackendBindings\PythonBinding\ipy.exe</COMMAND>
-    <MENUCOMMAND>IronPython Command Line 32 bit</MENUCOMMAND>
+    <ARGUMENTS>
+    </ARGUMENTS>
+    <COMMAND>${StartupPath}\..\..\</COMMAND>
+    <MENUCOMMAND>Open Root Directory</MENUCOMMAND>
     <PROMPTFORARGUMENTS>False</PROMPTFORARGUMENTS>
     <USEOUTPUTPAD>False</USEOUTPUTPAD>
   </TOOL>
   <TOOL>
     <INITIALDIRECTORY>
     </INITIALDIRECTORY>
-    <ARGUMENTS>-X:Frames -X:ColorfulConsole</ARGUMENTS>
-    <COMMAND>${StartupPath}\..\AddIns\BackendBindings\PythonBinding\ipy64.exe</COMMAND>
-    <MENUCOMMAND>IronPython Command Line 64 bit</MENUCOMMAND>
+    <ARGUMENTS>
+    </ARGUMENTS>
+    <COMMAND>${StartupPath}\..\..\GUI\StartNumExp.exe</COMMAND>
+    <MENUCOMMAND>Numerical Explorations</MENUCOMMAND>
+    <PROMPTFORARGUMENTS>False</PROMPTFORARGUMENTS>
+    <USEOUTPUTPAD>False</USEOUTPUTPAD>
+  </TOOL>
+  <TOOL>
+    <INITIALDIRECTORY>
+    </INITIALDIRECTORY>
+    <ARGUMENTS>
+    </ARGUMENTS>
+    <COMMAND>a.exe</COMMAND>
+    <MENUCOMMAND>==== Installation Required:  ====</MENUCOMMAND>
     <PROMPTFORARGUMENTS>False</PROMPTFORARGUMENTS>
     <USEOUTPUTPAD>False</USEOUTPUTPAD>
   </TOOL>
@@ -67,12 +97,31 @@
     <USEOUTPUTPAD>False</USEOUTPUTPAD>
   </TOOL>
   <TOOL>
+    <INITIALDIRECTORY>${StartupPath}\..\..\..\ExternalTools\Win64_Python33</INITIALDIRECTORY>
+    <ARGUMENTS>
+    </ARGUMENTS>
+    <COMMAND>${StartupPath}\..\..\..\ExternalTools\Win64_Python33\StartPyScripter.bat</COMMAND>
+    <MENUCOMMAND>PyScripter 64 bit</MENUCOMMAND>
+    <PROMPTFORARGUMENTS>False</PROMPTFORARGUMENTS>
+    <USEOUTPUTPAD>False</USEOUTPUTPAD>
+  </TOOL>
+  <TOOL>
     <INITIALDIRECTORY>
     </INITIALDIRECTORY>
     <ARGUMENTS>
     </ARGUMENTS>
     <COMMAND>${StartupPath}\..\..\..\..\PortableApps\WinPython-32bit-3.3.5.0\Spyder.exe</COMMAND>
-    <MENUCOMMAND>CPython 32 bit</MENUCOMMAND>
+    <MENUCOMMAND>WinPython 32 bit</MENUCOMMAND>
+    <PROMPTFORARGUMENTS>False</PROMPTFORARGUMENTS>
+    <USEOUTPUTPAD>False</USEOUTPUTPAD>
+  </TOOL>
+  <TOOL>
+    <INITIALDIRECTORY>
+    </INITIALDIRECTORY>
+    <ARGUMENTS>
+    </ARGUMENTS>
+    <COMMAND>${StartupPath}\..\..\..\..\PortableApps\WinPython-64bit-3.3.5.0\Spyder.exe</COMMAND>
+    <MENUCOMMAND>WinPython 64 bit</MENUCOMMAND>
     <PROMPTFORARGUMENTS>False</PROMPTFORARGUMENTS>
     <USEOUTPUTPAD>False</USEOUTPUTPAD>
   </TOOL>
@@ -89,10 +138,9 @@
   <TOOL>
     <INITIALDIRECTORY>
     </INITIALDIRECTORY>
-    <ARGUMENTS>
-    </ARGUMENTS>
-    <COMMAND>${StartupPath}\..\..\..\..\PortableApps\LibreOfficePortable\LibreOfficePortable.exe</COMMAND>
-    <MENUCOMMAND>LibreOffice</MENUCOMMAND>
+    <ARGUMENTS> --accept="socket,host=localhost,port=2002;urp;"</ARGUMENTS>
+    <COMMAND>${StartupPath}\..\..\..\..\PortableApps\LibreOfficePortable\App\libreoffice\program\soffice.exe</COMMAND>
+    <MENUCOMMAND>LibreOffice Portable (with socket)</MENUCOMMAND>
     <PROMPTFORARGUMENTS>False</PROMPTFORARGUMENTS>
     <USEOUTPUTPAD>False</USEOUTPUTPAD>
   </TOOL>
@@ -101,17 +149,18 @@
     </INITIALDIRECTORY>
     <ARGUMENTS>
     </ARGUMENTS>
-    <COMMAND>${StartupPath}\..\..\</COMMAND>
-    <MENUCOMMAND>Open Root Directory</MENUCOMMAND>
+    <COMMAND>${StartupPath}\..\..\..\..\PortableApps\EclipsePortable\EclipsePortable.exe</COMMAND>
+    <MENUCOMMAND>Eclipse Portable</MENUCOMMAND>
     <PROMPTFORARGUMENTS>False</PROMPTFORARGUMENTS>
     <USEOUTPUTPAD>False</USEOUTPUTPAD>
   </TOOL>
   <TOOL>
     <INITIALDIRECTORY>
     </INITIALDIRECTORY>
-    <ARGUMENTS>https://duhadler.wordpress.com/</ARGUMENTS>
-    <COMMAND>C:\Program Files\Internet Explorer\iexplore.exe</COMMAND>
-    <MENUCOMMAND>Numerical Explorations</MENUCOMMAND>
+    <ARGUMENTS>
+    </ARGUMENTS>
+    <COMMAND>C:\Program Files (x86)\LibreOffice 4\program\soffice.exe</COMMAND>
+    <MENUCOMMAND>LibreOffice COM</MENUCOMMAND>
     <PROMPTFORARGUMENTS>False</PROMPTFORARGUMENTS>
     <USEOUTPUTPAD>False</USEOUTPUTPAD>
   </TOOL>

@@ -1,0 +1,4 @@
+I:\Extra\mpFormulaTDM\mpFormulaPy\Source\LibreOffice\LibreOffice\obj\Release\LibreOffice.vbprojResolveAssemblyReference.cache
+I:\Extra\mpFormulaTDM\mpFormulaPy\Source\LibreOffice\LibreOffice\bin\Release\LibreOffice.exe.config
+I:\Extra\mpFormulaTDM\mpFormulaPy\Source\LibreOffice\LibreOffice\bin\Release\LibreOffice.exe
+I:\Extra\mpFormulaTDM\mpFormulaPy\Source\LibreOffice\LibreOffice\obj\Release\LibreOffice.exe

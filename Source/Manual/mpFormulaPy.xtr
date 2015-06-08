@@ -1,5 +1,8 @@
 \begin{XTRmpFunctionsExtract}
-\mpFunctionOne
-{Chart? String?  an identifier for an XML Chart.}
-{Data? Range? a reference for a data table.}
+\mpFunctionFour
+{gmpy2.lucasv\_mod? Integer? the $k$-th element of the Lucas $V$ sequence defined by $p$, $q$ (mod $n$)}
+{p? Integer? An Integer.}
+{q? Integer? An Integer.}
+{k? Integer? An Integer.}
+{n? Integer? An Integer.}
 \end{XTRmpFunctionsExtract}

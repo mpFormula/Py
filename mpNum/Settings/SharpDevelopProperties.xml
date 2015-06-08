@@ -193,28 +193,28 @@
   </Properties>
   <Properties name="RecentOpen">
     <Array name="Files">
+      <Element value="I:\Extra\mpFormulaTDM\mpFormulaPy\Source\LibreOffice\LibreOffice\Program.vb" />
+      <Element value="I:\Extra\mpFormulaTDM\mpFormulaPy\Source\CPythonFromNet\CPythonFromNet\Program.vb" />
+      <Element value="I:\Extra\mpFormulaTDM\mpFormulaPy\Source\TestString\TestString\app.config" />
       <Element value="I:\Extra\mpFormulaTDM\mpFormulaPy\Source\TestString\TestString\Program.vb" />
-      <Element value="I:\Data\mpFormulaTDM\mpFormulaPy\Source\MpMath\mpFormulaXLClassLib\Class1.vb" />
-      <Element value="I:\Data\mpFormulaTDM\mpFormulaPy\Source\MpMath\mpFormulaXLClassLib\mpFormulaClass.vb" />
-      <Element value="I:\Data\mpFormulaTDM\mpFormulaPy\Source\MpMath\MpMathNetLib\MpMathClass.vb" />
-      <Element value="I:\Data\mpFormulaTDM\mpFormulaPy\Source\MpMath\MpMathPythonLib\MyModule.py" />
-      <Element value="I:\Data\mpFormulaTDM\mpFormulaPy\Source\MpMath\TestFormulaXLClassLib\TestMpFormula.vb" />
-      <Element value="I:\Data\mpFormulaTDM\mpFormulaPy\Source\MpMath\mpFormulaOneCOM\Library.vb" />
-      <Element value="I:\Data\mpFormulaTDM\mpFormulaPy\Source\NetOffice\xlDemo1\Program.vb" />
-      <Element value="C:\Extra\mpFormulaTDM\mpFormulaPy\Source\mpFormulaToolbox\FileViewer\MainForm.vb" />
+      <Element value="I:\Extra\mpFormulaTDM\mpFormulaPy\Source\TestFinancialFunctions\TestFinancialFunctions\Program.vb" />
+      <Element value="I:\Extra\mpFormulaTDM\mpFormulaXL\Source\TestFinancialFunctions\TestFinancialFunctions\Program.vb" />
+      <Element value="C:\Extra\mpFormulaTDM\mpFormulaPy\Source\mpFormulaToolbox\StartNumExp\MainForm.Designer.cs" />
+      <Element value="C:\Extra\mpFormulaTDM\mpFormulaPy\Source\mpFormulaToolbox\StartNumExp\MainForm.cs" />
       <Element value="C:\Extra\mpFormulaTDM\mpFormulaPy\Source\mpFormulaToolbox\FileViewer\Program.vb" />
+      <Element value="I:\Data\mpFormulaTDM\mpFormulaPy\Source\MpMath\mpFormulaXLClassLib\Class1.vb" />
     </Array>
     <Array name="Projects">
+      <Element value="I:\Extra\mpFormulaTDM\mpFormulaPy\Source\LibreOffice\LibreOffice.sln" />
+      <Element value="I:\Extra\mpFormulaTDM\mpFormulaPy\Source\CPythonFromNet\CPythonFromNet.sln" />
       <Element value="I:\Extra\mpFormulaTDM\mpFormulaPy\Source\TestString\TestString.sln" />
+      <Element value="I:\Extra\mpFormulaTDM\mpFormulaPy\Source\TestFinancialFunctions\TestFinancialFunctions.sln" />
+      <Element value="I:\Extra\mpFormulaTDM\mpFormulaXL\Source\TestFinancialFunctions\TestFinancialFunctions.sln" />
+      <Element value="C:\Extra\mpFormulaTDM\mpFormulaPy\Source\mpFormulaToolbox\mpFormulaToolbox.sln" />
       <Element value="I:\Data\mpFormulaTDM\mpFormulaPy\Source\MpMath\MpMath.sln" />
       <Element value="I:\Data\mpFormulaTDM\mpFormulaPy\Source\NetOffice\xlDemo1.sln" />
-      <Element value="C:\Extra\mpFormulaTDM\mpFormulaPy\Source\mpFormulaToolbox\mpFormulaToolbox.sln" />
       <Element value="C:\Extra\mpFormulaTDM\mpFormulaPy\Source\MpMath\MpMath.sln" />
       <Element value="C:\Extra\mpFormulaTDM\mpFormulaXL\Source\MpMathListing\mpmathListing.sln" />
-      <Element value="C:\Extra\mpFormulaTDM\mpFormulaXL\Source\MpMath\MpMath.sln" />
-      <Element value="C:\Extra\mpFormulaTDM\mpFormulaXL\Source\mpFormulaToolbox\mpFormulaToolbox.sln" />
-      <Element value="C:\Extra\mpFormulaTDM\mpFormulaXL\Source\Distributions\Distributions.sln" />
-      <Element value="I:\Data\mpFormulaTDM\mpFormulaXL\Source\Distributions\Distributions.sln" />
     </Array>
   </Properties>
   <RegExpTk.WindowBounds value="960, 240, 960, 560" />
@@ -346,7 +346,7 @@
   <VBBinding.TextEditor.EnableCasing value="True" />
   <VBBinding.TextEditor.EnableEndConstructs value="True" />
   <Properties name="WorkbenchMemento">
-    <Bounds value="212,95,1132,704" />
+    <Bounds value="368,317,1132,704" />
     <WindowState value="Normal" />
   </Properties>
   <Properties name="XamlBinding.Options">

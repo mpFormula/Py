@@ -1,0 +1,8 @@
+I:\Extra\mpFormulaTDM\mpFormulaPy\Win32_Python33\CPythonFromNet.exe.config
+I:\Extra\mpFormulaTDM\mpFormulaPy\Win32_Python33\CPythonFromNet.exe
+I:\Extra\mpFormulaTDM\mpFormulaPy\Source\TestString\TestString\obj\Release\CPythonFromNet.vbprojResolveAssemblyReference.cache
+I:\Extra\mpFormulaTDM\mpFormulaPy\Source\TestString\TestString\obj\Release\CPythonFromNet.exe
+I:\Extra\mpFormulaTDM\mpFormulaPy\Source\CPythonFromNet\TestString\obj\Release\CPythonFromNet.exe
+I:\Extra\mpFormulaTDM\mpFormulaPy\Source\CPythonFromNet\TestString\obj\Release\CPythonFromNet.vbprojResolveAssemblyReference.cache
+I:\Extra\mpFormulaTDM\mpFormulaPy\Source\CPythonFromNet\CPythonFromNet\obj\Release\CPythonFromNet.vbprojResolveAssemblyReference.cache
+I:\Extra\mpFormulaTDM\mpFormulaPy\Source\CPythonFromNet\CPythonFromNet\obj\Release\CPythonFromNet.exe

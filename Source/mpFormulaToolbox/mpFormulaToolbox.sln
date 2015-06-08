@@ -20,6 +20,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wpf3DControl", "Wpf3DContro
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfInWinForms", "WpfInWinForms\WpfInWinForms.csproj", "{CBE9929D-A969-4A95-A261-CBE9C208EF14}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StartNumExp", "StartNumExp\StartNumExp.csproj", "{E2406425-0CE1-41AC-BCBA-D85E9DB42646}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -62,5 +64,9 @@ Global
 		{CBE9929D-A969-4A95-A261-CBE9C208EF14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CBE9929D-A969-4A95-A261-CBE9C208EF14}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CBE9929D-A969-4A95-A261-CBE9C208EF14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2406425-0CE1-41AC-BCBA-D85E9DB42646}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2406425-0CE1-41AC-BCBA-D85E9DB42646}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2406425-0CE1-41AC-BCBA-D85E9DB42646}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2406425-0CE1-41AC-BCBA-D85E9DB42646}.Release|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 EndGlobal

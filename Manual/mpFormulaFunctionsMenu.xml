@@ -38,6 +38,15 @@
 "/>
 </node>
 </node>
+<node text="Python: Built-in numerical types" imageindex="2" tag="Chapter Info on Python: Built-in numerical types">
+  <node text="Truth Value Testing" imageindex="3" tag="Section Info on Truth Value Testing"/>
+  <node text="Boolean Operations: and, or, not" imageindex="3" tag="Section Info on Boolean Operations: and, or, not"/>
+  <node text="Comparisons" imageindex="3" tag="Section Info on Comparisons"/>
+  <node text="Numeric Types - int, float, complex" imageindex="3" tag="Section Info on Numeric Types - int, float, complex"/>
+  <node text="Long integers" imageindex="3" tag="Section Info on Long integers"/>
+  <node text="Fractions" imageindex="3" tag="Section Info on Fractions"/>
+  <node text="Decimals" imageindex="3" tag="Section Info on Decimals"/>
+</node>
 <node text="Basic Usage" imageindex="2" tag="Chapter Info on Basic Usage">
   <node text="Number types" imageindex="3" tag="Section Info on Number types"/>
   <node text="Precision and representation issues" imageindex="3" tag="Section Info on Precision and representation issues"/>
@@ -3821,746 +3830,6 @@
 "/>
 </node>
 </node>
-<node text="Date, Time and Financial Functions" imageindex="2" tag="Chapter Info on Date, Time and Financial Functions">
-  <node text="Date and Time: Conversions from Serial Number" imageindex="3" tag="Section Info on Date and Time: Conversions from Serial Number">
-  <node text="SECOND? mpReal? the seconds of a time value. The second is given as an integer in the range 0 (zero) to 59." imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionOneNotImplemented
-{SECOND? mpReal? the seconds of a time value. The second is given as an integer in the range 0 (zero) to 59.}
-{Timevalue? Variant? The time that contains the seconds you want to find.}
-\end{mpFunctionsExtract}
-"/>
-  <node text="MINUTE? mpReal? the minutes of a time value. The minute is given as an integer, ranging from 0 to 59." imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionOneNotImplemented
-{MINUTE? mpReal? the minutes of a time value. The minute is given as an integer, ranging from 0 to 59.}
-{Timevalue? Variant? The time that contains the minute you want to find.}
-\end{mpFunctionsExtract}
-"/>
-  <node text="HOUR? mpReal? the hour of a time value. The hour is given as an integer, ranging from 0 (12:00 A.M.) to 23 (11:00 P.M.)." imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionOneNotImplemented
-{HOUR? mpReal? the hour of a time value. The hour is given as an integer, ranging from 0 (12:00 A.M.) to 23 (11:00 P.M.).}
-{Timevalue? Variant? The time that contains the hour you want to find.}
-\end{mpFunctionsExtract}
-"/>
-  <node text="DAY? mpReal? the day of a date, represented by a serial number. The day is given as an integer ranging from 1 to 31." imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionOneNotImplemented
-{DAY? mpReal? the day of a date, represented by a serial number. The day is given as an integer ranging from 1 to 31.}
-{Datevalue? Date? The date of the day you are trying to find.}
-\end{mpFunctionsExtract}
-"/>
-  <node text="DAYS? mpReal? the number of days between two dates. EndDateValue and  and StartDateValue  are the two dates between which you want to know the number of days." imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionTwoNotImplemented
-{DAYS? mpReal? the number of days between two dates. EndDateValue and  and StartDateValue  are the two dates between which you want to know the number of days.}
-{EndDatevalue? Date? The end of the time interval.}
-{StartDatevalue? Date? The start of the time interval.}
-\end{mpFunctionsExtract}
-"/>
-  <node text="MONTH? mpReal? the month of a date represented by a serial number. The month is given as an integer, ranging from 1 (January) to 12 (December)." imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionOneNotImplemented
-{MONTH? mpReal? the month of a date represented by a serial number. The month is given as an integer, ranging from 1 (January) to 12 (December).}
-{Datevalue? Date? The date of the month you are trying to find.}
-\end{mpFunctionsExtract}
-"/>
-  <node text="YEAR? mpReal? the year corresponding to a date. The year is returned as an integer in the range 1900-9999." imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionOneNotImplemented
-{YEAR? mpReal? the year corresponding to a date. The year is returned as an integer in the range 1900-9999.}
-{Datevalue? Date? The date of the year you want to find.}
-\end{mpFunctionsExtract}
-"/>
-  <node text="WEEKDAY? mpReal? the day of the week corresponding to a date. The day is given as an integer, ranging from 1 (Sunday) to 7 (Saturday), by default." imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionTwoNotImplemented
-{WEEKDAY? mpReal? the day of the week corresponding to a date. The day is given as an integer, ranging from 1 (Sunday) to 7 (Saturday), by default.}
-{Datevalue? Date? A sequential number that represents the date of the day you are trying to find.}
-{ReturnType? Integer? A number that determines the type of return value.}
-\end{mpFunctionsExtract}
-"/>
-  <node text="WEEKNUM? mpReal? the week number of a specific date." imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionTwoNotImplemented
-{WEEKNUM? mpReal? the week number of a specific date.}
-{Datevalue? Date? A date within the week. }
-{ReturnType? Integer? A number that determines on which day the week begins. The default is 1.}
-\end{mpFunctionsExtract}
-"/>
-  <node text="WEEKNUM-ADD? mpReal? the week number of a specific date." imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionTwoNotImplemented
-{WEEKNUM-ADD? mpReal? the week number of a specific date.}
-{Datevalue? Date? A date within the week. }
-{ReturnType? Integer? A number that determines on which day the week begins. The default is 1.}
-\end{mpFunctionsExtract}
-"/>
-  <node text="ISOWEEKNUM? mpReal? the week number of a specific date." imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionTwoNotImplemented
-{ISOWEEKNUM? mpReal? the week number of a specific date.}
-{Datevalue? Date? A date within the week. }
-{ReturnType? Integer? A number that determines on which day the week begins. The default is 1.}
-\end{mpFunctionsExtract}
-"/>
-</node>
-  <node text="Date and Time: Conversions to Serial Number" imageindex="3" tag="Section Info on Date and Time: Conversions to Serial Number">
-  <node text="DATE? Date? the sequential serial number that represents a particular date." imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionThreeNotImplemented
-{DATE? Date? the sequential serial number that represents a particular date.}
-{Year? mpReal? A number that determines the Year (1900-9999).}
-{Month? mpReal? A number that determines the Month (1-12).}
-{Day? mpReal? A number that determines the day of the month (1-31).}
-\end{mpFunctionsExtract}
-"/>
-  <node text="EASTERSUNDAY? Date? the date of Easter Sunday in a given year." imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionOneNotImplemented
-{EASTERSUNDAY? Date? the date of Easter Sunday in a given year.}
-{Year? mpReal? an integer between 1583 and 9956 or between 0 and 99, specifying the year. }
-\end{mpFunctionsExtract}
-"/>
-  <node text="DATEVALUE? Date? a serial number that Excel recognizes as a date" imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionOneNotImplemented
-{DATEVALUE? Date? a serial number that Excel recognizes as a date}
-{DateText? String? Text that represents a date in an Excel date format}
-\end{mpFunctionsExtract}
-"/>
-  <node text="EDATE? Date? a serial number that Excel recognizes as a date" imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionTwoNotImplemented
-{EDATE? Date? a serial number that Excel recognizes as a date}
-{StartDate? Date? A date that represents the start date.}
-{Months? Integer? The number of months before or after StartDate. A positive value for months yields a future date; a negative value yields a past date.}
-\end{mpFunctionsExtract}
-"/>
-  <node text="EOMONTH? Date? a serial number that Excel recognizes as a date" imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionTwoNotImplemented
-{EOMONTH? Date? a serial number that Excel recognizes as a date}
-{StartDate? Date? A date that represents the start date.}
-{Months? Integer? The number of months before or after StartDate. A positive value for months yields a future date; a negative value yields a past date.}
-\end{mpFunctionsExtract}
-"/>
-  <node text="NOW? Date? the serial number of the current date and time." imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionZeroNotImplemented
-{NOW? Date? the serial number of the current date and time.}
-\end{mpFunctionsExtract}
-"/>
-  <node text="TIME? Date? the decimal number for a particular time. If the cell format was General before the function was entered, the result is formatted as a date." imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionThreeNotImplemented
-{TIME? Date? the decimal number for a particular time. If the cell format was General before the function was entered, the result is formatted as a date.}
-{Hour? mpReal? A number from 0 (zero) to 32767 representing the hour. Any value greater than 23 will be divided by 24 and the remainder will be treated as the hour value. For example, TIME(27,0,0) = TIME(3,0,0) = .125 or 3:00 AM.}
-{Minute? mpReal? A number from 0 to 32767 representing the minute. Any value greater than 59 will be converted to hours and minutes. For example, TIME(0,750,0) = TIME(12,30,0) = .520833 or 12:30 PM.}
-{Second? mpReal? A number from 0 to 32767 representing the second. Any value greater than 59 will be converted to hours, minutes, and seconds. For example, TIME(0,0,2000) = TIME(0,33,22) = .023148 or 12:33:20 AM.}
-\end{mpFunctionsExtract}
-"/>
-  <node text="TIMEVALUE? mpReal? the decimal number of the time represented by a text string. The decimal number is a value ranging from 0 (zero) to 0.99999999, representing the times from 0:00:00 (12:00:00 AM) to 23:59:59 (11:59:59 P.M.)." imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionOneNotImplemented
-{TIMEVALUE? mpReal? the decimal number of the time represented by a text string. The decimal number is a value ranging from 0 (zero) to 0.99999999, representing the times from 0:00:00 (12:00:00 AM) to 23:59:59 (11:59:59 P.M.).}
-{TimeText? String? A text string that represents a time in any one of the Microsoft Excel time formats.}
-\end{mpFunctionsExtract}
-"/>
-  <node text="TODAY? mpReal? the serial number of the current date." imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionZeroNotImplemented
-{TODAY? mpReal? the serial number of the current date.}
-\end{mpFunctionsExtract}
-"/>
-  <node text="WORKDAY? Date? a number that represents a date that is the indicated number of working days before or after a date (the starting date)." imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionThreeNotImplemented
-{WORKDAY? Date? a number that represents a date that is the indicated number of working days before or after a date (the starting date).}
-{StartDate? Date? A date that represents the start date.}
-{Days? Integer? The number of nonweekend and nonholiday days before or after StartDate. A positive value for days yields a future date; a negative value yields a past date.}
-{Holidays? DateList?  An optional list of one or more dates to exclude from the working calendar}
-\end{mpFunctionsExtract}
-"/>
-  <node text="WORKDAY.INTL? Date? a number that represents a date that is the indicated number of working days before or after a date (the starting date)." imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionFourNotImplemented
-{WORKDAY.INTL? Date? a number that represents a date that is the indicated number of working days before or after a date (the starting date).}
-{StartDate? Date? The start date, truncated to integer.}
-{Days? Integer? The number of nonweekend and nonholiday days before or after StartDate. A positive value for days yields a future date; a negative value yields a past date.  Day-offset is truncated to an integer.}
-{Weekend? Integer? Indicates the days of the week that are weekend days and are not considered working days.}
-{Holidays? DateList?  An optional list of one or more dates to exclude from the working calendar}
-\end{mpFunctionsExtract}
-"/>
-</node>
-  <node text="Date and Time: Calculations" imageindex="3" tag="Section Info on Date and Time: Calculations">
-  <node text="DAYS360? Date? the number of days between two dates based on a 360-day year (twelve 30-day months), which is used in some accounting calculations" imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionThreeNotImplemented
-{DAYS360? Date? the number of days between two dates based on a 360-day year (twelve 30-day months), which is used in some accounting calculations}
-{StartDate? Date? A date that represents the start date.}
-{EndDate? Date? A date that represents the end date}
-{Method? Boolean?  A logical value that specifies whether to use the U.S. or European method in the calculation}
-\end{mpFunctionsExtract}
-"/>
-  <node text="NETWORKDAYS? mpReal? the number of whole working days between StartDate and EndDate." imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionThreeNotImplemented
-{NETWORKDAYS? mpReal? the number of whole working days between StartDate and EndDate.}
-{StartDate? Date? A date that represents the start date.}
-{EndDate? Date? A date that represents the end date}
-{Holidays? DateList?  An optional range of one or more dates to exclude from the working calendar, such as state and federal holidays and floating holidays}
-\end{mpFunctionsExtract}
-"/>
-  <node text="NETWORKDAYS.INTL? mpReal? the number of whole working days between StartDate and EndDate." imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionThreeNotImplemented
-{NETWORKDAYS.INTL? mpReal? the number of whole working days between StartDate and EndDate.}
-{StartDate? Date? A date that represents the start date.}
-{EndDate? Date? A date that represents the end date}
-{Weekend? String? Indicates the days of the week that are weekend days and are not included in the number of whole working days between StartDate and EndDate.}
-{Holidays? DateList?  An optional range of one or more dates to exclude from the working calendar, such as state and federal holidays and floating holidays}
-\end{mpFunctionsExtract}
-"/>
-  <node text="YEARFRAC? mpReal? the fraction of the year represented by the number of whole days between two dates." imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionThreeNotImplemented
-{YEARFRAC? mpReal? the fraction of the year represented by the number of whole days between two dates.}
-{StartDate? Date? A date that represents the start date.}
-{EndDate? Date? A date that represents the end date}
-{Basis? DateList?  The type of day count basis to use. Basis Day count basis }
-\end{mpFunctionsExtract}
-"/>
-</node>
-  <node text="Coupons" imageindex="3" tag="Section Info on Coupons">
-  <node text="COUPDAYBS? mpReal? the number of days from the beginning of the coupon period to the settlement date." imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionFourNotImplemented
-{COUPDAYBS? mpReal? the number of days from the beginning of the coupon period to the settlement date.}
-{SettlementDate? Date? The security's settlement date.}
-{MaturityDate? Date? The security's maturity date.}
-{Frequency? mpReal? The number of coupon payments per year.}
-{Basis? Integer?  The type of day count basis to use}
-\end{mpFunctionsExtract}
-"/>
-  <node text="COUPDAYS? mpReal? the number of days in the coupon period that contains the settlement date." imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionFourNotImplemented
-{COUPDAYS? mpReal? the number of days in the coupon period that contains the settlement date.}
-{SettlementDate? Date? The security's settlement date.}
-{MaturityDate? Date? The security's maturity date.}
-{Frequency? mpReal? The number of coupon payments per year.}
-{Basis? Integer?  The type of day count basis to use}
-\end{mpFunctionsExtract}
-"/>
-  <node text="COUPDAYSNC? mpReal? the number of days from the settlement date to the next coupon date." imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionFourNotImplemented
-{COUPDAYSNC? mpReal? the number of days from the settlement date to the next coupon date.}
-{SettlementDate? Date? The security's settlement date.}
-{MaturityDate? Date? The security's maturity date.}
-{Frequency? mpReal? The number of coupon payments per year.}
-{Basis? Integer?  The type of day count basis to use}
-\end{mpFunctionsExtract}
-"/>
-  <node text="COUPNCD? Date? a number that represents the next coupon date after the settlement date." imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionFourNotImplemented
-{COUPNCD? Date? a number that represents the next coupon date after the settlement date.}
-{SettlementDate? Date? The security's settlement date.}
-{MaturityDate? Date? The security's maturity date.}
-{Frequency? mpReal? The number of coupon payments per year.}
-{Basis? Integer?  The type of day count basis to use}
-\end{mpFunctionsExtract}
-"/>
-  <node text="COUPNUM? mpReal? the number of coupons payable between the settlement date and maturity date, rounded up to the nearest whole coupon." imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionFourNotImplemented
-{COUPNUM? mpReal? the number of coupons payable between the settlement date and maturity date, rounded up to the nearest whole coupon.}
-{SettlementDate? Date? The security's settlement date.}
-{MaturityDate? Date? The security's maturity date.}
-{Frequency? mpReal? The number of coupon payments per year.}
-{Basis? Integer?  The type of day count basis to use}
-\end{mpFunctionsExtract}
-"/>
-  <node text="COUPPCD? Date? a number that represents the previous coupon date before the settlement date." imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionFourNotImplemented
-{COUPPCD? Date? a number that represents the previous coupon date before the settlement date.}
-{SettlementDate? Date? The security's settlement date.}
-{MaturityDate? Date? The security's maturity date.}
-{Frequency? mpReal? The number of coupon payments per year.}
-{Basis? Integer?  The type of day count basis to use}
-\end{mpFunctionsExtract}
-"/>
-  <node text="DURATION? mpReal? the Macauley duration for an assumed par value of \$100." imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionSixNotImplemented
-{DURATION? mpReal? the Macauley duration for an assumed par value of \$100.}
-{SettlementDate? Date? The security's settlement date.}
-{MaturityDate? Date? The security's maturity date.}
-{Coupon? Integer?  Coupon payments per year}
-{Yield? Integer?  The security's annual yield.}
-{Frequency? mpReal? The number of coupon payments per year.}
-{Basis? Integer?  The type of day count basis to use}
-\end{mpFunctionsExtract}
-"/>
-  <node text="MDURATION? mpReal? the modified Macauley duration for a security with an assumed par value of \$100." imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionSixNotImplemented
-{MDURATION? mpReal? the modified Macauley duration for a security with an assumed par value of \$100.}
-{SettlementDate? Date? The security's settlement date.}
-{MaturityDate? Date? The security's maturity date.}
-{Coupon? Integer?  Coupon payments per year}
-{Yield? Integer?  The security's annual yield.}
-{Frequency? mpReal? The number of coupon payments per year.}
-{Basis? Integer?  The type of day count basis to use}
-\end{mpFunctionsExtract}
-"/>
-</node>
-  <node text="Securities" imageindex="3" tag="Section Info on Securities">
-  <node text="ACCRINT? mpReal? the accrued interest for a security that pays periodic interest." imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionEightNotImplemented
-{ACCRINT? mpReal? the accrued interest for a security that pays periodic interest.}
-{Issue? Date? The security's issue date.}
-{First\_interest? Date? The security's first interest date.}
-{Settlement? Date?  The security's settlement date.}
-{Rate? Integer?  The security's annual coupon rate.}
-{Par? mpReal? The security's par value}
-{Frequency? Integer? The number of coupon payments per year}
-{Basis? Integer?  The type of day count basis to use}
-{Calc\_method? Boolean?  The type calculation to use}
-\end{mpFunctionsExtract}
-"/>
-  <node text="ACCRINTM? mpReal? the accrued interest for a security that pays interest at maturity." imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionFiveNotImplemented
-{ACCRINTM? mpReal? the accrued interest for a security that pays interest at maturity.}
-{Issue? Date? The security's issue date.}
-{Settlement? Date?  The security's settlement date.}
-{Rate? Integer?  The security's annual coupon rate.}
-{Par? mpReal? The security's par value}
-{Basis? Integer? The type of day count basis to use.}
-\end{mpFunctionsExtract}
-"/>
-  <node text="DISC? mpReal? the discount rate for a security." imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionFiveNotImplemented
-{DISC? mpReal? the discount rate for a security.}
-{Settlement? Date?  The security's settlement date.}
-{Maturity? Date? The security's maturity date.}
-{Pr? Integer?  The security's price per \$100 face value.}
-{Redemption? mpReal? The security's redemption value per \$100 face value.}
-{Basis? Integer? The type of day count basis to use.}
-\end{mpFunctionsExtract}
-"/>
-  <node text="INTRATE? mpReal? the interest rate for a fully invested security." imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionFiveNotImplemented
-{INTRATE? mpReal? the interest rate for a fully invested security.}
-{Settlement? Date?  The security's settlement date.}
-{Maturity? Date? The security's maturity date.}
-{Investment? mpReal?  The amount invested in the security.}
-{Redemption? mpReal? The amount to be received at maturity.}
-{Basis? Integer? The type of day count basis to use.}
-\end{mpFunctionsExtract}
-"/>
-  <node text="ODDFPRICE? mpReal? the price per \$100 face value of a security having an odd (short or long) first period." imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionEightNotImplemented
-{ODDFPRICE? mpReal? the price per \$100 face value of a security having an odd (short or long) first period.}
-{Settlement? Date?  The security's settlement date.}
-{Maturity? Date? The security's maturity date.}
-{Issue? Date?  The security's maturity date.}
-{First\_Coupon? Date? The security's first coupon date.}
-{Rate? mpReal? The security's interest rate.}
-{Yld? mpReal? The security's annual yield.}
-{Redemption? mpReal? The security's redemption value per \$100 face value.}
-{Frequency? Integer? The number of coupon payments per year}
-%{Basis? Integer? The type of day count basis to use.}
-\end{mpFunctionsExtract}
-"/>
-  <node text="ODDFYIELD? mpReal? the yield of a security that has an odd (short or long) first period." imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionEightNotImplemented
-{ODDFYIELD? mpReal? the yield of a security that has an odd (short or long) first period.}
-{Settlement? Date?  The security's settlement date.}
-{Maturity? Date? The security's maturity date.}
-{Issue? Date?  The security's maturity date.}
-{First\_Coupon? Date? The security's first coupon date.}
-{Rate? mpReal? The security's interest rate.}
-{Pr? mpReal? The security's price.}
-{Redemption? mpReal? The security's redemption value per \$100 face value.}
-{Frequency? Integer? The number of coupon payments per year}
-%{Basis? Integer? The type of day count basis to use.}
-\end{mpFunctionsExtract}
-"/>
-  <node text="ODDLPRICE? mpReal? the price per \$100 face value of a security having an odd (short or long) last coupon period." imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionEightNotImplemented
-{ODDLPRICE? mpReal? the price per \$100 face value of a security having an odd (short or long) last coupon period.}
-{Settlement? Date?  The security's settlement date.}
-{Maturity? Date? The security's maturity date.}
-{Issue? Date?  The security's maturity date.}
-{Last\_interest? Date? The security's last coupon date.}
-{Rate? mpReal? The security's interest rate.}
-{Yld? mpReal? The security's price.}
-{Redemption? mpReal? The security's redemption value per \$100 face value.}
-{Frequency? Integer? The number of coupon payments per year}
-%{Basis? Integer? The type of day count basis to use.}
-\end{mpFunctionsExtract}
-"/>
-  <node text="ODDLYIELD? mpReal? the yield of a security that has an odd (short or long) last coupon period." imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionEightNotImplemented
-{ODDLYIELD? mpReal? the yield of a security that has an odd (short or long) last coupon period.}
-{Settlement? Date?  The security's settlement date.}
-{Maturity? Date? The security's maturity date.}
-{Last\_interest? Date? The security's last coupon date.}
-{Rate? mpReal? The security's interest rate.}
-{Pr? mpReal? The security's price.}
-{Redemption? mpReal? The security's redemption value per \$100 face value.}
-{Frequency? Integer? The number of coupon payments per year}
-{Basis? Integer? The type of day count basis to use.}
-\end{mpFunctionsExtract}
-"/>
-  <node text="PRICE? mpReal? the price per \$100 face value of a security that pays periodic interest." imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionSevenNotImplemented
-{PRICE? mpReal? the price per \$100 face value of a security that pays periodic interest.}
-{Settlement? Date?  The security's settlement date.}
-{Maturity? Date? The security's maturity date.}
-{Rate? mpReal? The security's interest rate.}
-{Yld? mpReal? The security's annual yield.}
-{Redemption? mpReal? The security's redemption value per \$100 face value.}
-{Frequency? Integer? The number of coupon payments per year}
-{Basis? Integer? The type of day count basis to use.}
-\end{mpFunctionsExtract}
-"/>
-  <node text="PRICEDISC? mpReal? Returns the price per \$100 face value of a discounted security." imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionFiveNotImplemented
-{PRICEDISC? mpReal? Returns the price per \$100 face value of a discounted security.}
-{Settlement? Date?  The security's settlement date.}
-{Maturity? Date? The security's maturity date.}
-{Discount? mpReal? The security's interest rate.}
-{Redemption? mpReal? The security's redemption value per \$100 face value.}
-{Basis? Integer? The type of day count basis to use.}
-\end{mpFunctionsExtract}
-"/>
-  <node text="PRICEMAT? mpReal? the price per \$100 face value  of a security that pays interest at maturity." imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionSixNotImplemented
-{PRICEMAT? mpReal? the price per \$100 face value  of a security that pays interest at maturity.}
-{Settlement? Date?  The security's settlement date.}
-{Maturity? Date? The security's maturity date.}
-{Issue? Date? The security's issue date.}
-{Rate? mpReal? The security's interest rate.}
-{Yld? mpReal? The security's annual yield.}
-{Basis? Integer? The type of day count basis to use.}
-\end{mpFunctionsExtract}
-"/>
-  <node text="RECEIVED? mpReal? the amount received at maturity for a fully invested security." imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionFiveNotImplemented
-{RECEIVED? mpReal? the amount received at maturity for a fully invested security.}
-{Settlement? Date?  The security's settlement date.}
-{Maturity? Date? The security's maturity date.}
-{Investment? mpReal? The amount invested in the security.}
-{Discount? mpReal? The security's discount rate.}
-{Basis? Integer? The type of day count basis to use.}
-\end{mpFunctionsExtract}
-"/>
-  <node text="YIELD? mpReal? the yield on a security that pays periodic interest." imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionSevenNotImplemented
-{YIELD? mpReal? the yield on a security that pays periodic interest.}
-{Settlement? Date?  The security's settlement date.}
-{Maturity? Date? The security's maturity date.}
-{Rate? mpReal? The security's interest rate.}
-{Pr? mpReal? The security's price per \$100 face value.}
-{Redemption? mpReal? The security's redemption value per \$100 face value.}
-{Frequency? Integer? The number of coupon payments per year}
-{Basis? Integer? The type of day count basis to use.}
-\end{mpFunctionsExtract}
-"/>
-  <node text="YIELDDISC? mpReal? the annual yield for a discounted security." imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionFiveNotImplemented
-{YIELDDISC? mpReal? the annual yield for a discounted security.}
-{Settlement? Date?  The security's settlement date.}
-{Maturity? Date? The security's maturity date.}
-{Pr? mpReal? The security's price per \$100 face value.}
-{Redemption? mpReal? The security's redemption value per \$100 face value.}
-{Basis? Integer? The type of day count basis to use.}
-\end{mpFunctionsExtract}
-"/>
-  <node text="YIELDMAT? mpReal? the price per \$100 face value  of a security that pays interest at maturity." imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionSixNotImplemented
-{YIELDMAT? mpReal? the price per \$100 face value  of a security that pays interest at maturity.}
-{Settlement? Date?  The security's settlement date.}
-{Maturity? Date? The security's maturity date.}
-{Issue? Date? The security's issue date.}
-{Rate? mpReal? The security's interest rate.}
-{Pr? mpReal? The security's price per \$100 face value.}
-{Basis? Integer? The type of day count basis to use.}
-\end{mpFunctionsExtract}
-"/>
-</node>
-  <node text="Treasury Bills" imageindex="3" tag="Section Info on Treasury Bills">
-  <node text="TBILLEQ? mpReal? the bond-equivalent yield for a Treasury bill." imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionThreeNotImplemented
-{TBILLEQ? mpReal? the bond-equivalent yield for a Treasury bill.}
-{Settlement? Date?  The Treasury bill's settlement date.}
-{Maturity? Date? The Treasury bill's maturity date.}
-{Discount? mpReal? The Treasury bill's discount rate.}
-\end{mpFunctionsExtract}
-"/>
-  <node text="TBILLPRICE? mpReal? the price per \$100 face value for a Treasury bill." imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionThreeNotImplemented
-{TBILLPRICE? mpReal? the price per \$100 face value for a Treasury bill.}
-{Settlement? Date?  The Treasury bill's settlement date.}
-{Maturity? Date? The Treasury bill's maturity date.}
-{Discount? mpReal? The Treasury bill's discount rate.}
-\end{mpFunctionsExtract}
-"/>
-  <node text="TBILLYIELD? mpReal? the yield for a Treasury bill." imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionThreeNotImplemented
-{TBILLYIELD? mpReal? the yield for a Treasury bill.}
-{Settlement? Date?  The Treasury bill's settlement date.}
-{Maturity? Date? The Treasury bill's maturity date.}
-{Pr? mpReal? The Treasury bill's price per \$face value.}
-\end{mpFunctionsExtract}
-"/>
-</node>
-  <node text="Depreciation Functions" imageindex="3" tag="Section Info on Depreciation Functions">
-  <node text="DDB? mpReal? the depreciation of an asset for a specified period using the double-declining balance method or some other method you specify." imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionFiveNotImplemented
-{DDB? mpReal? the depreciation of an asset for a specified period using the double-declining balance method or some other method you specify.}
-{Cost? mpReal?  The initial cost of the asset.}
-{Salvage? mpReal? The salvage value at the end of the life of the asset.}
-{Life? mpReal? The number of periods over which the asset is being depreciated.}
-{Period? mpReal? The period for which you want to calculate the depreciation.}
-{Factor? mpReal? The rate at which the balance declines.}
-\end{mpFunctionsExtract}
-"/>
-  <node text="SLN? mpReal? the straight-line depreciation of an asset for a single period" imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionThreeNotImplemented
-{SLN? mpReal? the straight-line depreciation of an asset for a single period}
-{Cost? mpReal?  The initial cost of the asset.}
-{Salvage? mpReal? The salvage value at the end of the life of the asset.}
-{Life? mpReal? The number of periods over which the asset is being depreciated.}
-\end{mpFunctionsExtract}
-"/>
-  <node text="SYD? mpReal? the sum-of-years' digits depreciation of an asset for a specified period." imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionFourNotImplemented
-{SYD? mpReal? the sum-of-years' digits depreciation of an asset for a specified period.}
-{Cost? mpReal?  The initial cost of the asset.}
-{Salvage? mpReal? The salvage value at the end of the life of the asset.}
-{Life? mpReal? The number of periods over which the asset is being depreciated.}
-{Period? mpReal? The period for which you want to calculate the depreciation.}
-\end{mpFunctionsExtract}
-"/>
-  <node text="DB? mpReal? the depreciation of an asset for a specified period using the fixed-declining balance method." imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionFiveNotImplemented
-{DB? mpReal? the depreciation of an asset for a specified period using the fixed-declining balance method.}
-{Cost? mpReal?  The initial cost of the asset.}
-{Salvage? mpReal? The salvage value at the end of the life of the asset.}
-{Life? mpReal? The number of periods over which the asset is being depreciated.}
-{Period? mpReal? The period for which you want to calculate the depreciation.}
-{Month? mpReal? The number of months in the first year.}
-\end{mpFunctionsExtract}
-"/>
-  <node text="VDB? mpReal? the depreciation of an asset for any period you specify, including partial periods, using the double-declining balance method or some other method you specify. VDB stands for variable declining balance." imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionSevenNotImplemented
-{VDB? mpReal? the depreciation of an asset for any period you specify, including partial periods, using the double-declining balance method or some other method you specify. VDB stands for variable declining balance.}
-{Cost? mpReal?  The initial cost of the asset.}
-{Salvage? mpReal? The salvage value at the end of the life of the asset.}
-{Life? mpReal? The number of periods over which the asset is being depreciated.}
-{Start\_Period? mpReal? The period for which you want to calculate the depreciation.}
-{End\_Period? mpReal? The ending period for which you want to calculate the depreciation. EndPeriod must use the same units as life.}
-{Factor? mpReal? The rate at which the balance declines.}
-{No\_switch? mpReal? A logical value specifying whether to switch to straight-line depreciation when depreciation is greater than the declining balance calculation.}
-\end{mpFunctionsExtract}
-"/>
-  <node text="AMORLINC? mpReal? the depreciation for each accounting period." imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionSevenNotImplemented
-{AMORLINC? mpReal? the depreciation for each accounting period.}
-{Cost? mpReal?  The initial cost of the asset.}
-{Date\_Purchased? Date? The date the asset is purchased.}
-{First\_Period? mpReal? The date of the end of the first period.}
-{Salvage? mpReal? The salvage value at the end of the life of the asset.}
-{Period? mpReal? The period.}
-{Rate? mpReal? The rate of depreciation.}
-{Basis? mpReal? Year Basis: 0 for 360 days, 1 for actual, 3 for 365 days.}
-\end{mpFunctionsExtract}
-"/>
-  <node text="AMORDEGRC? mpReal? the prorated linear depreciation of an asset for each accounting period." imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionSevenNotImplemented
-{AMORDEGRC? mpReal? the prorated linear depreciation of an asset for each accounting period.}
-{Cost? mpReal?  The initial cost of the asset.}
-{Date\_Purchased? Date? The date the asset is purchased.}
-{First\_Period? mpReal? The date of the end of the first period.}
-{Salvage? mpReal? The salvage value at the end of the life of the asset.}
-{Period? mpReal? The period.}
-{Rate? mpReal? The rate of depreciation.}
-{Basis? mpReal? Year Basis: 0 for 360 days, 1 for actual, 3 for 365 days.}
-\end{mpFunctionsExtract}
-"/>
-</node>
-  <node text="Annuity Functions" imageindex="3" tag="Section Info on Annuity Functions">
-  <node text="FV? mpReal? the future value of an annuity based on periodic fixed payments and a fixed interest rate." imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionFiveNotImplemented
-{FV? mpReal? the future value of an annuity based on periodic fixed payments and a fixed interest rate.}
-{Rate? mpReal? The the interest rate per period.}
-{Nper? mpReal? The total number of payment periods in the investment.}
-{Pmt? mpReal? The payment made each period.}
-{PV? mpReal? The present value.}
-{Type? mpReal? a value representing the timing of payment.}
-\end{mpFunctionsExtract}
-"/>
-  <node text="PV? mpReal? the present value of an annuity based on periodic fixed payments to be paid in the future at a fixed interest rate." imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionFiveNotImplemented
-{PV? mpReal? the present value of an annuity based on periodic fixed payments to be paid in the future at a fixed interest rate.}
-{Rate? mpReal? The interest rate per period.}
-{Nper? mpReal? The total number of payment periods in the investment.}
-{Pmt? mpReal? The payment made each period.}
-{FV? mpReal? The future value.}
-{Type? mpReal? a value representing the timing of payment.}
-\end{mpFunctionsExtract}
-"/>
-  <node text="PMT? mpReal? the payment for a loan based on constant payments and a constant interest rate." imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionFiveNotImplemented
-{PMT? mpReal? the payment for a loan based on constant payments and a constant interest rate.}
-{Rate? mpReal? The interest rate per period.}
-{Nper? mpReal? The total number of payment periods in the investment.}
-{PV? mpReal? The present value.}
-{FV? mpReal? The future value.}
-{Type? mpReal? a value representing the timing of payment.}
-\end{mpFunctionsExtract}
-"/>
-  <node text="NPER? mpReal? the number of periods for an investment based on periodic, constant payments and a constant interest rate." imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionFiveNotImplemented
-{NPER? mpReal? the number of periods for an investment based on periodic, constant payments and a constant interest rate.}
-{Rate? mpReal? The interest rate per period.}
-{Pmt? mpReal? The made each period.}
-{PV? mpReal? The present value.}
-{FV? mpReal? The future value.}
-{Type? mpReal? a value representing the timing of payment.}
-\end{mpFunctionsExtract}
-"/>
-  <node text="PDURATION? mpReal?  the number of periods required by an investment to reach a specified value." imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionThreeNotImplemented
-{PDURATION? mpReal?  the number of periods required by an investment to reach a specified value.}
-{Rate? mpReal? The interest rate per period.}
-{PV? mpReal? The present value.}
-{FV? mpReal? The future value.}
-\end{mpFunctionsExtract}
-"/>
-  <node text="RATE? mpReal? the interest rate per period of an annuity" imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionFiveNotImplemented
-{RATE? mpReal? the interest rate per period of an annuity}
-{Nper? mpReal? The the interest rate per period.}
-{Pmt? mpReal? The made each period.}
-{PV? mpReal? The present value.}
-{FV? mpReal? The future value.}
-{Type? mpReal? a value representing the timing of payment.}
-\end{mpFunctionsExtract}
-"/>
-  <node text="IPMT? mpReal? the interest payment for a given period for an investment based on periodic, constant payments and a constant interest rate." imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionSixNotImplemented
-{IPMT? mpReal? the interest payment for a given period for an investment based on periodic, constant payments and a constant interest rate.}
-{Rate? mpReal? The interest rate per period.}
-{Per? mpReal? The period for which you want to find the interest and must be in the range 1 to NPer}
-{Nper? mpReal? The total number of payment periods in the investment.}
-{Pmt? mpReal? The payment made each period.}
-{FV? mpReal? The future value.}
-{Type? mpReal? a value representing the timing of payment.}
-\end{mpFunctionsExtract}
-"/>
-  <node text="PPMT? mpReal? the payment on the principal for a given period for an investment based on periodic, constant payments and a constant interest rate." imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionSixNotImplemented
-{PPMT? mpReal? the payment on the principal for a given period for an investment based on periodic, constant payments and a constant interest rate.}
-{Rate? mpReal? The the interest rate per period.}
-{Per? mpReal? The period for which you want to find the interest and must be in the range 1 to NPer}
-{Nper? mpReal? The total number of payment periods in the investment.}
-{PV? mpReal? The payment made each period.}
-{FV? mpReal? The future value.}
-{Type? mpReal? a value representing the timing of payment.}
-\end{mpFunctionsExtract}
-"/>
-  <node text="CUMIPMT? mpReal? the cumulative interest paid on a loan between StartPeriod and EndPeriod." imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionSixNotImplemented
-{CUMIPMT? mpReal? the cumulative interest paid on a loan between StartPeriod and EndPeriod.}
-{Rate? mpReal? The interest rate per period.}
-{Nper? mpReal? The total number of payment periods in the investment.}
-{PV? mpReal? The payment made each period.}
-{StartPeriod? mpReal? The first period in the calculation.}
-{EndPeriod? mpReal? the last period in the calculation}
-{Type? mpReal? a value representing the timing of payment.}
-\end{mpFunctionsExtract}
-"/>
-  <node text="CUMPRINC? mpReal? the effective annual interest rate, given the nominal annual interest rate and the number of compounding periods per year." imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionSixNotImplemented
-{CUMPRINC? mpReal? the effective annual interest rate, given the nominal annual interest rate and the number of compounding periods per year.}
-{Rate? mpReal? The interest rate per period.}
-{Nper? mpReal? The total number of payment periods in the investment.}
-{PV? mpReal? The payment made each period.}
-{StartPeriod? mpReal? The first period in the calculation.}
-{EndPeriod? mpReal? the last period in the calculation}
-{Type? mpReal? a value representing the timing of payment.}
-\end{mpFunctionsExtract}
-"/>
-  <node text="EFFECT? mpReal? the effective annual interest rate." imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionTwoNotImplemented
-{EFFECT? mpReal? the effective annual interest rate.}
-{NominalRate? mpReal? The nominal interest rate per period.}
-{Npery? mpReal? The number of compounding periods per year}
-\end{mpFunctionsExtract}
-"/>
-  <node text="NOMINAL? mpReal? the nominal annual interest rate, given the effective rate and the number of compounding periods per year." imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionTwoNotImplemented
-{NOMINAL? mpReal? the nominal annual interest rate, given the effective rate and the number of compounding periods per year.}
-{EffectiveRate? mpReal? The nominal interest rate per period.}
-{Npery? mpReal? The number of compounding periods per year}
-\end{mpFunctionsExtract}
-"/>
-  <node text="FVSCHEDULE? mpReal? the future value of an initial principal after applying a series of compound interest rates. Use FVSCHEDULE to calculate the future value of an investment with a variable or adjustable rate." imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionTwoNotImplemented
-{FVSCHEDULE? mpReal? the future value of an initial principal after applying a series of compound interest rates. Use FVSCHEDULE to calculate the future value of an investment with a variable or adjustable rate.}
-{Principal? mpReal? The present value.}
-{Schedule? mpNum? An array of interest rates to apply}
-\end{mpFunctionsExtract}
-"/>
-  <node text="ISPMT? mpReal?  the interest paid during a specific period of an investment." imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionFourNotImplemented
-{ISPMT? mpReal?  the interest paid during a specific period of an investment.}
-{Rate? mpReal? The interest rate per period.}
-{Per? mpReal? The period for which you want to find the interest and must be in the range 1 to NPer}
-{Nper? mpReal? The total number of payment periods in the investment.}
-{PV? mpReal? The present value.}
-\end{mpFunctionsExtract}
-"/>
-</node>
-  <node text="Cash-Flow Functions" imageindex="3" tag="Section Info on Cash-Flow Functions">
-  <node text="IRR? mpReal? the effective annual interest rate." imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionTwoNotImplemented
-{IRR? mpReal? the effective annual interest rate.}
-{Values? mpNum? An array which contains numbers for which which the internal rate of return is calculated.}
-{Guess? mpReal? An initial guess for the IRR, 0.1 if omitted}
-\end{mpFunctionsExtract}
-"/>
-  <node text="RRI? mpReal? an equivalent interest rate for the growth of an investment" imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionThreeNotImplemented
-{RRI? mpReal? an equivalent interest rate for the growth of an investment}
-{Nper? mpReal? The total number of periods for the investment.}
-{PV? mpReal? The present value for the investment.}
-{PV? mpReal? The future value for the investment.}
-\end{mpFunctionsExtract}
-"/>
-  <node text="MIRR? mpReal? the modified internal rate of return for a series of periodic cash flows. MIRR considers both the cost of the investment and the interest received on reinvestment of cash." imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionThreeNotImplemented
-{MIRR? mpReal? the modified internal rate of return for a series of periodic cash flows. MIRR considers both the cost of the investment and the interest received on reinvestment of cash.}
-{Values? mpNum[]? An array that contains numbers that represent a series of payments (negative) and income (positive) at regular periods.}
-{FinanceRate? mpReal? The interest rate paid on the money used in the cash flows.}
-{ReinvestRate? mpReal? The interest rate received on the money used in the cash flows.}
-\end{mpFunctionsExtract}
-"/>
-  <node text="NPV? mpReal? the net present value of an investment based on a series of periodic cash flows and a discount rate." imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionTwoNotImplemented
-{NPV? mpReal? the net present value of an investment based on a series of periodic cash flows and a discount rate.}
-{Rate? mpReal? The total number of periods for the investment.}
-{Values? mpNum[]? An array that contains numbers that represent a series of payments (negative) and income (positive) at regular periods.}
-\end{mpFunctionsExtract}
-"/>
-  <node text="XIRR? mpReal? the modified internal rate of return for a series of periodic cash flows. MIRR considers both the cost of the investment and the interest received on reinvestment of cash." imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionThreeNotImplemented
-{XIRR? mpReal? the modified internal rate of return for a series of periodic cash flows. MIRR considers both the cost of the investment and the interest received on reinvestment of cash.}
-{Values? mpNum[]? An array that contains cash flows that correspond to a schedule of payments in Dates.}
-{Dates? mpReal? A schedule of payment dates that correspond to the cash flow payments}
-{Guess? mpReal? An initial guess for XIRR.}
-\end{mpFunctionsExtract}
-"/>
-  <node text="XNPV? mpReal? the modified internal rate of return for a series of periodic cash flows. MIRR considers both the cost of the investment and the interest received on reinvestment of cash." imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionThreeNotImplemented
-{XNPV? mpReal? the modified internal rate of return for a series of periodic cash flows. MIRR considers both the cost of the investment and the interest received on reinvestment of cash.}
-{Rate? mpReal? The discount rate to aplly to the cash flows.}
-{Values? mpNum[]? An array that contains cash flows that correspond to a schedule of payments in Dates.}
-{Dates? mpReal? A schedule of payment dates that correspond to the cash flow payments}
-\end{mpFunctionsExtract}
-"/>
-</node>
-  <node text="Conversion" imageindex="3" tag="Section Info on Conversion">
-  <node text="DOLLARDE? mpReal? a dollar price expressed as a decimal number, converted from a dollar price expressed as an integer part and a fraction part." imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionTwoNotImplemented
-{DOLLARDE? mpReal? a dollar price expressed as a decimal number, converted from a dollar price expressed as an integer part and a fraction part.}
-{FractionalDollar? mpReal? A number expressed as a fraction.}
-{Fraction? mpReal? The integer to use in the denominator of the fraction}
-\end{mpFunctionsExtract}
-"/>
-  <node text="DOLLARFR? mpReal?  a dollar price expressed as a fraction, converted from a dollar price expressed as a decimal number." imageindex="6" tag="Function Info on 
-\mpWorksheetFunctionTwoNotImplemented
-{DOLLARFR? mpReal?  a dollar price expressed as a fraction, converted from a dollar price expressed as a decimal number.}
-{DecimalDollar? mpReal? A decimal number.}
-{Fraction? mpReal? The integer to use in the denominator of the fraction}
-\end{mpFunctionsExtract}
-"/>
-</node>
-</node>
 <node text="Factorials and gamma functions" imageindex="2" tag="Chapter Info on Factorials and gamma functions">
   <node text="Factorials" imageindex="3" tag="Section Info on Factorials">
   <node text="Factorial? mpNum? the factorial, $x!$." imageindex="6" tag="Function Info on 
@@ -6468,6 +5737,746 @@
 "/>
 </node>
 </node>
+<node text="Date, Time and Financial Functions" imageindex="2" tag="Chapter Info on Date, Time and Financial Functions">
+  <node text="Date and Time: Conversions from Serial Number" imageindex="3" tag="Section Info on Date and Time: Conversions from Serial Number">
+  <node text="SECOND? mpReal? the seconds of a time value. The second is given as an integer in the range 0 (zero) to 59." imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionOneNotImplemented
+{SECOND? mpReal? the seconds of a time value. The second is given as an integer in the range 0 (zero) to 59.}
+{Timevalue? Variant? The time that contains the seconds you want to find.}
+\end{mpFunctionsExtract}
+"/>
+  <node text="MINUTE? mpReal? the minutes of a time value. The minute is given as an integer, ranging from 0 to 59." imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionOneNotImplemented
+{MINUTE? mpReal? the minutes of a time value. The minute is given as an integer, ranging from 0 to 59.}
+{Timevalue? Variant? The time that contains the minute you want to find.}
+\end{mpFunctionsExtract}
+"/>
+  <node text="HOUR? mpReal? the hour of a time value. The hour is given as an integer, ranging from 0 (12:00 A.M.) to 23 (11:00 P.M.)." imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionOneNotImplemented
+{HOUR? mpReal? the hour of a time value. The hour is given as an integer, ranging from 0 (12:00 A.M.) to 23 (11:00 P.M.).}
+{Timevalue? Variant? The time that contains the hour you want to find.}
+\end{mpFunctionsExtract}
+"/>
+  <node text="DAY? mpReal? the day of a date, represented by a serial number. The day is given as an integer ranging from 1 to 31." imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionOneNotImplemented
+{DAY? mpReal? the day of a date, represented by a serial number. The day is given as an integer ranging from 1 to 31.}
+{Datevalue? Date? The date of the day you are trying to find.}
+\end{mpFunctionsExtract}
+"/>
+  <node text="DAYS? mpReal? the number of days between two dates. EndDateValue and  and StartDateValue  are the two dates between which you want to know the number of days." imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionTwoNotImplemented
+{DAYS? mpReal? the number of days between two dates. EndDateValue and  and StartDateValue  are the two dates between which you want to know the number of days.}
+{EndDatevalue? Date? The end of the time interval.}
+{StartDatevalue? Date? The start of the time interval.}
+\end{mpFunctionsExtract}
+"/>
+  <node text="MONTH? mpReal? the month of a date represented by a serial number. The month is given as an integer, ranging from 1 (January) to 12 (December)." imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionOneNotImplemented
+{MONTH? mpReal? the month of a date represented by a serial number. The month is given as an integer, ranging from 1 (January) to 12 (December).}
+{Datevalue? Date? The date of the month you are trying to find.}
+\end{mpFunctionsExtract}
+"/>
+  <node text="YEAR? mpReal? the year corresponding to a date. The year is returned as an integer in the range 1900-9999." imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionOneNotImplemented
+{YEAR? mpReal? the year corresponding to a date. The year is returned as an integer in the range 1900-9999.}
+{Datevalue? Date? The date of the year you want to find.}
+\end{mpFunctionsExtract}
+"/>
+  <node text="WEEKDAY? mpReal? the day of the week corresponding to a date. The day is given as an integer, ranging from 1 (Sunday) to 7 (Saturday), by default." imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionTwoNotImplemented
+{WEEKDAY? mpReal? the day of the week corresponding to a date. The day is given as an integer, ranging from 1 (Sunday) to 7 (Saturday), by default.}
+{Datevalue? Date? A sequential number that represents the date of the day you are trying to find.}
+{ReturnType? Integer? A number that determines the type of return value.}
+\end{mpFunctionsExtract}
+"/>
+  <node text="WEEKNUM? mpReal? the week number of a specific date." imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionTwoNotImplemented
+{WEEKNUM? mpReal? the week number of a specific date.}
+{Datevalue? Date? A date within the week. }
+{ReturnType? Integer? A number that determines on which day the week begins. The default is 1.}
+\end{mpFunctionsExtract}
+"/>
+  <node text="WEEKNUM-ADD? mpReal? the week number of a specific date." imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionTwoNotImplemented
+{WEEKNUM-ADD? mpReal? the week number of a specific date.}
+{Datevalue? Date? A date within the week. }
+{ReturnType? Integer? A number that determines on which day the week begins. The default is 1.}
+\end{mpFunctionsExtract}
+"/>
+  <node text="ISOWEEKNUM? mpReal? the week number of a specific date." imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionTwoNotImplemented
+{ISOWEEKNUM? mpReal? the week number of a specific date.}
+{Datevalue? Date? A date within the week. }
+{ReturnType? Integer? A number that determines on which day the week begins. The default is 1.}
+\end{mpFunctionsExtract}
+"/>
+</node>
+  <node text="Date and Time: Conversions to Serial Number" imageindex="3" tag="Section Info on Date and Time: Conversions to Serial Number">
+  <node text="DATE? Date? the sequential serial number that represents a particular date." imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionThreeNotImplemented
+{DATE? Date? the sequential serial number that represents a particular date.}
+{Year? mpReal? A number that determines the Year (1900-9999).}
+{Month? mpReal? A number that determines the Month (1-12).}
+{Day? mpReal? A number that determines the day of the month (1-31).}
+\end{mpFunctionsExtract}
+"/>
+  <node text="EASTERSUNDAY? Date? the date of Easter Sunday in a given year." imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionOneNotImplemented
+{EASTERSUNDAY? Date? the date of Easter Sunday in a given year.}
+{Year? mpReal? an integer between 1583 and 9956 or between 0 and 99, specifying the year. }
+\end{mpFunctionsExtract}
+"/>
+  <node text="DATEVALUE? Date? a serial number that Excel recognizes as a date" imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionOneNotImplemented
+{DATEVALUE? Date? a serial number that Excel recognizes as a date}
+{DateText? String? Text that represents a date in an Excel date format}
+\end{mpFunctionsExtract}
+"/>
+  <node text="EDATE? Date? a serial number that Excel recognizes as a date" imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionTwoNotImplemented
+{EDATE? Date? a serial number that Excel recognizes as a date}
+{StartDate? Date? A date that represents the start date.}
+{Months? Integer? The number of months before or after StartDate. A positive value for months yields a future date; a negative value yields a past date.}
+\end{mpFunctionsExtract}
+"/>
+  <node text="EOMONTH? Date? a serial number that Excel recognizes as a date" imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionTwoNotImplemented
+{EOMONTH? Date? a serial number that Excel recognizes as a date}
+{StartDate? Date? A date that represents the start date.}
+{Months? Integer? The number of months before or after StartDate. A positive value for months yields a future date; a negative value yields a past date.}
+\end{mpFunctionsExtract}
+"/>
+  <node text="NOW? Date? the serial number of the current date and time." imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionZeroNotImplemented
+{NOW? Date? the serial number of the current date and time.}
+\end{mpFunctionsExtract}
+"/>
+  <node text="TIME? Date? the decimal number for a particular time. If the cell format was General before the function was entered, the result is formatted as a date." imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionThreeNotImplemented
+{TIME? Date? the decimal number for a particular time. If the cell format was General before the function was entered, the result is formatted as a date.}
+{Hour? mpReal? A number from 0 (zero) to 32767 representing the hour. Any value greater than 23 will be divided by 24 and the remainder will be treated as the hour value. For example, TIME(27,0,0) = TIME(3,0,0) = .125 or 3:00 AM.}
+{Minute? mpReal? A number from 0 to 32767 representing the minute. Any value greater than 59 will be converted to hours and minutes. For example, TIME(0,750,0) = TIME(12,30,0) = .520833 or 12:30 PM.}
+{Second? mpReal? A number from 0 to 32767 representing the second. Any value greater than 59 will be converted to hours, minutes, and seconds. For example, TIME(0,0,2000) = TIME(0,33,22) = .023148 or 12:33:20 AM.}
+\end{mpFunctionsExtract}
+"/>
+  <node text="TIMEVALUE? mpReal? the decimal number of the time represented by a text string. The decimal number is a value ranging from 0 (zero) to 0.99999999, representing the times from 0:00:00 (12:00:00 AM) to 23:59:59 (11:59:59 P.M.)." imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionOneNotImplemented
+{TIMEVALUE? mpReal? the decimal number of the time represented by a text string. The decimal number is a value ranging from 0 (zero) to 0.99999999, representing the times from 0:00:00 (12:00:00 AM) to 23:59:59 (11:59:59 P.M.).}
+{TimeText? String? A text string that represents a time in any one of the Microsoft Excel time formats.}
+\end{mpFunctionsExtract}
+"/>
+  <node text="TODAY? mpReal? the serial number of the current date." imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionZeroNotImplemented
+{TODAY? mpReal? the serial number of the current date.}
+\end{mpFunctionsExtract}
+"/>
+  <node text="WORKDAY? Date? a number that represents a date that is the indicated number of working days before or after a date (the starting date)." imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionThreeNotImplemented
+{WORKDAY? Date? a number that represents a date that is the indicated number of working days before or after a date (the starting date).}
+{StartDate? Date? A date that represents the start date.}
+{Days? Integer? The number of nonweekend and nonholiday days before or after StartDate. A positive value for days yields a future date; a negative value yields a past date.}
+{Holidays? DateList?  An optional list of one or more dates to exclude from the working calendar}
+\end{mpFunctionsExtract}
+"/>
+  <node text="WORKDAY.INTL? Date? a number that represents a date that is the indicated number of working days before or after a date (the starting date)." imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionFourNotImplemented
+{WORKDAY.INTL? Date? a number that represents a date that is the indicated number of working days before or after a date (the starting date).}
+{StartDate? Date? The start date, truncated to integer.}
+{Days? Integer? The number of nonweekend and nonholiday days before or after StartDate. A positive value for days yields a future date; a negative value yields a past date.  Day-offset is truncated to an integer.}
+{Weekend? Integer? Indicates the days of the week that are weekend days and are not considered working days.}
+{Holidays? DateList?  An optional list of one or more dates to exclude from the working calendar}
+\end{mpFunctionsExtract}
+"/>
+</node>
+  <node text="Date and Time: Calculations" imageindex="3" tag="Section Info on Date and Time: Calculations">
+  <node text="DAYS360? Date? the number of days between two dates based on a 360-day year (twelve 30-day months), which is used in some accounting calculations" imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionThreeNotImplemented
+{DAYS360? Date? the number of days between two dates based on a 360-day year (twelve 30-day months), which is used in some accounting calculations}
+{StartDate? Date? A date that represents the start date.}
+{EndDate? Date? A date that represents the end date}
+{Method? Boolean?  A logical value that specifies whether to use the U.S. or European method in the calculation}
+\end{mpFunctionsExtract}
+"/>
+  <node text="NETWORKDAYS? mpReal? the number of whole working days between StartDate and EndDate." imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionThreeNotImplemented
+{NETWORKDAYS? mpReal? the number of whole working days between StartDate and EndDate.}
+{StartDate? Date? A date that represents the start date.}
+{EndDate? Date? A date that represents the end date}
+{Holidays? DateList?  An optional range of one or more dates to exclude from the working calendar, such as state and federal holidays and floating holidays}
+\end{mpFunctionsExtract}
+"/>
+  <node text="NETWORKDAYS.INTL? mpReal? the number of whole working days between StartDate and EndDate." imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionThreeNotImplemented
+{NETWORKDAYS.INTL? mpReal? the number of whole working days between StartDate and EndDate.}
+{StartDate? Date? A date that represents the start date.}
+{EndDate? Date? A date that represents the end date}
+{Weekend? String? Indicates the days of the week that are weekend days and are not included in the number of whole working days between StartDate and EndDate.}
+{Holidays? DateList?  An optional range of one or more dates to exclude from the working calendar, such as state and federal holidays and floating holidays}
+\end{mpFunctionsExtract}
+"/>
+  <node text="YEARFRAC? mpReal? the fraction of the year represented by the number of whole days between two dates." imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionThreeNotImplemented
+{YEARFRAC? mpReal? the fraction of the year represented by the number of whole days between two dates.}
+{StartDate? Date? A date that represents the start date.}
+{EndDate? Date? A date that represents the end date}
+{Basis? DateList?  The type of day count basis to use. Basis Day count basis }
+\end{mpFunctionsExtract}
+"/>
+</node>
+  <node text="Coupons" imageindex="3" tag="Section Info on Coupons">
+  <node text="COUPDAYBS? mpReal? the number of days from the beginning of the coupon period to the settlement date." imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionFourNotImplemented
+{COUPDAYBS? mpReal? the number of days from the beginning of the coupon period to the settlement date.}
+{SettlementDate? Date? The security's settlement date.}
+{MaturityDate? Date? The security's maturity date.}
+{Frequency? mpReal? The number of coupon payments per year.}
+{Basis? Integer?  The type of day count basis to use}
+\end{mpFunctionsExtract}
+"/>
+  <node text="COUPDAYS? mpReal? the number of days in the coupon period that contains the settlement date." imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionFourNotImplemented
+{COUPDAYS? mpReal? the number of days in the coupon period that contains the settlement date.}
+{SettlementDate? Date? The security's settlement date.}
+{MaturityDate? Date? The security's maturity date.}
+{Frequency? mpReal? The number of coupon payments per year.}
+{Basis? Integer?  The type of day count basis to use}
+\end{mpFunctionsExtract}
+"/>
+  <node text="COUPDAYSNC? mpReal? the number of days from the settlement date to the next coupon date." imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionFourNotImplemented
+{COUPDAYSNC? mpReal? the number of days from the settlement date to the next coupon date.}
+{SettlementDate? Date? The security's settlement date.}
+{MaturityDate? Date? The security's maturity date.}
+{Frequency? mpReal? The number of coupon payments per year.}
+{Basis? Integer?  The type of day count basis to use}
+\end{mpFunctionsExtract}
+"/>
+  <node text="COUPNCD? Date? a number that represents the next coupon date after the settlement date." imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionFourNotImplemented
+{COUPNCD? Date? a number that represents the next coupon date after the settlement date.}
+{SettlementDate? Date? The security's settlement date.}
+{MaturityDate? Date? The security's maturity date.}
+{Frequency? mpReal? The number of coupon payments per year.}
+{Basis? Integer?  The type of day count basis to use}
+\end{mpFunctionsExtract}
+"/>
+  <node text="COUPNUM? mpReal? the number of coupons payable between the settlement date and maturity date, rounded up to the nearest whole coupon." imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionFourNotImplemented
+{COUPNUM? mpReal? the number of coupons payable between the settlement date and maturity date, rounded up to the nearest whole coupon.}
+{SettlementDate? Date? The security's settlement date.}
+{MaturityDate? Date? The security's maturity date.}
+{Frequency? mpReal? The number of coupon payments per year.}
+{Basis? Integer?  The type of day count basis to use}
+\end{mpFunctionsExtract}
+"/>
+  <node text="COUPPCD? Date? a number that represents the previous coupon date before the settlement date." imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionFourNotImplemented
+{COUPPCD? Date? a number that represents the previous coupon date before the settlement date.}
+{SettlementDate? Date? The security's settlement date.}
+{MaturityDate? Date? The security's maturity date.}
+{Frequency? mpReal? The number of coupon payments per year.}
+{Basis? Integer?  The type of day count basis to use}
+\end{mpFunctionsExtract}
+"/>
+  <node text="DURATION? mpReal? the Macauley duration for an assumed par value of \$100." imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionSixNotImplemented
+{DURATION? mpReal? the Macauley duration for an assumed par value of \$100.}
+{SettlementDate? Date? The security's settlement date.}
+{MaturityDate? Date? The security's maturity date.}
+{Coupon? Integer?  Coupon payments per year}
+{Yield? Integer?  The security's annual yield.}
+{Frequency? mpReal? The number of coupon payments per year.}
+{Basis? Integer?  The type of day count basis to use}
+\end{mpFunctionsExtract}
+"/>
+  <node text="MDURATION? mpReal? the modified Macauley duration for a security with an assumed par value of \$100." imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionSixNotImplemented
+{MDURATION? mpReal? the modified Macauley duration for a security with an assumed par value of \$100.}
+{SettlementDate? Date? The security's settlement date.}
+{MaturityDate? Date? The security's maturity date.}
+{Coupon? Integer?  Coupon payments per year}
+{Yield? Integer?  The security's annual yield.}
+{Frequency? mpReal? The number of coupon payments per year.}
+{Basis? Integer?  The type of day count basis to use}
+\end{mpFunctionsExtract}
+"/>
+</node>
+  <node text="Securities" imageindex="3" tag="Section Info on Securities">
+  <node text="ACCRINT? mpReal? the accrued interest for a security that pays periodic interest." imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionEightNotImplemented
+{ACCRINT? mpReal? the accrued interest for a security that pays periodic interest.}
+{Issue? Date? The security's issue date.}
+{First\_interest? Date? The security's first interest date.}
+{Settlement? Date?  The security's settlement date.}
+{Rate? Integer?  The security's annual coupon rate.}
+{Par? mpReal? The security's par value}
+{Frequency? Integer? The number of coupon payments per year}
+{Basis? Integer?  The type of day count basis to use}
+{Calc\_method? Boolean?  The type calculation to use}
+\end{mpFunctionsExtract}
+"/>
+  <node text="ACCRINTM? mpReal? the accrued interest for a security that pays interest at maturity." imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionFiveNotImplemented
+{ACCRINTM? mpReal? the accrued interest for a security that pays interest at maturity.}
+{Issue? Date? The security's issue date.}
+{Settlement? Date?  The security's settlement date.}
+{Rate? Integer?  The security's annual coupon rate.}
+{Par? mpReal? The security's par value}
+{Basis? Integer? The type of day count basis to use.}
+\end{mpFunctionsExtract}
+"/>
+  <node text="DISC? mpReal? the discount rate for a security." imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionFiveNotImplemented
+{DISC? mpReal? the discount rate for a security.}
+{Settlement? Date?  The security's settlement date.}
+{Maturity? Date? The security's maturity date.}
+{Pr? Integer?  The security's price per \$100 face value.}
+{Redemption? mpReal? The security's redemption value per \$100 face value.}
+{Basis? Integer? The type of day count basis to use.}
+\end{mpFunctionsExtract}
+"/>
+  <node text="INTRATE? mpReal? the interest rate for a fully invested security." imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionFiveNotImplemented
+{INTRATE? mpReal? the interest rate for a fully invested security.}
+{Settlement? Date?  The security's settlement date.}
+{Maturity? Date? The security's maturity date.}
+{Investment? mpReal?  The amount invested in the security.}
+{Redemption? mpReal? The amount to be received at maturity.}
+{Basis? Integer? The type of day count basis to use.}
+\end{mpFunctionsExtract}
+"/>
+  <node text="ODDFPRICE? mpReal? the price per \$100 face value of a security having an odd (short or long) first period." imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionEightNotImplemented
+{ODDFPRICE? mpReal? the price per \$100 face value of a security having an odd (short or long) first period.}
+{Settlement? Date?  The security's settlement date.}
+{Maturity? Date? The security's maturity date.}
+{Issue? Date?  The security's maturity date.}
+{First\_Coupon? Date? The security's first coupon date.}
+{Rate? mpReal? The security's interest rate.}
+{Yld? mpReal? The security's annual yield.}
+{Redemption? mpReal? The security's redemption value per \$100 face value.}
+{Frequency? Integer? The number of coupon payments per year}
+%{Basis? Integer? The type of day count basis to use.}
+\end{mpFunctionsExtract}
+"/>
+  <node text="ODDFYIELD? mpReal? the yield of a security that has an odd (short or long) first period." imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionEightNotImplemented
+{ODDFYIELD? mpReal? the yield of a security that has an odd (short or long) first period.}
+{Settlement? Date?  The security's settlement date.}
+{Maturity? Date? The security's maturity date.}
+{Issue? Date?  The security's maturity date.}
+{First\_Coupon? Date? The security's first coupon date.}
+{Rate? mpReal? The security's interest rate.}
+{Pr? mpReal? The security's price.}
+{Redemption? mpReal? The security's redemption value per \$100 face value.}
+{Frequency? Integer? The number of coupon payments per year}
+%{Basis? Integer? The type of day count basis to use.}
+\end{mpFunctionsExtract}
+"/>
+  <node text="ODDLPRICE? mpReal? the price per \$100 face value of a security having an odd (short or long) last coupon period." imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionEightNotImplemented
+{ODDLPRICE? mpReal? the price per \$100 face value of a security having an odd (short or long) last coupon period.}
+{Settlement? Date?  The security's settlement date.}
+{Maturity? Date? The security's maturity date.}
+{Issue? Date?  The security's maturity date.}
+{Last\_interest? Date? The security's last coupon date.}
+{Rate? mpReal? The security's interest rate.}
+{Yld? mpReal? The security's price.}
+{Redemption? mpReal? The security's redemption value per \$100 face value.}
+{Frequency? Integer? The number of coupon payments per year}
+%{Basis? Integer? The type of day count basis to use.}
+\end{mpFunctionsExtract}
+"/>
+  <node text="ODDLYIELD? mpReal? the yield of a security that has an odd (short or long) last coupon period." imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionEightNotImplemented
+{ODDLYIELD? mpReal? the yield of a security that has an odd (short or long) last coupon period.}
+{Settlement? Date?  The security's settlement date.}
+{Maturity? Date? The security's maturity date.}
+{Last\_interest? Date? The security's last coupon date.}
+{Rate? mpReal? The security's interest rate.}
+{Pr? mpReal? The security's price.}
+{Redemption? mpReal? The security's redemption value per \$100 face value.}
+{Frequency? Integer? The number of coupon payments per year}
+{Basis? Integer? The type of day count basis to use.}
+\end{mpFunctionsExtract}
+"/>
+  <node text="PRICE? mpReal? the price per \$100 face value of a security that pays periodic interest." imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionSevenNotImplemented
+{PRICE? mpReal? the price per \$100 face value of a security that pays periodic interest.}
+{Settlement? Date?  The security's settlement date.}
+{Maturity? Date? The security's maturity date.}
+{Rate? mpReal? The security's interest rate.}
+{Yld? mpReal? The security's annual yield.}
+{Redemption? mpReal? The security's redemption value per \$100 face value.}
+{Frequency? Integer? The number of coupon payments per year}
+{Basis? Integer? The type of day count basis to use.}
+\end{mpFunctionsExtract}
+"/>
+  <node text="PRICEDISC? mpReal? Returns the price per \$100 face value of a discounted security." imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionFiveNotImplemented
+{PRICEDISC? mpReal? Returns the price per \$100 face value of a discounted security.}
+{Settlement? Date?  The security's settlement date.}
+{Maturity? Date? The security's maturity date.}
+{Discount? mpReal? The security's interest rate.}
+{Redemption? mpReal? The security's redemption value per \$100 face value.}
+{Basis? Integer? The type of day count basis to use.}
+\end{mpFunctionsExtract}
+"/>
+  <node text="PRICEMAT? mpReal? the price per \$100 face value  of a security that pays interest at maturity." imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionSixNotImplemented
+{PRICEMAT? mpReal? the price per \$100 face value  of a security that pays interest at maturity.}
+{Settlement? Date?  The security's settlement date.}
+{Maturity? Date? The security's maturity date.}
+{Issue? Date? The security's issue date.}
+{Rate? mpReal? The security's interest rate.}
+{Yld? mpReal? The security's annual yield.}
+{Basis? Integer? The type of day count basis to use.}
+\end{mpFunctionsExtract}
+"/>
+  <node text="RECEIVED? mpReal? the amount received at maturity for a fully invested security." imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionFiveNotImplemented
+{RECEIVED? mpReal? the amount received at maturity for a fully invested security.}
+{Settlement? Date?  The security's settlement date.}
+{Maturity? Date? The security's maturity date.}
+{Investment? mpReal? The amount invested in the security.}
+{Discount? mpReal? The security's discount rate.}
+{Basis? Integer? The type of day count basis to use.}
+\end{mpFunctionsExtract}
+"/>
+  <node text="YIELD? mpReal? the yield on a security that pays periodic interest." imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionSevenNotImplemented
+{YIELD? mpReal? the yield on a security that pays periodic interest.}
+{Settlement? Date?  The security's settlement date.}
+{Maturity? Date? The security's maturity date.}
+{Rate? mpReal? The security's interest rate.}
+{Pr? mpReal? The security's price per \$100 face value.}
+{Redemption? mpReal? The security's redemption value per \$100 face value.}
+{Frequency? Integer? The number of coupon payments per year}
+{Basis? Integer? The type of day count basis to use.}
+\end{mpFunctionsExtract}
+"/>
+  <node text="YIELDDISC? mpReal? the annual yield for a discounted security." imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionFiveNotImplemented
+{YIELDDISC? mpReal? the annual yield for a discounted security.}
+{Settlement? Date?  The security's settlement date.}
+{Maturity? Date? The security's maturity date.}
+{Pr? mpReal? The security's price per \$100 face value.}
+{Redemption? mpReal? The security's redemption value per \$100 face value.}
+{Basis? Integer? The type of day count basis to use.}
+\end{mpFunctionsExtract}
+"/>
+  <node text="YIELDMAT? mpReal? the price per \$100 face value  of a security that pays interest at maturity." imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionSixNotImplemented
+{YIELDMAT? mpReal? the price per \$100 face value  of a security that pays interest at maturity.}
+{Settlement? Date?  The security's settlement date.}
+{Maturity? Date? The security's maturity date.}
+{Issue? Date? The security's issue date.}
+{Rate? mpReal? The security's interest rate.}
+{Pr? mpReal? The security's price per \$100 face value.}
+{Basis? Integer? The type of day count basis to use.}
+\end{mpFunctionsExtract}
+"/>
+</node>
+  <node text="Treasury Bills" imageindex="3" tag="Section Info on Treasury Bills">
+  <node text="TBILLEQ? mpReal? the bond-equivalent yield for a Treasury bill." imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionThreeNotImplemented
+{TBILLEQ? mpReal? the bond-equivalent yield for a Treasury bill.}
+{Settlement? Date?  The Treasury bill's settlement date.}
+{Maturity? Date? The Treasury bill's maturity date.}
+{Discount? mpReal? The Treasury bill's discount rate.}
+\end{mpFunctionsExtract}
+"/>
+  <node text="TBILLPRICE? mpReal? the price per \$100 face value for a Treasury bill." imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionThreeNotImplemented
+{TBILLPRICE? mpReal? the price per \$100 face value for a Treasury bill.}
+{Settlement? Date?  The Treasury bill's settlement date.}
+{Maturity? Date? The Treasury bill's maturity date.}
+{Discount? mpReal? The Treasury bill's discount rate.}
+\end{mpFunctionsExtract}
+"/>
+  <node text="TBILLYIELD? mpReal? the yield for a Treasury bill." imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionThreeNotImplemented
+{TBILLYIELD? mpReal? the yield for a Treasury bill.}
+{Settlement? Date?  The Treasury bill's settlement date.}
+{Maturity? Date? The Treasury bill's maturity date.}
+{Pr? mpReal? The Treasury bill's price per \$face value.}
+\end{mpFunctionsExtract}
+"/>
+</node>
+  <node text="Depreciation Functions" imageindex="3" tag="Section Info on Depreciation Functions">
+  <node text="DDB? mpReal? the depreciation of an asset for a specified period using the double-declining balance method or some other method you specify." imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionFiveNotImplemented
+{DDB? mpReal? the depreciation of an asset for a specified period using the double-declining balance method or some other method you specify.}
+{Cost? mpReal?  The initial cost of the asset.}
+{Salvage? mpReal? The salvage value at the end of the life of the asset.}
+{Life? mpReal? The number of periods over which the asset is being depreciated.}
+{Period? mpReal? The period for which you want to calculate the depreciation.}
+{Factor? mpReal? The rate at which the balance declines.}
+\end{mpFunctionsExtract}
+"/>
+  <node text="SLN? mpReal? the straight-line depreciation of an asset for a single period" imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionThreeNotImplemented
+{SLN? mpReal? the straight-line depreciation of an asset for a single period}
+{Cost? mpReal?  The initial cost of the asset.}
+{Salvage? mpReal? The salvage value at the end of the life of the asset.}
+{Life? mpReal? The number of periods over which the asset is being depreciated.}
+\end{mpFunctionsExtract}
+"/>
+  <node text="SYD? mpReal? the sum-of-years' digits depreciation of an asset for a specified period." imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionFourNotImplemented
+{SYD? mpReal? the sum-of-years' digits depreciation of an asset for a specified period.}
+{Cost? mpReal?  The initial cost of the asset.}
+{Salvage? mpReal? The salvage value at the end of the life of the asset.}
+{Life? mpReal? The number of periods over which the asset is being depreciated.}
+{Period? mpReal? The period for which you want to calculate the depreciation.}
+\end{mpFunctionsExtract}
+"/>
+  <node text="DB? mpReal? the depreciation of an asset for a specified period using the fixed-declining balance method." imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionFiveNotImplemented
+{DB? mpReal? the depreciation of an asset for a specified period using the fixed-declining balance method.}
+{Cost? mpReal?  The initial cost of the asset.}
+{Salvage? mpReal? The salvage value at the end of the life of the asset.}
+{Life? mpReal? The number of periods over which the asset is being depreciated.}
+{Period? mpReal? The period for which you want to calculate the depreciation.}
+{Month? mpReal? The number of months in the first year.}
+\end{mpFunctionsExtract}
+"/>
+  <node text="VDB? mpReal? the depreciation of an asset for any period you specify, including partial periods, using the double-declining balance method or some other method you specify. VDB stands for variable declining balance." imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionSevenNotImplemented
+{VDB? mpReal? the depreciation of an asset for any period you specify, including partial periods, using the double-declining balance method or some other method you specify. VDB stands for variable declining balance.}
+{Cost? mpReal?  The initial cost of the asset.}
+{Salvage? mpReal? The salvage value at the end of the life of the asset.}
+{Life? mpReal? The number of periods over which the asset is being depreciated.}
+{Start\_Period? mpReal? The period for which you want to calculate the depreciation.}
+{End\_Period? mpReal? The ending period for which you want to calculate the depreciation. EndPeriod must use the same units as life.}
+{Factor? mpReal? The rate at which the balance declines.}
+{No\_switch? mpReal? A logical value specifying whether to switch to straight-line depreciation when depreciation is greater than the declining balance calculation.}
+\end{mpFunctionsExtract}
+"/>
+  <node text="AMORLINC? mpReal? the depreciation for each accounting period." imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionSevenNotImplemented
+{AMORLINC? mpReal? the depreciation for each accounting period.}
+{Cost? mpReal?  The initial cost of the asset.}
+{Date\_Purchased? Date? The date the asset is purchased.}
+{First\_Period? mpReal? The date of the end of the first period.}
+{Salvage? mpReal? The salvage value at the end of the life of the asset.}
+{Period? mpReal? The period.}
+{Rate? mpReal? The rate of depreciation.}
+{Basis? mpReal? Year Basis: 0 for 360 days, 1 for actual, 3 for 365 days.}
+\end{mpFunctionsExtract}
+"/>
+  <node text="AMORDEGRC? mpReal? the prorated linear depreciation of an asset for each accounting period." imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionSevenNotImplemented
+{AMORDEGRC? mpReal? the prorated linear depreciation of an asset for each accounting period.}
+{Cost? mpReal?  The initial cost of the asset.}
+{Date\_Purchased? Date? The date the asset is purchased.}
+{First\_Period? mpReal? The date of the end of the first period.}
+{Salvage? mpReal? The salvage value at the end of the life of the asset.}
+{Period? mpReal? The period.}
+{Rate? mpReal? The rate of depreciation.}
+{Basis? mpReal? Year Basis: 0 for 360 days, 1 for actual, 3 for 365 days.}
+\end{mpFunctionsExtract}
+"/>
+</node>
+  <node text="Annuity Functions" imageindex="3" tag="Section Info on Annuity Functions">
+  <node text="FV? mpReal? the future value of an annuity based on periodic fixed payments and a fixed interest rate." imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionFiveNotImplemented
+{FV? mpReal? the future value of an annuity based on periodic fixed payments and a fixed interest rate.}
+{Rate? mpReal? The the interest rate per period.}
+{Nper? mpReal? The total number of payment periods in the investment.}
+{Pmt? mpReal? The payment made each period.}
+{PV? mpReal? The present value.}
+{Type? mpReal? a value representing the timing of payment.}
+\end{mpFunctionsExtract}
+"/>
+  <node text="PV? mpReal? the present value of an annuity based on periodic fixed payments to be paid in the future at a fixed interest rate." imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionFiveNotImplemented
+{PV? mpReal? the present value of an annuity based on periodic fixed payments to be paid in the future at a fixed interest rate.}
+{Rate? mpReal? The interest rate per period.}
+{Nper? mpReal? The total number of payment periods in the investment.}
+{Pmt? mpReal? The payment made each period.}
+{FV? mpReal? The future value.}
+{Type? mpReal? a value representing the timing of payment.}
+\end{mpFunctionsExtract}
+"/>
+  <node text="PMT? mpReal? the payment for a loan based on constant payments and a constant interest rate." imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionFiveNotImplemented
+{PMT? mpReal? the payment for a loan based on constant payments and a constant interest rate.}
+{Rate? mpReal? The interest rate per period.}
+{Nper? mpReal? The total number of payment periods in the investment.}
+{PV? mpReal? The present value.}
+{FV? mpReal? The future value.}
+{Type? mpReal? a value representing the timing of payment.}
+\end{mpFunctionsExtract}
+"/>
+  <node text="NPER? mpReal? the number of periods for an investment based on periodic, constant payments and a constant interest rate." imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionFiveNotImplemented
+{NPER? mpReal? the number of periods for an investment based on periodic, constant payments and a constant interest rate.}
+{Rate? mpReal? The interest rate per period.}
+{Pmt? mpReal? The made each period.}
+{PV? mpReal? The present value.}
+{FV? mpReal? The future value.}
+{Type? mpReal? a value representing the timing of payment.}
+\end{mpFunctionsExtract}
+"/>
+  <node text="PDURATION? mpReal?  the number of periods required by an investment to reach a specified value." imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionThreeNotImplemented
+{PDURATION? mpReal?  the number of periods required by an investment to reach a specified value.}
+{Rate? mpReal? The interest rate per period.}
+{PV? mpReal? The present value.}
+{FV? mpReal? The future value.}
+\end{mpFunctionsExtract}
+"/>
+  <node text="RATE? mpReal? the interest rate per period of an annuity" imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionFiveNotImplemented
+{RATE? mpReal? the interest rate per period of an annuity}
+{Nper? mpReal? The the interest rate per period.}
+{Pmt? mpReal? The made each period.}
+{PV? mpReal? The present value.}
+{FV? mpReal? The future value.}
+{Type? mpReal? a value representing the timing of payment.}
+\end{mpFunctionsExtract}
+"/>
+  <node text="IPMT? mpReal? the interest payment for a given period for an investment based on periodic, constant payments and a constant interest rate." imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionSixNotImplemented
+{IPMT? mpReal? the interest payment for a given period for an investment based on periodic, constant payments and a constant interest rate.}
+{Rate? mpReal? The interest rate per period.}
+{Per? mpReal? The period for which you want to find the interest and must be in the range 1 to NPer}
+{Nper? mpReal? The total number of payment periods in the investment.}
+{Pmt? mpReal? The payment made each period.}
+{FV? mpReal? The future value.}
+{Type? mpReal? a value representing the timing of payment.}
+\end{mpFunctionsExtract}
+"/>
+  <node text="PPMT? mpReal? the payment on the principal for a given period for an investment based on periodic, constant payments and a constant interest rate." imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionSixNotImplemented
+{PPMT? mpReal? the payment on the principal for a given period for an investment based on periodic, constant payments and a constant interest rate.}
+{Rate? mpReal? The the interest rate per period.}
+{Per? mpReal? The period for which you want to find the interest and must be in the range 1 to NPer}
+{Nper? mpReal? The total number of payment periods in the investment.}
+{PV? mpReal? The payment made each period.}
+{FV? mpReal? The future value.}
+{Type? mpReal? a value representing the timing of payment.}
+\end{mpFunctionsExtract}
+"/>
+  <node text="CUMIPMT? mpReal? the cumulative interest paid on a loan between StartPeriod and EndPeriod." imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionSixNotImplemented
+{CUMIPMT? mpReal? the cumulative interest paid on a loan between StartPeriod and EndPeriod.}
+{Rate? mpReal? The interest rate per period.}
+{Nper? mpReal? The total number of payment periods in the investment.}
+{PV? mpReal? The payment made each period.}
+{StartPeriod? mpReal? The first period in the calculation.}
+{EndPeriod? mpReal? the last period in the calculation}
+{Type? mpReal? a value representing the timing of payment.}
+\end{mpFunctionsExtract}
+"/>
+  <node text="CUMPRINC? mpReal? the effective annual interest rate, given the nominal annual interest rate and the number of compounding periods per year." imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionSixNotImplemented
+{CUMPRINC? mpReal? the effective annual interest rate, given the nominal annual interest rate and the number of compounding periods per year.}
+{Rate? mpReal? The interest rate per period.}
+{Nper? mpReal? The total number of payment periods in the investment.}
+{PV? mpReal? The payment made each period.}
+{StartPeriod? mpReal? The first period in the calculation.}
+{EndPeriod? mpReal? the last period in the calculation}
+{Type? mpReal? a value representing the timing of payment.}
+\end{mpFunctionsExtract}
+"/>
+  <node text="EFFECT? mpReal? the effective annual interest rate." imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionTwoNotImplemented
+{EFFECT? mpReal? the effective annual interest rate.}
+{NominalRate? mpReal? The nominal interest rate per period.}
+{Npery? mpReal? The number of compounding periods per year}
+\end{mpFunctionsExtract}
+"/>
+  <node text="NOMINAL? mpReal? the nominal annual interest rate, given the effective rate and the number of compounding periods per year." imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionTwoNotImplemented
+{NOMINAL? mpReal? the nominal annual interest rate, given the effective rate and the number of compounding periods per year.}
+{EffectiveRate? mpReal? The nominal interest rate per period.}
+{Npery? mpReal? The number of compounding periods per year}
+\end{mpFunctionsExtract}
+"/>
+  <node text="FVSCHEDULE? mpReal? the future value of an initial principal after applying a series of compound interest rates. Use FVSCHEDULE to calculate the future value of an investment with a variable or adjustable rate." imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionTwoNotImplemented
+{FVSCHEDULE? mpReal? the future value of an initial principal after applying a series of compound interest rates. Use FVSCHEDULE to calculate the future value of an investment with a variable or adjustable rate.}
+{Principal? mpReal? The present value.}
+{Schedule? mpNum? An array of interest rates to apply}
+\end{mpFunctionsExtract}
+"/>
+  <node text="ISPMT? mpReal?  the interest paid during a specific period of an investment." imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionFourNotImplemented
+{ISPMT? mpReal?  the interest paid during a specific period of an investment.}
+{Rate? mpReal? The interest rate per period.}
+{Per? mpReal? The period for which you want to find the interest and must be in the range 1 to NPer}
+{Nper? mpReal? The total number of payment periods in the investment.}
+{PV? mpReal? The present value.}
+\end{mpFunctionsExtract}
+"/>
+</node>
+  <node text="Cash-Flow Functions" imageindex="3" tag="Section Info on Cash-Flow Functions">
+  <node text="IRR? mpReal? the effective annual interest rate." imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionTwoNotImplemented
+{IRR? mpReal? the effective annual interest rate.}
+{Values? mpNum? An array which contains numbers for which which the internal rate of return is calculated.}
+{Guess? mpReal? An initial guess for the IRR, 0.1 if omitted}
+\end{mpFunctionsExtract}
+"/>
+  <node text="RRI? mpReal? an equivalent interest rate for the growth of an investment" imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionThreeNotImplemented
+{RRI? mpReal? an equivalent interest rate for the growth of an investment}
+{Nper? mpReal? The total number of periods for the investment.}
+{PV? mpReal? The present value for the investment.}
+{PV? mpReal? The future value for the investment.}
+\end{mpFunctionsExtract}
+"/>
+  <node text="MIRR? mpReal? the modified internal rate of return for a series of periodic cash flows. MIRR considers both the cost of the investment and the interest received on reinvestment of cash." imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionThreeNotImplemented
+{MIRR? mpReal? the modified internal rate of return for a series of periodic cash flows. MIRR considers both the cost of the investment and the interest received on reinvestment of cash.}
+{Values? mpNum[]? An array that contains numbers that represent a series of payments (negative) and income (positive) at regular periods.}
+{FinanceRate? mpReal? The interest rate paid on the money used in the cash flows.}
+{ReinvestRate? mpReal? The interest rate received on the money used in the cash flows.}
+\end{mpFunctionsExtract}
+"/>
+  <node text="NPV? mpReal? the net present value of an investment based on a series of periodic cash flows and a discount rate." imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionTwoNotImplemented
+{NPV? mpReal? the net present value of an investment based on a series of periodic cash flows and a discount rate.}
+{Rate? mpReal? The total number of periods for the investment.}
+{Values? mpNum[]? An array that contains numbers that represent a series of payments (negative) and income (positive) at regular periods.}
+\end{mpFunctionsExtract}
+"/>
+  <node text="XIRR? mpReal? the modified internal rate of return for a series of periodic cash flows. MIRR considers both the cost of the investment and the interest received on reinvestment of cash." imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionThreeNotImplemented
+{XIRR? mpReal? the modified internal rate of return for a series of periodic cash flows. MIRR considers both the cost of the investment and the interest received on reinvestment of cash.}
+{Values? mpNum[]? An array that contains cash flows that correspond to a schedule of payments in Dates.}
+{Dates? mpReal? A schedule of payment dates that correspond to the cash flow payments}
+{Guess? mpReal? An initial guess for XIRR.}
+\end{mpFunctionsExtract}
+"/>
+  <node text="XNPV? mpReal? the modified internal rate of return for a series of periodic cash flows. MIRR considers both the cost of the investment and the interest received on reinvestment of cash." imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionThreeNotImplemented
+{XNPV? mpReal? the modified internal rate of return for a series of periodic cash flows. MIRR considers both the cost of the investment and the interest received on reinvestment of cash.}
+{Rate? mpReal? The discount rate to aplly to the cash flows.}
+{Values? mpNum[]? An array that contains cash flows that correspond to a schedule of payments in Dates.}
+{Dates? mpReal? A schedule of payment dates that correspond to the cash flow payments}
+\end{mpFunctionsExtract}
+"/>
+</node>
+  <node text="Conversion" imageindex="3" tag="Section Info on Conversion">
+  <node text="DOLLARDE? mpReal? a dollar price expressed as a decimal number, converted from a dollar price expressed as an integer part and a fraction part." imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionTwoNotImplemented
+{DOLLARDE? mpReal? a dollar price expressed as a decimal number, converted from a dollar price expressed as an integer part and a fraction part.}
+{FractionalDollar? mpReal? A number expressed as a fraction.}
+{Fraction? mpReal? The integer to use in the denominator of the fraction}
+\end{mpFunctionsExtract}
+"/>
+  <node text="DOLLARFR? mpReal?  a dollar price expressed as a fraction, converted from a dollar price expressed as a decimal number." imageindex="6" tag="Function Info on 
+\mpWorksheetFunctionTwoNotImplemented
+{DOLLARFR? mpReal?  a dollar price expressed as a fraction, converted from a dollar price expressed as a decimal number.}
+{DecimalDollar? mpReal? A decimal number.}
+{Fraction? mpReal? The integer to use in the denominator of the fraction}
+\end{mpFunctionsExtract}
+"/>
+</node>
+</node>
 <node text="Examples: Multivariate Special Functions" imageindex="2" tag="Chapter Info on Examples: Multivariate Special Functions">
   <node text="Functions Of Matrix Arguments" imageindex="3" tag="Section Info on Functions Of Matrix Arguments">
   <node text="Gammap? mpNum? the multivariate gamma function." imageindex="6" tag="Function Info on 
@@ -7312,6 +7321,125 @@
   <node text="Brython: a Python to JavaScript compiler" imageindex="3" tag="Section Info on Brython: a Python to JavaScript compiler"/>
   <node text="QPython: Python for Android" imageindex="3" tag="Section Info on QPython: Python for Android"/>
   <node text="Pythonista: Python for iOS" imageindex="3" tag="Section Info on Pythonista: Python for iOS"/>
+</node>
+<node text="gmpy2" imageindex="2" tag="Chapter Info on gmpy2">
+  <node text="Overview of gmpy2" imageindex="3" tag="Section Info on Overview of gmpy2"/>
+  <node text="Multiple-precision Integers" imageindex="3" tag="Section Info on Multiple-precision Integers"/>
+  <node text="Multiple-precision Integers (Advanced topics)" imageindex="3" tag="Section Info on Multiple-precision Integers (Advanced topics)">
+  <node text="gmpy2.is\_bpsw\_prp? Boolean? True if $n$ is a Baillie-Pomerance-Selfridge-Wagstaff (BPSW) probable prime." imageindex="6" tag="Function Info on 
+\mpFunctionOne
+{gmpy2.is\_bpsw\_prp? Boolean? True if $n$ is a Baillie-Pomerance-Selfridge-Wagstaff (BPSW) probable prime.}
+{n? Integer? An Integer.}
+\end{mpFunctionsExtract}
+"/>
+  <node text="gmpy2.is\_euler\_prp? Boolean? True if $n$ is an Euler (also known as Solovay-Strassen) probable prime to the base $a$." imageindex="6" tag="Function Info on 
+\mpFunctionTwo
+{gmpy2.is\_euler\_prp? Boolean? True if $n$ is an Euler (also known as Solovay-Strassen) probable prime to the base $a$.}
+{n? Integer? An odd integer.}
+{a? Integer? An Integer.}
+\end{mpFunctionsExtract}
+"/>
+  <node text="gmpy2.is\_extra\_strong\_lucas\_prp? Boolean? True if $n$ is an extra strong Lucas probable prime with parameters ($p$, 1)." imageindex="6" tag="Function Info on 
+\mpFunctionTwo
+{gmpy2.is\_extra\_strong\_lucas\_prp? Boolean? True if $n$ is an extra strong Lucas probable prime with parameters ($p$, 1).}
+{n? Integer? An odd Integer.}
+{p? Integer? An Integer.}
+\end{mpFunctionsExtract}
+"/>
+  <node text="gmpy2.is\_fermat\_prp? Boolean? True if $n$ is a Fermat probable prime to the base $a$." imageindex="6" tag="Function Info on 
+\mpFunctionTwo
+{gmpy2.is\_fermat\_prp? Boolean? True if $n$ is a Fermat probable prime to the base $a$.}
+{n? Integer? An Integer.}
+{a? Integer? An Integer.}
+\end{mpFunctionsExtract}
+"/>
+  <node text="gmpy2.is\_fibonacci\_prp(n,p,q)? Boolean? True if $n$ is an Fibonacci probable prime with parameters ($p$, $q$)." imageindex="6" tag="Function Info on 
+\mpFunctionThree
+{gmpy2.is\_fibonacci\_prp(n,p,q)? Boolean? True if $n$ is an Fibonacci probable prime with parameters ($p$, $q$).}
+{n? Integer? An Integer.}
+{p? Integer? An Integer.}
+{q? Integer? An Integer.}
+\end{mpFunctionsExtract}
+"/>
+  <node text="gmpy2.is\_lucas\_prp? Boolean? True if $n$ is a Lucas probable prime with parameters ($p$, $q$)." imageindex="6" tag="Function Info on 
+\mpFunctionThree
+{gmpy2.is\_lucas\_prp? Boolean? True if $n$ is a Lucas probable prime with parameters ($p$, $q$).}
+{n? Integer? An Integer.}
+{p? Integer? An Integer.}
+{q? Integer? An Integer.}
+\end{mpFunctionsExtract}
+"/>
+  <node text="gmpy2.is\_selfridge\_prp? Boolean? True if $n$ is a Lucas probable prime with Selfridge parameters (p,q)." imageindex="6" tag="Function Info on 
+\mpFunctionOne
+{gmpy2.is\_selfridge\_prp? Boolean? True if $n$ is a Lucas probable prime with Selfridge parameters (p,q).}
+{n? Integer? An Integer.}
+\end{mpFunctionsExtract}
+"/>
+  <node text="gmpy2.is\_strong\_bpsw\_prp? Boolean? True if $n$ is a strong Baillie-Pomerance-Selfridge-Wagstaff probable prime" imageindex="6" tag="Function Info on 
+\mpFunctionOne
+{gmpy2.is\_strong\_bpsw\_prp? Boolean? True if $n$ is a strong Baillie-Pomerance-Selfridge-Wagstaff probable prime}
+{n? Integer? An Integer.}
+\end{mpFunctionsExtract}
+"/>
+  <node text="gmpy2.is\_strong\_lucas\_prp? Boolean? True if $n$ is a strong Lucas probable prime with parameters ($p$, $q$)." imageindex="6" tag="Function Info on 
+\mpFunctionThree
+{gmpy2.is\_strong\_lucas\_prp? Boolean? True if $n$ is a strong Lucas probable prime with parameters ($p$, $q$).}
+{n? Integer? An Integer.}
+{p? Integer? An Integer.}
+{q? Integer? An Integer.}
+\end{mpFunctionsExtract}
+"/>
+  <node text="gmpy2.is\_strong\_prp? Boolean? True if $n$ is an strong (also known as Miller-Rabin) probable prime to the base $a$." imageindex="6" tag="Function Info on 
+\mpFunctionTwo
+{gmpy2.is\_strong\_prp? Boolean? True if $n$ is an strong (also known as Miller-Rabin) probable prime to the base $a$.}
+{n? Integer? An odd Integer.}
+{a? Integer? An Integer.}
+\end{mpFunctionsExtract}
+"/>
+  <node text="gmpy2.is\_strong\_selfridge\_prp? mpNum? True if $n$ is a strong Lucas probable prime with Selfridge parameters" imageindex="6" tag="Function Info on 
+\mpFunctionOne
+{gmpy2.is\_strong\_selfridge\_prp? mpNum? True if $n$ is a strong Lucas probable prime with Selfridge parameters}
+{n? mpNum? An Integer.}
+\end{mpFunctionsExtract}
+"/>
+  <node text="gmpy2.lucasu? Integer? the $k$-th element of the Lucas $U$ sequence defined by $p$, $q$" imageindex="6" tag="Function Info on 
+\mpFunctionThree
+{gmpy2.lucasu? Integer? the $k$-th element of the Lucas $U$ sequence defined by $p$, $q$}
+{p? Integer? An Integer.}
+{q? Integer? An Integer.}
+{k? Integer? An Integer.}
+\end{mpFunctionsExtract}
+"/>
+  <node text="gmpy2.lucasu\_mod? Integer? the $k$-th element of the Lucas $U$ sequence defined by $p$, $q$ (mod $n$)" imageindex="6" tag="Function Info on 
+\mpFunctionFour
+{gmpy2.lucasu\_mod? Integer? the $k$-th element of the Lucas $U$ sequence defined by $p$, $q$ (mod $n$)}
+{p? Integer? An Integer.}
+{q? Integer? An Integer.}
+{k? Integer? An Integer.}
+{n? Integer? An Integer.}
+\end{mpFunctionsExtract}
+"/>
+  <node text="gmpy2.lucasv? Integer? the $k$-th element of the Lucas $V$ sequence defined by parameters ($p$, $q$)" imageindex="6" tag="Function Info on 
+\mpFunctionThree
+{gmpy2.lucasv? Integer? the $k$-th element of the Lucas $V$ sequence defined by parameters ($p$, $q$)}
+{p? Integer? An Integer.}
+{q? Integer? An Integer.}
+{k? Integer? An Integer.}
+\end{mpFunctionsExtract}
+"/>
+  <node text="gmpy2.lucasv\_mod? Integer? the $k$-th element of the Lucas $V$ sequence defined by $p$, $q$ (mod $n$)" imageindex="6" tag="Function Info on 
+\mpFunctionFour
+{gmpy2.lucasv\_mod? Integer? the $k$-th element of the Lucas $V$ sequence defined by $p$, $q$ (mod $n$)}
+{p? Integer? An Integer.}
+{q? Integer? An Integer.}
+{k? Integer? An Integer.}
+{n? Integer? An Integer.}
+\end{mpFunctionsExtract}
+"/>
+</node>
+  <node text="Multiple-precision Rationals" imageindex="3" tag="Section Info on Multiple-precision Rationals"/>
+  <node text="Multiple-precision Reals" imageindex="3" tag="Section Info on Multiple-precision Reals"/>
+  <node text="Multiple-precision Complex" imageindex="3" tag="Section Info on Multiple-precision Complex"/>
 </node>
 <node text="LibreOffice Calc and Microsoft Excel" imageindex="2" tag="Chapter Info on LibreOffice Calc and Microsoft Excel">
   <node text="LibreOffice Calc" imageindex="3" tag="Section Info on LibreOffice Calc"/>

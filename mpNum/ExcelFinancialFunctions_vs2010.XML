@@ -1,0 +1,1036 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+<assembly><name>ExcelFinancialFunctions</name></assembly>
+<members>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Excel.FinancialFunctions.AccrIntCalcMethod">
+<summary>
+ Indicates whether accrued interest is computed from issue date (by default) or first interest to settlement
+</summary>
+</member>
+<member name="F:Excel.FinancialFunctions.DayCountBasis.Europ30_360">
+<summary>
+ European 30/360
+</summary>
+</member>
+<member name="F:Excel.FinancialFunctions.DayCountBasis.Actual365">
+<summary>
+ Actual/365
+</summary>
+</member>
+<member name="F:Excel.FinancialFunctions.DayCountBasis.Actual360">
+<summary>
+ Actual/360
+</summary>
+</member>
+<member name="F:Excel.FinancialFunctions.DayCountBasis.ActualActual">
+<summary>
+ Actual/Actual
+</summary>
+</member>
+<member name="F:Excel.FinancialFunctions.DayCountBasis.UsPsa30_360">
+<summary>
+ US 30/360
+</summary>
+</member>
+<member name="">
+
+</member>
+<member name="T:Excel.FinancialFunctions.DayCountBasis">
+<summary>
+ The type of Day Count Basis
+</summary>
+</member>
+<member name="M:Excel.FinancialFunctions.Financial.YieldMat(System.DateTime,System.DateTime,System.DateTime,System.Double,System.Double,Excel.FinancialFunctions.DayCountBasis)">
+<summary>
+ The annual yield of a security that pays interest at maturity ([learn more](http://office.microsoft.com/en-us/excel/HP052093471033.aspx))
+</summary>
+</member>
+<member name="M:Excel.FinancialFunctions.Financial.YieldDisc(System.DateTime,System.DateTime,System.Double,System.Double,Excel.FinancialFunctions.DayCountBasis)">
+<summary>
+ The annual yield for a discounted security; for example, a Treasury bill ([learn more](http://office.microsoft.com/en-us/excel/HP052093461033.aspx))
+</summary>
+</member>
+<member name="M:Excel.FinancialFunctions.Financial.Yield(System.DateTime,System.DateTime,System.Double,System.Double,System.Double,Excel.FinancialFunctions.Frequency,Excel.FinancialFunctions.DayCountBasis)">
+<summary>
+ The yield on a security that pays periodic interest ([learn more](http://office.microsoft.com/en-us/excel/HP052093451033.aspx))
+</summary>
+</member>
+<member name="M:Excel.FinancialFunctions.Financial.YearFrac(System.DateTime,System.DateTime,Excel.FinancialFunctions.DayCountBasis)">
+<summary>
+ Calculates the fraction of the year represented by the number of whole days between two dates - not a financial function
+ ([learn more](http://office.microsoft.com/en-us/excel/HP052093441033.aspx))
+</summary>
+</member>
+<member name="M:Excel.FinancialFunctions.Financial.XNpv(System.Double,System.Collections.Generic.IEnumerable{System.Double},System.Collections.Generic.IEnumerable{System.DateTime})">
+<summary>
+ The net present value for a schedule of cash flows that is not necessarily periodic ([learn more](http://office.microsoft.com/en-us/excel/HP052093421033.aspx))
+</summary>
+</member>
+<member name="M:Excel.FinancialFunctions.Financial.XIrr(System.Collections.Generic.IEnumerable{System.Double},System.Collections.Generic.IEnumerable{System.DateTime})">
+<summary>
+ The internal rate of return for a schedule of cash flows that is not necessarily periodic ([learn more](http://office.microsoft.com/en-us/excel/HP052093411033.aspx))
+</summary>
+</member>
+<member name="M:Excel.FinancialFunctions.Financial.XIrr(System.Collections.Generic.IEnumerable{System.Double},System.Collections.Generic.IEnumerable{System.DateTime},System.Double)">
+<summary>
+ The internal rate of return for a schedule of cash flows that is not necessarily periodic ([learn more](http://office.microsoft.com/en-us/excel/HP052093411033.aspx))
+</summary>
+</member>
+<member name="M:Excel.FinancialFunctions.Financial.Vdb(System.Double,System.Double,System.Double,System.Double,System.Double)">
+<summary>
+ The depreciation of an asset for a specified or partial period by using a declining balance method ([learn more](http://office.microsoft.com/en-us/excel/HP052093341033.aspx))  
+</summary>
+</member>
+<member name="M:Excel.FinancialFunctions.Financial.Vdb(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+<summary>
+ The depreciation of an asset for a specified or partial period by using a declining balance method ([learn more](http://office.microsoft.com/en-us/excel/HP052093341033.aspx))  
+</summary>
+</member>
+<member name="M:Excel.FinancialFunctions.Financial.Vdb(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,Excel.FinancialFunctions.VdbSwitch)">
+<summary>
+ The depreciation of an asset for a specified or partial period by using a declining balance method ([learn more](http://office.microsoft.com/en-us/excel/HP052093341033.aspx))  
+ In the excel version of this algorithm the depreciation in the period (0,1) is not the same as the sum of the depreciations in periods (0,0.5) (0.5,1)  
+ `VDB(100,10,13,0,0.5,1,0) + VDB(100,10,13,0.5,1,1,0) &lt;&gt; VDB(100,10,13,0,1,1,0)`  
+ Notice that in Excel by using &apos;1&apos; (no_switch) instead of &apos;0&apos; as the last parameter everything works as expected.  
+ In truth, the last parameter should have no influence in the calculation given that in the first period there is no switch to sln depreciation.  
+ Overall, I think my algorithm is correct, even if it disagrees with Excel when startperiod is fractional.
+</summary>
+</member>
+<member name="M:Excel.FinancialFunctions.Financial.TBillYield(System.DateTime,System.DateTime,System.Double)">
+<summary>
+ The yield for a Treasury bill ([learn more](http://office.microsoft.com/en-us/excel/HP052093111033.aspx))
+</summary>
+</member>
+<member name="M:Excel.FinancialFunctions.Financial.TBillPrice(System.DateTime,System.DateTime,System.Double)">
+<summary>
+ The price per $100 face value for a Treasury bill ([learn more](http://office.microsoft.com/en-us/excel/HP052093101033.aspx))
+</summary>
+</member>
+<member name="M:Excel.FinancialFunctions.Financial.TBillEq(System.DateTime,System.DateTime,System.Double)">
+<summary>
+ The bond-equivalent yield for a Treasury bill ([learn more](http://office.microsoft.com/en-us/excel/HP052093091033.aspx))
+</summary>
+</member>
+<member name="M:Excel.FinancialFunctions.Financial.Syd(System.Double,System.Double,System.Double,System.Double)">
+<summary>
+ The sum-of-years&apos; digits depreciation of an asset for a specified period ([learn more](http://office.microsoft.com/en-us/excel/HP052093021033.aspx))
+</summary>
+</member>
+<member name="M:Excel.FinancialFunctions.Financial.Sln(System.Double,System.Double,System.Double)">
+<summary>
+ The straight-line depreciation of an asset for one period ([learn more](http://office.microsoft.com/en-us/excel/HP052092631033.aspx))
+</summary>
+</member>
+<member name="M:Excel.FinancialFunctions.Financial.Received(System.DateTime,System.DateTime,System.Double,System.Double,Excel.FinancialFunctions.DayCountBasis)">
+<summary>
+ The amount received at maturity for a fully invested security ([learn more](http://office.microsoft.com/en-us/excel/HP052092331033.aspx))
+</summary>
+</member>
+<member name="M:Excel.FinancialFunctions.Financial.Rate(System.Double,System.Double,System.Double,System.Double,Excel.FinancialFunctions.PaymentDue)">
+<summary>
+ The interest rate per period of an annuity ([learn more](http://office.microsoft.com/en-us/excel/HP052092321033.aspx))
+</summary>
+</member>
+<member name="M:Excel.FinancialFunctions.Financial.Rate(System.Double,System.Double,System.Double,System.Double,Excel.FinancialFunctions.PaymentDue,System.Double)">
+<summary>
+ The interest rate per period of an annuity ([learn more](http://office.microsoft.com/en-us/excel/HP052092321033.aspx))
+</summary>
+</member>
+<member name="M:Excel.FinancialFunctions.Financial.Pv(System.Double,System.Double,System.Double,System.Double,Excel.FinancialFunctions.PaymentDue)">
+<summary>
+ The present value of an investment ([learn more](http://office.microsoft.com/en-us/excel/HP052092251033.aspx))
+</summary>
+</member>
+<member name="M:Excel.FinancialFunctions.Financial.PriceMat(System.DateTime,System.DateTime,System.DateTime,System.Double,System.Double,Excel.FinancialFunctions.DayCountBasis)">
+<summary>
+ The price per $100 face value of a security that pays interest at maturity ([learn more](http://office.microsoft.com/en-us/excel/HP052092211033.aspx))
+</summary>
+</member>
+<member name="M:Excel.FinancialFunctions.Financial.PriceDisc(System.DateTime,System.DateTime,System.Double,System.Double,Excel.FinancialFunctions.DayCountBasis)">
+<summary>
+ The price per $100 face value of a discounted security ([learn more](http://office.microsoft.com/en-us/excel/HP052092201033.aspx))
+</summary>
+</member>
+<member name="M:Excel.FinancialFunctions.Financial.Price(System.DateTime,System.DateTime,System.Double,System.Double,System.Double,Excel.FinancialFunctions.Frequency,Excel.FinancialFunctions.DayCountBasis)">
+<summary>
+ The price per $100 face value of a security that pays periodic interest ([learn more](http://office.microsoft.com/en-us/excel/HP052092191033.aspx))
+</summary>
+</member>
+<member name="M:Excel.FinancialFunctions.Financial.Pmt(System.Double,System.Double,System.Double,System.Double,Excel.FinancialFunctions.PaymentDue)">
+<summary>
+ The periodic payment for an annuity ([learn more](http://office.microsoft.com/en-us/excel/HP052092151033.aspx))
+</summary>
+</member>
+<member name="M:Excel.FinancialFunctions.Financial.PPmt(System.Double,System.Double,System.Double,System.Double,System.Double,Excel.FinancialFunctions.PaymentDue)">
+<summary>
+ The payment on the principal for an investment for a given period ([learn more](http://office.microsoft.com/en-us/excel/HP052092181033.aspx))
+</summary>
+</member>
+<member name="M:Excel.FinancialFunctions.Financial.OddLYield(System.DateTime,System.DateTime,System.DateTime,System.Double,System.Double,System.Double,Excel.FinancialFunctions.Frequency,Excel.FinancialFunctions.DayCountBasis)">
+<summary>
+ The yield of a security with an odd last period ([learn more](http://office.microsoft.com/en-us/excel/HP052092071033.aspx))
+</summary>
+</member>
+<member name="M:Excel.FinancialFunctions.Financial.OddLPrice(System.DateTime,System.DateTime,System.DateTime,System.Double,System.Double,System.Double,Excel.FinancialFunctions.Frequency,Excel.FinancialFunctions.DayCountBasis)">
+<summary>
+ The price per $100 face value of a security with an odd last period ([learn more](http://office.microsoft.com/en-us/excel/HP052092061033.aspx))
+</summary>
+</member>
+<member name="M:Excel.FinancialFunctions.Financial.OddFYield(System.DateTime,System.DateTime,System.DateTime,System.DateTime,System.Double,System.Double,System.Double,Excel.FinancialFunctions.Frequency,Excel.FinancialFunctions.DayCountBasis)">
+<summary>
+ The yield of a security with an odd first period ([learn more](http://office.microsoft.com/en-us/excel/HP052092051033.aspx))
+</summary>
+</member>
+<member name="M:Excel.FinancialFunctions.Financial.OddFPrice(System.DateTime,System.DateTime,System.DateTime,System.DateTime,System.Double,System.Double,System.Double,Excel.FinancialFunctions.Frequency,Excel.FinancialFunctions.DayCountBasis)">
+<summary>
+ The price per $100 face value of a security with an odd first period ([learn more](http://office.microsoft.com/en-us/excel/HP052092041033.aspx))
+</summary>
+</member>
+<member name="M:Excel.FinancialFunctions.Financial.Npv(System.Double,System.Collections.Generic.IEnumerable{System.Double})">
+<summary>
+ The net present value of an investment based on a series of periodic cash flows and a discount rate ([learn more](http://office.microsoft.com/en-us/excel/HP052091991033.aspx))
+</summary>
+</member>
+<member name="M:Excel.FinancialFunctions.Financial.Nominal(System.Double,System.Double)">
+<summary>
+ The annual nominal interest rate ([learn more](http://office.microsoft.com/en-us/excel/HP052091911033.aspx))
+</summary>
+</member>
+<member name="M:Excel.FinancialFunctions.Financial.NPer(System.Double,System.Double,System.Double,System.Double,Excel.FinancialFunctions.PaymentDue)">
+<summary>
+ The number of periods for an investment ([learn more](http://office.microsoft.com/en-us/excel/HP052091981033.aspx))
+</summary>
+</member>
+<member name="M:Excel.FinancialFunctions.Financial.Mirr(System.Collections.Generic.IEnumerable{System.Double},System.Double,System.Double)">
+<summary>
+ The internal rate of return where positive and negative cash flows are financed at different rates ([learn more](http://office.microsoft.com/en-us/excel/HP052091801033.aspx))
+</summary>
+</member>
+<member name="M:Excel.FinancialFunctions.Financial.MDuration(System.DateTime,System.DateTime,System.Double,System.Double,Excel.FinancialFunctions.Frequency,Excel.FinancialFunctions.DayCountBasis)">
+<summary>
+ The Macauley modified duration for a security with an assumed par value of $100 ([learn more](http://office.microsoft.com/en-us/excel/HP052091731033.aspx))
+</summary>
+</member>
+<member name="M:Excel.FinancialFunctions.Financial.Irr(System.Collections.Generic.IEnumerable{System.Double})">
+<summary>
+ The internal rate of return for a series of cash flows ([learn more](http://office.microsoft.com/en-us/excel/HP052091461033.aspx))
+</summary>
+</member>
+<member name="M:Excel.FinancialFunctions.Financial.Irr(System.Collections.Generic.IEnumerable{System.Double},System.Double)">
+<summary>
+ The internal rate of return for a series of cash flows ([learn more](http://office.microsoft.com/en-us/excel/HP052091461033.aspx))
+</summary>
+</member>
+<member name="M:Excel.FinancialFunctions.Financial.IntRate(System.DateTime,System.DateTime,System.Double,System.Double,Excel.FinancialFunctions.DayCountBasis)">
+<summary>
+ The interest rate for a fully invested security ([learn more](http://office.microsoft.com/en-us/excel/HP052091441033.aspx))
+</summary>
+</member>
+<member name="M:Excel.FinancialFunctions.Financial.ISPmt(System.Double,System.Double,System.Double,System.Double)">
+<summary>
+ Calculates the interest paid during a specific period of an investment ([learn more](http://office.microsoft.com/en-us/excel/HP052508401033.aspx))
+</summary>
+</member>
+<member name="M:Excel.FinancialFunctions.Financial.IPmt(System.Double,System.Double,System.Double,System.Double,System.Double,Excel.FinancialFunctions.PaymentDue)">
+<summary>
+ The interest payment for an investment for a given period ([learn more](http://office.microsoft.com/en-us/excel/HP052091451033.aspx))
+</summary>
+</member>
+<member name="M:Excel.FinancialFunctions.Financial.FvSchedule(System.Double,System.Collections.Generic.IEnumerable{System.Double})">
+<summary>
+ The future value of an initial principal after applying a series of compound interest rates ([learn more](http://office.microsoft.com/en-us/excel/HP052091001033.aspx))
+</summary>
+</member>
+<member name="M:Excel.FinancialFunctions.Financial.Fv(System.Double,System.Double,System.Double,System.Double,Excel.FinancialFunctions.PaymentDue)">
+<summary>
+ The future value of an investment ([learn more](http://office.microsoft.com/en-us/excel/HP052090991033.aspx))
+</summary>
+</member>
+<member name="M:Excel.FinancialFunctions.Financial.Effect(System.Double,System.Double)">
+<summary>
+ The effective annual interest rate ([learn more](http://office.microsoft.com/en-us/excel/HP052090741033.aspx))
+</summary>
+</member>
+<member name="M:Excel.FinancialFunctions.Financial.Duration(System.DateTime,System.DateTime,System.Double,System.Double,Excel.FinancialFunctions.Frequency,Excel.FinancialFunctions.DayCountBasis)">
+<summary>
+ The annual duration of a security with periodic interest payments ([learn more](http://office.microsoft.com/en-us/excel/HP052090701033.aspx))
+</summary>
+</member>
+<member name="M:Excel.FinancialFunctions.Financial.DollarFr(System.Double,System.Double)">
+<summary>
+ Converts a dollar price, expressed as a decimal number, into a dollar price, expressed as a fraction ([learn more](http://office.microsoft.com/en-us/excel/HP052090651033.aspx))
+</summary>
+</member>
+<member name="M:Excel.FinancialFunctions.Financial.DollarDe(System.Double,System.Double)">
+<summary>
+ Converts a dollar price, expressed as a fraction, into a dollar price, expressed as a decimal number ([learn more](http://office.microsoft.com/en-us/excel/HP052090641033.aspx))
+</summary>
+</member>
+<member name="M:Excel.FinancialFunctions.Financial.Disc(System.DateTime,System.DateTime,System.Double,System.Double,Excel.FinancialFunctions.DayCountBasis)">
+<summary>
+ The discount rate for a security ([learn more](http://office.microsoft.com/en-us/excel/HP052090601033.aspx))
+</summary>
+</member>
+<member name="M:Excel.FinancialFunctions.Financial.Ddb(System.Double,System.Double,System.Double,System.Double)">
+<summary>
+ The depreciation of an asset for a specified period by using the double-declining balance method or some other method that you specify ([learn more](http://office.microsoft.com/en-us/excel/HP052090511033.aspx))
+</summary>
+</member>
+<member name="M:Excel.FinancialFunctions.Financial.Ddb(System.Double,System.Double,System.Double,System.Double,System.Double)">
+<summary>
+ The depreciation of an asset for a specified period by using the double-declining balance method or some other method that you specify ([learn more](http://office.microsoft.com/en-us/excel/HP052090511033.aspx))
+ Excel Ddb has two interesting characteristics:  
+ 1. It special cases ddb for fractional periods between 0 and 1 by considering them to be 1  
+ 2. It is inconsistent with VDB(..., True) for fractional periods, even if VDB(..., True) is defined to be the same as ddb. The algorithm for VDB is theoretically correct.  
+ This function makes the same 1. adjustment.
+</summary>
+</member>
+<member name="M:Excel.FinancialFunctions.Financial.Db(System.Double,System.Double,System.Double,System.Double)">
+<summary>
+ The depreciation of an asset for a specified period by using the fixed-declining balance method
+ ([learn more](http://office.microsoft.com/en-us/excel/HP052090481033.aspx))
+</summary>
+</member>
+<member name="M:Excel.FinancialFunctions.Financial.Db(System.Double,System.Double,System.Double,System.Double,System.Double)">
+<summary>
+ The depreciation of an asset for a specified period by using the fixed-declining balance method
+ ([learn more](http://office.microsoft.com/en-us/excel/HP052090481033.aspx))
+</summary>
+</member>
+<member name="M:Excel.FinancialFunctions.Financial.CumPrinc(System.Double,System.Double,System.Double,System.Double,System.Double,Excel.FinancialFunctions.PaymentDue)">
+<summary>
+ The cumulative principal paid on a loan between two periods ([learn more](http://office.microsoft.com/en-us/excel/HP052090391033.aspx))
+</summary>
+</member>
+<member name="M:Excel.FinancialFunctions.Financial.CumIPmt(System.Double,System.Double,System.Double,System.Double,System.Double,Excel.FinancialFunctions.PaymentDue)">
+<summary>
+ The cumulative interest paid between two periods ([learn more](http://office.microsoft.com/en-us/excel/HP052090381033.aspx))
+</summary>
+</member>
+<member name="M:Excel.FinancialFunctions.Financial.CoupPCD(System.DateTime,System.DateTime,Excel.FinancialFunctions.Frequency,Excel.FinancialFunctions.DayCountBasis)">
+<summary>
+ The previous coupon date before the settlement date ([learn more](http://office.microsoft.com/en-us/excel/HP052090351033.aspx))
+</summary>
+</member>
+<member name="M:Excel.FinancialFunctions.Financial.CoupNum(System.DateTime,System.DateTime,Excel.FinancialFunctions.Frequency,Excel.FinancialFunctions.DayCountBasis)">
+<summary>
+ The number of coupons payable between the settlement date and maturity date ([learn more](http://office.microsoft.com/en-us/excel/HP052090341033.aspx))
+</summary>
+</member>
+<member name="M:Excel.FinancialFunctions.Financial.CoupNCD(System.DateTime,System.DateTime,Excel.FinancialFunctions.Frequency,Excel.FinancialFunctions.DayCountBasis)">
+<summary>
+ The next coupon date after the settlement date ([learn more](http://office.microsoft.com/en-us/excel/HP052090331033.aspx))
+</summary>
+</member>
+<member name="M:Excel.FinancialFunctions.Financial.CoupDaysNC(System.DateTime,System.DateTime,Excel.FinancialFunctions.Frequency,Excel.FinancialFunctions.DayCountBasis)">
+<summary>
+ The number of days from the settlement date to the next coupon date ([learn more](http://office.microsoft.com/en-us/excel/HP052090321033.aspx))
+</summary>
+</member>
+<member name="M:Excel.FinancialFunctions.Financial.CoupDaysBS(System.DateTime,System.DateTime,Excel.FinancialFunctions.Frequency,Excel.FinancialFunctions.DayCountBasis)">
+<summary>
+ The number of days from the beginning of the coupon period to the settlement date ([learn more](http://office.microsoft.com/en-us/excel/HP052090301033.aspx))
+</summary>
+</member>
+<member name="M:Excel.FinancialFunctions.Financial.CoupDays(System.DateTime,System.DateTime,Excel.FinancialFunctions.Frequency,Excel.FinancialFunctions.DayCountBasis)">
+<summary>
+ The number of days in the coupon period that contains the settlement date ([learn more](http://office.microsoft.com/en-us/excel/HP052090311033.aspx))  
+ The Excel algorithm seems wrong in that it doesn&apos;t respect `coupDays = coupDaysBS + coupDaysNC`    
+ This equality should stand. The differs from Excel by +/- one or two days when the date spans a leap year.
+</summary>
+</member>
+<member name="M:Excel.FinancialFunctions.Financial.AmorLinc(System.Double,System.DateTime,System.DateTime,System.Double,System.Double,System.Double,Excel.FinancialFunctions.DayCountBasis)">
+<summary>
+ The depreciation for each accounting period ([learn more](http://office.microsoft.com/en-us/excel/HP052089851033.aspx))
+</summary>
+</member>
+<member name="M:Excel.FinancialFunctions.Financial.AmorDegrc(System.Double,System.DateTime,System.DateTime,System.Double,System.Double,System.Double,Excel.FinancialFunctions.DayCountBasis,System.Boolean)">
+<summary>
+ The depreciation for each accounting period by using a depreciation coefficient ([learn more](http://office.microsoft.com/en-us/excel/HP052089841033.aspx))  
+ ExcelCompliant is used because Excel stores 13 digits. AmorDegrc algorithm rounds numbers  
+ and returns different results unless the numbers get rounded to 13 digits before rounding them.  
+ I.E. 22.49999999999999 is considered 22.5 by Excel, but 22.4 by the .NET framework    
+</summary>
+</member>
+<member name="M:Excel.FinancialFunctions.Financial.AccrIntM(System.DateTime,System.DateTime,System.Double,System.Double,Excel.FinancialFunctions.DayCountBasis)">
+<summary>
+ The accrued interest for a security that pays interest at maturity ([learn more](http://office.microsoft.com/en-us/excel/HP052089801033.aspx))
+</summary>
+</member>
+<member name="M:Excel.FinancialFunctions.Financial.AccrInt(System.DateTime,System.DateTime,System.DateTime,System.Double,System.Double,Excel.FinancialFunctions.Frequency,Excel.FinancialFunctions.DayCountBasis)">
+<summary>
+ The accrued interest for a security that pays periodic interest ([learn more](http://office.microsoft.com/en-us/excel/HP052089791033.aspx))
+</summary>
+</member>
+<member name="M:Excel.FinancialFunctions.Financial.AccrInt(System.DateTime,System.DateTime,System.DateTime,System.Double,System.Double,Excel.FinancialFunctions.Frequency,Excel.FinancialFunctions.DayCountBasis,Excel.FinancialFunctions.AccrIntCalcMethod)">
+<summary>
+ The accrued interest for a security that pays periodic interest ([learn more](http://office.microsoft.com/en-us/excel/HP052089791033.aspx))
+</summary>
+</member>
+<member name="T:Excel.FinancialFunctions.Financial">
+<summary>
+ A wrapper class to expose the Excel financial functions API to .NET clients
+</summary>
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Excel.FinancialFunctions.Frequency">
+<summary>
+ The number of coupon payments per year
+</summary>
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Excel.FinancialFunctions.PaymentDue">
+<summary>
+ Indicates when payments are due (end/beginning of period)
+</summary>
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Excel.FinancialFunctions.VdbSwitch">
+<summary>
+ Specifies whether to switch to straight-line depreciation when depreciation is greater than the declining balance calculation
+</summary>
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Excel.FinancialFunctions.Bonds">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Excel.FinancialFunctions.Common">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Excel.FinancialFunctions.DayCount">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Excel.FinancialFunctions.Depreciation">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Excel.FinancialFunctions.Irr">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Excel.FinancialFunctions.Loan">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Excel.FinancialFunctions.Misc">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Excel.FinancialFunctions.OddBonds">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Excel.FinancialFunctions.TBill">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Excel.FinancialFunctions.Tvm">
+
+</member>
+</members>
+</doc>

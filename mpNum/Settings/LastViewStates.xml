@@ -99,6 +99,14 @@
     <CaretOffset value="0" />
     <ScrollPositionY value="0" />
   </Properties>
+  <Properties name="1e13ec5:C:\EXTRA\MPFORMULATDM\MPFORMULAPY\SOURCE\MPFORMULATOOLBOX\STARTNUMEXP\MAINFORM.CS">
+    <CaretOffset value="388" />
+    <ScrollPositionY value="0" />
+  </Properties>
+  <Properties name="1e13ec5:C:\EXTRA\MPFORMULATDM\MPFORMULAPY\SOURCE\MPFORMULATOOLBOX\STARTNUMEXP\MAINFORM.DESIGNER.CS">
+    <CaretOffset value="851" />
+    <ScrollPositionY value="289.5" />
+  </Properties>
   <Properties name="1e13ec5:C:\EXTRA\MPFORMULATDM\MPFORMULAPY\SOURCE\MPFORMULATOOLBOX\TESTACRO\CLSWINDOWMESSAGING.CS">
     <CaretOffset value="806" />
     <ScrollPositionY value="205" />
@@ -335,8 +343,28 @@
     <CaretOffset value="3148" />
     <ScrollPositionY value="1744.5" />
   </Properties>
+  <Properties name="1e13ec5:I:\EXTRA\MPFORMULATDM\MPFORMULAPY\SOURCE\CPYTHONFROMNET\CPYTHONFROMNET\PROGRAM.VB">
+    <CaretOffset value="431" />
+    <ScrollPositionY value="0" />
+  </Properties>
+  <Properties name="1e13ec5:I:\EXTRA\MPFORMULATDM\MPFORMULAPY\SOURCE\LIBREOFFICE\LIBREOFFICE\PROGRAM.VB">
+    <CaretOffset value="1003" />
+    <ScrollPositionY value="90" />
+  </Properties>
+  <Properties name="1e13ec5:I:\EXTRA\MPFORMULATDM\MPFORMULAPY\SOURCE\TESTFINANCIALFUNCTIONS\TESTFINANCIALFUNCTIONS\PROGRAM.VB">
+    <CaretOffset value="0" />
+    <ScrollPositionY value="0" />
+  </Properties>
+  <Properties name="1e13ec5:I:\EXTRA\MPFORMULATDM\MPFORMULAPY\SOURCE\TESTSTRING\TESTSTRING\APP.CONFIG">
+    <CaretOffset value="0" />
+    <ScrollPositionY value="0" />
+  </Properties>
   <Properties name="1e13ec5:I:\EXTRA\MPFORMULATDM\MPFORMULAPY\SOURCE\TESTSTRING\TESTSTRING\PROGRAM.VB">
-    <CaretOffset value="1888" />
-    <ScrollPositionY value="640.06182380216364" />
+    <CaretOffset value="1858" />
+    <ScrollPositionY value="677.31511254019324" />
+  </Properties>
+  <Properties name="1e13ec5:I:\EXTRA\MPFORMULATDM\MPFORMULAXL\SOURCE\TESTFINANCIALFUNCTIONS\TESTFINANCIALFUNCTIONS\PROGRAM.VB">
+    <CaretOffset value="38" />
+    <ScrollPositionY value="0" />
   </Properties>
 </Properties>

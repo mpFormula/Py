@@ -1,0 +1,1960 @@
+
+
+\chapter{Date, Time and Financial Functions}
+\label{ElementaryFinancialFunctions} 
+
+Reference text \cite{Benninga2008}
+
+Reference text \cite{Benninga2010}
+
+Reference text \cite{Day_2010}
+
+
+
+
+
+
+\vpara
+\href{http://stackoverflow.com/questions/16262007/datetime-tooadate-time-only}{http://stackoverflow.com/questions/16262007/datetime-tooadate-time-only}.
+
+
+
+\vpara
+\href{https://github.com/fsprojects/ExcelFinancialFunctions}{https://github.com/fsprojects/ExcelFinancialFunctions}.
+
+
+\vpara
+\href{http://fsprojects.github.io/ExcelFinancialFunctions/}{http://fsprojects.github.io/ExcelFinancialFunctions/}.
+
+
+\vpara
+\href{http://ricardocovo.com/2013/01/14/financial-functions-in-net-c/}{http://ricardocovo.com/2013/01/14/financial-functions-in-net-c/}.
+
+
+\vpara
+\href{https://msdn.microsoft.com/en-us/library/microsoft.visualbasic.financial\%28v=vs.100\%29.aspx}{https://msdn.microsoft.com/en-us/library/microsoft.visualbasic.financial\%28v=vs.100\%29.aspx}.
+
+
+
+\vpara
+\href{http://luajalla.azurewebsites.net/fscheck-testing-excel-financial-functions/}{http://luajalla.azurewebsites.net/fscheck-testing-excel-financial-functions/}.
+
+
+
+\vpara
+\href{http://type-nat.ch/}{http://type-nat.ch/}.
+
+
+\vpara
+\href{http://www.randombitsofcode.com/implementing-the-excel-yield-function-in-c-net/}{http://www.randombitsofcode.com/implementing-the-excel-yield-function-in-c-net/}.
+
+
+
+\vpara
+\href{http://www.c-sharpcorner.com/uploadfile/shivprasadk/financial-calculation-using-net-part-i/}{http://www.c-sharpcorner.com/uploadfile/shivprasadk/financial-calculation-using-net-part-i/}.
+
+
+
+\vpara
+\href{http://www.c-sharpcorner.com/uploadfile/shivprasadk/financial-calculation-using-net-part-ii/}{http://www.c-sharpcorner.com/uploadfile/shivprasadk/financial-calculation-using-net-part-ii/}.
+
+
+
+\vpara
+\href{https://code.msdn.microsoft.com/office/Excel-Financial-functions-6afc7d42}{https://code.msdn.microsoft.com/office/Excel-Financial-functions-6afc7d42}.
+
+
+
+
+
+\section{Date and Time: Conversions from Serial Number}
+Microsoft Excel stores dates as sequential serial numbers so they can be used in calculations. By default, January 1, 1900 is serial number 1, and January 1, 2008 is serial number 39448 because it is 39,448 days after January 1, 1900.
+
+
+
+\subsection{Serial Number to Second}
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionOneNotImplemented
+	{SECOND? mpReal? the seconds of a time value. The second is given as an integer in the range 0 (zero) to 59.}
+	{Timevalue? Variant? The time that contains the seconds you want to find.}
+\end{mpFunctionsExtract}
+
+\vspace{0.3cm}
+Note: Times may be entered as text strings within quotation marks (for example, "6:45 PM"), as decimal numbers (for example, 0.78125, which represents 6:45 PM), or as results of other formulas or functions (for example, TIMEVALUE("6:45 PM")).
+
+
+
+\subsection{Serial Number to Minute}
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionOneNotImplemented
+	{MINUTE? mpReal? the minutes of a time value. The minute is given as an integer, ranging from 0 to 59.}
+	{Timevalue? Variant? The time that contains the minute you want to find.}
+\end{mpFunctionsExtract}
+
+\vspace{0.3cm}
+Note: Times may be entered as text strings within quotation marks (for example, "6:45 PM"), as decimal numbers (for example, 0.78125, which represents 6:45 PM), or as results of other formulas or functions (for example, TIMEVALUE("6:45 PM")).
+
+
+
+\subsection{Serial Number to Hour}
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionOneNotImplemented
+	{HOUR? mpReal? the hour of a time value. The hour is given as an integer, ranging from 0 (12:00 A.M.) to 23 (11:00 P.M.).}
+	{Timevalue? Variant? The time that contains the hour you want to find.}
+\end{mpFunctionsExtract}
+
+\vspace{0.3cm}
+Note: Times may be entered as text strings within quotation marks (for example, "6:45 PM"), as decimal numbers (for example, 0.78125, which represents 6:45 PM), or as results of other formulas or functions (for example, TIMEVALUE("6:45 PM")).
+
+
+
+\subsection{Serial Number to Day of the Month}
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionOneNotImplemented
+	{DAY? mpReal? the day of a date, represented by a serial number. The day is given as an integer ranging from 1 to 31.}
+	{Datevalue? Date? The date of the day you are trying to find.}
+\end{mpFunctionsExtract}
+
+\vspace{0.3cm}
+Note: Dates should be entered by using the DATE function, or as results of other formulas or functions. For example, use DATE(2008,5,23) for the 23rd day of May, 2008. 
+
+
+
+
+\subsection{Number of days between two dates}
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionTwoNotImplemented
+	{DAYS? mpReal? the number of days between two dates. EndDateValue and  and StartDateValue  are the two dates between which you want to know the number of days.}
+	{EndDatevalue? Date? The end of the time interval.}
+	{StartDatevalue? Date? The start of the time interval.}
+\end{mpFunctionsExtract}
+
+
+
+
+\subsection{Serial Number to Month}
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionOneNotImplemented
+	{MONTH? mpReal? the month of a date represented by a serial number. The month is given as an integer, ranging from 1 (January) to 12 (December).}
+	{Datevalue? Date? The date of the month you are trying to find.}
+\end{mpFunctionsExtract}
+
+\vspace{0.3cm}
+Note: Dates should be entered by using the DATE function, or as results of other formulas or functions. For example, use DATE(2008,5,23) for the 23rd day of May, 2008.
+
+
+
+\subsection{Serial Number to Year}
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionOneNotImplemented
+	{YEAR? mpReal? the year corresponding to a date. The year is returned as an integer in the range 1900-9999.}
+	{Datevalue? Date? The date of the year you want to find.}
+\end{mpFunctionsExtract}
+
+\vspace{0.3cm}
+Note: Dates should be entered by using the DATE function, or as results of other formulas or functions. For example, use DATE(2008,5,23) for the 23rd day of May, 2008.
+
+
+
+
+\subsection{Serial Number to a Day of the Week}
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionTwoNotImplemented
+	{WEEKDAY? mpReal? the day of the week corresponding to a date. The day is given as an integer, ranging from 1 (Sunday) to 7 (Saturday), by default.}
+	{Datevalue? Date? A sequential number that represents the date of the day you are trying to find.}
+	{ReturnType? Integer? A number that determines the type of return value.}
+\end{mpFunctionsExtract}
+
+\vspace{0.3cm}
+Note: Dates should be entered by using the DATE function, or as results of other formulas or functions. For example, use DATE(2008,5,23) for the 23rd day of May, 2008.
+
+
+
+
+\subsection{Serial Number to Calendar Week}
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionTwoNotImplemented
+	{WEEKNUM? mpReal? the week number of a specific date.}
+	{Datevalue? Date? A date within the week. }
+	{ReturnType? Integer? A number that determines on which day the week begins. The default is 1.}
+\end{mpFunctionsExtract}
+
+
+\vspace{0.3cm}
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionTwoNotImplemented
+	{WEEKNUM-ADD? mpReal? the week number of a specific date.}
+	{Datevalue? Date? A date within the week. }
+	{ReturnType? Integer? A number that determines on which day the week begins. The default is 1.}
+\end{mpFunctionsExtract}
+
+
+\vspace{0.3cm}
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionTwoNotImplemented
+	{ISOWEEKNUM? mpReal? the week number of a specific date.}
+	{Datevalue? Date? A date within the week. }
+	{ReturnType? Integer? A number that determines on which day the week begins. The default is 1.}
+\end{mpFunctionsExtract}
+
+\vspace{0.3cm}
+
+Returns the week number of a specific date. For example, the week containing January 1 is the first week of the year, and is numbered week 1.
+
+There are two systems used for these functions:
+
+System 1  The week containing January 1 is the first week of the year, and is numbered week 1.
+
+System 2  The week containing the first Thursday of the year is the first week of the year, and is numbered as week 1.
+
+Note: Dates should be entered by using the DATE function, or as results of other formulas or functions. For example, use DATE(2008,5,23) for the 23rd day of May, 2008.
+
+
+
+
+\newpage
+\section{Date and Time: Conversions to Serial Number}
+Microsoft Excel stores dates as sequential serial numbers so they can be used in calculations. By default, January 1, 1900 is serial number 1, and January 1, 2008 is serial number 39448 because it is 39,448 days after January 1, 1900.
+
+
+\subsection{Serial Number of a particular Date}
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionThreeNotImplemented
+	{DATE? Date? the sequential serial number that represents a particular date.}
+	{Year? mpReal? A number that determines the Year (1900-9999).}
+	{Month? mpReal? A number that determines the Month (1-12).}
+	{Day? mpReal? A number that determines the day of the month (1-31).}
+\end{mpFunctionsExtract}
+
+\vspace{0.3cm}
+The DATE function returns the sequential serial number that represents a particular date. For example, the formula DATE(2008,7,8) returns 39637, the serial number that represents 8th of July, 2008.
+
+The DATE function is most useful in situations where the year, month, and day are supplied by formulas or cell references. For example, you might have a worksheet that contains dates in a format that Excel does not recognize, such as YYYYMMDD. You can use the DATE function in conjunction with other functions to convert the dates to a serial number that Excel recognizes.
+
+
+
+
+
+\subsection{Serial Number of Easter Sunday}
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionOneNotImplemented
+	{EASTERSUNDAY? Date? the date of Easter Sunday in a given year.}
+	{Year? mpReal? an integer between 1583 and 9956 or between 0 and 99, specifying the year. }
+\end{mpFunctionsExtract}
+
+\vspace{0.3cm}
+Example: EASTERSUNDAY(2008) returns the date 23rd March 2008, which is the date of Easter Sunday in 2008. 
+
+
+
+
+
+
+\subsection{Date as Text to Serial Number}
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionOneNotImplemented
+	{DATEVALUE? Date? a serial number that Excel recognizes as a date}
+	{DateText? String? Text that represents a date in an Excel date format}
+\end{mpFunctionsExtract}
+
+\vspace{0.3cm}
+The DATEVALUE function converts a date that is stored as text to a serial number that Excel recognizes as a date. For example, the formula =DATEVALUE("1/1/2008") returns 39448, the serial number of the date 1/1/2008.
+
+For example, "1/30/2008" or "30-Jan-2008" are text strings within quotation marks that represent dates. 
+Using the default date system in Microsoft Excel for Windows, the DateText argument must represent a date between January 1, 1900 and December 31, 9999.
+
+
+
+
+
+\subsection{Serial Number of Months before or after Start Date}
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionTwoNotImplemented
+	{EDATE? Date? a serial number that Excel recognizes as a date}
+	{StartDate? Date? A date that represents the start date.}
+	{Months? Integer? The number of months before or after StartDate. A positive value for months yields a future date; a negative value yields a past date.}
+\end{mpFunctionsExtract}
+
+\vspace{0.3cm}
+Returns the serial number that represents the date that is the indicated number of months before or after a specified date (the StartDate). Use EDATE to calculate maturity dates or due dates that fall on the same day of the month as the date of issue.
+
+Note: Dates should be entered by using the DATE function, or as results of other formulas or functions. For example, use DATE(2008,5,23) for the 23rd day of May, 2008. Problems can occur if dates are entered as text.
+
+
+
+
+
+\subsection{Serial Number of the last day of the months}
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionTwoNotImplemented
+	{EOMONTH? Date? a serial number that Excel recognizes as a date}
+	{StartDate? Date? A date that represents the start date.}
+	{Months? Integer? The number of months before or after StartDate. A positive value for months yields a future date; a negative value yields a past date.}
+\end{mpFunctionsExtract}
+
+\vspace{0.3cm}
+Returns the serial number for the last day of the month that is the indicated number of months before or after StartDate. Use EOMONTH to calculate maturity dates or due dates that fall on the last day of the month.
+
+Note: Dates should be entered by using the DATE function, or as results of other formulas or functions. For example, use DATE(2008,5,23) for the 23rd day of May, 2008. Problems can occur if dates are entered as text.
+
+
+
+
+
+\subsection{Serial Number of the current date and time}
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionZeroNotImplemented
+	{NOW? Date? the serial number of the current date and time.}
+\end{mpFunctionsExtract}
+
+
+
+
+\subsection{Serial Number of a particular Time}
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionThreeNotImplemented
+	{TIME? Date? the decimal number for a particular time. If the cell format was General before the function was entered, the result is formatted as a date.}
+	{Hour? mpReal? A number from 0 (zero) to 32767 representing the hour. Any value greater than 23 will be divided by 24 and the remainder will be treated as the hour value. For example, TIME(27,0,0) = TIME(3,0,0) = .125 or 3:00 AM.}
+	{Minute? mpReal? A number from 0 to 32767 representing the minute. Any value greater than 59 will be converted to hours and minutes. For example, TIME(0,750,0) = TIME(12,30,0) = .520833 or 12:30 PM.}
+	{Second? mpReal? A number from 0 to 32767 representing the second. Any value greater than 59 will be converted to hours, minutes, and seconds. For example, TIME(0,0,2000) = TIME(0,33,22) = .023148 or 12:33:20 AM.}
+\end{mpFunctionsExtract}
+
+\vspace{0.3cm}
+The decimal number returned by TIME is a value ranging from 0 (zero) to 0.99999999, representing the times from 0:00:00 (12:00:00 AM) to 23:59:59 (11:59:59 P.M.).
+
+
+
+
+
+
+\subsection{Time as Text to Serial Number}
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionOneNotImplemented
+	{TIMEVALUE? mpReal? the decimal number of the time represented by a text string. The decimal number is a value ranging from 0 (zero) to 0.99999999, representing the times from 0:00:00 (12:00:00 AM) to 23:59:59 (11:59:59 P.M.).}
+	{TimeText? String? A text string that represents a time in any one of the Microsoft Excel time formats.}
+\end{mpFunctionsExtract}
+
+\vspace{0.3cm}
+
+For example, "6:45 PM" and "18:45" text strings within quotation marks that represent time.
+
+
+
+
+\subsection{Serial Number of today's Date}
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionZeroNotImplemented
+	{TODAY? mpReal? the serial number of the current date.}
+\end{mpFunctionsExtract}
+
+
+
+
+\subsection{Serial Number of Date +/- n Workdays}
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionThreeNotImplemented
+	{WORKDAY? Date? a number that represents a date that is the indicated number of working days before or after a date (the starting date).}
+	{StartDate? Date? A date that represents the start date.}
+	{Days? Integer? The number of nonweekend and nonholiday days before or after StartDate. A positive value for days yields a future date; a negative value yields a past date.}
+	{Holidays? DateList?  An optional list of one or more dates to exclude from the working calendar}
+\end{mpFunctionsExtract}
+
+\vspace{0.3cm}
+Note: Working days exclude weekends and any dates identified as holidays. Use WORKDAY to exclude weekends or holidays when you calculate invoice due dates, expected delivery times, or the number of days of work performed.
+
+To calculate the serial number of the date before or after a specified number of workdays by using parameters to indicate which and how many days are weekend days, use the WORKDAY.INTL function.
+
+Holidays:  Optional. An optional list of one or more dates to exclude from the working calendar, such as state and federal holidays and floating holidays. The list can be either a range of cells that contain the dates or an array constant (array: Used to build single formulas that produce multiple results or that operate on a group of arguments that are arranged in rows and columns. An array range shares a common formula; an array constant is a group of constants used as an argument.) of the serial numbers that represent the dates.
+
+
+
+
+\subsection{Serial Number of Date +/- n Workdays, international}
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionFourNotImplemented
+	{WORKDAY.INTL? Date? a number that represents a date that is the indicated number of working days before or after a date (the starting date).}
+	{StartDate? Date? The start date, truncated to integer.}
+	{Days? Integer? The number of nonweekend and nonholiday days before or after StartDate. A positive value for days yields a future date; a negative value yields a past date.  Day-offset is truncated to an integer.}
+	{Weekend? Integer? Indicates the days of the week that are weekend days and are not considered working days.}
+	{Holidays? DateList?  An optional list of one or more dates to exclude from the working calendar}
+\end{mpFunctionsExtract}
+
+\vspace{0.3cm}
+Note: Weekend parameters indicate which and how many days are weekend days. Weekend days and any days that are specified as holidays are not considered as workdays
+
+Weekend:  Optional. Indicates the days of the week that are weekend days and are not considered working days. Weekend is a weekend number or string that specifies when weekends occur.
+Weekend string values are seven characters long and each character in the string represents a day of the week, starting with Monday. 1 represents a non-workday and 0 represents a workday. Only the characters 1 and 0 are permitted in the string. 1111111 is an invalid string.
+
+For example, 0000011 would result in a weekend that is Saturday and Sunday.
+
+Holidays shall be a range of cells that contain the dates, or an array constant of the serial values that represent those dates. The ordering of dates or serial values in holidays can be arbitrary.
+
+
+
+
+
+\newpage
+\section{Date and Time: Calculations}
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionThreeNotImplemented
+	{DAYS360? Date? the number of days between two dates based on a 360-day year (twelve 30-day months), which is used in some accounting calculations}
+	{StartDate? Date? A date that represents the start date.}
+	{EndDate? Date? A date that represents the end date}
+	{Method? Boolean?  A logical value that specifies whether to use the U.S. or European method in the calculation}
+\end{mpFunctionsExtract}
+
+%
+%\subsection{Difference between Dates in Days, based on 360-day Year}
+%\label{DAYS360} \index{Spreadsheet Functions!DAYS360}
+%\begin{tabular}{p{481pt}}
+%\toprule
+%\textsf{Function \textbf{DAYS360}($\boldsymbol{StartDate}\ As\ mpReal$, $\boldsymbol{EndDate}\ As\ mpReal$, $\boldsymbol{Method}\ As\ Boolean$) As mpReal}\index{Multiprecision Functions!DAYS360} \\
+%\bottomrule
+%\end{tabular}
+
+\vspace{0.3cm}
+Use this function to help compute payments if your accounting system is based on twelve 30-day months
+
+StartDate, EndDate: The two dates between which you want to know the number of days. If StartDate occurs after EndDate, the DAYS360 function returns a negative number. Dates should be entered by using the DATE function, or derived from the results of other formulas or functions. For example, use DATE(2008,5,23) to return the 23rd day of May, 2008. 
+
+\vspace{0.3cm}
+Method: 
+
+FALSE or omitted:  U.S. (NASD) method. If the starting date is the last day of a month, it becomes equal to the 30th day of the same month. If the ending date is the last day of a month and the starting date is earlier than the 30th day of a month, the ending date becomes equal to the 1st day of the next month; otherwise the ending date becomes equal to the 30th day of the same month. 
+
+TRUE: European method. Starting dates and ending dates that occur on the 31st day of a month become equal to the 30th day of the same month. 
+
+
+
+
+
+\subsection{Number of whole workdays between two dates}
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionThreeNotImplemented
+	{NETWORKDAYS? mpReal? the number of whole working days between StartDate and EndDate.}
+	{StartDate? Date? A date that represents the start date.}
+	{EndDate? Date? A date that represents the end date}
+	{Holidays? DateList?  An optional range of one or more dates to exclude from the working calendar, such as state and federal holidays and floating holidays}
+\end{mpFunctionsExtract}
+
+\vspace{0.3cm}
+Returns the number of whole working days between StartDate and EndDate. Working days exclude weekends and any dates identified in holidays. Use NETWORKDAYS to calculate employee benefits that accrue based on the number of days worked during a specific term.
+
+To calculate whole workdays between two dates by using parameters to indicate which and how many days are weekend days, use the NETWORKDAYS.INTL function.
+
+Holidays:  Optional. An optional range of one or more dates to exclude from the working calendar, such as state and federal holidays and floating holidays. The list can be either a range of cells that contains the dates or an array constant (array: Used to build single formulas that produce multiple results or that operate on a group of arguments that are arranged in rows and columns. An array range shares a common formula; an array constant is a group of constants used as an argument.) of the serial numbers that represent the dates.
+
+Dates should be entered by using the DATE function, or as results of other formulas or functions. For example, use DATE(2008,5,23) for the 23rd day of May, 2008.
+
+
+
+\subsection{Number of whole workdays between two dates, international}
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionThreeNotImplemented
+	{NETWORKDAYS.INTL? mpReal? the number of whole working days between StartDate and EndDate.}
+	{StartDate? Date? A date that represents the start date.}
+	{EndDate? Date? A date that represents the end date}
+	{Weekend? String? Indicates the days of the week that are weekend days and are not included in the number of whole working days between StartDate and EndDate.}
+	{Holidays? DateList?  An optional range of one or more dates to exclude from the working calendar, such as state and federal holidays and floating holidays}
+\end{mpFunctionsExtract}
+
+\vspace{0.3cm}
+Working days exclude weekends and any dates identified in holidays. Use NETWORKDAYS to calculate employee benefits that accrue based on the number of days worked during a specific term.
+
+Weekend:  Optional. Indicates the days of the week that are weekend days and are not included in the number of whole working days between StartDate and EndDate. Weekend is a weekend number or string that specifies when weekends occur.
+Weekend string values are seven characters long and each character in the string represents a day of the week, starting with Monday. 1 represents a non-workday and 0 represents a workday. Only the characters 1 and 0 are permitted in the string. Using 1111111 will always return 0.
+
+For example, 0000011 would result in a weekend that is Saturday and Sunday.
+
+Holidays:  Optional. An optional set of one or more dates that are to be excluded from the working day calendar. holidays shall be a range of cells that contain the dates, or an array constant of the serial values that represent those dates. The ordering of dates or serial values in holidays can be arbitrary.
+
+Dates should be entered by using the DATE function, or as results of other formulas or functions. For example, use DATE(2008,5,23) for the 23rd day of May, 2008.
+
+
+
+\subsection{Year Fraction representing whole days between 2 Dates}
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionThreeNotImplemented
+	{YEARFRAC? mpReal? the fraction of the year represented by the number of whole days between two dates.}
+	{StartDate? Date? A date that represents the start date.}
+	{EndDate? Date? A date that represents the end date}
+	{Basis? DateList?  The type of day count basis to use. Basis Day count basis }
+\end{mpFunctionsExtract}
+
+
+\vspace{0.3cm}
+Use the YEARFRAC worksheet function to identify the proportion of a whole year's benefits or obligations to assign to a specific term.
+
+\vspace{0.3cm}
+StartDate: A date that represents the start date.
+
+EndDate: A date that represents the end date.
+
+\vspace{0.3cm}
+Basis:  
+
+0 or omitted: US (NASD) 30/360 
+
+1: Actual/actual 
+
+2: Actual/360 
+
+3: Actual/365 
+
+4: European 30/360 
+
+\vspace{0.3cm}
+Dates should be entered by using the DATE function, or as results of other formulas or functions. For example, use DATE(2008,5,23) for the 23rd day of May, 2008. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+\section{Coupons}
+The Coupons functions share the following arguments and terminology:
+
+\vspace{0.3cm}
+\textit{SettlementDate}: The security's settlement date. The security settlement date is the date after the issue date when the security is traded to the buyer.
+
+\vspace{0.3cm}
+\textit{MaturityDate}: The security's maturity date. The maturity date is the date when the security expires.
+
+\vspace{0.3cm}
+\textit{Frequency}: The number of coupon payments per year. For annual payments, frequency = 1; for semiannual, frequency = 2; for quarterly, frequency = 4.
+
+\vspace{0.3cm}
+\textit{Yield}: The security's annual yield.
+
+\vspace{0.3cm}
+\textit{Coupon}: Coupon payments per year.
+
+
+\vspace{0.3cm}
+\textit{Basis}:  Optional. The type of day count basis to use:
+
+0 or omitted: US (NASD) 30/360 
+
+1: Actual/actual 
+
+2: Actual/360 
+
+3: Actual/365 
+
+4: European 30/360 
+
+\vspace{0.3cm}
+For example, suppose a 30-year bond is issued on January 1, 2008, and is purchased by a buyer six months later. For example, suppose a 30-year bond is issued on January 1, 2008, and is purchased by a buyer six months later. The issue date would be January 1, 2008, the settlement date would be July 1, 2008, and the maturity date is January 1, 2038, 30 years after the January 1, 2008 issue date. 
+
+\vspace{0.3cm}
+Dates should be entered by using the DATE function, or as results of other formulas or functions. For example, use DATE(2008,5,23) for the 23rd day of May, 2008. 
+
+
+
+
+\subsection{Days from Beginning to Settlement Date}
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionFourNotImplemented
+	{COUPDAYBS? mpReal? the number of days from the beginning of the coupon period to the settlement date.}
+	{SettlementDate? Date? The security's settlement date.}
+	{MaturityDate? Date? The security's maturity date.}
+	{Frequency? mpReal? The number of coupon payments per year.}
+	{Basis? Integer?  The type of day count basis to use}
+\end{mpFunctionsExtract}
+
+
+
+\subsection{Days in Coupon Period containing the Settlement Date}
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionFourNotImplemented
+	{COUPDAYS? mpReal? the number of days in the coupon period that contains the settlement date.}
+	{SettlementDate? Date? The security's settlement date.}
+	{MaturityDate? Date? The security's maturity date.}
+	{Frequency? mpReal? The number of coupon payments per year.}
+	{Basis? Integer?  The type of day count basis to use}
+\end{mpFunctionsExtract}
+
+
+
+\subsection{Days from Settlement Date to next Coupon Date}
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionFourNotImplemented
+	{COUPDAYSNC? mpReal? the number of days from the settlement date to the next coupon date.}
+	{SettlementDate? Date? The security's settlement date.}
+	{MaturityDate? Date? The security's maturity date.}
+	{Frequency? mpReal? The number of coupon payments per year.}
+	{Basis? Integer?  The type of day count basis to use}
+\end{mpFunctionsExtract}
+
+
+
+
+\subsection{Next Coupon Date after the Settlement Date}
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionFourNotImplemented
+	{COUPNCD? Date? a number that represents the next coupon date after the settlement date.}
+	{SettlementDate? Date? The security's settlement date.}
+	{MaturityDate? Date? The security's maturity date.}
+	{Frequency? mpReal? The number of coupon payments per year.}
+	{Basis? Integer?  The type of day count basis to use}
+\end{mpFunctionsExtract}
+
+
+
+
+
+\subsection{Coupons payable between Settlement and Maturity Date}
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionFourNotImplemented
+	{COUPNUM? mpReal? the number of coupons payable between the settlement date and maturity date, rounded up to the nearest whole coupon.}
+	{SettlementDate? Date? The security's settlement date.}
+	{MaturityDate? Date? The security's maturity date.}
+	{Frequency? mpReal? The number of coupon payments per year.}
+	{Basis? Integer?  The type of day count basis to use}
+\end{mpFunctionsExtract}
+
+
+
+
+
+\subsection{Previous Coupon Date before the Settlement Date}
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionFourNotImplemented
+	{COUPPCD? Date? a number that represents the previous coupon date before the settlement date.}
+	{SettlementDate? Date? The security's settlement date.}
+	{MaturityDate? Date? The security's maturity date.}
+	{Frequency? mpReal? The number of coupon payments per year.}
+	{Basis? Integer?  The type of day count basis to use}
+\end{mpFunctionsExtract}
+
+
+
+
+
+\subsection{Macauley Duration for an assumed par Value of 100}
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionSixNotImplemented
+	{DURATION? mpReal? the Macauley duration for an assumed par value of \$100.}
+	{SettlementDate? Date? The security's settlement date.}
+	{MaturityDate? Date? The security's maturity date.}
+	{Coupon? Integer?  Coupon payments per year}
+	{Yield? Integer?  The security's annual yield.}
+	{Frequency? mpReal? The number of coupon payments per year.}
+	{Basis? Integer?  The type of day count basis to use}
+\end{mpFunctionsExtract}
+
+\vspace{0.3cm}
+Duration is defined as the weighted average of the present value of the cash flows and is used as a measure of a bond price's response to changes in yield.
+
+
+
+
+
+\subsection{Modified Macauley Duration}
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionSixNotImplemented
+	{MDURATION? mpReal? the modified Macauley duration for a security with an assumed par value of \$100.}
+	{SettlementDate? Date? The security's settlement date.}
+	{MaturityDate? Date? The security's maturity date.}
+	{Coupon? Integer?  Coupon payments per year}
+	{Yield? Integer?  The security's annual yield.}
+	{Frequency? mpReal? The number of coupon payments per year.}
+	{Basis? Integer?  The type of day count basis to use}
+\end{mpFunctionsExtract}
+
+\vspace{0.3cm}
+The Modified Duration is defined as follows:
+\begin{equation}
+\text{MDURATION} = \text{DURATION} \div \left({1+\frac{\text{Market yield}}{\text{Coupon payments per year}}}\right)
+\end{equation}
+
+
+
+
+
+
+\newpage
+\section{Securities}
+The Securities functions share the following arguments and terminology:
+
+\vspace{0.3cm}
+\textit{IssueDate}: The security's issue date.
+
+\textit{FirstInterestDate}: The security's first interest date.
+
+\textit{SettlementDate}: The security's settlement date. The security settlement date is the date after the issue date when the security is traded to the buyer.
+
+\textit{Rate}: The security's annual coupon rate.
+
+\textit{Par}: The security's par value. If you omit par, ACCRINT uses \$1,000.
+
+\textit{Frequency}: The number of coupon payments per year. For annual payments, frequency = 1; for semiannual, frequency = 2; for quarterly, frequency = 4.
+
+\vspace{0.3cm}
+\textit{Basis}:  Optional. The type of day count basis to use:
+
+0 or omitted: US (NASD) 30/360 
+
+1: Actual/actual 
+
+2: Actual/360 
+
+3: Actual/365 
+
+4: European 30/360 
+
+\vspace{0.3cm}
+\textit{CalcMethod}:  Optional. A logical value that specifies the way to calculate the total accrued interest when the date of settlement is later than the date of \textit{FirstInterest}. 
+
+A value of TRUE (1) returns the total accrued interest from issue to settlement. 
+
+A value of FALSE (0) returns the accrued interest from \textit{FirstInterest} to settlement. If you do not enter the argument, it defaults to TRUE.
+
+\vspace{0.3cm}
+Dates should be entered by using the DATE function, or as results of other formulas or functions. For example, use DATE(2008,5,23) for the 23rd day of May, 2008. 
+
+
+\subsection{Accrued Interest}
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionEightNotImplemented
+	{ACCRINT? mpReal? the accrued interest for a security that pays periodic interest.}
+	{Issue? Date? The security's issue date.}
+	{First\_interest? Date? The security's first interest date.}
+	{Settlement? Date?  The security's settlement date.}
+	{Rate? Integer?  The security's annual coupon rate.}
+	{Par? mpReal? The security's par value}
+	{Frequency? Integer? The number of coupon payments per year}
+	{Basis? Integer?  The type of day count basis to use}
+	{Calc\_method? Boolean?  The type calculation to use}
+\end{mpFunctionsExtract}
+
+\vspace{0.3cm}
+ACCRINT is calculated as follows: 
+\begin{equation}
+\text{ACCRINT} = par \times \frac{rate}{frequency} \times \sum_{i=1}^{NC} \frac{A_i}{NL_i}, \text{ where}
+\end{equation}
+$A_i$ is the number of accrued days for the ith quasi-coupon period within odd period.
+
+$NC$ is the number of quasi-coupon periods that fit in odd period. If this number contains a fraction, raise it to the next whole number.
+
+$NL_i$ is the normal length in days of the ith quasi-coupon period within odd period.
+
+
+
+
+\subsection{Accrued Interest at Maturity}
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionFiveNotImplemented
+	{ACCRINTM? mpReal? the accrued interest for a security that pays interest at maturity.}
+	{Issue? Date? The security's issue date.}
+	{Settlement? Date?  The security's settlement date.}
+	{Rate? Integer?  The security's annual coupon rate.}
+	{Par? mpReal? The security's par value}
+	{Basis? Integer? The type of day count basis to use.}
+\end{mpFunctionsExtract}
+
+\vspace{0.3cm}
+ACCRINTM is calculated as follows: 
+\begin{equation}
+\text{ACCRINTM} = par \times rate \times \frac{A}{D} , \text{ where}
+\end{equation}
+$A$ is the number of accrued days counted according to a monthly basis. For interest at maturity items, the number of days from the issue date to the maturity date is used.
+
+$D$ is the Annual Year Basis.
+
+
+
+
+
+
+\subsection{Discount Rate for a Security}
+
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionFiveNotImplemented
+	{DISC? mpReal? the discount rate for a security.}
+	{Settlement? Date?  The security's settlement date.}
+	{Maturity? Date? The security's maturity date.}
+	{Pr? Integer?  The security's price per \$100 face value.}
+	{Redemption? mpReal? The security's redemption value per \$100 face value.}
+	{Basis? Integer? The type of day count basis to use.}
+\end{mpFunctionsExtract}
+
+\vspace{0.3cm}
+DISC is calculated as follows: 
+\begin{equation}
+\text{DISC} = \frac{redemption - par}{par} \times \frac{B}{DSM} , \text{ where}
+\end{equation}
+$B$ is the number of days in a year, depending on the year basis, and
+
+$DSM$ is the number of days between settlement and maturity.
+
+
+
+
+
+
+\subsection{Interest Rate for a fully invested Security}
+
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionFiveNotImplemented
+	{INTRATE? mpReal? the interest rate for a fully invested security.}
+	{Settlement? Date?  The security's settlement date.}
+	{Maturity? Date? The security's maturity date.}
+	{Investment? mpReal?  The amount invested in the security.}
+	{Redemption? mpReal? The amount to be received at maturity.}
+	{Basis? Integer? The type of day count basis to use.}
+\end{mpFunctionsExtract}
+
+\vspace{0.3cm}
+INTRATE is calculated as follows: 
+\begin{equation}
+\text{INTRATE} = \frac{redemption - investment}{investment} \times \frac{B}{DSM} , \text{ where}
+\end{equation}
+$B$ is the number of days in a year, depending on the year basis, and
+
+$DSM$ is the number of days between settlement and maturity.
+
+
+
+
+
+
+\subsection{Price of a Security having an odd first Period}
+
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionEightNotImplemented
+	{ODDFPRICE? mpReal? the price per \$100 face value of a security having an odd (short or long) first period.}
+	{Settlement? Date?  The security's settlement date.}
+	{Maturity? Date? The security's maturity date.}
+	{Issue? Date?  The security's maturity date.}
+	{First\_Coupon? Date? The security's first coupon date.}
+	{Rate? mpReal? The security's interest rate.}
+	{Yld? mpReal? The security's annual yield.}
+	{Redemption? mpReal? The security's redemption value per \$100 face value.}
+	{Frequency? Integer? The number of coupon payments per year}
+	%{Basis? Integer? The type of day count basis to use.}
+\end{mpFunctionsExtract}
+
+\vspace{0.3cm}
+NOTE: The parameter Basis is missing from this list (Latex issue).
+
+ODDFPRICE is calculated as follows: 
+
+\vspace{0.3cm}
+Odd short first coupon:
+
+
+\begin{IEEEeqnarray}{rCl} 
+	\text{ODDFPRICE} & = & \frac{Redemption}{(1+\text{YF})^{N-1+\text{DSC/E}}} + \frac{100 \times \text{RF} \times \text{DFC/E}}{(1+\text{YF})^{\text{DSC/E}}} \\
+	& + & \sum_{k=2}^N \frac{100 \times \text{RF}}{(1+\text{YF})^{\text{k-1+DSC/E}}} - 100 \times  \text{RF} \times \frac{A}{E} \nonumber
+\end{IEEEeqnarray}
+$A$ = number of days from the beginning of the coupon period to the settlement date (accrued days).
+
+DSC = number of days from the settlement to the next coupon date.
+
+DFC = number of days from the beginning of the odd first coupon to the first coupon date.
+
+$E$ = number of days in the coupon period.
+
+$N$ = number of coupons payable between the settlement date and the redemption date. (If this number contains a fraction, it is raised to the next whole number.)
+
+\vspace{0.3cm}
+Odd long  first coupon:
+\begin{IEEEeqnarray}{rCl} 
+	\text{ODDFPRICE} & = & \frac{Redemption}{(1+\text{YF})^{N-1+\text{DSC/E}}} + \frac{100 \times \text{RF} \times \text{DFC/E}}{(1+\text{YF})^{\text{DSC/E}}} \\
+	& + & \sum_{k=2}^N \frac{100 \times \text{RF}}{(1+\text{YF})^{\text{k-1+DSC/E}}} - 100 \times  \text{RF} \times \frac{A}{E} \nonumber
+\end{IEEEeqnarray}
+$A_i$ = number of days from the beginning of the ith, or last, quasi-coupon period within odd period.
+
+$DC_i$ = number of days from dated date (or issue date) to first quasi-coupon (i = 1) or number of days in quasi-coupon (i = 2,..., i = NC).
+
+DSC = number of days from settlement to next coupon date.
+
+$E$ = number of days in coupon period.
+
+$N$ = number of coupons payable between the first real coupon date and redemption date. (If this number contains a fraction, it is raised to the next whole number.)
+
+NC = number of quasi-coupon periods that fit in odd period. (If this number contains a fraction, it is raised to the next whole number.)
+
+$NL_i$ = normal length in days of the full ith, or last, quasi-coupon period within odd period.
+
+$N_q$ = number of whole quasi-coupon periods between settlement date and first coupon.
+
+
+
+
+
+
+\subsection{Yield of a Security that has an odd first Period}
+
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionEightNotImplemented
+	{ODDFYIELD? mpReal? the yield of a security that has an odd (short or long) first period.}
+	{Settlement? Date?  The security's settlement date.}
+	{Maturity? Date? The security's maturity date.}
+	{Issue? Date?  The security's maturity date.}
+	{First\_Coupon? Date? The security's first coupon date.}
+	{Rate? mpReal? The security's interest rate.}
+	{Pr? mpReal? The security's price.}
+	{Redemption? mpReal? The security's redemption value per \$100 face value.}
+	{Frequency? Integer? The number of coupon payments per year}
+	%{Basis? Integer? The type of day count basis to use.}
+\end{mpFunctionsExtract}
+
+\vspace{0.3cm}
+NOTE: The parameter Basis is missing from this list (Latex issue).
+
+Returns the yield of a security that has an odd (short or long) first period.
+
+Excel uses an iterative technique to calculate ODDFYIELD. This function uses the Newton method based on the formula used for the function ODDFPRICE. The yield is changed through 100 iterations until the estimated price with the given yield is close to the price. See ODDFPRICE for the formula that ODDFYIELD uses. 
+
+
+
+
+\subsection{Price of a Security having an odd last Coupon}
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionEightNotImplemented
+	{ODDLPRICE? mpReal? the price per \$100 face value of a security having an odd (short or long) last coupon period.}
+	{Settlement? Date?  The security's settlement date.}
+	{Maturity? Date? The security's maturity date.}
+	{Issue? Date?  The security's maturity date.}
+	{Last\_interest? Date? The security's last coupon date.}
+	{Rate? mpReal? The security's interest rate.}
+	{Yld? mpReal? The security's price.}
+	{Redemption? mpReal? The security's redemption value per \$100 face value.}
+	{Frequency? Integer? The number of coupon payments per year}
+	%{Basis? Integer? The type of day count basis to use.}
+\end{mpFunctionsExtract}
+
+\vspace{0.3cm}
+NOTE: The parameter Basis is missing from this list (Latex issue).
+
+Returns the price per \$100 face value of a security having an odd (short or long) last coupon period.
+
+
+
+
+
+\subsection{Yield of a Security that has an odd last Period}
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionEightNotImplemented
+	{ODDLYIELD? mpReal? the yield of a security that has an odd (short or long) last coupon period.}
+	{Settlement? Date?  The security's settlement date.}
+	{Maturity? Date? The security's maturity date.}
+	{Last\_interest? Date? The security's last coupon date.}
+	{Rate? mpReal? The security's interest rate.}
+	{Pr? mpReal? The security's price.}
+	{Redemption? mpReal? The security's redemption value per \$100 face value.}
+	{Frequency? Integer? The number of coupon payments per year}
+	{Basis? Integer? The type of day count basis to use.}
+\end{mpFunctionsExtract}
+
+\vspace{0.3cm}
+ODDLYIELD is calculated as follows: 
+\begin{equation}
+\text{ODDLYIELD}=\frac{Redemption+SDC \times 100 RF - par + SA \times 100 RF}{par + SA  \times 100 RF} \times \frac{Frequency}{SDSC}
+\end{equation}
+\begin{equation}
+SDC = \sum_{j=1}^{NC} \frac{DC_i}{NL_i}; \quad SDSC = \sum_{j=1}^{NC} \frac{DSC_i}{NL_i}; \quad SA = \sum_{j=1}^{NC} \frac{A_i}{NL_i}; \quad  
+\end{equation}
+where:
+
+$A_i$ = number of accrued days for the ith, or last, quasi-coupon period within odd period counting forward from last interest date before redemption.
+
+$DC_i$ = number of days counted in the ith, or last, quasi-coupon period as delimited by the length of the actual coupon period.
+
+$NC$ = number of quasi-coupon periods that fit in odd period; if this number contains a fraction it will be raised to the next whole number.
+
+$NL_i$ = normal length in days of the ith, or last, quasi-coupon period within odd coupon period.
+
+
+
+
+\subsection{Price of a Security that pays periodic Interest}
+
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionSevenNotImplemented
+	{PRICE? mpReal? the price per \$100 face value of a security that pays periodic interest.}
+	{Settlement? Date?  The security's settlement date.}
+	{Maturity? Date? The security's maturity date.}
+	{Rate? mpReal? The security's interest rate.}
+	{Yld? mpReal? The security's annual yield.}
+	{Redemption? mpReal? The security's redemption value per \$100 face value.}
+	{Frequency? Integer? The number of coupon payments per year}
+	{Basis? Integer? The type of day count basis to use.}
+\end{mpFunctionsExtract}
+
+\vspace{0.3cm}
+Returns the price per \$100 face value of a security that pays periodic interest. PRICE is calculated as follows:
+\begin{IEEEeqnarray}{rCl} 
+	\text{PRICE} & = & \frac{Redemption}{(1+\text{YF})^{N-1+\text{DSC/E}}}  \\
+	& + & \sum_{k=2}^N \frac{100 \times \text{RF}}{(1+\text{YF})^{\text{k-1+DSC/E}}} - 100 \times  \text{RF} \times \frac{A}{E} \nonumber
+\end{IEEEeqnarray}
+where:
+
+DSC = number of days from settlement to next coupon date.
+
+$E$ = number of days in coupon period in which the settlement date falls.
+
+$N$ = number of coupons payable between settlement date and redemption date.
+
+$A$ = number of days from beginning of coupon period to settlement date.
+
+
+
+\subsection{Price of a discounted Security}
+
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionFiveNotImplemented
+	{PRICEDISC? mpReal? Returns the price per \$100 face value of a discounted security.}
+	{Settlement? Date?  The security's settlement date.}
+	{Maturity? Date? The security's maturity date.}
+	{Discount? mpReal? The security's interest rate.}
+	{Redemption? mpReal? The security's redemption value per \$100 face value.}
+	{Basis? Integer? The type of day count basis to use.}
+\end{mpFunctionsExtract}
+
+\vspace{0.3cm}
+PRICEDISC is calculated as follows:
+\begin{equation}
+\textsf{PRICEDISC} = redemption - discount \times redemption \times \frac{DSM}{B}
+\end{equation}
+where:
+
+$B$ = number of days in year, depending on year basis.
+
+$DSM$ = number of days from settlement to maturity.
+
+
+
+
+\subsection{Price of a Security that pays Interest at Maturity}
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionSixNotImplemented
+	{PRICEMAT? mpReal? the price per \$100 face value  of a security that pays interest at maturity.}
+	{Settlement? Date?  The security's settlement date.}
+	{Maturity? Date? The security's maturity date.}
+	{Issue? Date? The security's issue date.}
+	{Rate? mpReal? The security's interest rate.}
+	{Yld? mpReal? The security's annual yield.}
+	{Basis? Integer? The type of day count basis to use.}
+\end{mpFunctionsExtract}
+
+\vspace{0.3cm}
+PRICEMAT is calculated as follows:
+\begin{equation}
+\textsf{PRICEMAT} = \frac{100 + (\text{DIM} \times Rate \times 100 / B}{1+(\text{DSM} \times yld / B)} - \frac{A \times Rate \times 100}{B}
+\end{equation}
+where:
+
+$B$ = number of days in year, depending on year basis.
+
+DSM = number of days from settlement to maturity.
+
+DIM = number of days from issue to maturity.
+
+$A$ = number of days from issue to settlement.
+
+
+
+
+\subsection{Amount received at Maturity for a fully invested Security}
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionFiveNotImplemented
+	{RECEIVED? mpReal? the amount received at maturity for a fully invested security.}
+	{Settlement? Date?  The security's settlement date.}
+	{Maturity? Date? The security's maturity date.}
+	{Investment? mpReal? The amount invested in the security.}
+	{Discount? mpReal? The security's discount rate.}
+	{Basis? Integer? The type of day count basis to use.}
+\end{mpFunctionsExtract}
+
+\vspace{0.3cm}
+RECEIVED is calculated as follows: 
+\begin{equation}
+\textsf{RECEIVED} = \frac{investment}{1-(\text{DIM} \times discount / B)} 
+\end{equation}
+where:
+
+$B$ = number of days in year, depending on year basis.
+
+DIM = number of days from issue to maturity.
+
+
+
+
+\subsection{Yield on a Security that pays periodic Interest}
+
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionSevenNotImplemented
+	{YIELD? mpReal? the yield on a security that pays periodic interest.}
+	{Settlement? Date?  The security's settlement date.}
+	{Maturity? Date? The security's maturity date.}
+	{Rate? mpReal? The security's interest rate.}
+	{Pr? mpReal? The security's price per \$100 face value.}
+	{Redemption? mpReal? The security's redemption value per \$100 face value.}
+	{Frequency? Integer? The number of coupon payments per year}
+	{Basis? Integer? The type of day count basis to use.}
+\end{mpFunctionsExtract}
+
+\vspace{0.3cm}
+YIELD is calculated as follows: 
+\begin{equation}
+\textsf{YIELD} = \frac{(Redemption/100) + \text{RF} - S_1}{S_1}  \frac{Frequency \times E}{\text{DSR}}; \quad S_1 = \frac{Par}{100}+ \frac{A}{E} \times \text{RF}
+\end{equation}
+where:
+
+$A$ = number of days from the beginning of the coupon period to the settlement date (accrued days).
+
+DSR = number of days from the settlement date to the redemption date.
+
+$E$ = number of days in the coupon period.
+
+
+
+\subsection{Annual Yield for a discounted Security}
+
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionFiveNotImplemented
+	{YIELDDISC? mpReal? the annual yield for a discounted security.}
+	{Settlement? Date?  The security's settlement date.}
+	{Maturity? Date? The security's maturity date.}
+	{Pr? mpReal? The security's price per \$100 face value.}
+	{Redemption? mpReal? The security's redemption value per \$100 face value.}
+	{Basis? Integer? The type of day count basis to use.}
+\end{mpFunctionsExtract}
+
+\vspace{0.3cm}
+Returns the annual yield for a discounted security.
+
+
+
+\subsection{Annual Yield of a Security that pays Interest at Maturity}
+
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionSixNotImplemented
+	{YIELDMAT? mpReal? the price per \$100 face value  of a security that pays interest at maturity.}
+	{Settlement? Date?  The security's settlement date.}
+	{Maturity? Date? The security's maturity date.}
+	{Issue? Date? The security's issue date.}
+	{Rate? mpReal? The security's interest rate.}
+	{Pr? mpReal? The security's price per \$100 face value.}
+	{Basis? Integer? The type of day count basis to use.}
+\end{mpFunctionsExtract}
+
+\vspace{0.3cm}
+Returns the annual yield of a security that pays interest at maturity.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+\section{Treasury  Bills}
+
+\subsection{Bond-equivalent Yield for a Treasury bill}
+
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionThreeNotImplemented
+	{TBILLEQ? mpReal? the bond-equivalent yield for a Treasury bill.}
+	{Settlement? Date?  The Treasury bill's settlement date.}
+	{Maturity? Date? The Treasury bill's maturity date.}
+	{Discount? mpReal? The Treasury bill's discount rate.}
+\end{mpFunctionsExtract}
+
+
+\vspace{0.3cm}
+TBILLEQ is calculated as
+\begin{equation}
+\textsf{TBILLEQ} = \frac{365 \times Rate}{360- Rate \times \text{DSM}} 
+\end{equation}
+where:
+
+DSM  = number of days between settlement and maturity computed according to the 360 days per year basis.
+
+
+
+\subsection{Price for a Treasury bill}
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionThreeNotImplemented
+	{TBILLPRICE? mpReal? the price per \$100 face value for a Treasury bill.}
+	{Settlement? Date?  The Treasury bill's settlement date.}
+	{Maturity? Date? The Treasury bill's maturity date.}
+	{Discount? mpReal? The Treasury bill's discount rate.}
+\end{mpFunctionsExtract}
+
+\vspace{0.3cm}
+Returns the price per \$100 face value for a Treasury bill. TBILLPRICE is calculated as
+\begin{equation}
+\textsf{TBILLPRICE} = 100 \times \left(1- \frac{Discount \times\text{DSM}}{360} \right)
+\end{equation}
+where:
+
+DSM  = number of days from settlement to maturity, excluding any maturity date that is more than one calendar year after the settlement date.
+
+
+
+
+\subsection{Yield for a Treasury bill}
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionThreeNotImplemented
+	{TBILLYIELD? mpReal? the yield for a Treasury bill.}
+	{Settlement? Date?  The Treasury bill's settlement date.}
+	{Maturity? Date? The Treasury bill's maturity date.}
+	{Pr? mpReal? The Treasury bill's price per \$face value.}
+\end{mpFunctionsExtract}
+
+\vspace{0.3cm}
+Returns the yield for a Treasury bill. TBILLYIELD is calculated as
+\begin{equation}
+\textsf{TBILLYIELD} = \frac{100-Price}{Price} \frac{360}{\text{DSM}}
+\end{equation}
+where:
+
+DSM  = number of days from settlement to maturity, excluding any maturity date that is more than one calendar year after the settlement date.
+
+
+
+
+
+\newpage
+\section{Depreciation Functions}
+
+
+
+\label{DepreciationFunctions}
+
+The depreciation functions are used in accounting to calculate the amount of monetary value a fixed asset loses over a period of time. These functions share the following arguments and terminology:
+
+\textit{Cost}: Initial cost of asset
+
+\textit{Salvage}: Required. The value at the end of the depreciation (sometimes called the salvage value of the asset). This value can be 0.
+
+\textit{Life}: The number of periods over which the asset is being depreciated (sometimes called the useful life of the asset).
+
+\textit{Period} . The period for which you want to calculate the depreciation. Period must use the same units as life.
+
+\textit{Factor}: Optional. The rate at which the balance declines. If factor is omitted, it is assumed to be 2 (the double-declining balance method).
+
+TD: Total depreciation from prior periods.
+
+
+
+\subsection{Depreciation of an Asset}
+
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionFiveNotImplemented
+	{DDB? mpReal? the depreciation of an asset for a specified period using the double-declining balance method or some other method you specify.}
+	{Cost? mpReal?  The initial cost of the asset.}
+	{Salvage? mpReal? The salvage value at the end of the life of the asset.}
+	{Life? mpReal? The number of periods over which the asset is being depreciated.}
+	{Period? mpReal? The period for which you want to calculate the depreciation.}
+	{Factor? mpReal? The rate at which the balance declines.}
+\end{mpFunctionsExtract}
+
+
+\vspace{0.3cm}
+The double-declining balance method computes depreciation at an accelerated rate. Depreciation is highest in the first period and decreases in successive periods. DDB uses the following formula to calculate depreciation for a period: 
+\begin{equation}
+\textsf{DDB} = \textsf{Min}\left((\textit{Cost} - \text{TD}) * (\textit{Factor}/\textit{Life}), (\textit{Cost}-\textit{Salvage}-\text{TD})\right)
+\end{equation}
+Change factor if you do not want to use the double-declining balance method.
+Use the \textsf{VDB} function if you want to switch to the straight-line depreciation method when depreciation is greater than the declining balance calculation.
+
+
+
+\subsection{Straight-Line Depreciation of an Asset}
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionThreeNotImplemented
+	{SLN? mpReal? the straight-line depreciation of an asset for a single period}
+	{Cost? mpReal?  The initial cost of the asset.}
+	{Salvage? mpReal? The salvage value at the end of the life of the asset.}
+	{Life? mpReal? The number of periods over which the asset is being depreciated.}
+\end{mpFunctionsExtract}
+
+\vspace{0.3cm}
+Returns the straight-line depreciation of an asset for a single period
+
+
+\subsection{Sum-of-Years' Digits Depreciation of an Asset}
+
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionFourNotImplemented
+	{SYD? mpReal? the sum-of-years' digits depreciation of an asset for a specified period.}
+	{Cost? mpReal?  The initial cost of the asset.}
+	{Salvage? mpReal? The salvage value at the end of the life of the asset.}
+	{Life? mpReal? The number of periods over which the asset is being depreciated.}
+	{Period? mpReal? The period for which you want to calculate the depreciation.}
+\end{mpFunctionsExtract}
+
+\vspace{0.3cm}
+SYD is calculated as follows:
+\begin{equation}
+\textsf{SYD} = \frac{(\textit{Cost}-\textit{Salvage}) \times 2(\textit{Life}-\textit{Period}+1)}{\textit{Life}(\textit{Life}+1)}
+\end{equation}
+
+
+
+
+\subsection{Fixed Declining Balance Method}
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionFiveNotImplemented
+	{DB? mpReal? the depreciation of an asset for a specified period using the fixed-declining balance method.}
+	{Cost? mpReal?  The initial cost of the asset.}
+	{Salvage? mpReal? The salvage value at the end of the life of the asset.}
+	{Life? mpReal? The number of periods over which the asset is being depreciated.}
+	{Period? mpReal? The period for which you want to calculate the depreciation.}
+	{Month? mpReal? The number of months in the first year.}
+\end{mpFunctionsExtract}
+
+\vspace{0.3cm}
+The fixed-declining balance method computes depreciation at a fixed rate. DB uses the following formulas to calculate depreciation for a period:
+\begin{equation}
+\textsf{DB} = (Cost - \text{TD}) \times Rate,
+\end{equation}
+where $Rate = 1 - (Salvage / Cost)^{1 / \textit{Life}}$, rounded to three decimal places
+
+Depreciation for the first and last periods is a special case. 
+
+For the first period, DB uses this formula:
+\begin{equation}
+\textsf{DB} = Cost \times Rate \times Month / 12. 
+\end{equation}
+For the last period, DB uses this formula:
+\begin{equation}
+\textsf{DB} = ((Cost - \text{TD}) \times Rate \times (12 - Month)) / 12.
+\end{equation}
+
+
+
+
+\subsection{Variable Declining Balance}
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionSevenNotImplemented
+	{VDB? mpReal? the depreciation of an asset for any period you specify, including partial periods, using the double-declining balance method or some other method you specify. VDB stands for variable declining balance.}
+	{Cost? mpReal?  The initial cost of the asset.}
+	{Salvage? mpReal? The salvage value at the end of the life of the asset.}
+	{Life? mpReal? The number of periods over which the asset is being depreciated.}
+	{Start\_Period? mpReal? The period for which you want to calculate the depreciation.}
+	{End\_Period? mpReal? The ending period for which you want to calculate the depreciation. EndPeriod must use the same units as life.}
+	{Factor? mpReal? The rate at which the balance declines.}
+	{No\_switch? mpReal? A logical value specifying whether to switch to straight-line depreciation when depreciation is greater than the declining balance calculation.}
+\end{mpFunctionsExtract}
+
+
+\vspace{0.3cm}
+If NoSwitch is TRUE, Microsoft Excel does not switch to straight-line depreciation even when the depreciation is greater than the declining balance calculation.
+
+If NoSwitch is FALSE or omitted, Excel switches to straight-line depreciation when depreciation is greater than the declining balance calculation.
+
+
+
+\subsection{Depreciation for each accounting period}
+
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionSevenNotImplemented
+	{AMORLINC? mpReal? the depreciation for each accounting period.}
+	{Cost? mpReal?  The initial cost of the asset.}
+	{Date\_Purchased? Date? The date the asset is purchased.}
+	{First\_Period? mpReal? The date of the end of the first period.}
+	{Salvage? mpReal? The salvage value at the end of the life of the asset.}
+	{Period? mpReal? The period.}
+	{Rate? mpReal? The rate of depreciation.}
+	{Basis? mpReal? Year Basis: 0 for 360 days, 1 for actual, 3 for 365 days.}
+\end{mpFunctionsExtract}
+
+\vspace{0.3cm}
+This function is provided for the French accounting system. If an asset is purchased in the middle of the accounting period, the prorated depreciation is taken into account.
+
+
+\subsection{Depreciation using a depreciation coefficient}
+
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionSevenNotImplemented
+	{AMORDEGRC? mpReal? the prorated linear depreciation of an asset for each accounting period.}
+	{Cost? mpReal?  The initial cost of the asset.}
+	{Date\_Purchased? Date? The date the asset is purchased.}
+	{First\_Period? mpReal? The date of the end of the first period.}
+	{Salvage? mpReal? The salvage value at the end of the life of the asset.}
+	{Period? mpReal? The period.}
+	{Rate? mpReal? The rate of depreciation.}
+	{Basis? mpReal? Year Basis: 0 for 360 days, 1 for actual, 3 for 365 days.}
+\end{mpFunctionsExtract}
+
+
+\vspace{0.3cm}
+This function is provided for the French accounting system. If an asset is purchased in the middle of the accounting period, the prorated depreciation is taken into account. The function is similar to AMORLINC, except that a depreciation coefficient is applied in the calculation depending on the life of the assets.
+
+
+
+
+
+
+\newpage
+\section{Annuity Functions}
+\label{AnnuityFunctions}
+An annuity is a series of payments that represents either the return on an investment or the amortization of a loan. Negative numbers represent monies paid out, like contributions to savings or loan payments. Positive numbers represent monies received, like dividends. The Annuity Functions share the following arguments and terminology:
+
+\textit{Rate}: Interest rate per period, must use the same unit for Period as used for Nper.
+
+\textit{Nper}: Total number of payment periods in the annuity.
+
+\textit{PMT}: Payment to be made each period
+
+\textit{PV}: Present value (or lump sum) that a series of payments to be paid in the future is worth now.
+
+\textit{FV}: Optional. Value of the annuity after the final payment has been made (if omitted, 0 is assumed, which is the usual future value of a loan).
+
+\textit{Type}: Optional. Number indicating when payments are due: 0 if payments are due at the end of the payment period and 1 if payments are due at the beginning of the period, if omitted, 0 is assumed.
+
+In general, the routines solve for  one financial argument in terms of the others. If rate is not 0, then: 
+
+\begin{equation}
+PV \times (1+Rate)^{Nper} + PMT(1+Rate \times Type) \times \left(\frac{(1+Rate)^{Nper}-1}{Rate}\right)+FV=0.
+\end{equation}
+If $Rate$ is 0, then 
+\begin{equation}
+(PMT \times Nper) + PV + FV =0.
+\end{equation}
+
+
+\subsection{Future Value}
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionFiveNotImplemented
+	{FV? mpReal? the future value of an annuity based on periodic fixed payments and a fixed interest rate.}
+	{Rate? mpReal? The the interest rate per period.}
+	{Nper? mpReal? The total number of payment periods in the investment.}
+	{Pmt? mpReal? The payment made each period.}
+	{PV? mpReal? The present value.}
+	{Type? mpReal? a value representing the timing of payment.}
+\end{mpFunctionsExtract}
+
+\vspace{0.3cm}
+The future value is calculated as
+\begin{equation}
+FV = -PV(1+r)^n + PMT\left( \frac{(1+r)^n - 1}{r} \right)
+\end{equation}
+
+
+
+
+
+\subsection{Present Value}
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionFiveNotImplemented
+	{PV? mpReal? the present value of an annuity based on periodic fixed payments to be paid in the future at a fixed interest rate.}
+	{Rate? mpReal? The interest rate per period.}
+	{Nper? mpReal? The total number of payment periods in the investment.}
+	{Pmt? mpReal? The payment made each period.}
+	{FV? mpReal? The future value.}
+	{Type? mpReal? a value representing the timing of payment.}
+\end{mpFunctionsExtract}
+
+\vspace{0.3cm}
+The present value is the total amount that a series of future payments is worth now. For example, when you borrow money, the loan amount is the present value to the lender.
+
+The present value is calculated as
+\begin{equation}
+PV = - \left( FV+ PMT \left( \frac{(1+r)^n - 1}{r} \right) \right)   (1+r)^{-n} 
+\end{equation}
+
+
+
+
+\subsection{Payment}
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionFiveNotImplemented
+	{PMT? mpReal? the payment for a loan based on constant payments and a constant interest rate.}
+	{Rate? mpReal? The interest rate per period.}
+	{Nper? mpReal? The total number of payment periods in the investment.}
+	{PV? mpReal? The present value.}
+	{FV? mpReal? The future value.}
+	{Type? mpReal? a value representing the timing of payment.}
+\end{mpFunctionsExtract}
+
+\vspace{0.3cm}
+The payment is calculated as
+\begin{equation}
+PMT = - \left( FV + PV(1+r)^n \right) \times \left( \frac{r}{(1+r)^n - 1} \right)
+\end{equation}
+
+
+
+
+\subsection{Number of periods}
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionFiveNotImplemented
+	{NPER? mpReal? the number of periods for an investment based on periodic, constant payments and a constant interest rate.}
+	{Rate? mpReal? The interest rate per period.}
+	{Pmt? mpReal? The made each period.}
+	{PV? mpReal? The present value.}
+	{FV? mpReal? The future value.}
+	{Type? mpReal? a value representing the timing of payment.}
+\end{mpFunctionsExtract}
+
+\vspace{0.3cm}
+The number of periods is calculated as
+\begin{equation}
+n = \frac{1}{\ln(1+r)} \ln \left( \frac{(PMT/r)-FV}{(PMT/r)+PV} \right)
+\end{equation}
+
+
+
+
+\subsection{Number of periods required}
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionThreeNotImplemented
+	{PDURATION? mpReal?  the number of periods required by an investment to reach a specified value.}
+	{Rate? mpReal? The interest rate per period.}
+	{PV? mpReal? The present value.}
+	{FV? mpReal? The future value.}
+\end{mpFunctionsExtract}
+
+PDURATION is calculated as
+\begin{equation}
+PDURATION = \frac{\ln(FV) - \ln(PV)}{\ln(1+r)} 
+\end{equation}
+
+
+
+\subsection{Interest Rate}
+
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionFiveNotImplemented
+	{RATE? mpReal? the interest rate per period of an annuity}
+	{Nper? mpReal? The the interest rate per period.}
+	{Pmt? mpReal? The made each period.}
+	{PV? mpReal? The present value.}
+	{FV? mpReal? The future value.}
+	{Type? mpReal? a value representing the timing of payment.}
+\end{mpFunctionsExtract}
+
+
+\vspace{0.3cm}
+RATE is calculated by iteration and can have zero or more solutions. If the successive results of RATE do not converge to within 0.0000001 after 20 iterations, RATE returns the \#NUM! error value.
+
+An iterative scheme is used to solve
+
+\begin{equation}
+f(r) = FV + PV(1+r)^n + PMT \left( \frac{(1+r)^n-1}{r} \right) = 0
+\end{equation}
+
+
+
+
+
+\subsection{Interest Payment}
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionSixNotImplemented
+	{IPMT? mpReal? the interest payment for a given period for an investment based on periodic, constant payments and a constant interest rate.}
+	{Rate? mpReal? The interest rate per period.}
+	{Per? mpReal? The period for which you want to find the interest and must be in the range 1 to NPer}
+	{Nper? mpReal? The total number of payment periods in the investment.}
+	{Pmt? mpReal? The payment made each period.}
+	{FV? mpReal? The future value.}
+	{Type? mpReal? a value representing the timing of payment.}
+\end{mpFunctionsExtract}
+
+\vspace{0.3cm}
+The Interest Payment is calculated as
+\begin{equation}
+IPMT = -\left( (1+r)^{i-1} (PMT + PV \times r)\right)
+\end{equation}
+
+
+
+
+\subsection{Principal Payment}
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionSixNotImplemented
+	{PPMT? mpReal? the payment on the principal for a given period for an investment based on periodic, constant payments and a constant interest rate.}
+	{Rate? mpReal? The the interest rate per period.}
+	{Per? mpReal? The period for which you want to find the interest and must be in the range 1 to NPer}
+	{Nper? mpReal? The total number of payment periods in the investment.}
+	{PV? mpReal? The payment made each period.}
+	{FV? mpReal? The future value.}
+	{Type? mpReal? a value representing the timing of payment.}
+\end{mpFunctionsExtract}
+
+\vspace{0.3cm}
+Returns the payment on the principal for a given period for an investment based on periodic, constant payments and a constant interest rate.
+
+The Principal Payment is calculated as
+\begin{equation}
+PPMT = PMT - IPMT 
+\end{equation}
+
+
+
+
+\subsection{Cumulative Interest Paid}
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionSixNotImplemented
+	{CUMIPMT? mpReal? the cumulative interest paid on a loan between StartPeriod and EndPeriod.}
+	{Rate? mpReal? The interest rate per period.}
+	{Nper? mpReal? The total number of payment periods in the investment.}
+	{PV? mpReal? The payment made each period.}
+	{StartPeriod? mpReal? The first period in the calculation.}
+	{EndPeriod? mpReal? the last period in the calculation}
+	{Type? mpReal? a value representing the timing of payment.}
+\end{mpFunctionsExtract}
+
+
+
+
+
+\subsection{Cumulative Principal Paid}
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionSixNotImplemented
+	{CUMPRINC? mpReal? the effective annual interest rate, given the nominal annual interest rate and the number of compounding periods per year.}
+	{Rate? mpReal? The interest rate per period.}
+	{Nper? mpReal? The total number of payment periods in the investment.}
+	{PV? mpReal? The payment made each period.}
+	{StartPeriod? mpReal? The first period in the calculation.}
+	{EndPeriod? mpReal? the last period in the calculation}
+	{Type? mpReal? a value representing the timing of payment.}
+\end{mpFunctionsExtract}
+
+
+
+
+\subsection{Effective Annual Interest Rate}
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionTwoNotImplemented
+	{EFFECT? mpReal? the effective annual interest rate.}
+	{NominalRate? mpReal? The nominal interest rate per period.}
+	{Npery? mpReal? The number of compounding periods per year}
+\end{mpFunctionsExtract}
+
+
+
+
+\subsection{Nominal Annual Interest Rate}
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionTwoNotImplemented
+	{NOMINAL? mpReal? the nominal annual interest rate, given the effective rate and the number of compounding periods per year.}
+	{EffectiveRate? mpReal? The nominal interest rate per period.}
+	{Npery? mpReal? The number of compounding periods per year}
+\end{mpFunctionsExtract}
+
+
+\vspace{0.3cm}
+The relationship between NOMINAL and EFFECT is shown in the following equation: 
+\begin{equation}
+EFFECT = \left(1+ \frac{NominalRate}{Npery}\right)^{Npery}-1.
+\end{equation}
+
+
+
+
+
+\subsection{FV Schedule, variable Compound Interest Rates}
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionTwoNotImplemented
+	{FVSCHEDULE? mpReal? the future value of an initial principal after applying a series of compound interest rates. Use FVSCHEDULE to calculate the future value of an investment with a variable or adjustable rate.}
+	{Principal? mpReal? The present value.}
+	{Schedule? mpNum? An array of interest rates to apply}
+\end{mpFunctionsExtract}
+
+
+
+
+\subsection{Interest paid during a specific Period of an Investment}
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionFourNotImplemented
+	{ISPMT? mpReal?  the interest paid during a specific period of an investment.}
+	{Rate? mpReal? The interest rate per period.}
+	{Per? mpReal? The period for which you want to find the interest and must be in the range 1 to NPer}
+	{Nper? mpReal? The total number of payment periods in the investment.}
+	{PV? mpReal? The present value.}
+\end{mpFunctionsExtract}
+
+
+
+
+\newpage
+\section{Cash-Flow Functions}
+\label{CashFlow Functions}
+The cash-flow functions perform financial calculations based on a series of periodic payments and receipts. As with the annuity functions, negative numbers represent payments and positive numbers represent receipts. However, unlike the annuity functions, the cash-flow functions allow to list varying amounts for the payments or receipts over the course of a loan or investment Payments and receipts can even be mixed up within the cash-flow series. The cash-flow functions share the following arguments and terminology:
+
+\textit{Values}(): array of cash-flow values; the array must contain at least one negative value (a payment) and one positive value (a receipt).
+
+\textit{Rate}: Discount rate over the length of the period, expressed as a decimal.
+
+\textit{FinanceRate}: Interest rate paid as the cost of financing.
+
+\textit{ReinvestRate}: Interest rate received on gains from cash reinvestment.
+
+[\textit{Guess}]: Optional value as estimate of return; if omitted, Guess is 0.1 (10%).
+
+
+\subsection{Internal Rate of Returm}
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionTwoNotImplemented
+	{IRR? mpReal? the effective annual interest rate.}
+	{Values? mpNum? An array which contains numbers for which which the internal rate of return is calculated.}
+	{Guess? mpReal? An initial guess for the IRR, 0.1 if omitted}
+\end{mpFunctionsExtract}
+
+\vspace{0.3cm}
+Returns the internal rate of return for a series of cash flows represented by the numbers in values. These cash flows do not have to be even, as they would be for an annuity. However, the cash flows must occur at regular intervals, such as monthly or annually. The internal rate of return is the interest rate received for an investment consisting of payments (negative values) and income (positive values) that occur at regular periods.
+
+Microsoft Excel uses an iterative technique for calculating IRR. Starting with guess, IRR cycles through the calculation until the result is accurate within 0.00001 percent. If IRR can't find a result that works after 20 tries, the \#NUM! error value is returned.
+
+In most cases you do not need to provide guess for the IRR calculation. If guess is omitted, it is assumed to be 0.1 (10 percent).
+
+
+IRR is closely related to NPV, the net present value function. The rate of return calculated by IRR is the interest rate corresponding to a 0 (zero) net present value.
+
+
+\subsection{Calc: Rate of Return}
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionThreeNotImplemented
+	{RRI? mpReal? an equivalent interest rate for the growth of an investment}
+	{Nper? mpReal? The total number of periods for the investment.}
+	{PV? mpReal? The present value for the investment.}
+	{PV? mpReal? The future value for the investment.}
+\end{mpFunctionsExtract}
+
+
+\vspace{0.3cm}
+RRI returns the interest rate given nper (the number of periods), pv (present value), and fv (future value), calculated by using the following equation:
+\begin{equation}
+RRI = \frac{FV^{1/Nper}}{PV}-1.
+\end{equation}
+
+
+
+
+\subsection{Modified Internal Rate of Return}
+
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionThreeNotImplemented
+	{MIRR? mpReal? the modified internal rate of return for a series of periodic cash flows. MIRR considers both the cost of the investment and the interest received on reinvestment of cash.}
+	{Values? mpNum[]? An array that contains numbers that represent a series of payments (negative) and income (positive) at regular periods.}
+	{FinanceRate? mpReal? The interest rate paid on the money used in the cash flows.}
+	{ReinvestRate? mpReal? The interest rate received on the money used in the cash flows.}
+\end{mpFunctionsExtract}
+
+\vspace{0.3cm}
+MIRR uses the order of values to interpret the order of cash flows. Be sure to enter your payment and income values in the sequence you want and with the correct signs (positive values for cash received, negative values for cash paid).
+
+If n is the number of cash flows in values, frate is the FinanceRate, and rrate is the ReinvestRate, then the formula for MIRR is: 
+\begin{equation}
+MIRR=\left(\frac{-NPV(rrate,values[positive]) \times(1+rrate)^n}{NPV(frate,values[negative] \times(1+frate)}  \right)^{1/(n-1)} - 1. 
+\end{equation}
+
+
+
+\subsection{Net Present Value}
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionTwoNotImplemented
+	{NPV? mpReal? the net present value of an investment based on a series of periodic cash flows and a discount rate.}
+	{Rate? mpReal? The total number of periods for the investment.}
+	{Values? mpNum[]? An array that contains numbers that represent a series of payments (negative) and income (positive) at regular periods.}
+\end{mpFunctionsExtract}
+
+
+\vspace{0.3cm}
+Calculates the net present value of an investment by using a discount rate and a series of future payments (negative values) and income (positive values).
+
+The NPV investment begins one period before the date of the value1 cash flow and ends with the last cash flow in the list. The NPV calculation is based on future cash flows. If your first cash flow occurs at the beginning of the first period, the first value must be added to the NPV result, not included in the values arguments. For more information, see the examples below.
+
+If n is the number of cash flows in the list of values, the formula for NPV is: 
+\begin{equation}
+NPV = \sum_{i=1}^n \frac{values_i}{(1+rate)^i}
+\end{equation}
+NPV is similar to the PV function (present value). The primary difference between PV and NPV is that PV allows cash flows to begin either at the end or at the beginning of the period. Unlike the variable NPV cash flow values, PV cash flows must be constant throughout the investment. For information about annuities and financial functions, see PV.
+
+NPV is also related to the IRR function (internal rate of return). IRR is the rate for which NPV equals zero: NPV(IRR(...), ...) = 0.
+
+
+
+
+
+\subsection{Internal Rate of Return, non-periodic Schedule}
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionThreeNotImplemented
+	{XIRR? mpReal? the modified internal rate of return for a series of periodic cash flows. MIRR considers both the cost of the investment and the interest received on reinvestment of cash.}
+	{Values? mpNum[]? An array that contains cash flows that correspond to a schedule of payments in Dates.}
+	{Dates? mpReal? A schedule of payment dates that correspond to the cash flow payments}
+	{Guess? mpReal? An initial guess for XIRR.}
+\end{mpFunctionsExtract}
+
+\vspace{0.3cm}
+Returns the internal rate of return for a schedule of cash flows that is not necessarily periodic. To calculate the internal rate of return for a series of periodic cash flows, use the IRR function.
+
+XIRR is closely related to XNPV, the net present value function. The rate of return calculated by XIRR is the interest rate corresponding to XNPV = 0.
+
+Excel uses an iterative technique for calculating XIRR. Using a changing rate (starting with guess), XIRR cycles through the calculation until the result is accurate within 0.000001 percent. If XIRR can't find a result that works after 100 tries, the \#NUM! error value is returned. The rate is changed until: 
+\begin{equation}
+\sum_{i=1}^N \frac{P_i}{(1+rate)^{(d_i-d_1)/365}} = 0,
+\end{equation}
+where:
+
+$d_i$ = the ith, or last, payment date,
+
+$d_1$ = the 0th payment date,
+
+$P_i$ = the ith, or last, payment.
+
+
+
+
+\subsection{Net Present Value, non-periodic Schedule}
+
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionThreeNotImplemented
+	{XNPV? mpReal? the modified internal rate of return for a series of periodic cash flows. MIRR considers both the cost of the investment and the interest received on reinvestment of cash.}
+	{Rate? mpReal? The discount rate to aplly to the cash flows.}
+	{Values? mpNum[]? An array that contains cash flows that correspond to a schedule of payments in Dates.}
+	{Dates? mpReal? A schedule of payment dates that correspond to the cash flow payments}
+\end{mpFunctionsExtract}
+
+\vspace{0.3cm}
+Returns the net present value for a schedule of cash flows that is not necessarily periodic. To calculate the net present value for a series of cash flows that is periodic, use the NPV function. XNPV is calculated as follows: 
+\begin{equation}
+XNPV = \sum_{i=1}^N \frac{P_i}{(1+rate)^{(d_i-d_1)/365}},
+\end{equation}
+where:
+
+$d_i$ = the ith, or last, payment date,
+
+$d_1$ = the 0th payment date,
+
+$P_i$ = the ith, or last, payment.
+
+
+
+\newpage
+\section{Conversion}
+
+\subsection{Price as a fraction into a price as decimal}
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionTwoNotImplemented
+	{DOLLARDE? mpReal? a dollar price expressed as a decimal number, converted from a dollar price expressed as an integer part and a fraction part.}
+	{FractionalDollar? mpReal? A number expressed as a fraction.}
+	{Fraction? mpReal? The integer to use in the denominator of the fraction}
+\end{mpFunctionsExtract}
+
+\vspace{0.3cm}
+Converts a dollar price expressed as an integer part and a fraction part, such as 1.02, into a dollar price expressed as a decimal number. Fractional dollar numbers are sometimes used for security prices.
+
+The fraction part of the value is divided by an integer that you specify. For example, if you want your price to be expressed to a precision of 1/16 of a dollar, you divide the fraction part by 16. In this case, 1.02 represents \$1.125 (\$1 + 2/16 = \$1.125).
+
+
+
+
+\subsection{Price as a decimal into a price as fraction}
+
+\begin{mpFunctionsExtract}
+	\mpWorksheetFunctionTwoNotImplemented
+	{DOLLARFR? mpReal?  a dollar price expressed as a fraction, converted from a dollar price expressed as a decimal number.}
+	{DecimalDollar? mpReal? A decimal number.}
+	{Fraction? mpReal? The integer to use in the denominator of the fraction}
+\end{mpFunctionsExtract}
+
+\vspace{0.3cm}
+Converts a dollar price expressed as a decimal number into a dollar price expressed as a fraction. Use DOLLARFR to convert decimal numbers to fractional dollar numbers, such as securities prices.
+
+
+
