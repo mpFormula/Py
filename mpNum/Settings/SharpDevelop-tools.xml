@@ -10,15 +10,6 @@
     <USEOUTPUTPAD>False</USEOUTPUTPAD>
   </TOOL>
   <TOOL>
-    <INITIALDIRECTORY>${StartupPath}\..\..\Win32_Python33</INITIALDIRECTORY>
-    <ARGUMENTS>
-    </ARGUMENTS>
-    <COMMAND>${StartupPath}\..\..\Win32_Python33\StartPyScripter.bat</COMMAND>
-    <MENUCOMMAND>PyScripter 32 bit</MENUCOMMAND>
-    <PROMPTFORARGUMENTS>False</PROMPTFORARGUMENTS>
-    <USEOUTPUTPAD>False</USEOUTPUTPAD>
-  </TOOL>
-  <TOOL>
     <INITIALDIRECTORY>
     </INITIALDIRECTORY>
     <ARGUMENTS>-X:Frames -X:ColorfulConsole</ARGUMENTS>
@@ -52,8 +43,38 @@
     </INITIALDIRECTORY>
     <ARGUMENTS>
     </ARGUMENTS>
+    <COMMAND>${StartupPath}\..\..\GUI\FileViewer.exe</COMMAND>
+    <MENUCOMMAND>File Viewer</MENUCOMMAND>
+    <PROMPTFORARGUMENTS>False</PROMPTFORARGUMENTS>
+    <USEOUTPUTPAD>False</USEOUTPUTPAD>
+  </TOOL>
+  <TOOL>
+    <INITIALDIRECTORY>
+    </INITIALDIRECTORY>
+    <ARGUMENTS>
+    </ARGUMENTS>
+    <COMMAND>${StartupPath}\..\..\GUI\ChartViewer.exe</COMMAND>
+    <MENUCOMMAND>Chart Viewer</MENUCOMMAND>
+    <PROMPTFORARGUMENTS>False</PROMPTFORARGUMENTS>
+    <USEOUTPUTPAD>False</USEOUTPUTPAD>
+  </TOOL>
+  <TOOL>
+    <INITIALDIRECTORY>
+    </INITIALDIRECTORY>
+    <ARGUMENTS>
+    </ARGUMENTS>
     <COMMAND>${StartupPath}\..\..\GUI\WpfInWinForms.exe</COMMAND>
     <MENUCOMMAND>3D Function Viewer</MENUCOMMAND>
+    <PROMPTFORARGUMENTS>False</PROMPTFORARGUMENTS>
+    <USEOUTPUTPAD>False</USEOUTPUTPAD>
+  </TOOL>
+  <TOOL>
+    <INITIALDIRECTORY>
+    </INITIALDIRECTORY>
+    <ARGUMENTS>
+    </ARGUMENTS>
+    <COMMAND>${StartupPath}\..\..\GUI\HTMLViewer.exe</COMMAND>
+    <MENUCOMMAND>HTML Viewer</MENUCOMMAND>
     <PROMPTFORARGUMENTS>False</PROMPTFORARGUMENTS>
     <USEOUTPUTPAD>False</USEOUTPUTPAD>
   </TOOL>
@@ -97,11 +118,20 @@
     <USEOUTPUTPAD>False</USEOUTPUTPAD>
   </TOOL>
   <TOOL>
-    <INITIALDIRECTORY>${StartupPath}\..\..\..\ExternalTools\Win64_Python33</INITIALDIRECTORY>
+    <INITIALDIRECTORY>${StartupPath}\..\..\..\mpFormulaCPython\Win32</INITIALDIRECTORY>
     <ARGUMENTS>
     </ARGUMENTS>
-    <COMMAND>${StartupPath}\..\..\..\ExternalTools\Win64_Python33\StartPyScripter.bat</COMMAND>
-    <MENUCOMMAND>PyScripter 64 bit</MENUCOMMAND>
+    <COMMAND>${StartupPath}\..\..\..\mpFormulaCPython\Win32\StartPyScripter.bat</COMMAND>
+    <MENUCOMMAND>PyScripter 32 bit</MENUCOMMAND>
+    <PROMPTFORARGUMENTS>False</PROMPTFORARGUMENTS>
+    <USEOUTPUTPAD>False</USEOUTPUTPAD>
+  </TOOL>
+  <TOOL>
+    <INITIALDIRECTORY>
+    </INITIALDIRECTORY>
+    <ARGUMENTS>${StartupPath}\..\..\..\mpFormulaCPython\Source\Manual\mpFormulaPy.tex  --master --start-always</ARGUMENTS>
+    <COMMAND>${StartupPath}\..\..\..\ExternalTools\texstudio2.8.8\texstudio.exe</COMMAND>
+    <MENUCOMMAND>TexStudio (mpFormulaCPython)</MENUCOMMAND>
     <PROMPTFORARGUMENTS>False</PROMPTFORARGUMENTS>
     <USEOUTPUTPAD>False</USEOUTPUTPAD>
   </TOOL>
@@ -112,16 +142,6 @@
     </ARGUMENTS>
     <COMMAND>${StartupPath}\..\..\..\..\PortableApps\WinPython-32bit-3.3.5.0\Spyder.exe</COMMAND>
     <MENUCOMMAND>WinPython 32 bit</MENUCOMMAND>
-    <PROMPTFORARGUMENTS>False</PROMPTFORARGUMENTS>
-    <USEOUTPUTPAD>False</USEOUTPUTPAD>
-  </TOOL>
-  <TOOL>
-    <INITIALDIRECTORY>
-    </INITIALDIRECTORY>
-    <ARGUMENTS>
-    </ARGUMENTS>
-    <COMMAND>${StartupPath}\..\..\..\..\PortableApps\WinPython-64bit-3.3.5.0\Spyder.exe</COMMAND>
-    <MENUCOMMAND>WinPython 64 bit</MENUCOMMAND>
     <PROMPTFORARGUMENTS>False</PROMPTFORARGUMENTS>
     <USEOUTPUTPAD>False</USEOUTPUTPAD>
   </TOOL>

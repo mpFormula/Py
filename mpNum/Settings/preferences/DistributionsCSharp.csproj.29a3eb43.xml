@@ -1,0 +1,12 @@
+﻿<Properties>
+  <Array name="bookmarks" />
+  <Array name="files">
+    <Element value="C:\Extra\mpFormulaTDM\mpFormulaPy\Source\Distributions\DistributionsCSharp\DistX.cs" />
+    <Element value="C:\Extra\mpFormulaTDM\mpFormulaPy\Source\Distributions\DistributionsCSharp\Dist.cs" />
+  </Array>
+  <Properties name="projectSavedData">
+    <Properties name="customTool">
+      <runOnBuild value="False" />
+    </Properties>
+  </Properties>
+</Properties>

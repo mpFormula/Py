@@ -193,28 +193,28 @@
   </Properties>
   <Properties name="RecentOpen">
     <Array name="Files">
-      <Element value="I:\Extra\mpFormulaTDM\mpFormulaPy\Source\LibreOffice\LibreOffice\Program.vb" />
-      <Element value="I:\Extra\mpFormulaTDM\mpFormulaPy\Source\CPythonFromNet\CPythonFromNet\Program.vb" />
-      <Element value="I:\Extra\mpFormulaTDM\mpFormulaPy\Source\TestString\TestString\app.config" />
-      <Element value="I:\Extra\mpFormulaTDM\mpFormulaPy\Source\TestString\TestString\Program.vb" />
-      <Element value="I:\Extra\mpFormulaTDM\mpFormulaPy\Source\TestFinancialFunctions\TestFinancialFunctions\Program.vb" />
-      <Element value="I:\Extra\mpFormulaTDM\mpFormulaXL\Source\TestFinancialFunctions\TestFinancialFunctions\Program.vb" />
-      <Element value="C:\Extra\mpFormulaTDM\mpFormulaPy\Source\mpFormulaToolbox\StartNumExp\MainForm.Designer.cs" />
-      <Element value="C:\Extra\mpFormulaTDM\mpFormulaPy\Source\mpFormulaToolbox\StartNumExp\MainForm.cs" />
+      <Element value="C:\Extra\mpFormulaTDM\mpFormulaPy\Source\Distributions\DistributionsCSharp\Dist.cs" />
+      <Element value="C:\Extra\mpFormulaTDM\mpFormulaPy\Source\Distributions\DistributionsCSharp\DistX.cs" />
+      <Element value="C:\Extra\mpFormulaTDM\mpFormulaPy\Source\Distributions\DistributionsPython\Program.py" />
       <Element value="C:\Extra\mpFormulaTDM\mpFormulaPy\Source\mpFormulaToolbox\FileViewer\Program.vb" />
-      <Element value="I:\Data\mpFormulaTDM\mpFormulaPy\Source\MpMath\mpFormulaXLClassLib\Class1.vb" />
+      <Element value="C:\Extra\mpFormulaTDM\mpFormulaPy\Source\MpMath\TestMpMath\TestMpMath.vb" />
+      <Element value="C:\Extra\mpFormulaTDM\mpFormulaPy\Source\MpMath\MpMathNetLib\MpMathClass.vb" />
+      <Element value="C:\Extra\mpFormulaTDM\mpFormulaPy\Source\MpMath\MpMathClient\CallMpMathProgram.vb" />
+      <Element value="C:\Extra\mpFormulaTDM\mpFormulaPy\Source\MpMath\MpMathServer\MpMathServerProgram.vb" />
+      <Element value="C:\Extra\mpFormulaTDM\mpFormulaPy\Source\MpMath\mpFormulaXLClassLib\mpFormulaClass.vb" />
+      <Element value="C:\Extra\mpFormulaTDM\mpFormulaPy\Source\MpMath\TestFormulaXLClassLib\TestMpFormula.vb" />
     </Array>
     <Array name="Projects">
+      <Element value="C:\Extra\mpFormulaTDM\mpFormulaPy\Source\Distributions\Distributions.sln" />
+      <Element value="C:\Extra\mpFormulaTDM\mpFormulaPy\Source\mpFormulaToolbox\mpFormulaToolbox.sln" />
+      <Element value="C:\Extra\mpFormulaTDM\mpFormulaPy\Source\MpMath\MpMath.sln" />
       <Element value="I:\Extra\mpFormulaTDM\mpFormulaPy\Source\LibreOffice\LibreOffice.sln" />
       <Element value="I:\Extra\mpFormulaTDM\mpFormulaPy\Source\CPythonFromNet\CPythonFromNet.sln" />
       <Element value="I:\Extra\mpFormulaTDM\mpFormulaPy\Source\TestString\TestString.sln" />
       <Element value="I:\Extra\mpFormulaTDM\mpFormulaPy\Source\TestFinancialFunctions\TestFinancialFunctions.sln" />
       <Element value="I:\Extra\mpFormulaTDM\mpFormulaXL\Source\TestFinancialFunctions\TestFinancialFunctions.sln" />
-      <Element value="C:\Extra\mpFormulaTDM\mpFormulaPy\Source\mpFormulaToolbox\mpFormulaToolbox.sln" />
       <Element value="I:\Data\mpFormulaTDM\mpFormulaPy\Source\MpMath\MpMath.sln" />
       <Element value="I:\Data\mpFormulaTDM\mpFormulaPy\Source\NetOffice\xlDemo1.sln" />
-      <Element value="C:\Extra\mpFormulaTDM\mpFormulaPy\Source\MpMath\MpMath.sln" />
-      <Element value="C:\Extra\mpFormulaTDM\mpFormulaXL\Source\MpMathListing\mpmathListing.sln" />
     </Array>
   </Properties>
   <RegExpTk.WindowBounds value="960, 240, 960, 560" />
@@ -334,7 +334,7 @@
   </Properties>
   <SharpDevelop.UI.UseProjectAmbience value="True" />
   <ShowTipsAtStartup value="True" />
-  <TreeViewOptionsDialog.WindowBounds value="33,42,912,581" />
+  <TreeViewOptionsDialog.WindowBounds value="33,42,912,696" />
   <Properties name="UnitTesting.Options">
     <CreateXmlOutputFile value="False" />
     <Labels value="False" />
@@ -346,7 +346,7 @@
   <VBBinding.TextEditor.EnableCasing value="True" />
   <VBBinding.TextEditor.EnableEndConstructs value="True" />
   <Properties name="WorkbenchMemento">
-    <Bounds value="368,317,1132,704" />
+    <Bounds value="348,147,1014,704" />
     <WindowState value="Normal" />
   </Properties>
   <Properties name="XamlBinding.Options">

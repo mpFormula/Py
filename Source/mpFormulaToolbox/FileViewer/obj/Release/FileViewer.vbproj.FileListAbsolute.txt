@@ -1,0 +1,5 @@
+C:\Extra\mpFormulaTDM\mpFormulaPy\Source\mpFormulaToolbox\FileViewer\obj\Release\FileViewer.vbprojResolveAssemblyReference.cache
+C:\Extra\mpFormulaTDM\mpFormulaPy\Source\mpFormulaToolbox\FileViewer\obj\Release\FileViewer.MainForm.resources
+C:\Extra\mpFormulaTDM\mpFormulaPy\Source\mpFormulaToolbox\FileViewer\obj\Release\FileViewer.vbproj.GenerateResource.Cache
+C:\Extra\mpFormulaTDM\mpFormulaPy\Source\mpFormulaToolbox\FileViewer\obj\Release\FileViewer.exe
+C:\Extra\mpFormulaTDM\mpFormulaPy\FileViewer.exe

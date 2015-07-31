@@ -4055,6 +4055,220 @@ matrix(
 
 
 
+\subsection{Python-specific convenience functions}
+
+\subsubsection{autoprec()}
+
+mpmath.autoprec(ctx, f, maxprec=None, catch=(), verbose=False)
+
+\vpara
+Return a wrapped copy of f that repeatedly evaluates f with increasing precision until the result converges to the full precision used at the point of the call.
+
+\vpara
+This heuristically protects against rounding errors, at the cost of roughly a 2x slowdown compared to manually setting the optimal precision. This method can, however, easily be fooled if the results from f depend 'discontinuously' on the precision, for instance if catastrophic cancellation can occur. Therefore, autoprec() should be used judiciously.
+
+\vpara
+\textbf{Examples}
+
+\vpara
+Many functions are sensitive to perturbations of the input arguments. If the arguments are decimal numbers, they may have to be converted to binary at a much higher precision. If the amount of required extra precision is unknown, autoprec() is convenient:
+
+\lstset{language={Python}}
+\begin{lstlisting}
+>>> from mpmath import *
+>>> mp.dps = 15
+>>> mp.pretty = True
+>>> besselj(5, 125 * 10**28) # Exact input
+-8.03284785591801e-17
+>>> besselj(5, '1.25e30') # Bad
+7.12954868316652e-16
+>>> autoprec(besselj)(5, '1.25e30') # Good
+-8.03284785591801e-17
+\end{lstlisting}
+
+
+The following fails to converge because $\sin(\pi)=0$ whereas all finite-precision approximations of $\pi$ give nonzero values:
+
+\lstset{language={Python}}
+\begin{lstlisting}
+>>> autoprec(sin)(pi)
+Traceback (most recent call last):
+...
+NoConvergence: autoprec: prec increased to 2910 without convergence
+\end{lstlisting}
+
+As the following example shows, autoprec() can protect against cancellation, but is fooled by too severe cancellation:
+
+\lstset{language={Python}}
+\begin{lstlisting}
+>>> x = 1e-10
+>>> exp(x)-1; expm1(x); autoprec(lambda t: exp(t)-1)(x)
+1.00000008274037e-10
+1.00000000005e-10
+1.00000000005e-10
+>>> x = 1e-50
+>>> exp(x)-1; expm1(x); autoprec(lambda t: exp(t)-1)(x)
+0.0
+1.0e-50
+0.0
+\end{lstlisting}
+
+With catch, an exception or list of exceptions to intercept may be specified. The raised exception is interpreted as signaling insufficient precision. This permits, for example, evaluating a function where a too low precision results in a division by zero:
+
+\lstset{language={Python}}
+\begin{lstlisting}
+>>> f = lambda x: 1/(exp(x)-1)
+>>> f(1e-30)
+Traceback (most recent call last):
+...
+ZeroDivisionError
+>>> autoprec(f, catch=ZeroDivisionError)(1e-30)
+1.0e+30
+\end{lstlisting}
+
+
+\subsubsection{workprec()}
+
+mpmath.workprec(ctx, n, normalize\_output=False)
+
+The block
+\lstset{language={Python}}
+\begin{lstlisting}
+with workprec(n):
+<code>
+\end{lstlisting}
+sets the precision to n bits, executes <code>, and then restores the precision.
+
+\vpara
+workprec(n)(f) returns a decorated version of the function f that sets the precision to n bits before execution, and restores the precision afterwards. With normalize\_output=True, it rounds the return value to the parent precision.
+
+\subsubsection{workdps()}
+
+mpmath.workdps(ctx, n, normalize\_output=False)
+
+\vpara
+This function is analogous to workprec (see documentation) but changes the decimal precision instead of the number of bits.
+
+
+\subsubsection{extraprec()}
+
+mpmath.extraprec(ctx, n, normalize\_output=False)
+
+The block
+\lstset{language={Python}}
+\begin{lstlisting}
+with extraprec(n):
+<code>
+\end{lstlisting}
+increases the precision n bits, executes <code>, and then restores the precision.
+
+\vpara
+extraprec(n)(f) returns a decorated version of the function f that increases the working precision by n bits before execution, and restores the parent precision afterwards. With normalize\_output=True, it rounds the return value to the parent precision.
+
+\subsubsection{extradps()}
+
+mpmath.extradps(ctx, n, normalize\_output=False)
+
+This function is analogous to extraprec (see documentation) but changes the decimal precision instead of the number of bits.
+
+
+\subsubsection{memoize()}
+
+mpmath.memoize(ctx, f)
+
+\vpara
+Return a wrapped copy of f that caches computed values, i.e. a memoized copy of f. Values are only reused if the cached precision is equal to or higher than the working precision:
+
+\lstset{language={Python}}
+\begin{lstlisting}
+>>> from mpmath import *
+>>> mp.dps = 15; mp.pretty = True
+>>> f = memoize(maxcalls(sin, 1))
+>>> f(2)
+0.909297426825682
+>>> f(2)
+0.909297426825682
+>>> mp.dps = 25
+>>> f(2)
+Traceback (most recent call last):
+...
+NoConvergence: maxcalls: function evaluated 1 times
+\end{lstlisting}
+
+
+\subsubsection{maxcalls()}
+
+mpmath.maxcalls(ctx, f, N)
+
+\vpara
+Return a wrapped copy of f that raises NoConvergence when f has been called more than N times:
+
+\lstset{language={Python}}
+\begin{lstlisting}
+>>> from mpmath import *
+>>> mp.dps = 15
+>>> f = maxcalls(sin, 10)
+>>> print(sum(f(n) for n in range(10)))
+1.95520948210738
+>>> f(10)
+Traceback (most recent call last):
+...
+NoConvergence: maxcalls: function evaluated 10 times
+\end{lstlisting}
+
+
+\subsubsection{monitor()}
+
+mpmath.monitor(f, input='print', output='print')
+
+\vpara
+Returns a wrapped copy of f that monitors evaluation by calling input with every input (args, kwargs) passed to f and output with every value returned from f. The default action (specify using the special string value 'print') is to print inputs and outputs to stdout, along with the total evaluation count:
+
+\lstset{language={Python}}
+\begin{lstlisting}
+>>> from mpmath import *
+>>> mp.dps = 5; mp.pretty = False
+>>> diff(monitor(exp), 1) # diff will eval f(x-h) and f(x+h)
+in 0 (mpf('0.99999999906867742538452148'),) {}
+out 0 mpf('2.7182818259274480055282064')
+in 1 (mpf('1.0000000009313225746154785'),) {}
+out 1 mpf('2.7182818309906424675501024')
+mpf('2.7182808')
+\end{lstlisting}
+
+
+To disable either the input or the output handler, you may pass None as argument.
+
+\vpara
+Custom input and output handlers may be used e.g. to store results for later analysis:
+
+\lstset{language={Python}}
+\begin{lstlisting}
+>>> mp.dps = 15
+>>> input = []
+>>> output = []
+>>> findroot(monitor(sin, input.append, output.append), 3.0)
+mpf('3.1415926535897932')
+>>> len(input) # Count number of evaluations
+9
+>>> print(input[3]); print(output[3])
+((mpf('3.1415076583334066'),), {})
+8.49952562843408e-5
+>>> print(input[4]); print(output[4])
+((mpf('3.1415928201669122'),), {})
+-1.66577118985331e-7
+\end{lstlisting}
+
+\subsubsection{timing()}
+
+mpmath.timing(f, *args, **kwargs)
+
+\vpara
+Returns time elapsed for evaluating f(). Optionally arguments may be passed to time the execution of f(*args, **kwargs).
+
+\vpara
+If the first call is very quick, f is called repeatedly and the best time is returned.
+
 
 
 
@@ -10598,1393 +10812,1393 @@ See section \ref{Functions returning Random numbers} for the options for  {\itsh
 
 
 
-
-\newpage
-\section{Bernoulli Distribution}
-
-The Bernoulli distribution is a discrete distribution of the outcome of a single trial with only two results, 0 (failure) or 1 (success), with a probability of success $p$. The Bernoulli distribution is the simplest building block on which other discrete distributions of sequences of independent Bernoulli trials can be based. The Bernoulli is the binomial distribution ((k = 1, p)) with only one trial.
-
-
-
-\subsection{Density and CDF}
-
-\begin{mpFunctionsExtract}
-	\mpFunctionThreeNotImplemented
-	{BernoulliDistBoost? mpNumList? pdf, CDF and related information for the central $t$-distribution}
-	{k? mpNum? A real number, 0 or 1}
-	{p? mpNum? A real number greater 0, representing the degrees of freedom}
-	{Output? String? A string describing the output choices}
-\end{mpFunctionsExtract}
-
-
-\vspace{0.3cm}
-See section \ref{Functions returning pdf, CDF, and related information} for the options for {\itshape\sffamily Output}. Algorithms and formulas are given in sections \ref{BernoulliDistributionDensity} and \ref{BernoulliDistributionCDF}.
-
-
-
-\subsubsection{Density}
-\label{BernoulliDistributionDensity}
-
-
-\begin{equation}
-	f(x)=\begin{cases}
-		q=1-p & \text{for }k=0\\
-		p & \text{for }k=1.
-	\end{cases}
-\end{equation}
-
-\subsubsection{CDF}
-\label{BernoulliDistributionCDF}
-\begin{equation}
-	F(x)=\begin{cases}
-		0 & \text{for }k=0\\
-		q & \text{for }k=0\\
-		1 & \text{for }k=1.
-	\end{cases}
-\end{equation}
-
-
-
-
-\subsection{Quantiles}
-
-\begin{mpFunctionsExtract}
-	\mpFunctionThreeNotImplemented
-	{BernoulliDistInvBoost? mpNumList? quantiles and related information for the the central $t$-distribution}
-	{Prob? mpNum? A real number between 0 and 1.}
-	{p? mpNum? A real number greater 0, representing the degrees of freedom}
-	{Output? String? A string describing the output choices}
-\end{mpFunctionsExtract}
-
-See section \ref{Functions returning Quantiles} for the options for  {\itshape\sffamily Prob} and {\itshape\sffamily Output}). 
-%Algorithms and formulas are given in section \ref{tDistributionQuantileAlgorithm}.
-
-\subsubsection{Quantiles: Algorithm}
-Using the relation: cdf = $1 - p$ for $k = 0$, else $1$.
-
-
-\subsection{Properties}
-\label{BernoulliDistributionProperties}
-
-
-\begin{mpFunctionsExtract}
-	\mpFunctionTwoNotImplemented
-	{BernoulliDistInfoBoost? mpNumList? moments and related information for the central $t$-distribution}
-	{p? mpNum? A real number greater 0, representing the degrees of freedom}
-	{Output? String? A string describing the output choices}
-\end{mpFunctionsExtract}
-
-\vspace{0.3cm}
-
-See section \ref{Functions returning moments and related information} for the options for {\itshape\sffamily Output}. Algorithms and formulas are given in section \ref{BernoulliDistributionProperties}.
-
-
-
-\subsubsection{Moments: algorithms and formulas}
-
-\begin{equation} 
-	\mu_r^{'} = \sum_{i=0}^{r-1} \binom{r}{i}  (-1)^i p^{i+1} + (-p)^r
-\end{equation}
-
-\begin{equation} 
-	\mu_1 = p
-\end{equation}
-
-\begin{equation} 
-	\mu_2 = pq
-\end{equation}
-
-\begin{equation} 
-	\mu_3 = pq(1-2p)
-\end{equation}
-
-\begin{equation} 
-	\mu_4 = pq (1-3pq)
-\end{equation}
-
-
-
-\subsection{Random Numbers}
-\begin{mpFunctionsExtract}
-	\mpFunctionFourNotImplemented
-	{BernoulliDistRandomBoost? mpNumList? random numbers following a central Binomial-distribution}
-	{Size? mpNum? A positive integer up to $10^7$}
-	{p? mpNum? The probability of a success on each trial.}
-	{Generator? String? A string describing the random generator}
-	{Output? String? A string describing the output choices}
-\end{mpFunctionsExtract}
-
-\vspace{0.3cm}
-
-See section \ref{Functions returning Random numbers} for the options for  {\itshape\sffamily Size},  {\itshape\sffamily Generator} and {\itshape\sffamily Output}. Algorithms and formulas are given below.
-
-
-
-
-\newpage
-\section{Cauchy Distribution}
-\label{CauchyDistribution}
-
-
-
-\subsection{Density and CDF}
-
-\begin{mpFunctionsExtract}
-	\mpFunctionFourNotImplemented
-	{CauchyDistBoost? mpNumList? pdf, CDF and related information for the Cauchy distribution}
-	{x? mpNum? A real number}
-	{a? mpNum? A real number greater 0, representing the numerator  degrees of freedom}
-	{b? mpNum? A real number greater 0, representing the denominator degrees of freedom}
-	{Output? String? A string describing the output choices}
-\end{mpFunctionsExtract}
-
-
-\vspace{0.3cm}
-See section \ref{Functions returning pdf, CDF, and related information} for the options for {\itshape\sffamily Output}. 
-%Algorithms and formulas are given in sections \ref{BetaDistributionDensity} and \ref{BetaDistributionCDF}.
-
-
-\subsubsection{Density}
-\label{CauchyDistributionDensity}
-
-\begin{equation} 
-	f(x)=\frac{1}{\pi(1+((x-a)/b)^2)}
-\end{equation}
-
-
-\subsubsection{CDF}
-\begin{equation} 
-	F(x)=\frac{1}{2} + \frac{1}{\pi} \arctan \left(\frac{x-a}{b} \right)
-\end{equation}
-
-
-
-\subsection{Quantiles}
-\begin{mpFunctionsExtract}
-	\mpFunctionFourNotImplemented
-	{CauchyDistInvBoost? mpNumList? quantiles and related information for the Cauchy distribution}
-	{Prob? mpNum? A real number between 0 and 1.}
-	{a? mpNum? A real number greater 0, representing the numerator  degrees of freedom}
-	{b? mpNum? A real number greater 0, representing the denominator degrees of freedom}
-	{Output? String? A string describing the output choices}
-\end{mpFunctionsExtract}
-
-See section \ref{Functions returning Quantiles} for the options for  {\itshape\sffamily Prob} and {\itshape\sffamily Output}). Algorithms and formulas are given below.
-
-\begin{equation}
-	F^{-1}(y)=\begin{cases}
-		a-b/\tan(\pi y), & y<0.5,\\
-		a, &  y=0.5,\\
-		a-b/\tan(\pi (1-y)) & y>0.5.
-	\end{cases}
-\end{equation}
-
-
-
-
-\subsection{Properties}
-\label{CauchyDistributionProperties}
-
-
-\begin{mpFunctionsExtract}
-	\mpFunctionThreeNotImplemented
-	{CauchyDistInfoBoost? mpNumList? moments and related information for the Cauchy distribution}
-	{a? mpNum? A real number greater 0, representing the degrees of freedom}
-	{b? mpNum? A real number greater 0, representing the degrees of freedom}
-	{Output? String? A string describing the output choices}
-\end{mpFunctionsExtract}
-
-\vspace{0.3cm}
-
-See section \ref{Functions returning moments and related information} for the options for {\itshape\sffamily Output}. 
-
-All the usual non-member accessor functions that are generic to all distributions are supported: Cumulative Distribution Function,
-Probability Density Function, Quantile, Hazard Function, Cumulative Hazard Function, mean, median, mode, variance, standard
-deviation, skewness, kurtosis, kurtosis\_excess, range and support.
-Note however that the Cauchy distribution does not have a mean, standard deviation, etc. See mathematically undefined function  to
-control whether these should fail to compile with a BOOST\_STATIC\_ASSERTION\_FAILURE, which is the default.
-Alternately, the functions mean, standard deviation, variance, skewness, kurtosis and kurtosis\_excess will all return a domain\_error
-if called.
-
-
-
-\subsection{Random Numbers}
-\begin{mpFunctionsExtract}
-	\mpFunctionFiveNotImplemented
-	{CauchyDistRandomBoost? mpNumList? random numbers following a Cauchy distribution}
-	{Size? mpNum? A positive integer up to $10^7$}
-	{a? mpNum? A real number greater 0, representing the numerator  degrees of freedom}
-	{b? mpNum? A real number greater 0, representing the denominator degrees of freedom}
-	{Generator? String? A string describing the random generator}
-	{Output? String? A string describing the output choices}
-\end{mpFunctionsExtract}
-
-\vspace{0.3cm}
-
-See section \ref{Functions returning Random numbers} for the options for  {\itshape\sffamily Size},  {\itshape\sffamily Generator} and {\itshape\sffamily Output}. Algorithms and formulas are given in below.
-
-
-
-
-\newpage
-\section{Extreme Value (or Gumbel) Distribution}
-
-These functions return PDF, CDF, and ICDF of the Extreme Value Type I distribution
-with location $a$, scale $b > 0$, and the support interval $(-\infty,+\infty)$ :
-
-
-
-\subsection{Density and CDF}
-
-\begin{mpFunctionsExtract}
-	\mpFunctionFourNotImplemented
-	{ExtremevalueDistBoost? mpNumList? pdf, CDF and related information for the Extreme Value distribution}
-	{x? mpNum? A real number}
-	{a? mpNum? A real number greater 0, representing the numerator  degrees of freedom}
-	{b? mpNum? A real number greater 0, representing the denominator degrees of freedom}
-	{Output? String? A string describing the output choices}
-\end{mpFunctionsExtract}
-
-
-\vspace{0.3cm}
-See section \ref{Functions returning pdf, CDF, and related information} for the options for {\itshape\sffamily Output}. Algorithms and formulas are given in sections \ref{ExtremevalueDistributionDensity} and \ref{ExtremevalueDistributionCDF}.
-
-
-\subsubsection{Density}
-\label{ExtremevalueDistributionDensity}
-
-\begin{equation} 
-	f(x)=\frac{e^{-(x-a)/b}}{b} e^{e^{-(x-a)/b}}
-\end{equation}
-
-
-\subsubsection{CDF}
-\label{ExtremevalueDistributionCDF}
-\begin{equation} 
-	F(x)= e^{e^{-(x-a)/b}}
-\end{equation}
-
-
-
-\subsection{Quantiles}
-\begin{mpFunctionsExtract}
-	\mpFunctionFourNotImplemented
-	{ExtremevalueDistInvBoost? mpNumList? quantiles and related information for the the Extreme Value distribution}
-	{Prob? mpNum? A real number between 0 and 1.}
-	{a? mpNum? A real number greater 0, representing the numerator  degrees of freedom}
-	{b? mpNum? A real number greater 0, representing the denominator degrees of freedom}
-	{Output? String? A string describing the output choices}
-\end{mpFunctionsExtract}
-
-See section \ref{Functions returning Quantiles} for the options for  {\itshape\sffamily Prob} and {\itshape\sffamily Output}). Algorithms and formulas are given below.
-
-\begin{equation} 
-	F^{-1}(y)= a-\ln(-\ln(y))
-\end{equation}
-
-
-\subsection{Properties}
-\label{ExtremevalueDistributionProperties}
-
-
-\begin{mpFunctionsExtract}
-	\mpFunctionThreeNotImplemented
-	{ExtremevalueDistInfoBoost? mpNumList? moments and related information for the Extreme Value distribution}
-	{a? mpNum? A real number greater 0, representing the degrees of freedom}
-	{b? mpNum? A real number greater 0, representing the degrees of freedom}
-	{Output? String? A string describing the output choices}
-\end{mpFunctionsExtract}
-
-\vspace{0.3cm}
-
-See section \ref{Functions returning moments and related information} for the options for {\itshape\sffamily Output}. 
-
-
-
-
-\subsection{Random Numbers}
-
-\begin{mpFunctionsExtract}
-	\mpFunctionFiveNotImplemented
-	{ExtremevalueDistRandomBoost? mpNumList? random numbers following a Extreme Value distribution}
-	{Size? mpNum? A positive integer up to $10^7$}
-	{a? mpNum? A real number greater 0, representing the numerator  degrees of freedom}
-	{b? mpNum? A real number greater 0, representing the denominator degrees of freedom}
-	{Generator? String? A string describing the random generator}
-	{Output? String? A string describing the output choices}
-\end{mpFunctionsExtract}
-
-\vspace{0.3cm}
-
-See section \ref{Functions returning Random numbers} for the options for  {\itshape\sffamily Size},  {\itshape\sffamily Generator} and {\itshape\sffamily Output}. Algorithms and formulas are given in below.
-
-
-
-\newpage
-\section{Geometric Distribution}
-
-Geometric distribution: it is used when there are exactly two mutually exclusive outcomes of a Bernoulli trial: these outcomes are labelled "success" and "failure". For Bernoulli trials each with success fraction $p$, the geometric distribution gives the probability of observing $k$ trials (failures, events,
-occurrences, or arrivals) before the first success.
-
-
-
-
-\subsection{Density and CDF}
-
-\begin{mpFunctionsExtract}
-	\mpFunctionThreeNotImplemented
-	{GeometricDistBoost? mpNumList? pdf, CDF and related information for the Geometric distribution}
-	{k? mpNum? A real number}
-	{p? mpNum? A real number greater 0, representing the numerator  degrees of freedom}
-	{Output? String? A string describing the output choices}
-\end{mpFunctionsExtract}
-
-
-\vspace{0.3cm}
-See section \ref{Functions returning pdf, CDF, and related information} for the options for {\itshape\sffamily Output}. Algorithms and formulas are given in sections \ref{GeometricDistributionDensity} and \ref{GeometricDistributionCDF}.
-
-
-\subsubsection{Density}
-\label{GeometricDistributionDensity}
-
-\begin{equation} 
-	f(k;p)= p (1-p)^k 
-\end{equation}
-
-
-\subsubsection{CDF}
-\label{GeometricDistributionCDF}
-\begin{equation} 
-	F(k;p)= 1- (1-p)^{k+1} 
-\end{equation}
-
-\subsection{Quantiles}
-
-\begin{mpFunctionsExtract}
-	\mpFunctionThreeNotImplemented
-	{GeometricDistInvBoost? mpNumList? quantiles and related information for the Geometric distribution}
-	{Prob? mpNum? A real number between 0 and 1.}
-	{p? mpNum? A real number greater 0, representing the numerator  degrees of freedom}
-	{Output? String? A string describing the output choices}
-\end{mpFunctionsExtract}
-
-See section \ref{Functions returning Quantiles} for the options for  {\itshape\sffamily Prob} and {\itshape\sffamily Output}). Algorithms and formulas are given below.
-
-\begin{equation} 
-	F^{-1}(x;p)= \frac{\text{log1p}(-x)}{\text{log1p}(-p)} -1
-\end{equation}
-
-
-
-\subsection{Properties}
-\label{GeometricDistributionProperties}
-
-
-\begin{mpFunctionsExtract}
-	\mpFunctionTwoNotImplemented
-	{GeometricDistInfoBoost? mpNumList? moments and related information for the Geometric distribution}
-	{p? mpNum? A real number greater 0, representing the degrees of freedom}
-	{Output? String? A string describing the output choices}
-\end{mpFunctionsExtract}
-
-\vspace{0.3cm}
-
-See section \ref{Functions returning moments and related information} for the options for {\itshape\sffamily Output}. 
-
-
-
-
-\subsection{Random Numbers}
-\begin{mpFunctionsExtract}
-	\mpFunctionFourNotImplemented
-	{GeometricDistRandomBoost? mpNumList? random numbers following a Geometric distribution}
-	{Size? mpNum? A positive integer up to $10^7$}
-	{p? mpNum? A real number greater 0, representing the denominator degrees of freedom}
-	{Generator? String? A string describing the random generator}
-	{Output? String? A string describing the output choices}
-\end{mpFunctionsExtract}
-
-\vspace{0.3cm}
-
-See section \ref{Functions returning Random numbers} for the options for  {\itshape\sffamily Size},  {\itshape\sffamily Generator} and {\itshape\sffamily Output}. Algorithms and formulas are given in below.
-
-
-
-\newpage
-\section{Inverse Chi Squared Distribution}
-
-
-\subsection{Definition}
-\label{InverseChiSquaredDistributionDefinition}
-
-The inverse-chi-squared distribution (or inverted-chi-square distribution[1] ) is the probability distribution of a random variable whose multiplicative inverse (reciprocal) has a chi-squared distribution. It is also often defined as the distribution of a random variable whose reciprocal divided by its degrees of freedom is a chi-squared distribution. That is, if $X$ has the chi-squared distribution with $\nu$  degrees of freedom, then according to the first definition, $1/X$ has the inverse-chi-squared distribution with  $\nu$  degrees of freedom; while according to the second definition, $\nu/X$ has the inverse-chi-squared distribution with  $\nu$  degrees of freedom. 
-
-The inverse-chi-squared distribution is a special case of a inverse-gamma distribution with $\nu$ (degrees of freedom), shape ($\alpha$) and scale ($\beta$), where $\alpha=\nu/2$ and $\beta=1/2$.
-
-
-
-\subsection{Density and CDF}
-
-\begin{mpFunctionsExtract}
-	\mpFunctionThreeNotImplemented
-	{InverseChiSquaredDistBoost? mpNumList? pdf, CDF and related information for the inverse-chi-squared -distribution}
-	{x? mpNum? A real number}
-	{n? mpNum? A real number greater 0, representing the degrees of freedom}
-	{Output? String? A string describing the output choices}
-\end{mpFunctionsExtract}
-
-
-\vspace{0.3cm}
-See section \ref{Functions returning pdf, CDF, and related information} for the options for {\itshape\sffamily Output}. 
-%Algorithms and formulas are given in sections \ref{InverseChiSquaredDistributionDensity} and \ref{sec:ChiSquareDistribution_cdf}.
-
-
-\subsubsection{Density}
-\label{InverseChiSquaredDistributionDensity}
-
-The first definition yields a probability density function given by
-\begin{equation} 
-	f(x;\nu)= \frac{2^{-\nu/2}}{\Gamma(\nu /2)} x^{-\nu/2-1} e^{-1/(2x)}
-\end{equation}
-while the second definition yields the density function
-\begin{equation} 
-	f(x;\nu)= \frac{(\nu/2)^{\nu/2}}{\Gamma(\nu /2)} x^{-\nu/2-1} e^{-\nu/(2x)}
-\end{equation}
-In both cases, $x>0$  and  $\nu$  is the degrees of freedom parameter. Further, $\Gamma$ is the gamma function. Both definitions are special cases of the scaled-inverse-chi-squared distribution. For the first definition the variance of the distribution is $\sigma=1/\nu$, while for the second definition $\sigma=1$ .
-
-
-
-\subsubsection{CDF}
-\begin{equation} 
-	F(x;\nu)= \frac{1}{\Gamma(\nu /2)} \Gamma\left(\frac{\nu}{2},\frac{1}{2x}\right) 
-\end{equation}
-
-
-
-\subsection{Quantiles}
-
-
-\begin{mpFunctionsExtract}
-	\mpFunctionThreeNotImplemented
-	{InverseChiSquaredDistInvBoost? mpNumList? quantiles and related information for the inverse-chi-squared distribution}
-	{Prob? mpNum? A real number between 0 and 1.}
-	{n? mpNum? A real number greater 0, representing the degrees of freedom}
-	{Output? String? A string describing the output choices}
-\end{mpFunctionsExtract}
-
-See section \ref{Functions returning Quantiles} for the options for  {\itshape\sffamily Prob} and {\itshape\sffamily Output}). 
-%Algorithms and formulas are given in section \ref{ChiSquareDistributionQuantilesAlgorithm}.
-
-\begin{equation} 
-	F^{-1}(prob;\nu)= \beta / / gamma-q-inv(\alpha, p)
-\end{equation}
-
-
-\subsection{Properties}
-\label{InverseChiSquaredDistributionProperties}
-
-
-\begin{mpFunctionsExtract}
-	\mpFunctionTwoNotImplemented
-	{InverseChiSquaredDistInfoBoost? mpNumList? moments and related information for the inverse-chi-squared distribution}
-	{n? mpNum? A real number greater 0, representing the degrees of freedom}
-	{Output? String? A string describing the output choices}
-\end{mpFunctionsExtract}
-
-\vspace{0.3cm}
-
-See section \ref{Functions returning moments and related information} for the options for {\itshape\sffamily Output}. Algorithms and formulas are given below.
-
-\subsubsection{Moments and Cumulants}
-\begin{equation} 
-	\mu_1 = \frac{\nu}{\nu-2} \text{for } \nu>2.
-\end{equation}
-
-
-
-\subsection{Random Numbers}
-
-\begin{mpFunctionsExtract}
-	\mpFunctionFourNotImplemented
-	{InverseChiSquaredDistRanBoost? mpNumList? numbers following a inverse-chi-squared distribution}
-	{Size? mpNum? A positive integer up to $10^7$}
-	{n? mpNum? A real number greater 0, representing the degrees of freedom}
-	{Generator? String? A string describing the random generator}
-	{Output? String? A string describing the output choices}
-\end{mpFunctionsExtract}
-
-
-\vspace{0.3cm}
-See section \ref{Functions returning Random numbers} for the options for  {\itshape\sffamily Size},  {\itshape\sffamily Generator} and {\itshape\sffamily Output}. Algorithms and formulas are given below.
-
-
-
-\newpage
-\section{Inverse Gamma Distribution}
-
-
-\subsection{Definition}
-\label{InverseGammaDistributionDefinition}
-
-In probability theory and statistics, the inverse gamma distribution is a two-parameter family of continuous probability distributions on the positive real line, which is the distribution of the reciprocal of a variable distributed according to the gamma distribution. Perhaps the chief use of the inverse gamma distribution is in Bayesian statistics, where the distribution arises as the marginal posterior distribution for the unknown variance of a normal distribution if an uninformative prior is used; and as an analytically tractable conjugate prior if an informative prior is required.
-
-However, it is common among Bayesians to consider an alternative parametrization of the normal distribution in terms of the precision, defined as the reciprocal of the variance, which allows the gamma distribution to be used directly as a conjugate prior. Other Bayesians prefer to parametrize the inverse gamma distribution differently, as a scaled inverse chi-squared distribution
-
-
-
-\subsection{Density and CDF}
-
-\begin{mpFunctionsExtract}
-	\mpFunctionFourNotImplemented
-	{InverseGammaDistBoost? mpNumList? pdf, CDF and related information for the inverse gamma distribution}
-	{x? mpNum? A real number}
-	{a? mpNum? A real number greater 0, representing the numerator  degrees of freedom}
-	{b? mpNum? A real number greater 0, representing the denominator degrees of freedom}
-	{Output? String? A string describing the output choices}
-\end{mpFunctionsExtract}
-
-
-\vspace{0.3cm}
-See section \ref{Functions returning pdf, CDF, and related information} for the options for {\itshape\sffamily Output}. Algorithms and formulas are given in sections \ref{InverseGammaDistributionDensity} and \ref{InverseGammaDistributionCDF}.
-
-
-\subsubsection{Density}
-\label{InverseGammaDistributionDensity}
-
-The inverse gamma distribution's probability density function is defined over the support $x>0$
-\begin{equation} 
-	f(x;\alpha,\beta)= \frac{\beta^{\alpha}}{\Gamma(\alpha)} x^{-\alpha-1} \exp \left(-\frac{\beta}{x} \right)
-\end{equation}
-
-
-with shape parameter $\alpha$ and scale parameter $\beta$.
-
-
-
-\subsubsection{CDF}
-\label{InverseGammaDistributionCDF}
-The cumulative distribution function is the regularized gamma function
-\begin{equation} 
-	F(x;\alpha,\beta)= \frac{\Gamma(\alpha),\beta/x}{\Gamma(\alpha)} = Q \left(\alpha, -\frac{\beta}{x} \right)
-\end{equation}
-
-
-where the numerator is the upper incomplete gamma function and the denominator is the gamma function. Many math packages allow you to compute $Q$, the regularized gamma function, directly.
-
-
-
-
-\subsection{Quantiles}
-
-\begin{mpFunctionsExtract}
-	\mpFunctionFourNotImplemented
-	{InverseGammaDistInvBoost? mpNumList? quantiles and related information for the the inverse gamma distribution}
-	{Prob? mpNum? A real number between 0 and 1.}
-	{m? mpNum? A real number greater 0, representing the numerator  degrees of freedom}
-	{n? mpNum? A real number greater 0, representing the denominator degrees of freedom}
-	{Output? String? A string describing the output choices}
-\end{mpFunctionsExtract}
-
-See section \ref{Functions returning Quantiles} for the options for  {\itshape\sffamily Prob} and {\itshape\sffamily Output}). Algorithms and formulas are given below.
-
-\begin{equation} 
-	F^{-1}(prob;\nu)= \beta / / gamma-q-inv(\alpha, p)
-\end{equation}
-
-
-\subsection{Properties}
-\label{InverseGammaDistributionProperties}
-
-
-\begin{mpFunctionsExtract}
-	\mpFunctionThreeNotImplemented
-	{InverseGammaDistInfoBoost? mpNumList? moments and related information for the inverse gamma distribution}
-	{a? mpNum? A real number greater 0, representing the degrees of freedom}
-	{b? mpNum? A real number greater 0, representing the degrees of freedom}
-	{Output? String? A string describing the output choices}
-\end{mpFunctionsExtract}
-
-\vspace{0.3cm}
-
-See section \ref{Functions returning moments and related information} for the options for {\itshape\sffamily Output}. Algorithms and formulas are given below.
-
-\subsubsection{Moments and Cumulants}
-\begin{equation} 
-	\mu_1 = \frac{\nu}{\nu-2} \text{for } \nu>2.
-\end{equation}
-
-
-
-
-\subsection{Random Numbers}
-
-\begin{mpFunctionsExtract}
-	\mpFunctionFiveNotImplemented
-	{InverseGammaDistRanBoost? mpNumList? random numbers following a inverse gamma distribution}
-	{Size? mpNum? A positive integer up to $10^7$}
-	{a? mpNum? A real number greater 0, representing the numerator  degrees of freedom}
-	{b? mpNum? A real number greater 0, representing the denominator degrees of freedom}
-	{Generator? String? A string describing the random generator}
-	{Output? String? A string describing the output choices}
-\end{mpFunctionsExtract}
-
-\vspace{0.3cm}
-
-See section \ref{Functions returning Random numbers} for the options for  {\itshape\sffamily Size},  {\itshape\sffamily Generator} and {\itshape\sffamily Output}. Algorithms and formulas are given below.
-
-
-
-
-\newpage
-\section{Inverse Gaussian (or Wald) Distribution}
-
-
-\subsection{Definition}
-\label{InverseGaussianDistributionDefinition}
-
-In probability theory, the inverse Gaussian distribution (also known as the Wald distribution) is a two-parameter family of continuous probability distributions  with mean $\mu$ and shape parameter $\lambda$ and support on $(0,\infty)$.
-As $\lambda$ tends to infinity, the inverse Gaussian distribution becomes more like a normal (Gaussian) distribution. The inverse Gaussian distribution has several properties analogous to a Gaussian distribution. The name can be misleading: it is an "inverse" only in that its cumulant generating function (logarithm of the characteristic function) is the inverse of the cumulant generating function of a Gaussian random variable.
-
-While the Gaussian describes a Brownian Motion's level at a fixed time, the inverse Gaussian describes the distribution of the time a Brownian Motion with positive drift takes to reach a fixed positive level.
-
-See also \href{http://en.wikipedia.org/wiki/Inverse_Gaussian_distribution}{http://en.wikipedia.org/wiki/Inverse\_Gaussian\_distribution}. 
-
-
-\subsection{Density and CDF}
-
-\begin{mpFunctionsExtract}
-	\mpFunctionFourNotImplemented
-	{InverseGaussianDistBoost? mpNumList? pdf, CDF and related information for the inverse Gaussian distribution}
-	{x? mpNum? A real number}
-	{mu? mpNum? A real number greater 0, representing the numerator  degrees of freedom}
-	{lambda? mpNum? A real number greater 0, representing the denominator degrees of freedom}
-	{Output? String? A string describing the output choices}
-\end{mpFunctionsExtract}
-
-
-\vspace{0.3cm}
-See section \ref{Functions returning pdf, CDF, and related information} for the options for {\itshape\sffamily Output}. Algorithms and formulas are given in sections \ref{InverseGaussianDistributionDensity} and \ref{InverseGaussianDistributionCDF}.
-
-
-
-\subsubsection{Density}
-\label{InverseGaussianDistributionDensity}
-
-\begin{equation} 
-	f(x;\mu,\lambda)= \sqrt{\frac{\lambda}{2\pi x^3}} \exp \left( \frac{-\lambda(x-\mu)^2}{2\mu^2 x} \right)
-\end{equation}
-
-
-\subsubsection{CDF}
-\label{InverseGaussianDistributionCDF}
-
-\begin{equation} 
-	F(x;\mu,\lambda)= \Phi\left(\sqrt{\frac{\lambda}{x}} \left(\frac{x}{\mu}-1\right)\right) +\exp \left( \frac{2\lambda}{\mu} \right) \Phi\left(-\sqrt{\frac{\lambda}{x}} \left(\frac{x}{\mu}+1\right)\right)
-\end{equation}
-
-
-
-\subsection{Quantiles}
-
-\begin{mpFunctionsExtract}
-	\mpFunctionFourNotImplemented
-	{InverseGaussianDistInvBoost? mpNumList? quantiles and related information for the the inverse Gaussian distribution}
-	{Prob? mpNum? A real number between 0 and 1.}
-	{mu? mpNum? A real number greater 0, representing the numerator  degrees of freedom}
-	{lambda? mpNum? A real number greater 0, representing the denominator degrees of freedom}
-	{Output? String? A string describing the output choices}
-\end{mpFunctionsExtract}
-
-See section \ref{Functions returning Quantiles} for the options for  {\itshape\sffamily Prob} and {\itshape\sffamily Output}). Algorithms and formulas are given below.
-
-\begin{equation} 
-	F^{-1}(prob;\nu)= \beta / / gamma-q-inv(\alpha, p)
-\end{equation}
-
-
-
-\subsection{Properties}
-\label{InverseGaussianDistributionProperties}
-
-\begin{mpFunctionsExtract}
-	\mpFunctionThreeNotImplemented
-	{InverseGaussianDistInfoBoost? mpNumList? moments and related information for the inverse Gaussian distribution}
-	{mu? mpNum? A real number greater 0, representing the degrees of freedom}
-	{lambda? mpNum? A real number greater 0, representing the degrees of freedom}
-	{Output? String? A string describing the output choices}
-\end{mpFunctionsExtract}
-
-\vspace{0.3cm}
-
-See section \ref{Functions returning moments and related information} for the options for {\itshape\sffamily Output}. Algorithms and formulas are given below.
-
-\subsubsection{Moments and Cumulants}
-\begin{equation} 
-	\mu_1 = \frac{\nu}{\nu-2} \text{for } \nu>2.
-\end{equation}
-
-
-
-
-
-\subsection{Random Numbers}
-
-\begin{mpFunctionsExtract}
-	\mpFunctionFiveNotImplemented
-	{InverseGaussianDistRanBoost? mpNumList? random numbers following a inverse Gaussian distribution}
-	{Size? mpNum? A positive integer up to $10^7$}
-	{mu? mpNum? A real number greater 0, representing the numerator  degrees of freedom}
-	{lambda? mpNum? A real number greater 0, representing the denominator degrees of freedom}
-	{Generator? String? A string describing the random generator}
-	{Output? String? A string describing the output choices}
-\end{mpFunctionsExtract}
-
-\vspace{0.3cm}
-
-See section \ref{Functions returning Random numbers} for the options for  {\itshape\sffamily Size},  {\itshape\sffamily Generator} and {\itshape\sffamily Output}. Algorithms and formulas are given below.
-
-
-
-
-
-\newpage
-\section{Laplace Distribution}
-These functions return PDF, CDF, and ICDF of the Laplace distribution with location
-$a$, scale $b > 0$, and the support interval $(-\infty,+\infty)$ :
-
-
-\subsection{Density and CDF}
-\begin{mpFunctionsExtract}
-	\mpFunctionFourNotImplemented
-	{LaplaceDistBoost? mpNumList? pdf, CDF and related information for the Laplace distribution}
-	{x? mpNum? A real number}
-	{a? mpNum? A real number greater 0, representing the numerator  degrees of freedom}
-	{b? mpNum? A real number greater 0, representing the denominator degrees of freedom}
-	{Output? String? A string describing the output choices}
-\end{mpFunctionsExtract}
-
-
-\vspace{0.3cm}
-See section \ref{Functions returning pdf, CDF, and related information} for the options for {\itshape\sffamily Output}. Algorithms and formulas are given in sections \ref{LaplaceDistributionDensity} and \ref{LaplaceDistributionCDF}.
-
-
-\subsubsection{Density}
-\label{LaplaceDistributionDensity}
-
-\begin{equation} 
-	f(x)= \exp(- \vert x-a \vert /b)/(2b)
-\end{equation}
-
-
-\subsubsection{CDF}
-\label{LaplaceDistributionCDF}
-
-\begin{equation}
-	F(x)=\begin{cases}
-		\frac{1}{2} - \frac{1}{2} \text{expm1}\left(- \frac{x-a}{b}\right) & x \geq a\\
-		\frac{1}{2} \text{exp}\left(- \frac{x-a}{b}\right) & x<a.
-	\end{cases}
-\end{equation}
-
-
-
-\subsection{Quantiles}
-\begin{mpFunctionsExtract}
-	\mpFunctionFourNotImplemented
-	{LaplaceDistInvBoost? mpNumList? quantiles and related information for the the Laplace distribution}
-	{Prob? mpNum? A real number between 0 and 1.}
-	{a? mpNum? A real number greater 0, representing the numerator  degrees of freedom}
-	{b? mpNum? A real number greater 0, representing the denominator degrees of freedom}
-	{Output? String? A string describing the output choices}
-\end{mpFunctionsExtract}
-
-See section \ref{Functions returning Quantiles} for the options for  {\itshape\sffamily Prob} and {\itshape\sffamily Output}). Algorithms and formulas are given below.
-
-\vspace{0.3cm}
-\begin{equation}
-	F^{-1}(y)=\begin{cases}
-		a+b \: \text{ln}(2y), & y<0.5,\\
-		a-b \: \text{ln}(2(1-y))  & y>0.5.
-	\end{cases}
-\end{equation}
-
-
-
-\subsection{Properties}
-\label{LaplaceDistributionProperties}
-
-\begin{mpFunctionsExtract}
-	\mpFunctionThreeNotImplemented
-	{LaplaceDistInfoBoost? mpNumList? moments and related information for the Laplace distribution}
-	{a? mpNum? A real number greater 0, representing the degrees of freedom}
-	{b? mpNum? A real number greater 0, representing the degrees of freedom}
-	{Output? String? A string describing the output choices}
-\end{mpFunctionsExtract}
-
-\vspace{0.3cm}
-
-See section \ref{Functions returning moments and related information} for the options for {\itshape\sffamily Output}. 
-
-
-
-\subsection{Random Numbers}
-
-\begin{mpFunctionsExtract}
-	\mpFunctionFiveNotImplemented
-	{LaplaceDistRanBoost? mpNumList? random numbers following a Laplace distribution}
-	{Size? mpNum? A positive integer up to $10^7$}
-	{a? mpNum? A real number greater 0, representing the numerator  degrees of freedom}
-	{b? mpNum? A real number greater 0, representing the denominator degrees of freedom}
-	{Generator? String? A string describing the random generator}
-	{Output? String? A string describing the output choices}
-\end{mpFunctionsExtract}
-
-\vspace{0.3cm}
-
-See section \ref{Functions returning Random numbers} for the options for  {\itshape\sffamily Size},  {\itshape\sffamily Generator} and {\itshape\sffamily Output}. Algorithms and formulas are given in below.
-
-
-
-
-
-\newpage
-\section{Logistic Distribution}
-
-\subsection{Definition}
-These functions return PDF, CDF, and ICDF of the logistic distribution with location
-$a$, scale $b > 0$, and the support interval $(-\infty,+\infty)$ :
-
-\subsection{Density and CDF}
-\begin{mpFunctionsExtract}
-	\mpFunctionFourNotImplemented
-	{LogisticDistBoost? mpNumList? pdf, CDF and related information for the Logistic distribution}
-	{x? mpNum? A real number}
-	{a? mpNum? A real number greater 0, representing the numerator  degrees of freedom}
-	{b? mpNum? A real number greater 0, representing the denominator degrees of freedom}
-	{Output? String? A string describing the output choices}
-\end{mpFunctionsExtract}
-
-\vspace{0.3cm}
-See section \ref{Functions returning pdf, CDF, and related information} for the options for {\itshape\sffamily Output}. Algorithms and formulas are given in sections \ref{LogisticDistributionDensity} and \ref{LogisticDistributionCDF}.
-
-
-\subsubsection{Density}
-\label{LogisticDistributionDensity}
-
-\begin{equation} 
-	f(x)= \frac{1}{b} \frac{\exp \left(-\frac{x-a}{b}\right)}{\left(1+\exp \left(-\frac{x-a}{b}\right)\right)^2}
-\end{equation}
-
-
-\subsubsection{CDF}
-\label{LogisticDistributionCDF}
-
-\begin{equation} 
-	F(x)= \frac{1}{1+\exp \left(-\frac{x-a}{b}\right)}
-\end{equation}
-
-
-\subsection{Quantiles}
-\begin{mpFunctionsExtract}
-	\mpFunctionFourNotImplemented
-	{LogisticDistInvBoost? mpNumList? quantiles and related information for the the Logistic distribution}
-	{Prob? mpNum? A real number between 0 and 1.}
-	{a? mpNum? A real number greater 0, representing the numerator  degrees of freedom}
-	{b? mpNum? A real number greater 0, representing the denominator degrees of freedom}
-	{Output? String? A string describing the output choices}
-\end{mpFunctionsExtract}
-
-See section \ref{Functions returning Quantiles} for the options for  {\itshape\sffamily Prob} and {\itshape\sffamily Output}). Algorithms and formulas are given below.
-
-\begin{equation} 
-	F^{-1}(y)= a-b \: \text{ln}\left((1-y)/y\right)
-\end{equation}
-
-
-
-\subsection{Properties}
-\label{LogisticDistributionProperties}
-
-\begin{mpFunctionsExtract}
-	\mpFunctionThreeNotImplemented
-	{LogisticDistInfoBoost? mpNumList? moments and related information for the Logistic distribution}
-	{a? mpNum? A real number greater 0, representing the degrees of freedom}
-	{b? mpNum? A real number greater 0, representing the degrees of freedom}
-	{Output? String? A string describing the output choices}
-\end{mpFunctionsExtract}
-
-\vspace{0.3cm}
-
-See section \ref{Functions returning moments and related information} for the options for {\itshape\sffamily Output}. 
-
-
-
-\subsection{Random Numbers}
-
-\begin{mpFunctionsExtract}
-	\mpFunctionFiveNotImplemented
-	{LogisticDistRanBoost? mpNumList? random numbers following a Logistic distribution}
-	{Size? mpNum? A positive integer up to $10^7$}
-	{a? mpNum? A real number greater 0, representing the numerator  degrees of freedom}
-	{b? mpNum? A real number greater 0, representing the denominator degrees of freedom}
-	{Generator? String? A string describing the random generator}
-	{Output? String? A string describing the output choices}
-\end{mpFunctionsExtract}
-
-\vspace{0.3cm}
-
-See section \ref{Functions returning Random numbers} for the options for  {\itshape\sffamily Size},  {\itshape\sffamily Generator} and {\itshape\sffamily Output}. Algorithms and formulas are given in below.
-
-
-
-
-\newpage
-\section{Pareto Distribution}
-
-\subsection{Definition}
-These functions return PDF, CDF, and ICDF of the Pareto distribution with minimum
-(real) value $k > 0$, shape $a > 0$, and the support interval $(k,+\infty)$ :
-This is a reference: \cite{wiki_Pareto}
-
-
-\subsection{Density and CDF}
-\begin{mpFunctionsExtract}
-	\mpFunctionFourNotImplemented
-	{ParetoDistBoost? mpNumList? pdf, CDF and related information for the Pareto distribution}
-	{x? mpNum? A real number}
-	{a? mpNum? A real number greater 0, representing the numerator  degrees of freedom}
-	{b? mpNum? A real number greater 0, representing the denominator degrees of freedom}
-	{Output? String? A string describing the output choices}
-\end{mpFunctionsExtract}
-
-\vspace{0.3cm}
-See section \ref{Functions returning pdf, CDF, and related information} for the options for {\itshape\sffamily Output}. Algorithms and formulas are given in sections \ref{ParetoDistributionDensity} and \ref{ParetoDistributionCDF}.
-
-\subsubsection{Density}
-\label{ParetoDistributionDensity}
-
-\begin{equation} 
-	f(x)= \frac{a}{x} \left(\frac{k}{x}\right)^a
-\end{equation}
-
-
-\subsubsection{CDF}
-\label{ParetoDistributionCDF}
-
-\vspace{0.3cm}
-\begin{equation} 
-	F(x)= 1 - \left(\frac{k}{x}\right)^a = - \text{powm1}(k/x,a)
-\end{equation}
-
-
-
-\subsection{Quantiles}
-\begin{mpFunctionsExtract}
-	\mpFunctionFourNotImplemented
-	{ParetoDistInvBoost? mpNumList? quantiles and related information for the the Pareto distribution}
-	{Prob? mpNum? A real number between 0 and 1.}
-	{a? mpNum? A real number greater 0, representing the numerator  degrees of freedom}
-	{b? mpNum? A real number greater 0, representing the denominator degrees of freedom}
-	{Output? String? A string describing the output choices}
-\end{mpFunctionsExtract}
-
-See section \ref{Functions returning Quantiles} for the options for  {\itshape\sffamily Prob} and {\itshape\sffamily Output}). Algorithms and formulas are given below.
-
-\begin{equation} 
-	F^{-1}(y)= k(1-y)^{-1/a}
-\end{equation}
-
-
-
-\subsection{Properties}
-\label{ParetoDistributionProperties}
-
-\begin{mpFunctionsExtract}
-	\mpFunctionThreeNotImplemented
-	{ParetoDistInfoBoost? mpNumList? moments and related information for the Pareto distribution}
-	{a? mpNum? A real number greater 0, representing the degrees of freedom}
-	{b? mpNum? A real number greater 0, representing the degrees of freedom}
-	{Output? String? A string describing the output choices}
-\end{mpFunctionsExtract}
-
-\vspace{0.3cm}
-
-See section \ref{Functions returning moments and related information} for the options for {\itshape\sffamily Output}. 
-
-
-
-\subsection{Random Numbers}
-
-\begin{mpFunctionsExtract}
-	\mpFunctionFiveNotImplemented
-	{ParetoDistRanBoost? mpNumList? random numbers following a Pareto distribution}
-	{Size? mpNum? A positive integer up to $10^7$}
-	{a? mpNum? A real number greater 0, representing the numerator  degrees of freedom}
-	{b? mpNum? A real number greater 0, representing the denominator degrees of freedom}
-	{Generator? String? A string describing the random generator}
-	{Output? String? A string describing the output choices}
-\end{mpFunctionsExtract}
-
-\vspace{0.3cm}
-
-See section \ref{Functions returning Random numbers} for the options for  {\itshape\sffamily Size},  {\itshape\sffamily Generator} and {\itshape\sffamily Output}. Algorithms and formulas are given in below.
-
-
-
-
-\newpage
-\section{Raleigh Distribution}
-\label{RaleighDistribution}
-
-\subsection{Definition}
-These functions return PDF, CDF, and ICDF of the Rayleigh distribution with scale
-$b > 0$ and the support interval $(0,+\infty)$ :
-
-
-\subsection{Density and CDF}
-
-\begin{mpFunctionsExtract}
-	\mpFunctionThreeNotImplemented
-	{RaleighDistBoost? mpNumList? pdf, CDF and related information for the Raleigh distribution}
-	{x? mpNum? A real number}
-	{n? mpNum? A real number greater 0, representing the degrees of freedom}
-	{Output? String? A string describing the output choices}
-\end{mpFunctionsExtract}
-
-
-
-\vspace{0.3cm}
-See section \ref{Functions returning pdf, CDF, and related information} for the options for {\itshape\sffamily Output}. Algorithms and formulas are given in sections \ref{RaleighDistributionDensity} and \ref{RaleighDistributionCDF}.
-
-
-\subsubsection{Density}
-\label{RaleighDistributionDensity}
-
-\begin{equation} 
-	f(x)= \frac{x}{b^2} \exp \left(- \frac{x^2}{2b^2}\right)
-\end{equation}
-
-
-\subsubsection{CDF}
-\label{RaleighDistributionCDF}
-
-\begin{equation} 
-	F(x)= 1 - \exp \left(- \frac{x^2}{2b^2}\right)
-	= -\text{expm1} \left(- \frac{x^2}{2b^2}\right)
-\end{equation}
-
-
-
-\subsection{Quantiles}
-
-\begin{mpFunctionsExtract}
-	\mpFunctionThreeNotImplemented
-	{RaleighDistInvBoost? mpNumList? quantiles and related information for the Raleigh distribution}
-	{Prob? mpNum? A real number between 0 and 1.}
-	{n? mpNum? A real number greater 0, representing the degrees of freedom}
-	{Output? String? A string describing the output choices}
-\end{mpFunctionsExtract}
-
-See section \ref{Functions returning Quantiles} for the options for  {\itshape\sffamily Prob} and {\itshape\sffamily Output}). Algorithms and formulas are below.
-
-\begin{equation} 
-	F^{-1}(y)= b \sqrt{-2 \cdot \text{ln1p}(-y)}
-\end{equation}
-
-
-
-\subsection{Properties}
-\label{RaleighDistributionProperties}
-
-
-\begin{mpFunctionsExtract}
-	\mpFunctionTwoNotImplemented
-	{RaleighDistInfoBoost? mpNumList? moments and related information for the Raleigh distribution}
-	{n? mpNum? A real number greater 0, representing the degrees of freedom}
-	{Output? String? A string describing the output choices}
-\end{mpFunctionsExtract}
-
-\vspace{0.3cm}
-
-See section \ref{Functions returning moments and related information} for the options for {\itshape\sffamily Output}. Algorithms and formulas are given below.
-
-\subsubsection{Moments and Cumulants}
-\begin{equation} 
-	\mu_1 = s \sqrt{\pi/2}
-\end{equation}
-
-
-
-\subsection{Random Numbers}
-
-\begin{mpFunctionsExtract}
-	\mpFunctionFourNotImplemented
-	{RaleighDistRanBoost? mpNumList? random numbers following a Raleigh distribution}
-	{Size? mpNum? A positive integer up to $10^7$}
-	{n? mpNum? A real number greater 0, representing the degrees of freedom}
-	{Generator? String? A string describing the random generator}
-	{Output? String? A string describing the output choices}
-\end{mpFunctionsExtract}
-
-
-\vspace{0.3cm}
-See section \ref{Functions returning Random numbers} for the options for  {\itshape\sffamily Size},  {\itshape\sffamily Generator} and {\itshape\sffamily Output}. Algorithms and formulas are given below.
-
-
-
-
-
-\newpage
-\section{Triangular Distribution}
-
-\subsection{Definition}
-These functions return PDF, CDF, and ICDF of the triangular distribution on the
-support interval $[a, b]$ with finite $a < b$ and mode $c, a \leq c \leq b$.
-
-\subsection{Density and CDF}
-
-\begin{mpFunctionsExtract}
-	\mpFunctionFiveNotImplemented
-	{TriangularDistBoost? mpNumList? pdf, CDF and related information for the triangular distribution}
-	{x? mpNum? A real number.}
-	{a? mpNum? The left border parameter.}
-	{b? mpNum? The right border parameter.}
-	{c? mpNum? The mode parameter.}
-	{Output? String? A string describing the output choices}
-\end{mpFunctionsExtract}
-
-
-\vspace{0.3cm}
-See section \ref{Functions returning pdf, CDF, and related information} for the options for {\itshape\sffamily Output}. Algorithms and formulas are given in sections \ref{TriangularDistributionDensity} and \ref{TriangularDistributionCDF}.
-
-
-
-\subsubsection{Density}
-\label{TriangularDistributionDensity}
-
-\begin{equation}
-	f(x)=\begin{cases}
-		0  & x<a\\
-		\frac{2(x-a)}{(b-a)(c-a)} & a \leq x < c\\
-		\frac{2}{b-a} & x = c\\
-		\frac{2(b-x)}{(b-a)(b-c)} & c < x \leq b\\
-		0  & x>b
-	\end{cases}
-\end{equation}
-
-
-\subsubsection{CDF}
-\label{TriangularDistributionCDF}
-
-\begin{equation}
-	F(x)=\begin{cases}
-		0  & x<a\\
-		\frac{(x-a)^2}{(b-a)(c-a)} & a \leq x < c\\
-		\frac{c-a}{b-a} & x = c\\
-		1-\frac{(b-x)^2}{(b-a)(b-c)} & c < x \leq b\\
-		1  & x>b
-	\end{cases}
-\end{equation}
-
-
-
-\subsection{Quantiles}
-
-\begin{mpFunctionsExtract}
-	\mpFunctionFiveNotImplemented
-	{TriangularDistInvBoost? mpNumList? quantiles and related information for the the triangular distribution}
-	{Prob? mpNum? A real number between 0 and 1.}
-	{a? mpNum? The left border parameter.}
-	{b? mpNum? The right border parameter.}
-	{c? mpNum? The mode parameter.}
-	{Output? String? A string describing the output choices}
-\end{mpFunctionsExtract}
-
-\vspace{0.3cm}
-See section \ref{Functions returning Quantiles} for the options for  {\itshape\sffamily Prob} and {\itshape\sffamily Output}). 
-
-\vspace{0.3cm}
-\begin{equation}
-	F^{-1}(y)=\begin{cases}
-		a+\sqrt{(b-a)(c-a)y} & y<t\\
-		c & y=t \\
-		b-\sqrt{(b-a)(b-c)(1-y)} & y>t
-	\end{cases}
-\end{equation}
-where $t=(c-a)/(b-a)$.
-
-
-\subsection{Properties}
-\label{TriangularDistributionProperties}
-
-
-\begin{mpFunctionsExtract}
-	\mpFunctionFourNotImplemented
-	{TriangularDistInfoBoost? mpNumList? moments and related information for the triangular distribution}
-	{a? mpNum? The left border parameter.}
-	{b? mpNum? The right border parameter.}
-	{c? mpNum? The mode parameter.}
-	{Output? String? A string describing the output choices}
-\end{mpFunctionsExtract}
-
-\vspace{0.3cm}
-
-See section \ref{Functions returning moments and related information} for the options for {\itshape\sffamily Output}. Algorithms and formulas are given below.
-
-\subsubsection{Moments}
-
-\begin{equation} 
-	\mu_1 = \frac{a+b+c}{3}
-\end{equation}
-
-\begin{equation} 
-	\mu_2 = \frac{a^2+b^2+c^2-ab-ac-bc}{18}
-\end{equation}
-
-\begin{equation} 
-	\gamma_1 = \frac{\sqrt{2}(a+b-2c)(2a-b-c)(a-2b+c)}{5(a^2+b^2+c^2-ab-ac-bc)^{3/2}}
-\end{equation}
-
-\begin{equation} 
-	\gamma_2 = -\frac{3}{5}
-\end{equation}
-
-
-
-
-\subsection{Random Numbers}
-
-\begin{mpFunctionsExtract}
-	\mpFunctionSixNotImplemented
-	{TriangularDistRanBoost? mpNumList? random numbers following a triangular distribution}
-	{Size? mpNum? A positive integer up to $10^7$}
-	{a? mpNum? The left border parameter.}
-	{b? mpNum? The right border parameter.}
-	{c? mpNum? The mode parameter.}
-	{Generator? String? A string describing the random generator}
-	{Output? String? A string describing the output choices}
-\end{mpFunctionsExtract}
-
-\vspace{0.3cm}
-
-See section \ref{Functions returning Random numbers} for the options for  {\itshape\sffamily Size},  {\itshape\sffamily Generator} and {\itshape\sffamily Output}. Algorithms and formulas are given below.
-
-
-
-
-\newpage
-\section{Uniform Distribution}
-
-\subsection{Definition}
-These functions return PDF, CDF, and ICDF of the uniform distribution on the support
-interval $[a, b]$ with finite $a < b$:
-
-
-
-\subsection{Density and CDF}
-\begin{mpFunctionsExtract}
-	\mpFunctionFourNotImplemented
-	{UniformDistBoost? mpNumList? pdf, CDF and related information for the uniform distribution}
-	{x? mpNum? A real number}
-	{a? mpNum? The left border parameter.}
-	{b? mpNum? The right border parameter.}
-	{Output? String? A string describing the output choices}
-\end{mpFunctionsExtract}
-
-\vspace{0.3cm}
-See section \ref{Functions returning pdf, CDF, and related information} for the options for {\itshape\sffamily Output}. Algorithms and formulas are given in sections \ref{UniformDistributionDensity} and \ref{UniformDistributionCDF}.
-
-\subsubsection{Density}
-\label{UniformDistributionDensity}
-
-\begin{equation} 
-	f(x)=\frac{1}{b-a}
-\end{equation}
-
-
-\subsubsection{CDF}
-\label{UniformDistributionCDF}
-
-\begin{equation} 
-	F(x)=\frac{x-a}{b-a}
-\end{equation}
-
-
-
-\subsection{Quantiles}
-
-\begin{mpFunctionsExtract}
-	\mpFunctionFourNotImplemented
-	{UniformDistInvBoost? mpNumList? quantiles and related information for the the uniform distribution}
-	{Prob? mpNum? A real number between 0 and 1.}
-	{a? mpNum? The left border parameter.}
-	{b? mpNum? The right border parameter.}
-	{Output? String? A string describing the output choices}
-\end{mpFunctionsExtract}
-
-
-\vspace{0.3cm}
-See section \ref{Functions returning Quantiles} for the options for  {\itshape\sffamily Prob} and {\itshape\sffamily Output}). Algorithms and formulas are given below.
-
-\begin{equation} 
-	F^{-1}(y)= a+y(b-a)
-\end{equation}
-
-
-
-\subsection{Properties}
-\label{UniformDistributionProperties}
-
-\begin{mpFunctionsExtract}
-	\mpFunctionThreeNotImplemented
-	{UniformDistInfoBoost? mpNumList? moments and related information for the uniform distribution}
-	{a? mpNum? A real number greater 0, representing the degrees of freedom}
-	{b? mpNum? A real number greater 0, representing the degrees of freedom}
-	{Output? String? A string describing the output choices}
-\end{mpFunctionsExtract}
-
-\vspace{0.3cm}
-
-See section \ref{Functions returning moments and related information} for the options for {\itshape\sffamily Output}. 
-
-
-\subsubsection{Moments}
-
-\begin{equation} 
-	\mu_1 = \frac{a+b}{2}
-\end{equation}
-
-\begin{equation} 
-	\mu_2 = \frac{(b-a)^2}{12}
-\end{equation}
-
-\begin{equation} 
-	\gamma_1 = 0
-\end{equation}
-
-\begin{equation} 
-	\gamma_2 = -\frac{6}{5}
-\end{equation}
-
-
-
-\subsection{Random Numbers}
-
-\begin{mpFunctionsExtract}
-	\mpFunctionFiveNotImplemented
-	{UniformDistRanBoost? mpNumList? random numbers following a uniform distribution}
-	{Size? mpNum? A positive integer up to $10^7$}
-	{a? mpNum? A real number greater 0, representing the degrees of freedom}
-	{b? mpNum? A real number greater 0, representing the degrees of freedom}
-	{Generator? String? A string describing the random generator}
-	{Output? String? A string describing the output choices}
-\end{mpFunctionsExtract}
-
-\vspace{0.3cm}
-
-See section \ref{Functions returning Random numbers} for the options for  {\itshape\sffamily Size},  {\itshape\sffamily Generator} and {\itshape\sffamily Output}. Algorithms and formulas are given in below.
-
-
+%
+%\newpage
+%\section{Bernoulli Distribution}
+%
+%The Bernoulli distribution is a discrete distribution of the outcome of a single trial with only two results, 0 (failure) or 1 (success), with a probability of success $p$. The Bernoulli distribution is the simplest building block on which other discrete distributions of sequences of independent Bernoulli trials can be based. The Bernoulli is the binomial distribution ((k = 1, p)) with only one trial.
+%
+%
+%
+%\subsection{Density and CDF}
+%
+%\begin{mpFunctionsExtract}
+%	\mpFunctionThreeNotImplemented
+%	{BernoulliDistBoost? mpNumList? pdf, CDF and related information for the central $t$-distribution}
+%	{k? mpNum? A real number, 0 or 1}
+%	{p? mpNum? A real number greater 0, representing the degrees of freedom}
+%	{Output? String? A string describing the output choices}
+%\end{mpFunctionsExtract}
+%
+%
+%\vspace{0.3cm}
+%See section \ref{Functions returning pdf, CDF, and related information} for the options for {\itshape\sffamily Output}. Algorithms and formulas are given in sections \ref{BernoulliDistributionDensity} and \ref{BernoulliDistributionCDF}.
+%
+%
+%
+%\subsubsection{Density}
+%\label{BernoulliDistributionDensity}
+%
+%
+%\begin{equation}
+%	f(x)=\begin{cases}
+%		q=1-p & \text{for }k=0\\
+%		p & \text{for }k=1.
+%	\end{cases}
+%\end{equation}
+%
+%\subsubsection{CDF}
+%\label{BernoulliDistributionCDF}
+%\begin{equation}
+%	F(x)=\begin{cases}
+%		0 & \text{for }k=0\\
+%		q & \text{for }k=0\\
+%		1 & \text{for }k=1.
+%	\end{cases}
+%\end{equation}
+%
+%
+%
+%
+%\subsection{Quantiles}
+%
+%\begin{mpFunctionsExtract}
+%	\mpFunctionThreeNotImplemented
+%	{BernoulliDistInvBoost? mpNumList? quantiles and related information for the the central $t$-distribution}
+%	{Prob? mpNum? A real number between 0 and 1.}
+%	{p? mpNum? A real number greater 0, representing the degrees of freedom}
+%	{Output? String? A string describing the output choices}
+%\end{mpFunctionsExtract}
+%
+%See section \ref{Functions returning Quantiles} for the options for  {\itshape\sffamily Prob} and {\itshape\sffamily Output}). 
+%%Algorithms and formulas are given in section \ref{tDistributionQuantileAlgorithm}.
+%
+%\subsubsection{Quantiles: Algorithm}
+%Using the relation: cdf = $1 - p$ for $k = 0$, else $1$.
+%
+%
+%\subsection{Properties}
+%\label{BernoulliDistributionProperties}
+%
+%
+%\begin{mpFunctionsExtract}
+%	\mpFunctionTwoNotImplemented
+%	{BernoulliDistInfoBoost? mpNumList? moments and related information for the central $t$-distribution}
+%	{p? mpNum? A real number greater 0, representing the degrees of freedom}
+%	{Output? String? A string describing the output choices}
+%\end{mpFunctionsExtract}
+%
+%\vspace{0.3cm}
+%
+%See section \ref{Functions returning moments and related information} for the options for {\itshape\sffamily Output}. Algorithms and formulas are given in section \ref{BernoulliDistributionProperties}.
+%
+%
+%
+%\subsubsection{Moments: algorithms and formulas}
+%
+%\begin{equation} 
+%	\mu_r^{'} = \sum_{i=0}^{r-1} \binom{r}{i}  (-1)^i p^{i+1} + (-p)^r
+%\end{equation}
+%
+%\begin{equation} 
+%	\mu_1 = p
+%\end{equation}
+%
+%\begin{equation} 
+%	\mu_2 = pq
+%\end{equation}
+%
+%\begin{equation} 
+%	\mu_3 = pq(1-2p)
+%\end{equation}
+%
+%\begin{equation} 
+%	\mu_4 = pq (1-3pq)
+%\end{equation}
+%
+%
+%
+%\subsection{Random Numbers}
+%\begin{mpFunctionsExtract}
+%	\mpFunctionFourNotImplemented
+%	{BernoulliDistRandomBoost? mpNumList? random numbers following a central Binomial-distribution}
+%	{Size? mpNum? A positive integer up to $10^7$}
+%	{p? mpNum? The probability of a success on each trial.}
+%	{Generator? String? A string describing the random generator}
+%	{Output? String? A string describing the output choices}
+%\end{mpFunctionsExtract}
+%
+%\vspace{0.3cm}
+%
+%See section \ref{Functions returning Random numbers} for the options for  {\itshape\sffamily Size},  {\itshape\sffamily Generator} and {\itshape\sffamily Output}. Algorithms and formulas are given below.
+%
+%
+%
+%
+%\newpage
+%\section{Cauchy Distribution}
+%\label{CauchyDistribution}
+%
+%
+%
+%\subsection{Density and CDF}
+%
+%\begin{mpFunctionsExtract}
+%	\mpFunctionFourNotImplemented
+%	{CauchyDistBoost? mpNumList? pdf, CDF and related information for the Cauchy distribution}
+%	{x? mpNum? A real number}
+%	{a? mpNum? A real number greater 0, representing the numerator  degrees of freedom}
+%	{b? mpNum? A real number greater 0, representing the denominator degrees of freedom}
+%	{Output? String? A string describing the output choices}
+%\end{mpFunctionsExtract}
+%
+%
+%\vspace{0.3cm}
+%See section \ref{Functions returning pdf, CDF, and related information} for the options for {\itshape\sffamily Output}. 
+%%Algorithms and formulas are given in sections \ref{BetaDistributionDensity} and \ref{BetaDistributionCDF}.
+%
+%
+%\subsubsection{Density}
+%\label{CauchyDistributionDensity}
+%
+%\begin{equation} 
+%	f(x)=\frac{1}{\pi(1+((x-a)/b)^2)}
+%\end{equation}
+%
+%
+%\subsubsection{CDF}
+%\begin{equation} 
+%	F(x)=\frac{1}{2} + \frac{1}{\pi} \arctan \left(\frac{x-a}{b} \right)
+%\end{equation}
+%
+%
+%
+%\subsection{Quantiles}
+%\begin{mpFunctionsExtract}
+%	\mpFunctionFourNotImplemented
+%	{CauchyDistInvBoost? mpNumList? quantiles and related information for the Cauchy distribution}
+%	{Prob? mpNum? A real number between 0 and 1.}
+%	{a? mpNum? A real number greater 0, representing the numerator  degrees of freedom}
+%	{b? mpNum? A real number greater 0, representing the denominator degrees of freedom}
+%	{Output? String? A string describing the output choices}
+%\end{mpFunctionsExtract}
+%
+%See section \ref{Functions returning Quantiles} for the options for  {\itshape\sffamily Prob} and {\itshape\sffamily Output}). Algorithms and formulas are given below.
+%
+%\begin{equation}
+%	F^{-1}(y)=\begin{cases}
+%		a-b/\tan(\pi y), & y<0.5,\\
+%		a, &  y=0.5,\\
+%		a-b/\tan(\pi (1-y)) & y>0.5.
+%	\end{cases}
+%\end{equation}
+%
+%
+%
+%
+%\subsection{Properties}
+%\label{CauchyDistributionProperties}
+%
+%
+%\begin{mpFunctionsExtract}
+%	\mpFunctionThreeNotImplemented
+%	{CauchyDistInfoBoost? mpNumList? moments and related information for the Cauchy distribution}
+%	{a? mpNum? A real number greater 0, representing the degrees of freedom}
+%	{b? mpNum? A real number greater 0, representing the degrees of freedom}
+%	{Output? String? A string describing the output choices}
+%\end{mpFunctionsExtract}
+%
+%\vspace{0.3cm}
+%
+%See section \ref{Functions returning moments and related information} for the options for {\itshape\sffamily Output}. 
+%
+%All the usual non-member accessor functions that are generic to all distributions are supported: Cumulative Distribution Function,
+%Probability Density Function, Quantile, Hazard Function, Cumulative Hazard Function, mean, median, mode, variance, standard
+%deviation, skewness, kurtosis, kurtosis\_excess, range and support.
+%Note however that the Cauchy distribution does not have a mean, standard deviation, etc. See mathematically undefined function  to
+%control whether these should fail to compile with a BOOST\_STATIC\_ASSERTION\_FAILURE, which is the default.
+%Alternately, the functions mean, standard deviation, variance, skewness, kurtosis and kurtosis\_excess will all return a domain\_error
+%if called.
+%
+%
+%
+%\subsection{Random Numbers}
+%\begin{mpFunctionsExtract}
+%	\mpFunctionFiveNotImplemented
+%	{CauchyDistRandomBoost? mpNumList? random numbers following a Cauchy distribution}
+%	{Size? mpNum? A positive integer up to $10^7$}
+%	{a? mpNum? A real number greater 0, representing the numerator  degrees of freedom}
+%	{b? mpNum? A real number greater 0, representing the denominator degrees of freedom}
+%	{Generator? String? A string describing the random generator}
+%	{Output? String? A string describing the output choices}
+%\end{mpFunctionsExtract}
+%
+%\vspace{0.3cm}
+%
+%See section \ref{Functions returning Random numbers} for the options for  {\itshape\sffamily Size},  {\itshape\sffamily Generator} and {\itshape\sffamily Output}. Algorithms and formulas are given in below.
+%
+%
+%
+%
+%\newpage
+%\section{Extreme Value (or Gumbel) Distribution}
+%
+%These functions return PDF, CDF, and ICDF of the Extreme Value Type I distribution
+%with location $a$, scale $b > 0$, and the support interval $(-\infty,+\infty)$ :
+%
+%
+%
+%\subsection{Density and CDF}
+%
+%\begin{mpFunctionsExtract}
+%	\mpFunctionFourNotImplemented
+%	{ExtremevalueDistBoost? mpNumList? pdf, CDF and related information for the Extreme Value distribution}
+%	{x? mpNum? A real number}
+%	{a? mpNum? A real number greater 0, representing the numerator  degrees of freedom}
+%	{b? mpNum? A real number greater 0, representing the denominator degrees of freedom}
+%	{Output? String? A string describing the output choices}
+%\end{mpFunctionsExtract}
+%
+%
+%\vspace{0.3cm}
+%See section \ref{Functions returning pdf, CDF, and related information} for the options for {\itshape\sffamily Output}. Algorithms and formulas are given in sections \ref{ExtremevalueDistributionDensity} and \ref{ExtremevalueDistributionCDF}.
+%
+%
+%\subsubsection{Density}
+%\label{ExtremevalueDistributionDensity}
+%
+%\begin{equation} 
+%	f(x)=\frac{e^{-(x-a)/b}}{b} e^{e^{-(x-a)/b}}
+%\end{equation}
+%
+%
+%\subsubsection{CDF}
+%\label{ExtremevalueDistributionCDF}
+%\begin{equation} 
+%	F(x)= e^{e^{-(x-a)/b}}
+%\end{equation}
+%
+%
+%
+%\subsection{Quantiles}
+%\begin{mpFunctionsExtract}
+%	\mpFunctionFourNotImplemented
+%	{ExtremevalueDistInvBoost? mpNumList? quantiles and related information for the the Extreme Value distribution}
+%	{Prob? mpNum? A real number between 0 and 1.}
+%	{a? mpNum? A real number greater 0, representing the numerator  degrees of freedom}
+%	{b? mpNum? A real number greater 0, representing the denominator degrees of freedom}
+%	{Output? String? A string describing the output choices}
+%\end{mpFunctionsExtract}
+%
+%See section \ref{Functions returning Quantiles} for the options for  {\itshape\sffamily Prob} and {\itshape\sffamily Output}). Algorithms and formulas are given below.
+%
+%\begin{equation} 
+%	F^{-1}(y)= a-\ln(-\ln(y))
+%\end{equation}
+%
+%
+%\subsection{Properties}
+%\label{ExtremevalueDistributionProperties}
+%
+%
+%\begin{mpFunctionsExtract}
+%	\mpFunctionThreeNotImplemented
+%	{ExtremevalueDistInfoBoost? mpNumList? moments and related information for the Extreme Value distribution}
+%	{a? mpNum? A real number greater 0, representing the degrees of freedom}
+%	{b? mpNum? A real number greater 0, representing the degrees of freedom}
+%	{Output? String? A string describing the output choices}
+%\end{mpFunctionsExtract}
+%
+%\vspace{0.3cm}
+%
+%See section \ref{Functions returning moments and related information} for the options for {\itshape\sffamily Output}. 
+%
+%
+%
+%
+%\subsection{Random Numbers}
+%
+%\begin{mpFunctionsExtract}
+%	\mpFunctionFiveNotImplemented
+%	{ExtremevalueDistRandomBoost? mpNumList? random numbers following a Extreme Value distribution}
+%	{Size? mpNum? A positive integer up to $10^7$}
+%	{a? mpNum? A real number greater 0, representing the numerator  degrees of freedom}
+%	{b? mpNum? A real number greater 0, representing the denominator degrees of freedom}
+%	{Generator? String? A string describing the random generator}
+%	{Output? String? A string describing the output choices}
+%\end{mpFunctionsExtract}
+%
+%\vspace{0.3cm}
+%
+%See section \ref{Functions returning Random numbers} for the options for  {\itshape\sffamily Size},  {\itshape\sffamily Generator} and {\itshape\sffamily Output}. Algorithms and formulas are given in below.
+%
+%
+%
+%\newpage
+%\section{Geometric Distribution}
+%
+%Geometric distribution: it is used when there are exactly two mutually exclusive outcomes of a Bernoulli trial: these outcomes are labelled "success" and "failure". For Bernoulli trials each with success fraction $p$, the geometric distribution gives the probability of observing $k$ trials (failures, events,
+%occurrences, or arrivals) before the first success.
+%
+%
+%
+%
+%\subsection{Density and CDF}
+%
+%\begin{mpFunctionsExtract}
+%	\mpFunctionThreeNotImplemented
+%	{GeometricDistBoost? mpNumList? pdf, CDF and related information for the Geometric distribution}
+%	{k? mpNum? A real number}
+%	{p? mpNum? A real number greater 0, representing the numerator  degrees of freedom}
+%	{Output? String? A string describing the output choices}
+%\end{mpFunctionsExtract}
+%
+%
+%\vspace{0.3cm}
+%See section \ref{Functions returning pdf, CDF, and related information} for the options for {\itshape\sffamily Output}. Algorithms and formulas are given in sections \ref{GeometricDistributionDensity} and \ref{GeometricDistributionCDF}.
+%
+%
+%\subsubsection{Density}
+%\label{GeometricDistributionDensity}
+%
+%\begin{equation} 
+%	f(k;p)= p (1-p)^k 
+%\end{equation}
+%
+%
+%\subsubsection{CDF}
+%\label{GeometricDistributionCDF}
+%\begin{equation} 
+%	F(k;p)= 1- (1-p)^{k+1} 
+%\end{equation}
+%
+%\subsection{Quantiles}
+%
+%\begin{mpFunctionsExtract}
+%	\mpFunctionThreeNotImplemented
+%	{GeometricDistInvBoost? mpNumList? quantiles and related information for the Geometric distribution}
+%	{Prob? mpNum? A real number between 0 and 1.}
+%	{p? mpNum? A real number greater 0, representing the numerator  degrees of freedom}
+%	{Output? String? A string describing the output choices}
+%\end{mpFunctionsExtract}
+%
+%See section \ref{Functions returning Quantiles} for the options for  {\itshape\sffamily Prob} and {\itshape\sffamily Output}). Algorithms and formulas are given below.
+%
+%\begin{equation} 
+%	F^{-1}(x;p)= \frac{\text{log1p}(-x)}{\text{log1p}(-p)} -1
+%\end{equation}
+%
+%
+%
+%\subsection{Properties}
+%\label{GeometricDistributionProperties}
+%
+%
+%\begin{mpFunctionsExtract}
+%	\mpFunctionTwoNotImplemented
+%	{GeometricDistInfoBoost? mpNumList? moments and related information for the Geometric distribution}
+%	{p? mpNum? A real number greater 0, representing the degrees of freedom}
+%	{Output? String? A string describing the output choices}
+%\end{mpFunctionsExtract}
+%
+%\vspace{0.3cm}
+%
+%See section \ref{Functions returning moments and related information} for the options for {\itshape\sffamily Output}. 
+%
+%
+%
+%
+%\subsection{Random Numbers}
+%\begin{mpFunctionsExtract}
+%	\mpFunctionFourNotImplemented
+%	{GeometricDistRandomBoost? mpNumList? random numbers following a Geometric distribution}
+%	{Size? mpNum? A positive integer up to $10^7$}
+%	{p? mpNum? A real number greater 0, representing the denominator degrees of freedom}
+%	{Generator? String? A string describing the random generator}
+%	{Output? String? A string describing the output choices}
+%\end{mpFunctionsExtract}
+%
+%\vspace{0.3cm}
+%
+%See section \ref{Functions returning Random numbers} for the options for  {\itshape\sffamily Size},  {\itshape\sffamily Generator} and {\itshape\sffamily Output}. Algorithms and formulas are given in below.
+%
+%
+%
+%\newpage
+%\section{Inverse Chi Squared Distribution}
+%
+%
+%\subsection{Definition}
+%\label{InverseChiSquaredDistributionDefinition}
+%
+%The inverse-chi-squared distribution (or inverted-chi-square distribution[1] ) is the probability distribution of a random variable whose multiplicative inverse (reciprocal) has a chi-squared distribution. It is also often defined as the distribution of a random variable whose reciprocal divided by its degrees of freedom is a chi-squared distribution. That is, if $X$ has the chi-squared distribution with $\nu$  degrees of freedom, then according to the first definition, $1/X$ has the inverse-chi-squared distribution with  $\nu$  degrees of freedom; while according to the second definition, $\nu/X$ has the inverse-chi-squared distribution with  $\nu$  degrees of freedom. 
+%
+%The inverse-chi-squared distribution is a special case of a inverse-gamma distribution with $\nu$ (degrees of freedom), shape ($\alpha$) and scale ($\beta$), where $\alpha=\nu/2$ and $\beta=1/2$.
+%
+%
+%
+%\subsection{Density and CDF}
+%
+%\begin{mpFunctionsExtract}
+%	\mpFunctionThreeNotImplemented
+%	{InverseChiSquaredDistBoost? mpNumList? pdf, CDF and related information for the inverse-chi-squared -distribution}
+%	{x? mpNum? A real number}
+%	{n? mpNum? A real number greater 0, representing the degrees of freedom}
+%	{Output? String? A string describing the output choices}
+%\end{mpFunctionsExtract}
+%
+%
+%\vspace{0.3cm}
+%See section \ref{Functions returning pdf, CDF, and related information} for the options for {\itshape\sffamily Output}. 
+%%Algorithms and formulas are given in sections \ref{InverseChiSquaredDistributionDensity} and \ref{sec:ChiSquareDistribution_cdf}.
+%
+%
+%\subsubsection{Density}
+%\label{InverseChiSquaredDistributionDensity}
+%
+%The first definition yields a probability density function given by
+%\begin{equation} 
+%	f(x;\nu)= \frac{2^{-\nu/2}}{\Gamma(\nu /2)} x^{-\nu/2-1} e^{-1/(2x)}
+%\end{equation}
+%while the second definition yields the density function
+%\begin{equation} 
+%	f(x;\nu)= \frac{(\nu/2)^{\nu/2}}{\Gamma(\nu /2)} x^{-\nu/2-1} e^{-\nu/(2x)}
+%\end{equation}
+%In both cases, $x>0$  and  $\nu$  is the degrees of freedom parameter. Further, $\Gamma$ is the gamma function. Both definitions are special cases of the scaled-inverse-chi-squared distribution. For the first definition the variance of the distribution is $\sigma=1/\nu$, while for the second definition $\sigma=1$ .
+%
+%
+%
+%\subsubsection{CDF}
+%\begin{equation} 
+%	F(x;\nu)= \frac{1}{\Gamma(\nu /2)} \Gamma\left(\frac{\nu}{2},\frac{1}{2x}\right) 
+%\end{equation}
+%
+%
+%
+%\subsection{Quantiles}
+%
+%
+%\begin{mpFunctionsExtract}
+%	\mpFunctionThreeNotImplemented
+%	{InverseChiSquaredDistInvBoost? mpNumList? quantiles and related information for the inverse-chi-squared distribution}
+%	{Prob? mpNum? A real number between 0 and 1.}
+%	{n? mpNum? A real number greater 0, representing the degrees of freedom}
+%	{Output? String? A string describing the output choices}
+%\end{mpFunctionsExtract}
+%
+%See section \ref{Functions returning Quantiles} for the options for  {\itshape\sffamily Prob} and {\itshape\sffamily Output}). 
+%%Algorithms and formulas are given in section \ref{ChiSquareDistributionQuantilesAlgorithm}.
+%
+%\begin{equation} 
+%	F^{-1}(prob;\nu)= \beta / / gamma-q-inv(\alpha, p)
+%\end{equation}
+%
+%
+%\subsection{Properties}
+%\label{InverseChiSquaredDistributionProperties}
+%
+%
+%\begin{mpFunctionsExtract}
+%	\mpFunctionTwoNotImplemented
+%	{InverseChiSquaredDistInfoBoost? mpNumList? moments and related information for the inverse-chi-squared distribution}
+%	{n? mpNum? A real number greater 0, representing the degrees of freedom}
+%	{Output? String? A string describing the output choices}
+%\end{mpFunctionsExtract}
+%
+%\vspace{0.3cm}
+%
+%See section \ref{Functions returning moments and related information} for the options for {\itshape\sffamily Output}. Algorithms and formulas are given below.
+%
+%\subsubsection{Moments and Cumulants}
+%\begin{equation} 
+%	\mu_1 = \frac{\nu}{\nu-2} \text{for } \nu>2.
+%\end{equation}
+%
+%
+%
+%\subsection{Random Numbers}
+%
+%\begin{mpFunctionsExtract}
+%	\mpFunctionFourNotImplemented
+%	{InverseChiSquaredDistRanBoost? mpNumList? numbers following a inverse-chi-squared distribution}
+%	{Size? mpNum? A positive integer up to $10^7$}
+%	{n? mpNum? A real number greater 0, representing the degrees of freedom}
+%	{Generator? String? A string describing the random generator}
+%	{Output? String? A string describing the output choices}
+%\end{mpFunctionsExtract}
+%
+%
+%\vspace{0.3cm}
+%See section \ref{Functions returning Random numbers} for the options for  {\itshape\sffamily Size},  {\itshape\sffamily Generator} and {\itshape\sffamily Output}. Algorithms and formulas are given below.
+%
+%
+%
+%\newpage
+%\section{Inverse Gamma Distribution}
+%
+%
+%\subsection{Definition}
+%\label{InverseGammaDistributionDefinition}
+%
+%In probability theory and statistics, the inverse gamma distribution is a two-parameter family of continuous probability distributions on the positive real line, which is the distribution of the reciprocal of a variable distributed according to the gamma distribution. Perhaps the chief use of the inverse gamma distribution is in Bayesian statistics, where the distribution arises as the marginal posterior distribution for the unknown variance of a normal distribution if an uninformative prior is used; and as an analytically tractable conjugate prior if an informative prior is required.
+%
+%However, it is common among Bayesians to consider an alternative parametrization of the normal distribution in terms of the precision, defined as the reciprocal of the variance, which allows the gamma distribution to be used directly as a conjugate prior. Other Bayesians prefer to parametrize the inverse gamma distribution differently, as a scaled inverse chi-squared distribution
+%
+%
+%
+%\subsection{Density and CDF}
+%
+%\begin{mpFunctionsExtract}
+%	\mpFunctionFourNotImplemented
+%	{InverseGammaDistBoost? mpNumList? pdf, CDF and related information for the inverse gamma distribution}
+%	{x? mpNum? A real number}
+%	{a? mpNum? A real number greater 0, representing the numerator  degrees of freedom}
+%	{b? mpNum? A real number greater 0, representing the denominator degrees of freedom}
+%	{Output? String? A string describing the output choices}
+%\end{mpFunctionsExtract}
+%
+%
+%\vspace{0.3cm}
+%See section \ref{Functions returning pdf, CDF, and related information} for the options for {\itshape\sffamily Output}. Algorithms and formulas are given in sections \ref{InverseGammaDistributionDensity} and \ref{InverseGammaDistributionCDF}.
+%
+%
+%\subsubsection{Density}
+%\label{InverseGammaDistributionDensity}
+%
+%The inverse gamma distribution's probability density function is defined over the support $x>0$
+%\begin{equation} 
+%	f(x;\alpha,\beta)= \frac{\beta^{\alpha}}{\Gamma(\alpha)} x^{-\alpha-1} \exp \left(-\frac{\beta}{x} \right)
+%\end{equation}
+%
+%
+%with shape parameter $\alpha$ and scale parameter $\beta$.
+%
+%
+%
+%\subsubsection{CDF}
+%\label{InverseGammaDistributionCDF}
+%The cumulative distribution function is the regularized gamma function
+%\begin{equation} 
+%	F(x;\alpha,\beta)= \frac{\Gamma(\alpha),\beta/x}{\Gamma(\alpha)} = Q \left(\alpha, -\frac{\beta}{x} \right)
+%\end{equation}
+%
+%
+%where the numerator is the upper incomplete gamma function and the denominator is the gamma function. Many math packages allow you to compute $Q$, the regularized gamma function, directly.
+%
+%
+%
+%
+%\subsection{Quantiles}
+%
+%\begin{mpFunctionsExtract}
+%	\mpFunctionFourNotImplemented
+%	{InverseGammaDistInvBoost? mpNumList? quantiles and related information for the the inverse gamma distribution}
+%	{Prob? mpNum? A real number between 0 and 1.}
+%	{m? mpNum? A real number greater 0, representing the numerator  degrees of freedom}
+%	{n? mpNum? A real number greater 0, representing the denominator degrees of freedom}
+%	{Output? String? A string describing the output choices}
+%\end{mpFunctionsExtract}
+%
+%See section \ref{Functions returning Quantiles} for the options for  {\itshape\sffamily Prob} and {\itshape\sffamily Output}). Algorithms and formulas are given below.
+%
+%\begin{equation} 
+%	F^{-1}(prob;\nu)= \beta / / gamma-q-inv(\alpha, p)
+%\end{equation}
+%
+%
+%\subsection{Properties}
+%\label{InverseGammaDistributionProperties}
+%
+%
+%\begin{mpFunctionsExtract}
+%	\mpFunctionThreeNotImplemented
+%	{InverseGammaDistInfoBoost? mpNumList? moments and related information for the inverse gamma distribution}
+%	{a? mpNum? A real number greater 0, representing the degrees of freedom}
+%	{b? mpNum? A real number greater 0, representing the degrees of freedom}
+%	{Output? String? A string describing the output choices}
+%\end{mpFunctionsExtract}
+%
+%\vspace{0.3cm}
+%
+%See section \ref{Functions returning moments and related information} for the options for {\itshape\sffamily Output}. Algorithms and formulas are given below.
+%
+%\subsubsection{Moments and Cumulants}
+%\begin{equation} 
+%	\mu_1 = \frac{\nu}{\nu-2} \text{for } \nu>2.
+%\end{equation}
+%
+%
+%
+%
+%\subsection{Random Numbers}
+%
+%\begin{mpFunctionsExtract}
+%	\mpFunctionFiveNotImplemented
+%	{InverseGammaDistRanBoost? mpNumList? random numbers following a inverse gamma distribution}
+%	{Size? mpNum? A positive integer up to $10^7$}
+%	{a? mpNum? A real number greater 0, representing the numerator  degrees of freedom}
+%	{b? mpNum? A real number greater 0, representing the denominator degrees of freedom}
+%	{Generator? String? A string describing the random generator}
+%	{Output? String? A string describing the output choices}
+%\end{mpFunctionsExtract}
+%
+%\vspace{0.3cm}
+%
+%See section \ref{Functions returning Random numbers} for the options for  {\itshape\sffamily Size},  {\itshape\sffamily Generator} and {\itshape\sffamily Output}. Algorithms and formulas are given below.
+%
+%
+%
+%
+%\newpage
+%\section{Inverse Gaussian (or Wald) Distribution}
+%
+%
+%\subsection{Definition}
+%\label{InverseGaussianDistributionDefinition}
+%
+%In probability theory, the inverse Gaussian distribution (also known as the Wald distribution) is a two-parameter family of continuous probability distributions  with mean $\mu$ and shape parameter $\lambda$ and support on $(0,\infty)$.
+%As $\lambda$ tends to infinity, the inverse Gaussian distribution becomes more like a normal (Gaussian) distribution. The inverse Gaussian distribution has several properties analogous to a Gaussian distribution. The name can be misleading: it is an "inverse" only in that its cumulant generating function (logarithm of the characteristic function) is the inverse of the cumulant generating function of a Gaussian random variable.
+%
+%While the Gaussian describes a Brownian Motion's level at a fixed time, the inverse Gaussian describes the distribution of the time a Brownian Motion with positive drift takes to reach a fixed positive level.
+%
+%See also \href{http://en.wikipedia.org/wiki/Inverse_Gaussian_distribution}{http://en.wikipedia.org/wiki/Inverse\_Gaussian\_distribution}. 
+%
+%
+%\subsection{Density and CDF}
+%
+%\begin{mpFunctionsExtract}
+%	\mpFunctionFourNotImplemented
+%	{InverseGaussianDistBoost? mpNumList? pdf, CDF and related information for the inverse Gaussian distribution}
+%	{x? mpNum? A real number}
+%	{mu? mpNum? A real number greater 0, representing the numerator  degrees of freedom}
+%	{lambda? mpNum? A real number greater 0, representing the denominator degrees of freedom}
+%	{Output? String? A string describing the output choices}
+%\end{mpFunctionsExtract}
+%
+%
+%\vspace{0.3cm}
+%See section \ref{Functions returning pdf, CDF, and related information} for the options for {\itshape\sffamily Output}. Algorithms and formulas are given in sections \ref{InverseGaussianDistributionDensity} and \ref{InverseGaussianDistributionCDF}.
+%
+%
+%
+%\subsubsection{Density}
+%\label{InverseGaussianDistributionDensity}
+%
+%\begin{equation} 
+%	f(x;\mu,\lambda)= \sqrt{\frac{\lambda}{2\pi x^3}} \exp \left( \frac{-\lambda(x-\mu)^2}{2\mu^2 x} \right)
+%\end{equation}
+%
+%
+%\subsubsection{CDF}
+%\label{InverseGaussianDistributionCDF}
+%
+%\begin{equation} 
+%	F(x;\mu,\lambda)= \Phi\left(\sqrt{\frac{\lambda}{x}} \left(\frac{x}{\mu}-1\right)\right) +\exp \left( \frac{2\lambda}{\mu} \right) \Phi\left(-\sqrt{\frac{\lambda}{x}} \left(\frac{x}{\mu}+1\right)\right)
+%\end{equation}
+%
+%
+%
+%\subsection{Quantiles}
+%
+%\begin{mpFunctionsExtract}
+%	\mpFunctionFourNotImplemented
+%	{InverseGaussianDistInvBoost? mpNumList? quantiles and related information for the the inverse Gaussian distribution}
+%	{Prob? mpNum? A real number between 0 and 1.}
+%	{mu? mpNum? A real number greater 0, representing the numerator  degrees of freedom}
+%	{lambda? mpNum? A real number greater 0, representing the denominator degrees of freedom}
+%	{Output? String? A string describing the output choices}
+%\end{mpFunctionsExtract}
+%
+%See section \ref{Functions returning Quantiles} for the options for  {\itshape\sffamily Prob} and {\itshape\sffamily Output}). Algorithms and formulas are given below.
+%
+%\begin{equation} 
+%	F^{-1}(prob;\nu)= \beta / / gamma-q-inv(\alpha, p)
+%\end{equation}
+%
+%
+%
+%\subsection{Properties}
+%\label{InverseGaussianDistributionProperties}
+%
+%\begin{mpFunctionsExtract}
+%	\mpFunctionThreeNotImplemented
+%	{InverseGaussianDistInfoBoost? mpNumList? moments and related information for the inverse Gaussian distribution}
+%	{mu? mpNum? A real number greater 0, representing the degrees of freedom}
+%	{lambda? mpNum? A real number greater 0, representing the degrees of freedom}
+%	{Output? String? A string describing the output choices}
+%\end{mpFunctionsExtract}
+%
+%\vspace{0.3cm}
+%
+%See section \ref{Functions returning moments and related information} for the options for {\itshape\sffamily Output}. Algorithms and formulas are given below.
+%
+%\subsubsection{Moments and Cumulants}
+%\begin{equation} 
+%	\mu_1 = \frac{\nu}{\nu-2} \text{for } \nu>2.
+%\end{equation}
+%
+%
+%
+%
+%
+%\subsection{Random Numbers}
+%
+%\begin{mpFunctionsExtract}
+%	\mpFunctionFiveNotImplemented
+%	{InverseGaussianDistRanBoost? mpNumList? random numbers following a inverse Gaussian distribution}
+%	{Size? mpNum? A positive integer up to $10^7$}
+%	{mu? mpNum? A real number greater 0, representing the numerator  degrees of freedom}
+%	{lambda? mpNum? A real number greater 0, representing the denominator degrees of freedom}
+%	{Generator? String? A string describing the random generator}
+%	{Output? String? A string describing the output choices}
+%\end{mpFunctionsExtract}
+%
+%\vspace{0.3cm}
+%
+%See section \ref{Functions returning Random numbers} for the options for  {\itshape\sffamily Size},  {\itshape\sffamily Generator} and {\itshape\sffamily Output}. Algorithms and formulas are given below.
+%
+%
+%
+%
+%
+%\newpage
+%\section{Laplace Distribution}
+%These functions return PDF, CDF, and ICDF of the Laplace distribution with location
+%$a$, scale $b > 0$, and the support interval $(-\infty,+\infty)$ :
+%
+%
+%\subsection{Density and CDF}
+%\begin{mpFunctionsExtract}
+%	\mpFunctionFourNotImplemented
+%	{LaplaceDistBoost? mpNumList? pdf, CDF and related information for the Laplace distribution}
+%	{x? mpNum? A real number}
+%	{a? mpNum? A real number greater 0, representing the numerator  degrees of freedom}
+%	{b? mpNum? A real number greater 0, representing the denominator degrees of freedom}
+%	{Output? String? A string describing the output choices}
+%\end{mpFunctionsExtract}
+%
+%
+%\vspace{0.3cm}
+%See section \ref{Functions returning pdf, CDF, and related information} for the options for {\itshape\sffamily Output}. Algorithms and formulas are given in sections \ref{LaplaceDistributionDensity} and \ref{LaplaceDistributionCDF}.
+%
+%
+%\subsubsection{Density}
+%\label{LaplaceDistributionDensity}
+%
+%\begin{equation} 
+%	f(x)= \exp(- \vert x-a \vert /b)/(2b)
+%\end{equation}
+%
+%
+%\subsubsection{CDF}
+%\label{LaplaceDistributionCDF}
+%
+%\begin{equation}
+%	F(x)=\begin{cases}
+%		\frac{1}{2} - \frac{1}{2} \text{expm1}\left(- \frac{x-a}{b}\right) & x \geq a\\
+%		\frac{1}{2} \text{exp}\left(- \frac{x-a}{b}\right) & x<a.
+%	\end{cases}
+%\end{equation}
+%
+%
+%
+%\subsection{Quantiles}
+%\begin{mpFunctionsExtract}
+%	\mpFunctionFourNotImplemented
+%	{LaplaceDistInvBoost? mpNumList? quantiles and related information for the the Laplace distribution}
+%	{Prob? mpNum? A real number between 0 and 1.}
+%	{a? mpNum? A real number greater 0, representing the numerator  degrees of freedom}
+%	{b? mpNum? A real number greater 0, representing the denominator degrees of freedom}
+%	{Output? String? A string describing the output choices}
+%\end{mpFunctionsExtract}
+%
+%See section \ref{Functions returning Quantiles} for the options for  {\itshape\sffamily Prob} and {\itshape\sffamily Output}). Algorithms and formulas are given below.
+%
+%\vspace{0.3cm}
+%\begin{equation}
+%	F^{-1}(y)=\begin{cases}
+%		a+b \: \text{ln}(2y), & y<0.5,\\
+%		a-b \: \text{ln}(2(1-y))  & y>0.5.
+%	\end{cases}
+%\end{equation}
+%
+%
+%
+%\subsection{Properties}
+%\label{LaplaceDistributionProperties}
+%
+%\begin{mpFunctionsExtract}
+%	\mpFunctionThreeNotImplemented
+%	{LaplaceDistInfoBoost? mpNumList? moments and related information for the Laplace distribution}
+%	{a? mpNum? A real number greater 0, representing the degrees of freedom}
+%	{b? mpNum? A real number greater 0, representing the degrees of freedom}
+%	{Output? String? A string describing the output choices}
+%\end{mpFunctionsExtract}
+%
+%\vspace{0.3cm}
+%
+%See section \ref{Functions returning moments and related information} for the options for {\itshape\sffamily Output}. 
+%
+%
+%
+%\subsection{Random Numbers}
+%
+%\begin{mpFunctionsExtract}
+%	\mpFunctionFiveNotImplemented
+%	{LaplaceDistRanBoost? mpNumList? random numbers following a Laplace distribution}
+%	{Size? mpNum? A positive integer up to $10^7$}
+%	{a? mpNum? A real number greater 0, representing the numerator  degrees of freedom}
+%	{b? mpNum? A real number greater 0, representing the denominator degrees of freedom}
+%	{Generator? String? A string describing the random generator}
+%	{Output? String? A string describing the output choices}
+%\end{mpFunctionsExtract}
+%
+%\vspace{0.3cm}
+%
+%See section \ref{Functions returning Random numbers} for the options for  {\itshape\sffamily Size},  {\itshape\sffamily Generator} and {\itshape\sffamily Output}. Algorithms and formulas are given in below.
+%
+%
+%
+%
+%
+%\newpage
+%\section{Logistic Distribution}
+%
+%\subsection{Definition}
+%These functions return PDF, CDF, and ICDF of the logistic distribution with location
+%$a$, scale $b > 0$, and the support interval $(-\infty,+\infty)$ :
+%
+%\subsection{Density and CDF}
+%\begin{mpFunctionsExtract}
+%	\mpFunctionFourNotImplemented
+%	{LogisticDistBoost? mpNumList? pdf, CDF and related information for the Logistic distribution}
+%	{x? mpNum? A real number}
+%	{a? mpNum? A real number greater 0, representing the numerator  degrees of freedom}
+%	{b? mpNum? A real number greater 0, representing the denominator degrees of freedom}
+%	{Output? String? A string describing the output choices}
+%\end{mpFunctionsExtract}
+%
+%\vspace{0.3cm}
+%See section \ref{Functions returning pdf, CDF, and related information} for the options for {\itshape\sffamily Output}. Algorithms and formulas are given in sections \ref{LogisticDistributionDensity} and \ref{LogisticDistributionCDF}.
+%
+%
+%\subsubsection{Density}
+%\label{LogisticDistributionDensity}
+%
+%\begin{equation} 
+%	f(x)= \frac{1}{b} \frac{\exp \left(-\frac{x-a}{b}\right)}{\left(1+\exp \left(-\frac{x-a}{b}\right)\right)^2}
+%\end{equation}
+%
+%
+%\subsubsection{CDF}
+%\label{LogisticDistributionCDF}
+%
+%\begin{equation} 
+%	F(x)= \frac{1}{1+\exp \left(-\frac{x-a}{b}\right)}
+%\end{equation}
+%
+%
+%\subsection{Quantiles}
+%\begin{mpFunctionsExtract}
+%	\mpFunctionFourNotImplemented
+%	{LogisticDistInvBoost? mpNumList? quantiles and related information for the the Logistic distribution}
+%	{Prob? mpNum? A real number between 0 and 1.}
+%	{a? mpNum? A real number greater 0, representing the numerator  degrees of freedom}
+%	{b? mpNum? A real number greater 0, representing the denominator degrees of freedom}
+%	{Output? String? A string describing the output choices}
+%\end{mpFunctionsExtract}
+%
+%See section \ref{Functions returning Quantiles} for the options for  {\itshape\sffamily Prob} and {\itshape\sffamily Output}). Algorithms and formulas are given below.
+%
+%\begin{equation} 
+%	F^{-1}(y)= a-b \: \text{ln}\left((1-y)/y\right)
+%\end{equation}
+%
+%
+%
+%\subsection{Properties}
+%\label{LogisticDistributionProperties}
+%
+%\begin{mpFunctionsExtract}
+%	\mpFunctionThreeNotImplemented
+%	{LogisticDistInfoBoost? mpNumList? moments and related information for the Logistic distribution}
+%	{a? mpNum? A real number greater 0, representing the degrees of freedom}
+%	{b? mpNum? A real number greater 0, representing the degrees of freedom}
+%	{Output? String? A string describing the output choices}
+%\end{mpFunctionsExtract}
+%
+%\vspace{0.3cm}
+%
+%See section \ref{Functions returning moments and related information} for the options for {\itshape\sffamily Output}. 
+%
+%
+%
+%\subsection{Random Numbers}
+%
+%\begin{mpFunctionsExtract}
+%	\mpFunctionFiveNotImplemented
+%	{LogisticDistRanBoost? mpNumList? random numbers following a Logistic distribution}
+%	{Size? mpNum? A positive integer up to $10^7$}
+%	{a? mpNum? A real number greater 0, representing the numerator  degrees of freedom}
+%	{b? mpNum? A real number greater 0, representing the denominator degrees of freedom}
+%	{Generator? String? A string describing the random generator}
+%	{Output? String? A string describing the output choices}
+%\end{mpFunctionsExtract}
+%
+%\vspace{0.3cm}
+%
+%See section \ref{Functions returning Random numbers} for the options for  {\itshape\sffamily Size},  {\itshape\sffamily Generator} and {\itshape\sffamily Output}. Algorithms and formulas are given in below.
+%
+%
+%
+%
+%\newpage
+%\section{Pareto Distribution}
+%
+%\subsection{Definition}
+%These functions return PDF, CDF, and ICDF of the Pareto distribution with minimum
+%(real) value $k > 0$, shape $a > 0$, and the support interval $(k,+\infty)$ :
+%This is a reference: \cite{wiki_Pareto}
+%
+%
+%\subsection{Density and CDF}
+%\begin{mpFunctionsExtract}
+%	\mpFunctionFourNotImplemented
+%	{ParetoDistBoost? mpNumList? pdf, CDF and related information for the Pareto distribution}
+%	{x? mpNum? A real number}
+%	{a? mpNum? A real number greater 0, representing the numerator  degrees of freedom}
+%	{b? mpNum? A real number greater 0, representing the denominator degrees of freedom}
+%	{Output? String? A string describing the output choices}
+%\end{mpFunctionsExtract}
+%
+%\vspace{0.3cm}
+%See section \ref{Functions returning pdf, CDF, and related information} for the options for {\itshape\sffamily Output}. Algorithms and formulas are given in sections \ref{ParetoDistributionDensity} and \ref{ParetoDistributionCDF}.
+%
+%\subsubsection{Density}
+%\label{ParetoDistributionDensity}
+%
+%\begin{equation} 
+%	f(x)= \frac{a}{x} \left(\frac{k}{x}\right)^a
+%\end{equation}
+%
+%
+%\subsubsection{CDF}
+%\label{ParetoDistributionCDF}
+%
+%\vspace{0.3cm}
+%\begin{equation} 
+%	F(x)= 1 - \left(\frac{k}{x}\right)^a = - \text{powm1}(k/x,a)
+%\end{equation}
+%
+%
+%
+%\subsection{Quantiles}
+%\begin{mpFunctionsExtract}
+%	\mpFunctionFourNotImplemented
+%	{ParetoDistInvBoost? mpNumList? quantiles and related information for the the Pareto distribution}
+%	{Prob? mpNum? A real number between 0 and 1.}
+%	{a? mpNum? A real number greater 0, representing the numerator  degrees of freedom}
+%	{b? mpNum? A real number greater 0, representing the denominator degrees of freedom}
+%	{Output? String? A string describing the output choices}
+%\end{mpFunctionsExtract}
+%
+%See section \ref{Functions returning Quantiles} for the options for  {\itshape\sffamily Prob} and {\itshape\sffamily Output}). Algorithms and formulas are given below.
+%
+%\begin{equation} 
+%	F^{-1}(y)= k(1-y)^{-1/a}
+%\end{equation}
+%
+%
+%
+%\subsection{Properties}
+%\label{ParetoDistributionProperties}
+%
+%\begin{mpFunctionsExtract}
+%	\mpFunctionThreeNotImplemented
+%	{ParetoDistInfoBoost? mpNumList? moments and related information for the Pareto distribution}
+%	{a? mpNum? A real number greater 0, representing the degrees of freedom}
+%	{b? mpNum? A real number greater 0, representing the degrees of freedom}
+%	{Output? String? A string describing the output choices}
+%\end{mpFunctionsExtract}
+%
+%\vspace{0.3cm}
+%
+%See section \ref{Functions returning moments and related information} for the options for {\itshape\sffamily Output}. 
+%
+%
+%
+%\subsection{Random Numbers}
+%
+%\begin{mpFunctionsExtract}
+%	\mpFunctionFiveNotImplemented
+%	{ParetoDistRanBoost? mpNumList? random numbers following a Pareto distribution}
+%	{Size? mpNum? A positive integer up to $10^7$}
+%	{a? mpNum? A real number greater 0, representing the numerator  degrees of freedom}
+%	{b? mpNum? A real number greater 0, representing the denominator degrees of freedom}
+%	{Generator? String? A string describing the random generator}
+%	{Output? String? A string describing the output choices}
+%\end{mpFunctionsExtract}
+%
+%\vspace{0.3cm}
+%
+%See section \ref{Functions returning Random numbers} for the options for  {\itshape\sffamily Size},  {\itshape\sffamily Generator} and {\itshape\sffamily Output}. Algorithms and formulas are given in below.
+%
+%
+%
+%
+%\newpage
+%\section{Raleigh Distribution}
+%\label{RaleighDistribution}
+%
+%\subsection{Definition}
+%These functions return PDF, CDF, and ICDF of the Rayleigh distribution with scale
+%$b > 0$ and the support interval $(0,+\infty)$ :
+%
+%
+%\subsection{Density and CDF}
+%
+%\begin{mpFunctionsExtract}
+%	\mpFunctionThreeNotImplemented
+%	{RaleighDistBoost? mpNumList? pdf, CDF and related information for the Raleigh distribution}
+%	{x? mpNum? A real number}
+%	{n? mpNum? A real number greater 0, representing the degrees of freedom}
+%	{Output? String? A string describing the output choices}
+%\end{mpFunctionsExtract}
+%
+%
+%
+%\vspace{0.3cm}
+%See section \ref{Functions returning pdf, CDF, and related information} for the options for {\itshape\sffamily Output}. Algorithms and formulas are given in sections \ref{RaleighDistributionDensity} and \ref{RaleighDistributionCDF}.
+%
+%
+%\subsubsection{Density}
+%\label{RaleighDistributionDensity}
+%
+%\begin{equation} 
+%	f(x)= \frac{x}{b^2} \exp \left(- \frac{x^2}{2b^2}\right)
+%\end{equation}
+%
+%
+%\subsubsection{CDF}
+%\label{RaleighDistributionCDF}
+%
+%\begin{equation} 
+%	F(x)= 1 - \exp \left(- \frac{x^2}{2b^2}\right)
+%	= -\text{expm1} \left(- \frac{x^2}{2b^2}\right)
+%\end{equation}
+%
+%
+%
+%\subsection{Quantiles}
+%
+%\begin{mpFunctionsExtract}
+%	\mpFunctionThreeNotImplemented
+%	{RaleighDistInvBoost? mpNumList? quantiles and related information for the Raleigh distribution}
+%	{Prob? mpNum? A real number between 0 and 1.}
+%	{n? mpNum? A real number greater 0, representing the degrees of freedom}
+%	{Output? String? A string describing the output choices}
+%\end{mpFunctionsExtract}
+%
+%See section \ref{Functions returning Quantiles} for the options for  {\itshape\sffamily Prob} and {\itshape\sffamily Output}). Algorithms and formulas are below.
+%
+%\begin{equation} 
+%	F^{-1}(y)= b \sqrt{-2 \cdot \text{ln1p}(-y)}
+%\end{equation}
+%
+%
+%
+%\subsection{Properties}
+%\label{RaleighDistributionProperties}
+%
+%
+%\begin{mpFunctionsExtract}
+%	\mpFunctionTwoNotImplemented
+%	{RaleighDistInfoBoost? mpNumList? moments and related information for the Raleigh distribution}
+%	{n? mpNum? A real number greater 0, representing the degrees of freedom}
+%	{Output? String? A string describing the output choices}
+%\end{mpFunctionsExtract}
+%
+%\vspace{0.3cm}
+%
+%See section \ref{Functions returning moments and related information} for the options for {\itshape\sffamily Output}. Algorithms and formulas are given below.
+%
+%\subsubsection{Moments and Cumulants}
+%\begin{equation} 
+%	\mu_1 = s \sqrt{\pi/2}
+%\end{equation}
+%
+%
+%
+%\subsection{Random Numbers}
+%
+%\begin{mpFunctionsExtract}
+%	\mpFunctionFourNotImplemented
+%	{RaleighDistRanBoost? mpNumList? random numbers following a Raleigh distribution}
+%	{Size? mpNum? A positive integer up to $10^7$}
+%	{n? mpNum? A real number greater 0, representing the degrees of freedom}
+%	{Generator? String? A string describing the random generator}
+%	{Output? String? A string describing the output choices}
+%\end{mpFunctionsExtract}
+%
+%
+%\vspace{0.3cm}
+%See section \ref{Functions returning Random numbers} for the options for  {\itshape\sffamily Size},  {\itshape\sffamily Generator} and {\itshape\sffamily Output}. Algorithms and formulas are given below.
+%
+%
+%
+%
+%
+%\newpage
+%\section{Triangular Distribution}
+%
+%\subsection{Definition}
+%These functions return PDF, CDF, and ICDF of the triangular distribution on the
+%support interval $[a, b]$ with finite $a < b$ and mode $c, a \leq c \leq b$.
+%
+%\subsection{Density and CDF}
+%
+%\begin{mpFunctionsExtract}
+%	\mpFunctionFiveNotImplemented
+%	{TriangularDistBoost? mpNumList? pdf, CDF and related information for the triangular distribution}
+%	{x? mpNum? A real number.}
+%	{a? mpNum? The left border parameter.}
+%	{b? mpNum? The right border parameter.}
+%	{c? mpNum? The mode parameter.}
+%	{Output? String? A string describing the output choices}
+%\end{mpFunctionsExtract}
+%
+%
+%\vspace{0.3cm}
+%See section \ref{Functions returning pdf, CDF, and related information} for the options for {\itshape\sffamily Output}. Algorithms and formulas are given in sections \ref{TriangularDistributionDensity} and \ref{TriangularDistributionCDF}.
+%
+%
+%
+%\subsubsection{Density}
+%\label{TriangularDistributionDensity}
+%
+%\begin{equation}
+%	f(x)=\begin{cases}
+%		0  & x<a\\
+%		\frac{2(x-a)}{(b-a)(c-a)} & a \leq x < c\\
+%		\frac{2}{b-a} & x = c\\
+%		\frac{2(b-x)}{(b-a)(b-c)} & c < x \leq b\\
+%		0  & x>b
+%	\end{cases}
+%\end{equation}
+%
+%
+%\subsubsection{CDF}
+%\label{TriangularDistributionCDF}
+%
+%\begin{equation}
+%	F(x)=\begin{cases}
+%		0  & x<a\\
+%		\frac{(x-a)^2}{(b-a)(c-a)} & a \leq x < c\\
+%		\frac{c-a}{b-a} & x = c\\
+%		1-\frac{(b-x)^2}{(b-a)(b-c)} & c < x \leq b\\
+%		1  & x>b
+%	\end{cases}
+%\end{equation}
+%
+%
+%
+%\subsection{Quantiles}
+%
+%\begin{mpFunctionsExtract}
+%	\mpFunctionFiveNotImplemented
+%	{TriangularDistInvBoost? mpNumList? quantiles and related information for the the triangular distribution}
+%	{Prob? mpNum? A real number between 0 and 1.}
+%	{a? mpNum? The left border parameter.}
+%	{b? mpNum? The right border parameter.}
+%	{c? mpNum? The mode parameter.}
+%	{Output? String? A string describing the output choices}
+%\end{mpFunctionsExtract}
+%
+%\vspace{0.3cm}
+%See section \ref{Functions returning Quantiles} for the options for  {\itshape\sffamily Prob} and {\itshape\sffamily Output}). 
+%
+%\vspace{0.3cm}
+%\begin{equation}
+%	F^{-1}(y)=\begin{cases}
+%		a+\sqrt{(b-a)(c-a)y} & y<t\\
+%		c & y=t \\
+%		b-\sqrt{(b-a)(b-c)(1-y)} & y>t
+%	\end{cases}
+%\end{equation}
+%where $t=(c-a)/(b-a)$.
+%
+%
+%\subsection{Properties}
+%\label{TriangularDistributionProperties}
+%
+%
+%\begin{mpFunctionsExtract}
+%	\mpFunctionFourNotImplemented
+%	{TriangularDistInfoBoost? mpNumList? moments and related information for the triangular distribution}
+%	{a? mpNum? The left border parameter.}
+%	{b? mpNum? The right border parameter.}
+%	{c? mpNum? The mode parameter.}
+%	{Output? String? A string describing the output choices}
+%\end{mpFunctionsExtract}
+%
+%\vspace{0.3cm}
+%
+%See section \ref{Functions returning moments and related information} for the options for {\itshape\sffamily Output}. Algorithms and formulas are given below.
+%
+%\subsubsection{Moments}
+%
+%\begin{equation} 
+%	\mu_1 = \frac{a+b+c}{3}
+%\end{equation}
+%
+%\begin{equation} 
+%	\mu_2 = \frac{a^2+b^2+c^2-ab-ac-bc}{18}
+%\end{equation}
+%
+%\begin{equation} 
+%	\gamma_1 = \frac{\sqrt{2}(a+b-2c)(2a-b-c)(a-2b+c)}{5(a^2+b^2+c^2-ab-ac-bc)^{3/2}}
+%\end{equation}
+%
+%\begin{equation} 
+%	\gamma_2 = -\frac{3}{5}
+%\end{equation}
+%
+%
+%
+%
+%\subsection{Random Numbers}
+%
+%\begin{mpFunctionsExtract}
+%	\mpFunctionSixNotImplemented
+%	{TriangularDistRanBoost? mpNumList? random numbers following a triangular distribution}
+%	{Size? mpNum? A positive integer up to $10^7$}
+%	{a? mpNum? The left border parameter.}
+%	{b? mpNum? The right border parameter.}
+%	{c? mpNum? The mode parameter.}
+%	{Generator? String? A string describing the random generator}
+%	{Output? String? A string describing the output choices}
+%\end{mpFunctionsExtract}
+%
+%\vspace{0.3cm}
+%
+%See section \ref{Functions returning Random numbers} for the options for  {\itshape\sffamily Size},  {\itshape\sffamily Generator} and {\itshape\sffamily Output}. Algorithms and formulas are given below.
+%
+%
+%
+%
+%\newpage
+%\section{Uniform Distribution}
+%
+%\subsection{Definition}
+%These functions return PDF, CDF, and ICDF of the uniform distribution on the support
+%interval $[a, b]$ with finite $a < b$:
+%
+%
+%
+%\subsection{Density and CDF}
+%\begin{mpFunctionsExtract}
+%	\mpFunctionFourNotImplemented
+%	{UniformDistBoost? mpNumList? pdf, CDF and related information for the uniform distribution}
+%	{x? mpNum? A real number}
+%	{a? mpNum? The left border parameter.}
+%	{b? mpNum? The right border parameter.}
+%	{Output? String? A string describing the output choices}
+%\end{mpFunctionsExtract}
+%
+%\vspace{0.3cm}
+%See section \ref{Functions returning pdf, CDF, and related information} for the options for {\itshape\sffamily Output}. Algorithms and formulas are given in sections \ref{UniformDistributionDensity} and \ref{UniformDistributionCDF}.
+%
+%\subsubsection{Density}
+%\label{UniformDistributionDensity}
+%
+%\begin{equation} 
+%	f(x)=\frac{1}{b-a}
+%\end{equation}
+%
+%
+%\subsubsection{CDF}
+%\label{UniformDistributionCDF}
+%
+%\begin{equation} 
+%	F(x)=\frac{x-a}{b-a}
+%\end{equation}
+%
+%
+%
+%\subsection{Quantiles}
+%
+%\begin{mpFunctionsExtract}
+%	\mpFunctionFourNotImplemented
+%	{UniformDistInvBoost? mpNumList? quantiles and related information for the the uniform distribution}
+%	{Prob? mpNum? A real number between 0 and 1.}
+%	{a? mpNum? The left border parameter.}
+%	{b? mpNum? The right border parameter.}
+%	{Output? String? A string describing the output choices}
+%\end{mpFunctionsExtract}
+%
+%
+%\vspace{0.3cm}
+%See section \ref{Functions returning Quantiles} for the options for  {\itshape\sffamily Prob} and {\itshape\sffamily Output}). Algorithms and formulas are given below.
+%
+%\begin{equation} 
+%	F^{-1}(y)= a+y(b-a)
+%\end{equation}
+%
+%
+%
+%\subsection{Properties}
+%\label{UniformDistributionProperties}
+%
+%\begin{mpFunctionsExtract}
+%	\mpFunctionThreeNotImplemented
+%	{UniformDistInfoBoost? mpNumList? moments and related information for the uniform distribution}
+%	{a? mpNum? A real number greater 0, representing the degrees of freedom}
+%	{b? mpNum? A real number greater 0, representing the degrees of freedom}
+%	{Output? String? A string describing the output choices}
+%\end{mpFunctionsExtract}
+%
+%\vspace{0.3cm}
+%
+%See section \ref{Functions returning moments and related information} for the options for {\itshape\sffamily Output}. 
+%
+%
+%\subsubsection{Moments}
+%
+%\begin{equation} 
+%	\mu_1 = \frac{a+b}{2}
+%\end{equation}
+%
+%\begin{equation} 
+%	\mu_2 = \frac{(b-a)^2}{12}
+%\end{equation}
+%
+%\begin{equation} 
+%	\gamma_1 = 0
+%\end{equation}
+%
+%\begin{equation} 
+%	\gamma_2 = -\frac{6}{5}
+%\end{equation}
+%
+%
+%
+%\subsection{Random Numbers}
+%
+%\begin{mpFunctionsExtract}
+%	\mpFunctionFiveNotImplemented
+%	{UniformDistRanBoost? mpNumList? random numbers following a uniform distribution}
+%	{Size? mpNum? A positive integer up to $10^7$}
+%	{a? mpNum? A real number greater 0, representing the degrees of freedom}
+%	{b? mpNum? A real number greater 0, representing the degrees of freedom}
+%	{Generator? String? A string describing the random generator}
+%	{Output? String? A string describing the output choices}
+%\end{mpFunctionsExtract}
+%
+%\vspace{0.3cm}
+%
+%See section \ref{Functions returning Random numbers} for the options for  {\itshape\sffamily Size},  {\itshape\sffamily Generator} and {\itshape\sffamily Output}. Algorithms and formulas are given in below.
+%
+%
 
 
 

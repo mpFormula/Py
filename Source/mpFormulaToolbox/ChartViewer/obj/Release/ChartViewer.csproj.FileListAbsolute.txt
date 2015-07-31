@@ -1,0 +1,11 @@
+C:\Extra\mpFormula40\Toolbox\Projects\mpFormulaToolbox\ChartViewer\bin\Release\ChartViewer.exe
+C:\Extra\mpFormula40\Toolbox\Projects\mpFormulaToolbox\ChartViewer\obj\Release\ResolveAssemblyReference.cache
+C:\Extra\mpFormula40\Toolbox\Projects\mpFormulaToolbox\ChartViewer\obj\Release\ChartViewer.ChartPaneForm.resources
+C:\Extra\mpFormula40\Toolbox\Projects\mpFormulaToolbox\ChartViewer\obj\Release\GenerateResource.read.1.tlog
+C:\Extra\mpFormula40\Toolbox\Projects\mpFormulaToolbox\ChartViewer\obj\Release\GenerateResource.write.1.tlog
+C:\Extra\mpFormula40\Toolbox\Projects\mpFormulaToolbox\ChartViewer\obj\Release\ChartViewer.exe
+I:\Data\mpFormula40\Toolbox\Projects\mpFormulaToolbox\ChartViewer\bin\Release\ChartViewer.exe
+I:\Data\mpFormula40\Toolbox\Projects\mpFormulaToolbox\ChartViewer\obj\Release\ChartViewer.csprojResolveAssemblyReference.cache
+I:\Data\mpFormula40\Toolbox\Projects\mpFormulaToolbox\ChartViewer\obj\Release\ChartViewer.ChartPaneForm.resources
+I:\Data\mpFormula40\Toolbox\Projects\mpFormulaToolbox\ChartViewer\obj\Release\ChartViewer.csproj.GenerateResource.Cache
+I:\Data\mpFormula40\Toolbox\Projects\mpFormulaToolbox\ChartViewer\obj\Release\ChartViewer.exe

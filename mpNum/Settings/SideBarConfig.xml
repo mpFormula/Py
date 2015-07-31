@@ -1,7 +1,6 @@
 <SideBarConfig version="1.0">
   <SideBar activetab="${res:SharpDevelop.SideBar.ClipboardRing}">
     <SideTab clipboardring="true" text="${res:SharpDevelop.SideBar.ClipboardRing}">
-      <SideTabItem text="Text:Console.WriteLine(&quot;Hello World!&quot;)" value="Console.WriteLine(&quot;Hello World!&quot;)" />
       <SideTabItem text="Text:Sub CallLO()&#xD;" value="&#xD;&#xA;Sub CallLO()&#xD;&#xA;    Console.WriteLine(&quot;Calling LO&quot;)&#xD;&#xA;End Sub&#xD;&#xA;" />
       <SideTabItem text="Text:DemoWord()" value="DemoWord()" />
       <SideTabItem text="Text:CallLO" value="CallLO" />
@@ -21,6 +20,7 @@
       <SideTabItem text="Text:arrEmpty" value="arrEmpty" />
       <SideTabItem text="Text:'Set objCalcDoc = objDesktop.loadComponentFromU..." value="        'Set objCalcDoc = objDesktop.loadComponentFromURL(&quot;file:///C:/file.ods&quot;, &quot;_blank&quot;, 0, Array())&#xD;&#xA;" />
       <SideTabItem text="Text:Module Program&#xD;" value="&#xD;&#xA;Module Program&#xD;&#xA;&#xD;&#xA;    Sub CallLO()&#xD;&#xA;        Dim objServiceManager As Object = CreateObject(&quot;com.sun.star.ServiceManager&quot;)&#xD;&#xA;        Dim objDesktop As Object = objServiceManager.createInstance(&quot;com.sun.star.frame.Desktop&quot;)&#xD;&#xA;        &#xD;&#xA;        Dim objSvc As Object = objServiceManager.createInstance(&quot;com.sun.star.sheet.FunctionAccess&quot;)&#xD;&#xA;        Dim x As Double = 3.0&#xD;&#xA;        Dim arr1 As Double() = {x}&#xD;&#xA;        Dim Result As Double = objSvc.callFunction(&quot;ERFC&quot;, arr1)&#xD;&#xA;        &#xD;&#xA;        Dim arrEmpty As Object() = {}&#xD;&#xA;        Dim objCalcDoc As Object = objDesktop.loadComponentFromURL(&quot;private:factory/scalc&quot;, &quot;_blank&quot;, 0, arrEmpty)&#xD;&#xA;        'Set objCalcDoc = objDesktop.loadComponentFromURL(&quot;file:///C:/file.ods&quot;, &quot;_blank&quot;, 0, Array())&#xD;&#xA;        &#xD;&#xA;        Dim objSheet As Object = objCalcDoc.getSheets().getByIndex(0)&#xD;&#xA;        objSheet.getCellByPosition(0, 0).SetString(&quot;Result: &quot; + Result.ToString())&#xD;&#xA;        objSheet.getCellByPosition(0, 0).charWeight = 150        &#xD;&#xA;    End Sub&#xD;&#xA;    &#xD;&#xA;    Sub Main()&#xD;&#xA;        CallLO()&#xD;&#xA;    End Sub&#xD;&#xA;    &#xD;&#xA;End Module&#xD;&#xA;" />
+      <SideTabItem text="Text:__str__()" value="__str__()" />
     </SideTab>
   </SideBar>
 </SideBarConfig>

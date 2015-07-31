@@ -1,0 +1,6 @@
+C:\Extra\mpFormulaTDM\mpFormulaPy\Source\Distributions\DistributionsCSharp\bin\Debug\DistributionsCSharp.exe.config
+C:\Extra\mpFormulaTDM\mpFormulaPy\Source\Distributions\DistributionsCSharp\bin\Debug\DistributionsCSharp.exe
+C:\Extra\mpFormulaTDM\mpFormulaPy\Source\Distributions\DistributionsCSharp\bin\Debug\DistributionsCSharp.pdb
+C:\Extra\mpFormulaTDM\mpFormulaPy\Source\Distributions\DistributionsCSharp\obj\Debug\DistributionsCSharp.csprojResolveAssemblyReference.cache
+C:\Extra\mpFormulaTDM\mpFormulaPy\Source\Distributions\DistributionsCSharp\obj\Debug\DistributionsCSharp.exe
+C:\Extra\mpFormulaTDM\mpFormulaPy\Source\Distributions\DistributionsCSharp\obj\Debug\DistributionsCSharp.pdb

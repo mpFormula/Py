@@ -83,12 +83,24 @@
     <CaretOffset value="8127" />
     <ScrollPositionY value="4553" />
   </Properties>
+  <Properties name="1e13ec5:C:\EXTRA\MPFORMULATDM\MPFORMULAPY\SOURCE\DISTRIBUTIONS\DISTRIBUTIONSCSHARP\DIST.CS">
+    <CaretOffset value="16702" />
+    <ScrollPositionY value="11948" />
+  </Properties>
+  <Properties name="1e13ec5:C:\EXTRA\MPFORMULATDM\MPFORMULAPY\SOURCE\DISTRIBUTIONS\DISTRIBUTIONSCSHARP\DISTX.CS">
+    <CaretOffset value="0" />
+    <ScrollPositionY value="0" />
+  </Properties>
+  <Properties name="1e13ec5:C:\EXTRA\MPFORMULATDM\MPFORMULAPY\SOURCE\DISTRIBUTIONS\DISTRIBUTIONSPYTHON\PROGRAM.PY">
+    <CaretOffset value="17851" />
+    <ScrollPositionY value="9310" />
+  </Properties>
   <Properties name="1e13ec5:C:\EXTRA\MPFORMULATDM\MPFORMULAPY\SOURCE\MPFORMULATOOLBOX\FILEVIEWER\MAINFORM.VB">
     <CaretOffset value="0" />
     <ScrollPositionY value="0" />
   </Properties>
   <Properties name="1e13ec5:C:\EXTRA\MPFORMULATDM\MPFORMULAPY\SOURCE\MPFORMULATOOLBOX\FILEVIEWER\PROGRAM.VB">
-    <CaretOffset value="0" />
+    <CaretOffset value="222" />
     <ScrollPositionY value="0" />
   </Properties>
   <Properties name="1e13ec5:C:\EXTRA\MPFORMULATDM\MPFORMULAPY\SOURCE\MPFORMULATOOLBOX\FUNCTIONNAVIGATOR\FUNCTIONSFORM.VB">
@@ -124,8 +136,8 @@
     <ScrollPositionY value="6859" />
   </Properties>
   <Properties name="1e13ec5:C:\EXTRA\MPFORMULATDM\MPFORMULAPY\SOURCE\MPMATH\MPFORMULAXLCLASSLIB\MPFORMULACLASS.VB">
-    <CaretOffset value="10875" />
-    <ScrollPositionY value="6904" />
+    <CaretOffset value="10227" />
+    <ScrollPositionY value="6273" />
   </Properties>
   <Properties name="1e13ec5:C:\EXTRA\MPFORMULATDM\MPFORMULAPY\SOURCE\MPMATH\MPMATHCLIENTDLL\MPMATHCLIENTDLLPROGRAM.VB">
     <CaretOffset value="13765" />
