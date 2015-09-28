@@ -1,0 +1,8 @@
+I:\Data\mpFormulaTDM\mpFormulaPy\mpNum\TestFormula.exe.config
+I:\Data\mpFormulaTDM\mpFormulaPy\mpNum\TestFormula.exe
+I:\Data\mpFormulaTDM\mpFormulaPy\Source\MpMath\TestFormulaXLClassLib\obj\Release\TestFormula.exe
+C:\Extra\mpFormulaTDM\mpFormulaPy\mpNum\TestFormula.exe.config
+C:\Extra\mpFormulaTDM\mpFormulaPy\mpNum\TestFormula.exe
+C:\Extra\mpFormulaTDM\mpFormulaPy\Source\MpMath\TestFormulaXLClassLib\obj\Release\TestFormula.exe
+I:\Data\mpFormulaTDM\mpFormulaPy\Source\MpMath\TestFormulaXLClassLib\obj\Release\TestFormula.vbprojResolveAssemblyReference.cache
+C:\Extra\mpFormulaTDM\mpFormulaPy\Source\MpMath\TestFormulaXLClassLib\obj\Release\TestFormula.vbprojResolveAssemblyReference.cache

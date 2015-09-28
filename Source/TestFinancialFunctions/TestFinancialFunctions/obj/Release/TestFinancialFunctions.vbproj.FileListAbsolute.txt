@@ -1,0 +1,5 @@
+I:\Extra\mpFormulaTDM\mpFormulaPy\Source\TestFinancialFunctions\TestFinancialFunctions\bin\Release\TestFinancialFunctions.exe.config
+I:\Extra\mpFormulaTDM\mpFormulaPy\Source\TestFinancialFunctions\TestFinancialFunctions\bin\Release\TestFinancialFunctions.exe
+I:\Extra\mpFormulaTDM\mpFormulaPy\Source\TestFinancialFunctions\TestFinancialFunctions\bin\Release\ExcelFinancialFunctions.dll
+I:\Extra\mpFormulaTDM\mpFormulaPy\Source\TestFinancialFunctions\TestFinancialFunctions\obj\Release\TestFinancialFunctions.vbprojResolveAssemblyReference.cache
+I:\Extra\mpFormulaTDM\mpFormulaPy\Source\TestFinancialFunctions\TestFinancialFunctions\obj\Release\TestFinancialFunctions.exe

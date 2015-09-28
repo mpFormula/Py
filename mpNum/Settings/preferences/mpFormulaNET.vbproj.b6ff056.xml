@@ -2,9 +2,7 @@
   <Array name="bookmarks">
     <Element value="Bookmark|I:\Data\mpFormulaTDM\mpFormulaPy\Source\MpMath\mpFormulaXLClassLib\Class1.vb|150|5" />
   </Array>
-  <Array name="files">
-    <Element value="I:\Data\mpFormulaTDM\mpFormulaPy\Source\MpMath\mpFormulaXLClassLib\Class1.vb" />
-  </Array>
+  <Array name="files" />
   <Properties name="projectSavedData">
     <Properties name="customTool">
       <runOnBuild value="False" />

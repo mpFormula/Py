@@ -1,0 +1,6 @@
+I:\Data\mpFormulaTDM\mpFormulaPy\mpNum\mpFormulaNET.dll
+I:\Data\mpFormulaTDM\mpFormulaPy\Source\MpMath\mpFormulaXLClassLib\obj\Release\mpFormulaNET.vbprojResolveAssemblyReference.cache
+I:\Data\mpFormulaTDM\mpFormulaPy\Source\MpMath\mpFormulaXLClassLib\obj\Release\mpFormulaNET.dll
+C:\Extra\mpFormulaTDM\mpFormulaPy\mpNum\mpFormulaNET.dll
+C:\Extra\mpFormulaTDM\mpFormulaPy\Source\MpMath\mpFormulaXLClassLib\obj\Release\mpFormulaNET.vbprojResolveAssemblyReference.cache
+C:\Extra\mpFormulaTDM\mpFormulaPy\Source\MpMath\mpFormulaXLClassLib\obj\Release\mpFormulaNET.dll

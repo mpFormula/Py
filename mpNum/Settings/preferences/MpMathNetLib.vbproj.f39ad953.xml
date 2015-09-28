@@ -1,9 +1,11 @@
 ﻿<Properties>
   <Array name="bookmarks">
-    <Element value="Bookmark|I:\Data\mpFormulaTDM\mpFormulaPy\Source\MpMath\MpMathNetLib\MpMathClass.vb|3804|5" />
-    <Element value="Bookmark|I:\Data\mpFormulaTDM\mpFormulaPy\Source\MpMath\MpMathNetLib\MpMathClass.vb|2352|2" />
+    <Element value="Bookmark|I:\Data\mpFormulaTDM\mpFormulaPy\Source\MpMath\MpMathNetLib\MpMathClass.vb|1823|1" />
+    <Element value="Bookmark|I:\Data\mpFormulaTDM\mpFormulaPy\Source\MpMath\MpMathNetLib\MpMathClass.vb|1823|1" />
   </Array>
-  <Array name="files" />
+  <Array name="files">
+    <Element value="I:\Data\mpFormulaTDM\mpFormulaPy\Source\MpMath\MpMathNetLib\MpMathClass.vb" />
+  </Array>
   <Properties name="projectSavedData">
     <Properties name="customTool">
       <runOnBuild value="False" />

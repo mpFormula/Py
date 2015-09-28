@@ -1,0 +1,6 @@
+C:\Extra\mpFormulaTDM\mpFormulaPy\mpNum\mpFormulaVB.dll
+C:\Extra\mpFormulaTDM\mpFormulaPy\Source\MpMath\mpFormulaVB\obj\Release\mpFormulaVB.dll
+I:\Data\mpFormulaTDM\mpFormulaPy\mpNum\mpFormulaVB.dll
+I:\Data\mpFormulaTDM\mpFormulaPy\Source\MpMath\mpFormulaVB\obj\Release\mpFormulaVB.dll
+I:\Data\mpFormulaTDM\mpFormulaPy\Source\MpMath\mpFormulaVB\obj\Release\mpFormulaVB.vbprojResolveAssemblyReference.cache
+C:\Extra\mpFormulaTDM\mpFormulaPy\Source\MpMath\mpFormulaVB\obj\Release\mpFormulaVB.vbprojResolveAssemblyReference.cache

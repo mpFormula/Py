@@ -1,8 +1,6 @@
 ﻿<Properties>
   <Array name="bookmarks" />
-  <Array name="files">
-    <Element value="C:\Extra\mpFormulaTDM\mpFormulaPy\Source\MpMath\MpMathClient\CallMpMathProgram.vb" />
-  </Array>
+  <Array name="files" />
   <Properties name="projectSavedData">
     <Properties name="customTool">
       <runOnBuild value="False" />

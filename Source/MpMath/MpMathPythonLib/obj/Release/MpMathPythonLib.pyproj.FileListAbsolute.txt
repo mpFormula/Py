@@ -1,0 +1,6 @@
+C:\Extra\mpFormulaTDM\mpFormulaPy\mpNum\MpMathPythonLib.dll
+C:\Extra\mpFormulaTDM\mpFormulaPy\Source\MpMath\MpMathPythonLib\obj\Release\MpMathPythonLib.dll
+I:\Data\mpFormulaTDM\mpFormulaPy\mpNum\MpMathPythonLib.dll
+I:\Data\mpFormulaTDM\mpFormulaPy\Source\MpMath\MpMathPythonLib\obj\Release\MpMathPythonLib.pyprojResolveAssemblyReference.cache
+I:\Data\mpFormulaTDM\mpFormulaPy\Source\MpMath\MpMathPythonLib\obj\Release\MpMathPythonLib.dll
+C:\Extra\mpFormulaTDM\mpFormulaPy\Source\MpMath\MpMathPythonLib\obj\Release\MpMathPythonLib.pyprojResolveAssemblyReference.cache

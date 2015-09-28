@@ -1,6 +1,11 @@
 ﻿<Properties>
   <Array name="bookmarks" />
-  <Array name="files" />
+  <Array name="files">
+    <Element value="I:\Data\mpFormulaTDM\mpFormulaPy\Source\MpMath\TestFormulaXLClassLib\Main.vb" />
+    <Element value="I:\Data\mpFormulaTDM\mpFormulaPy\Source\MpMath\TestFormulaXLClassLib\TestMpi.vb" />
+    <Element value="I:\Data\mpFormulaTDM\mpFormulaPy\Source\MpMath\TestFormulaXLClassLib\TestMpci.vb" />
+    <Element value="I:\Data\mpFormulaTDM\mpFormulaPy\Source\MpMath\TestFormulaXLClassLib\TestMpc.vb" />
+  </Array>
   <Properties name="projectSavedData">
     <Properties name="customTool">
       <runOnBuild value="False" />

@@ -1,0 +1,8 @@
+I:\Data\mpFormulaTDM\mpFormulaPy\mpNum\MpMathNetLib.dll.config
+I:\Data\mpFormulaTDM\mpFormulaPy\mpNum\MpMathNetLib.dll
+I:\Data\mpFormulaTDM\mpFormulaPy\Source\MpMath\MpMathNetLib\obj\Release\MpMathNetLib.dll
+C:\Extra\mpFormulaTDM\mpFormulaPy\mpNum\MpMathNetLib.dll.config
+C:\Extra\mpFormulaTDM\mpFormulaPy\mpNum\MpMathNetLib.dll
+C:\Extra\mpFormulaTDM\mpFormulaPy\Source\MpMath\MpMathNetLib\obj\Release\MpMathNetLib.dll
+C:\Extra\mpFormulaTDM\mpFormulaPy\Source\MpMath\MpMathNetLib\obj\Release\MpMathNetLib.vbprojResolveAssemblyReference.cache
+I:\Data\mpFormulaTDM\mpFormulaPy\Source\MpMath\MpMathNetLib\obj\Release\MpMathNetLib.vbprojResolveAssemblyReference.cache

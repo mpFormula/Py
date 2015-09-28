@@ -44,27 +44,35 @@
   <ItemGroup>
     <Reference Include="ExcelApi">
       <HintPath>..\..\..\mpNum\ExcelApi.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="IronPython">
       <HintPath>..\..\..\mpNum\AddIns\BackendBindings\PythonBinding\IronPython.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="IronPython.Modules">
       <HintPath>..\..\..\mpNum\AddIns\BackendBindings\PythonBinding\IronPython.Modules.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Microsoft.Dynamic">
       <HintPath>..\..\..\mpNum\AddIns\BackendBindings\PythonBinding\Microsoft.Dynamic.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Microsoft.Scripting">
       <HintPath>..\..\..\mpNum\AddIns\BackendBindings\PythonBinding\Microsoft.Scripting.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="MpMathNetLib">
       <HintPath>..\..\..\mpNum\MpMathNetLib.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="NetOffice">
       <HintPath>..\..\..\mpNum\NetOffice.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="OfficeApi">
       <HintPath>..\..\..\mpNum\OfficeApi.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">

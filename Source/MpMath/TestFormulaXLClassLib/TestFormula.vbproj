@@ -42,36 +42,33 @@
     <BaseIntermediateOutputPath>obj\</BaseIntermediateOutputPath>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="mpFormulaNET">
-      <HintPath>..\..\..\mpNum\mpFormulaNET.dll</HintPath>
+    <Reference Include="mpFormulaVB">
+      <HintPath>..\..\..\mpNum\mpFormulaVB.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
-    <Reference Include="System.Data" />
-    <Reference Include="System.Data.DataSetExtensions">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="System.Xml" />
-    <Reference Include="System.Xml.Linq">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Main.vb" />
+    <Compile Include="Properties\AssemblyInfo.vb" />
+    <Compile Include="TestMpc.vb" />
+    <Compile Include="TestMpci.vb" />
+    <Compile Include="TestMpf.vb" />
+    <Compile Include="TestMpfMat.vb" />
+    <Compile Include="TestMpi.vb" />
+    <Compile Include="TestMpiMat.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
   </ItemGroup>
   <ItemGroup>
     <Import Include="Microsoft.VisualBasic" />
     <Import Include="System" />
     <Import Include="System.Collections" />
     <Import Include="System.Collections.Generic" />
-    <Import Include="System.Data" />
     <Import Include="System.Diagnostics" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="TestMpFormula.vb" />
-    <Compile Include="Properties\AssemblyInfo.vb" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

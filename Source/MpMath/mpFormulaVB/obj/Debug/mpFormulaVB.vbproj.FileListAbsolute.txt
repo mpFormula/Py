@@ -1,0 +1,4 @@
+I:\Data\mpFormulaTDM\mpFormulaPy\Source\MpMath\mpFormulaVB\bin\Debug\mpFormulaVB.dll
+I:\Data\mpFormulaTDM\mpFormulaPy\Source\MpMath\mpFormulaVB\bin\Debug\mpFormulaVB.pdb
+I:\Data\mpFormulaTDM\mpFormulaPy\Source\MpMath\mpFormulaVB\obj\Debug\mpFormulaVB.dll
+I:\Data\mpFormulaTDM\mpFormulaPy\Source\MpMath\mpFormulaVB\obj\Debug\mpFormulaVB.pdb

@@ -1,6 +1,6 @@
 ﻿<Properties>
   <ActiveConfiguration value="Release" />
   <ActivePlatform value="Any CPU" />
-  <ProjectBrowserState value="[Solution MpMath[mpFormulaNET[]mpFormulaOneCOM[]MpMathClient[]MpMathClientDll32[]MpMathNetLib[]MpMathServer[]]]" />
+  <ProjectBrowserState value="[Solution MpMath[mpFormulaVB[]MpMathNetLib[]MpMathPythonLib[]TestFormula[]TestMpMath[]]]" />
   <StartupProject value="" />
 </Properties>

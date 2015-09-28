@@ -1,5 +1,11 @@
 ﻿<Properties>
   <Array name="bookmarks" />
-  <Array name="files" />
-  <Properties name="projectSavedData" />
+  <Array name="files">
+    <Element value="C:\Extra\mpFormulaTDM\mpFormulaPy\Source\MpMath\MpMathPythonLib\MyModule.py" />
+  </Array>
+  <Properties name="projectSavedData">
+    <Properties name="customTool">
+      <runOnBuild value="False" />
+    </Properties>
+  </Properties>
 </Properties>

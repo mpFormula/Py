@@ -1,26 +1,26 @@
 <SideBarConfig version="1.0">
   <SideBar activetab="${res:SharpDevelop.SideBar.ClipboardRing}">
     <SideTab clipboardring="true" text="${res:SharpDevelop.SideBar.ClipboardRing}">
-      <SideTabItem text="Text:Sub CallLO()&#xD;" value="&#xD;&#xA;Sub CallLO()&#xD;&#xA;    Console.WriteLine(&quot;Calling LO&quot;)&#xD;&#xA;End Sub&#xD;&#xA;" />
-      <SideTabItem text="Text:DemoWord()" value="DemoWord()" />
-      <SideTabItem text="Text:CallLO" value="CallLO" />
-      <SideTabItem text="Text:Dim" value="Dim" />
-      <SideTabItem text="Text:As Object" value=" As Object" />
-      <SideTabItem text="Text:Dim" value="Dim" />
-      <SideTabItem text="Text:As Object" value=" As Object" />
-      <SideTabItem text="Text:Dim" value="Dim " />
-      <SideTabItem text="Text:As Object" value=" As Object" />
-      <SideTabItem text="Text:Dim" value="Dim" />
-      <SideTabItem text="Text:As Object" value=" As Object" />
-      <SideTabItem text="Text:Dim" value="Dim" />
-      <SideTabItem text="Text:As Double" value=" As Double" />
-      <SideTabItem text="Text:arr1" value="arr1" />
-      <SideTabItem text="Text:Dim arr1 As Double() = {x}" value="Dim arr1 As Double() = {x}" />
-      <SideTabItem text="Text:Dim arr1 As Double() = {x}" value="Dim arr1 As Double() = {x}" />
-      <SideTabItem text="Text:arrEmpty" value="arrEmpty" />
-      <SideTabItem text="Text:'Set objCalcDoc = objDesktop.loadComponentFromU..." value="        'Set objCalcDoc = objDesktop.loadComponentFromURL(&quot;file:///C:/file.ods&quot;, &quot;_blank&quot;, 0, Array())&#xD;&#xA;" />
-      <SideTabItem text="Text:Module Program&#xD;" value="&#xD;&#xA;Module Program&#xD;&#xA;&#xD;&#xA;    Sub CallLO()&#xD;&#xA;        Dim objServiceManager As Object = CreateObject(&quot;com.sun.star.ServiceManager&quot;)&#xD;&#xA;        Dim objDesktop As Object = objServiceManager.createInstance(&quot;com.sun.star.frame.Desktop&quot;)&#xD;&#xA;        &#xD;&#xA;        Dim objSvc As Object = objServiceManager.createInstance(&quot;com.sun.star.sheet.FunctionAccess&quot;)&#xD;&#xA;        Dim x As Double = 3.0&#xD;&#xA;        Dim arr1 As Double() = {x}&#xD;&#xA;        Dim Result As Double = objSvc.callFunction(&quot;ERFC&quot;, arr1)&#xD;&#xA;        &#xD;&#xA;        Dim arrEmpty As Object() = {}&#xD;&#xA;        Dim objCalcDoc As Object = objDesktop.loadComponentFromURL(&quot;private:factory/scalc&quot;, &quot;_blank&quot;, 0, arrEmpty)&#xD;&#xA;        'Set objCalcDoc = objDesktop.loadComponentFromURL(&quot;file:///C:/file.ods&quot;, &quot;_blank&quot;, 0, Array())&#xD;&#xA;        &#xD;&#xA;        Dim objSheet As Object = objCalcDoc.getSheets().getByIndex(0)&#xD;&#xA;        objSheet.getCellByPosition(0, 0).SetString(&quot;Result: &quot; + Result.ToString())&#xD;&#xA;        objSheet.getCellByPosition(0, 0).charWeight = 150        &#xD;&#xA;    End Sub&#xD;&#xA;    &#xD;&#xA;    Sub Main()&#xD;&#xA;        CallLO()&#xD;&#xA;    End Sub&#xD;&#xA;    &#xD;&#xA;End Module&#xD;&#xA;" />
-      <SideTabItem text="Text:__str__()" value="__str__()" />
+      <SideTabItem text="Text:pygetmatrixitem" value="pygetmatrixitem" />
+      <SideTabItem text="Text:Public Function GetMatrixItem(A As Object, n As..." value="	&#xD;&#xA;	&#xD;&#xA;	&#xD;&#xA;	Public Function GetMatrixItem(A As Object, n As Integer, m As Integer) As Object&#xD;&#xA;		Dim Result As Object = Nothing&#xD;&#xA;		Try&#xD;&#xA;			Result = GetPyInstance().pygetmatrixitem(A, n, m)&#xD;&#xA;		Catch ex As Exception&#xD;&#xA;			ReportException(ex)&#xD;&#xA;		End Try&#xD;&#xA;		Return Result&#xD;&#xA;	End Function&#xD;&#xA;" />
+      <SideTabItem text="Text:A As Object" value="A As Object" />
+      <SideTabItem text="Text:Sub" value="Sub" />
+      <SideTabItem text="Text:SetMatrixItem" value="SetMatrixItem" />
+      <SideTabItem text="Text:GetMatrixItem" value="GetMatrixItem" />
+      <SideTabItem text="Text:Console.WriteLine(&quot;Matrix A&quot;)" value="        Console.WriteLine(&quot;Matrix A&quot;)&#xD;&#xA;" />
+      <SideTabItem text="Text:&quot;Matrix A.rows: &quot; &amp; A.rows" value="&quot;Matrix A.rows: &quot; &amp; A.rows" />
+      <SideTabItem text="Text:cols" value="cols" />
+      <SideTabItem text="Text:Console.WriteLine(&quot;Matrix A.rows: &quot; &amp; A.rows &amp; ..." value="        Console.WriteLine(&quot;Matrix A.rows: &quot; &amp; A.rows &amp; &quot;, Matrix A.cols: &quot; &amp; A.cols)&#xD;&#xA;" />
+      <SideTabItem text="Text:Console.WriteLine(A)" value="        Console.WriteLine(A)&#xD;&#xA;" />
+      <SideTabItem text="Text:x = &quot;34&quot;" value="        x = &quot;34&quot;&#xD;&#xA;" />
+      <SideTabItem text="Text:Console.WriteLine(&quot;Matrix A&quot;)" value="        Console.WriteLine(&quot;Matrix A&quot;)" />
+      <SideTabItem text="Text:Function" value="Function" />
+      <SideTabItem text="Text:Public Function GetMatrixItem(A As Object, n As..." value="	&#xD;&#xA;	Public Function GetMatrixItem(A As Object, n As Integer, m As Integer) As Object&#xD;&#xA;		Dim Result As Object = Nothing&#xD;&#xA;		Try&#xD;&#xA;			Result = GetPyInstance().pygetmatrixitem(A, n, m)&#xD;&#xA;		Catch ex As Exception&#xD;&#xA;			ReportException(ex)&#xD;&#xA;		End Try&#xD;&#xA;		Return Result&#xD;&#xA;	End Function&#xD;&#xA;" />
+      <SideTabItem text="Text:A As Object, n As Integer, m As Integer, x As O..." value="A As Object, n As Integer, m As Integer, x As Object" />
+      <SideTabItem text="Text:m1.PyPtr" value="m1.PyPtr" />
+      <SideTabItem text="Text:SetMatrixItem" value="SetMatrixItem" />
+      <SideTabItem text="Text:PyPtr" value="PyPtr" />
+      <SideTabItem text="Text:A(1,1) = x" value="        A(1,1) = x" />
     </SideTab>
   </SideBar>
 </SideBarConfig>
